@@ -7,52 +7,45 @@
     <title>HTML</title>
 </head>
 <body>
-    <h1>시맨틱 태그</h1>
-    <header>
+    <h1>의미 없는 태그</h1>
+    <div>
         <!-- header 안에 header, footer은 사용할 수 없다. -->
         <!-- 로고, 내비 등 -->
         <h1>로고</h1>
-        <!-- 핵심 내비게이션의 경우 nav로 그룹핑 -->
-        <nav>
-            <ul>
-                <li>메뉴1</li>
-                <li>메뉴2</li>
-            </ul>
-        </nav>
-    </header>
+        <div>내비</div>
+    </div>
 
-    <main>
+    <div>
         <!-- 메뉴, 사이드바, 로고와 같이 페이지마다 반복되는 정보는 넣을 수 없다. -->
         <!-- 문서에 한 번만 사용한다. -->
         메인
-    </main>
+    </div>
 
-    <section>
+    <div>
         <!-- 하나 이상의 제목(h2~h6)이 있어야 한다. -->
         <h2>섹션</h2>
-    </section>
+    </div>
 
-    <article>
+    <div>
         <!-- 하나 이상의 제목(h2~h6)이 있어야 한다. -->
-        <!-- 독립된 컨텐츠 -->
         <h2>아티클</h2>
-    </article>
+    </div>
 
-    <aside>
+    <div>
         <!-- 본문 내용 외의 콘텐츠 영역 -->
         사이드
-    </aside>
+    </div>
 
-    <footer>
+    <div>
         <!-- footer 안에 header, footer은 사용할 수 없다. -->
-        <!-- 하단 로고, 하단 메뉴, 주소, 저작권, 패밀리 사이트, SNS, 탑 버튼, 사이트 맵 등 -->
-        <address>
+        <!-- 하단 로고, 하단 메뉴, 주소, 저작권, 패밀리 사이트, SNS, 탑 버튼 등 -->
+        <p>
             홍길동이 썼다.<br>
             본원에 방문하려면:<br>
             stdw.rf.gd<br>
             안산시 상록구 광덕1로 375 KR 강우빌딩<br>
             한국
-        </address>
-    </footer>
+        </p>
+    </div>
 </body>
 </html>

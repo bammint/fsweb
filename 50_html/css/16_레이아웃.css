@@ -11,11 +11,11 @@ div h2, div h3 {margin:0;}
 .wrap * {
     outline:1px solid;
 }
-header, #header {
+header, .header {
     line-height:50px;
     background: #ccc;
 }
-nav, #nav {
+nav, .nav {
     float:left;
     width:30%;
     line-height:150px;
@@ -24,13 +24,13 @@ nav, #nav {
 .container {
     overflow:hidden;
 }
-section, #content {
+section, .section {
     float:left;
     width:70%;
     height:150px;
     background: #ddd;
 }
-.wrap section h2, .wrap #content h2 {
+.wrap section h2, .wrap .section h2 {
     outline:none;
     margin:10px 0;
 }
@@ -38,7 +38,7 @@ article, .article {
     background: cyan;
     margin:0 20px;
 }
-footer, #footer {
+footer, .footer {
     line-height: 50px;
     background: #999;
 }

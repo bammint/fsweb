@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한 페이지 내에서 링크</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+
+        인라인 요소
+            - 줄바꿈X (왼쪽에서 오른쪽 가로 배치)
+            - 가로/세로 크기는 컨텐츠 크기
+            - 인라인 요소는 블록레벨 요소를 자식으로 가질 수 없다.
+                (단, a태그는 예외)
+
+        <a href="#값|URL|파일|메일|전화번호">
+        #값 : 현재 페이지
+        <태그 id="값">
+     -->
+    <ul>
+        <li><a href="#section1">섹션1</a></li>
+        <li><a href="#section2">섹션2</a></li>
+    </ul>
+
+    <h1>한 페이지 내에서 링크</h1>
+    <!-- 글로벌 속성 : id, class, title 등 
+        글로벌 속성이란? 모든 태그에 사용할 수 있는 공통 속성
+    -->
+    <h2 id="section1">섹션1</h2>
+    <p>의미 없는 텍스트, 디자인을 텍스트 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum autem, enim, nihil incidunt rem ducimus non corporis consectetur delectus sint fugit repellat animi praesentium sunt ipsam! Reprehenderit deserunt nisi earum.</p>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero inventore obcaecati enim numquam odit quos magnam, esse quasi odio soluta dolore expedita ea nam unde necessitatibus similique aspernatur saepe id quod accusamus quae distinctio animi voluptates ratione! Accusantium quas dolor, aliquid sunt quibusdam asperiores fugiat similique doloremque temporibus nemo! Rerum pariatur, necessitatibus eligendi aliquam id provident est odit, alias non excepturi minus fuga et ducimus optio? Voluptatibus delectus eaque dolores at. Delectus provident at amet odio voluptatem dolorum nam, molestiae cum ratione ipsam aspernatur! Dolorem perspiciatis autem nobis consectetur, saepe quia molestiae assumenda, rerum et, eligendi fugit voluptates voluptatem voluptate?</p>
+
+    <h2 id="section2">섹션2</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam ipsum ab eligendi, at rerum nulla cumque qui nobis ex est expedita illum hic ullam unde ducimus repudiandae fuga, debitis ea praesentium laborum, nisi reprehenderit. Voluptas, ipsa adipisci id impedit molestiae libero eligendi labore, aperiam repellat, nam nobis corporis. Minima, adipisci modi. Perspiciatis quae reprehenderit facere aperiam sint! Tempora aliquid saepe perspiciatis similique necessitatibus eius. Vero corrupti non mollitia eaque sequi quod asperiores iure laudantium autem fugiat ipsam alias cupiditate sapiente hic repellat, doloremque illum officia molestiae qui veritatis velit aspernatur? Obcaecati ullam harum, ea amet repellendus vitae sapiente. Veritatis pariatur qui saepe voluptate, inventore natus quas voluptatem sed autem iste odit debitis animi distinctio soluta minima! Sapiente nulla sunt qui illum omnis, quia, vel debitis alias amet necessitatibus unde repellat, quo quasi? Voluptate ducimus, aliquid doloremque temporibus ad asperiores nobis distinctio, magni laboriosam tempore libero nihil. Dolorem excepturi, dicta quis eligendi, odio error doloremque ratione itaque, beatae rerum labore reprehenderit quia nobis et temporibus consectetur vel? Dicta voluptatem neque nostrum alias ullam eos, dolores magnam minima, architecto iure voluptatibus? Ut molestias temporibus beatae? Repudiandae dolorem, consequuntur repellat aliquid dolore ipsum? Id, animi quidem vitae assumenda laborum exercitationem consectetur dolorum dolorem.</p>
+
+    <h2>푸터</h2>
+    <a href="#top">위로가기</a>
+</body>
+</html>

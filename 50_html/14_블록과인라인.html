@@ -5,16 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML</title>
+    <style>
+        div {border: 1px solid red;}
+        span {border: 1px solid red;}
+    </style>
 </head>
 <body>
     <h1>블록과 인라인</h1>
+    <!-- 
+        블록레벨요소
+        1. 줄바꿈(위에서 아래로 배치)
+        2. 가로 크기는 부모 크기의 100%
+        3. 세로 크기는 컨텐츠 크기
+        4. div, h1~6, p, hr, ul, ol, li, dl, dt, dd
+        5. 시멘틱(의미있는) 태그 : header, footer, section, article, aside, nav, main
+
+        인라인요소
+        1. 줄바꿈X(왼쪽에서 오른쪽 가로 배치)
+        2. 가로/세로 크기는 컨텐츠 크기
+        3. span, img, a, strong, b, em, i, small, sub, sup, ins, del, br, mark
+     -->
 
     <h2>블록 레벨 요소</h2>
+    <!-- div : 블록 레벨 요소의 컨텐츠를 그룹핑하여 영역 분할 -->
     <div>div1</div>
     <div>div2</div>
     <div>div3</div>
-
+    
     <h2>인라인 요소</h2>
+    <!-- span : 인라인 요소의 컨텐츠를 그룹핑하여 영역 분할 -->
     <span>span1</span>
     <span>span2</span>
     <span>span3</span>
