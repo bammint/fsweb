@@ -82,7 +82,7 @@
                 <!-- text 입력 상자 -->
                 <label for="birth">생년월일</label>
                 <!-- value는 초기값이면서 서버로 전송될 데이터 -->
-                <input type="text" name="birth_year" id="birth" value="년">
+                <input type="text" name="birth_year" id="birth" placeholder="년">
 
                 <!-- 목록 상자 -->
                 <select name="list">
@@ -115,46 +115,33 @@
             </div>
 
             <div>
-                <!-- 이메일 -->
+                <!-- 이메일x@x -->
                 본인 확인 이메일
-                <input type="text" name="user_id2">@
-                <input type="text" name="user_domain" list="mail">
-                <datalist id="mail">
-                    <option value="naver.com">naver.com</option>
-                    <option value="google.com">google.com</option>
-                    <option value="daum.net">daum.net</option>
-                </datalist>
+                
 
                 <!-- 이메일 -->
-                <br>
-                <input type="email" name="user_email">
+                
                 
             </div>
 
             <div>
                 <!-- 전화번호 -->
-                <label for="user_tel">휴대전화</label>
+                
                 <!-- 폼의 유효성검사 -->
-                <input type="tel" id="user_tel" name="user_tel">
+                
             </div>
 
             <!-- 관심 프로그램 -->
             <!-- 체크박스는 여러 개의 항목 중 여러 개 선택 가능 -->
-            <label><input type="checkbox" name="language1" value="html">HTML</label>
-            <label><input type="checkbox" name="language2" value="css">CSS</label>
-            <label><input type="checkbox" name="language3" value="js">JavaScript</label>
-            <br>
+            
             <!-- 라디오 버튼은 여러 개의 항목 중 1개 선택 가능 -->
             <!-- 라디오 버튼의 name은 같은 이름을 쓴다 -->
             <!-- 동의 여부 확인 -->
-            <input type="radio" name="agree" value="y" id="agree">
-            <label for="agree">동의함</label>
-            <input type="radio" name="agree" value="n" id="disagree">
-            <label for="disagree">동의하지 않음</label>
+            
 
             <!-- 전송 버튼 -->
             <!-- <input type="submit" value="가입하기"> -->
-            <button type="submit">가입하기</button>
+            
     </form>
 </body>
 
