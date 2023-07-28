@@ -13,6 +13,23 @@
     <!-- 파일 이름에 공백 사용하지 말 것!! -->
     <h2>비디오</h2>
     <!-- 
+        <video>
+            <source src="비디오.mp4" type="video/mp4">
+            <source src="비디오.webm" type="video/webm">
+            <source src="비디오.ogg" type="video/ogg">
+        </video>
+
+        <audio autoplay, muted, loop, controls>
+            <source src="오디오.mp3" type="audio/mpeg">
+            <source src="오디오.ogv" type="audio/ogg">
+            <source src="오디오.wav" type="audio/wav">
+        </audio>
+
+        <audio>
+            <source>
+
+        <iframe> : 외부 파일을 연결
+
         비디오 소스: 
         1. assets/video/mov_bbb.mp4
         2. Big Buck Bunny(빅 벅 버니): https://www.youtube.com/embed/YE7VzlLtp-4
@@ -33,24 +50,33 @@
      -->
 
     <!-- video와 source 태그로 비디오를 삽입해 보세요. -->
-    <video>
+    <video autoplay muted loop controls>
+        <source src="/50_html/assets/video/mov_bbb.mp4" type="video/mp4">
+        <source src="/50_html/assets/video/mov_bbb.webm" type="video/webm">
+        <source src="/50_html/assets/video/mov_bbb.ogv" type="video/ogv">
+        당신의 브라우저는 비디오를 지원하지 않는다.
         Your browser does not support HTML video.
     </video>
 
 
-    <h2>유튜브 비디오</h2>
+    <h2>유튜브 vs 비메오</h2>
     <!-- 유튜브 비디오를 iframe 태그로 삽입해 보세요. -->
+    <!-- https://www.youtube.com/ -->
+    <iframe src="https://www.youtube.com/embed/YE7VzlLtp-4?autoplay=1&loop=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+    <!-- https://vimeo.com/ko -->
+    <iframe src="https://player.vimeo.com/video/1084537?h=b1b3ab5aa2&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
     <!-- 
-        오디오 소스:
+        <iframe> : 외부 파일을 연결
+        오디오 소스: https://studio.youtube.com/channel/UCkCxjM7byQ3sQMBqmO7it6g/music
         1. assets/audio/horse.ogv
         2. assets/audio/Good_Morning!_Reed_Mathis.mp3
 
         오디오 타입:
         1. audio/ogg
         2. audio/mpeg
-        3. audio/wav
+        3. audio/wav -> 경고음, 음향
 
         오디오 속성:
         1. autoplay: 자동 실행
@@ -61,12 +87,17 @@
 
     <h2>오디오</h2>
      <!-- 1번 오디오 소스를 이용하여 audio와 source 태그로 오디오를 삽입해 보세요. -->
-    <audio>
+    <audio controls loop autoplay muted>
+        <source src="/50_html/assets/audio/horse.mp3" type="audio/mpeg">
+        <source src="/50_html/assets/audio/horse.ogv" type="audio/ogg">
+        당신의 브라우저는 오디오를 지원하지 않는다.
         Your browser does not support the audio element.
     </audio>
 
     <!-- 2번 오디오 소스를 이용하여 배경 음악을 삽입해 보세요. -->
-    <audio autoplay>
+    <audio autoplay loop>
+        <source src="/50_html/assets/audio/Good_Morning!_Reed_Mathis.mp3" type="audio/mpeg">
+        <source src="/50_html/assets/audio/Good_Morning!_Reed_Mathis.ogv" type="audio/ogg">
         Your browser does not support the audio element.
     </audio>
 </body>
