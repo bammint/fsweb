@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
-    <!-- 2. 외부 CSS: <link> 태그로 *.css 파일을 연결 -->
+    <!-- 
+        CSS(Cascading Style Sheet): 계단식, 폭포, 아래로 흐르는 우선순위(같은 속성이 사용되었을 경우)
+        1. 인라인 CSS
+        2. 내부 CSS, 외부 CSS
+     -->
+    <!-- 1. 외부 CSS: <link> 태그로 *.css 파일을 연결 -->
+    <link rel="stylesheet" href="style.css">
 
     <style>
         /* 
@@ -13,15 +19,27 @@
             선택자 {속성:값;} 
         */
 
-        /* 1. 내부 CSS: <style> 태그 사이에 기록 */
-        
+        /* CSS는 태그를 디자인한다. */
+        /* 어떤 태그를 디자인할지 선택! */
+        /* 2. 내부 CSS: <style> 태그 사이에 기록 */
+        /* 선택자: 태그 이름 */
+            h1 {color:blue;}
+            p {color: blue;}
 
         /* <link>, <style> 태그는 <head> 사이에 쓴다. */
     </style>
 </head>
 <body>
     <h1>CSS 선언 방식</h1>
-    <!-- 3. 인라인 CSS: HTML의 스타일 속성의 값으로 기록  -->
-    <p>인라인 CSS이란 HTML의 스타일 속성의 값으로 CSS의 속성과 값을 기록한다.</p>
+    <!-- 
+        3. 인라인 CSS: HTML의 스타일 속성의 값으로 기록
+        HTML 태그에 직접 기록하기 때문에 선택자가 필요 없다.
+    -->
+    <p style="background-color:red;">인라인 CSS이란 HTML의 스타일 속성의 값으로 CSS의 속성과 값을 기록한다.</p>
+    <ul>
+        <li>inline Style</li>
+        <li>Internal Style</li>
+        <li>External Style</li>
+    </ul>
 </body>
 </html>

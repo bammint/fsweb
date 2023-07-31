@@ -10,29 +10,45 @@
             요소(element, type, 태그) 선택자 
             HTML 태그 이름으로 지정
         */
-        html {color:red;}
-        body {color:red;}
-        h1 {color:red;}
-        h2 {color:red;}
-        ul {color:red;}
-        li {color:red;}
+        /* 상속되는 속성: color */
+        /* 상속되지 않는 속성: border-color */
+        html {border-color:red; border-style: solid;}
+        body {border-color:red; border-style: solid;}
+        h1 {border-color:red; border-style: solid;}
+        h2 {border-color:red; border-style: solid;}
+        ul {border-color:red; border-style: solid;}
+        li {border-color:red; border-style: solid;}
 
         /* 
             그룹(Grouping) 선택자:
             선택자1, 선택자2, ...
-        */
+            속성과 값이 같을 경우 사용한다.
 
+            선택자 {
+                속성: 값;
+                속성: 값;
+                속성: 값;
+            }
+        */
+        html, body, h1, h2, ul, li {
+            border-color:red;
+            border-style: solid;
+        }
 
         /* 범용(Universal, 전체) 선택자 */
-        
+        * {
+            border-color:red;
+            border-style: solid;
+        }
 
     </style>
 </head>
 <body>
     <h1>선택자</h1>
+    <p>선택자의 종류에는 id, class, 요소, 그룹, 범용 선택자가 있다.</p>
     <ul>
-        <li>그룹 선택자</li>
-        <li>범용 선택자</li>
+        <li>그룹(Group: ,) 선택자</li>
+        <li>범용(Universal: *) 선택자</li>
     </ul>
 </body>
 </html>

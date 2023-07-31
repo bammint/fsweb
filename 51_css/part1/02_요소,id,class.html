@@ -8,21 +8,61 @@
     <style>
         /* 
             우선순위:
-            id > class > 요소
+            !important > inline CSS > id > class, 의사 클래스, 속성 > 요소, 의사 요소
 
-            id와 class의 이름 지정 방법
+            id와 class의 선택자 이름 지정 방법
             1. 첫 글자는 영문자, _, - (숫자x)
             2. 두 번째 문자 부터는 영문자, _, -, 숫자
             3. 대소문자 구별된다.
         */
 
         /* 아이디(id) 선택자: #이름 */
-
+        #p1 {color: red;}
+        #p2 {color: lightgreen;}
 
         /* 클래스(class) 선택자: .이름 */
+        .p1 {background-color: blue;}
 
+        /* 
+            테두리는 종류 없이 지정되지 않는다.
+            실선: solid
+            점선: dotted
+            대시선: dashed
+        */
+        .p2 {border-color: black; border-style: solid;}
 
         /* 요소(element, type, 태그) 선택자: 태그 이름으로 지정 */
+        p {color: green;}
+        /* 
+            CSS
+            1. 어디에 기록하나?
+            2. 선택자에는 어떤 것이 있는가?
+            3. 속성에는 어떤 것이 있는가?
+        */
+
+        /* 
+            CSS 형식
+            선택자 {color: 값;}
+            선택자 {background-color: 값;}
+            선택자 {borer-color: 값;}
+            선택자 {borer-style: 값;}
+
+            속성
+            color: 글자 색
+            background-color: 배경 색
+            border-color: 테두리 색
+            border-style: solid;
+
+            CSS 선택자(selector)
+            1. 기본: 요소, id, class, 전체, 그룹
+            2. 복합: 부모+자식+형제
+            3. 의사(Pseudo, 슈도, 가상, 유사): :ilnk, :visited, :hover, :active
+            4. 의사 요소: ::before, ::after
+            5. 속성
+
+            <div id="wrap">
+            <div class="container">
+        */
 
     </style>
 </head>
@@ -31,9 +71,17 @@
     <p>나는 id와 class가 없습니다.</p>
     <p id="p1">나는 id=p1 입니다.</p>
     <p class="p1" id="p2">나는 class=p1, id=p2 입니다.</p>
-    <!-- 하나의 문서에서 아이디의 값은 같은 이름을 중복 사용할 수 없다. -->
-    <!-- 하나의 문서에서 클래스의 값은 같은 이름을 중복 사용할 수 있다. -->
-    <!-- 클래스 속성의 값으로 하나 이상을 지정할 수 있다. -->
+    <!-- 
+        하나의 문서에서
+        아이디 값: 중복 사용 X
+        클래스 값: 중복 사용 O
+     -->
+    
+    <!-- 
+        클래스 속성의 값으로 하나 이상을 지정할 수 있다.
+        <태그 class="값1 값2 값3 ...">
+        아이디는 속성 값을 둘 이상을 지정할 수 없다.(하나만 가능)
+    -->
     <p class="p1 p2">나는 class=p1, p2 입니다.</p>
     <p id="p3">나는 id=p3 입니다.</p>
 </body>
