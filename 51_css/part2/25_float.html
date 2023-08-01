@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            블록레벨 요소를 가로 배치해 준다
+            float: left; -> 왼쪽 기준 배치
+            float: right; -> 오른쪽 기준 배치
+
+            clear는 float 처리한 요소의 아래(형제) 요소에 대해서 float이 적용되지 않도록 제거
+
+            clear: left;
+            clear: right;
+            clear: both;
+        */
         div {
             width:200px;
             height:150px;
@@ -13,18 +24,21 @@
 
         /* (1) .div1의 float를 left로 지정하시오. */
         .div1 {
-            background:lightblue;
+            background-color:lightblue;
+            float: left;
             /* width의 기본값이 콘텐츠크기로 바뀐다. */
         }
 
         /* (2) .div2의 float를 right로 지정하시오. */
         .div2 {
-            background: lightcoral;
+            background-color: lightcoral;
+            float: right;
         }
 
         /* (3) .div3의 clear 속성을 both로 지정하시오. */
         .div3 {
-            background: lightgoldenrodyellow;
+            background-color: lightgoldenrodyellow;
+            clear: both;
             /* 상위 요소의 float 효과를 제거 */
         }
     </style>

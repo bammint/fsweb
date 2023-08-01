@@ -6,30 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
-        body {margin:0;}
+        body {margin: 0;}
         div {
             width: 200px;
             height: 150px;
             background:yellow;
         }
 
-        /* (1) .m1의 상하좌우 여백을 각각 10px, 20px, 30px, 40px로 지정하시오. */
+        /* 
+            여백
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom: 10px;
 
+            margin: 10px;
+        */
+
+        /* (1) .m1의 상하좌우 여백을 각각 10px, 20px, 30px, 40px로 지정하시오. */
+        .m1 {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            margin-left: 30px;
+            margin-right: 40px;
+        }
 
         /* (2) .m2의 상하좌우 여백을 각각 10px, 20px, 30px, 40px로 지정하시오. */
-
+        .m2 {
+            /* 상우하좌 */
+            margin: 10px 40px 20px 30px;
+        }
 
         /* (3) .m3의 여백을 위는 10px, 좌우는 20px, 아래는 30px으로 지정하시오. */
-
+        .m3 {
+            /* 상,좌우,하 */
+            margin: 10px 20px 30px;
+        }
 
         /* (4) .m4의 여백을 상하는 10px, 좌우는 20px으로 지정하시오. */
-
+        .m4 {
+            /* 상하,좌우 */
+            margin: 10px 20px;
+        }
 
         /* (5) .m5의 여백을 상하좌우 모두 10px으로 지정하시오. */
-
+        .m5 {
+            /* 속기형(축약형) */
+            margin: 10px;
+            /* 
+            margin: 10px; -> 상하좌우 모두 10
+            margin: 10px 20px; -> 상하 10, 좌우 20
+            margin: 10px 20px 30px; -> 상10, 좌우20, 하30
+            margin: 10px 20px 30px 40px; -> 상10, 우20, 하30, 좌40
+            */
+        }
         
         /* (6) .m6의 여백을 왼쪽은 230px, 위는 -160px으로 지정하시오. */
-
+        /* margin은 음수 적용 가능 */
+        .m6 {
+            margin-left: 230px;
+            margin-top: -160px;
+        }
 
     </style>
 </head>

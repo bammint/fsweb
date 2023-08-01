@@ -8,26 +8,53 @@
     <style>
         /* 140개 영문 키워드: https://www.w3schools.com/colors/colors_names.asp */
 
-        /* HEX: 16진수 -> 0~9, A~F */
-        /* #RRGGBB 또는 #RGB */
+        /*  1.  140개 영문 키워드
+                red
+            2.  HEX: 16진수 -> 0~9, A~F -> #RRGGBB 또는 #RGB
+                #000000 ~ #ffffff
+                #000 ~ #fff
+                #ff0000 또는 #f00
+            3.  rgb(0~255, 0~255, 0~255)
+                rgb(0,0,0) ~ rgb(255,255,255)
+            4.  rgba(0~255, 0~255, 0~255, 0~1)
+                rgba(0,0,0,1) ~ rgba(255,255,255,1)
+                rgba(0,0,0,0.5) ~ rgba(255,255,255,0.5)
+                rgba(0,0,0,0.0) ~ rgba(255,255,255,0)
+                alpha(알파, 투명도): 0(투명) ~ 1(불투명)
+                rgb(255,0,0)
+                rgba(255,0,0,1)
+            5.  hsl(0~359, 0~100%, 0~100%)
+                hsl(0,0%,0%) ~ hsl(359,100%,100%)
+                hsla(0~359, 0~100%, 0~100%, 0~1)
+                hsla(0,0%,0%,1) ~ hsla(359,100%,100%,1)
+                hsl(0,100%,50%)
+                hsla(0,100%,50%,1)
+        */
 
-        /* rgb(0~255, 0~255, 0~255) */  
+        /* 
+            영문 키워드는 테스트용!
+            포폴 제작시 16진수 #RRGGBB
+            투명도가 필요하면 rgba(red,green,blue,alpha)
+        */
 
-        /* rgba(0~255, 0~255, 0~255, 0~1) */
-
-        /* hsl(0~359, 0~100%, 0~100%) */
+        /* id > class > 요소 */
+        .cName {color: rgb(255, 0, 0);}
+        #cHex {color: #ff0000;}
+        p {color: rgb(255,0,0);}
+        .cRgba, .cHsl, .cHsla {color: rgba(255,0,0,0.5);}
+        /* hsl(hue, saturation, lightness) */
+        .cHsl {background-color: hsl(0,100%,50%);}
+        .cHsla {background-color: hsla(0,100%,50%,0.5);}
         
-        /* hsla(0~359, 0~100%, 0~100%, 0~1) */
-
     </style>
 </head>
 <body>
     <h1>CSS 색상 값</h1>
-    <p class="colorName">red</p>
-    <p class="colorHex">#ff0000</p>
-    <p class="colorRgb">rgb(255, 0, 0)</p>
-    <p class="colorRgba">rgba(255, 0, 0, 0.5)</p>
-    <p class="colorHsl">hsl(0, 100%, 50%)</p>
-    <p class="colorHsla">hsla(0, 100%, 50%, 0.5)</p>
+    <p class="cName">red</p>
+    <p id="cHex">#ff0000</p>
+    <p class="cRgb">rgb(255, 0, 0)</p>
+    <p class="cRgba">rgba(255, 0, 0, 0.5)</p>
+    <p class="cHsl">hsl(0, 100%, 50%)</p>
+    <p class="cHsla">hsla(0, 100%, 50%, 0.5)</p>
 </body>
 </html>
