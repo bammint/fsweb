@@ -7,26 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            특수문자
+            &gt; >
+            &lt; <
+            &nbsp; 한 칸 공백
+            &copy; 저작권, ⓒ
+
+            한글 자음 + 한자키
+            윈 + . 또는 윈 + ;
+        
+        */
         /* ::before ~ 시작 태그 바로 뒤에 내용 삽입 */
         /* 특수문자 삽입: 한글 자음 + 한자키 */
 
         /* p 시작 태그 뒤에 ♥를 가상으로 삽입해 주세요. */
-
+        p::before {
+            content: '♥';
+        }
 
 
         /* ::after ~ 종료 태그 바로 앞에 내용 삽입 */
         /* 이모티콘 삽입: 윈 + . 또는 윈 + ; */
 
         /* p 종료 태그 앞에 🎄를 가상으로 삽입해 주세요. */
-
+        p::after {
+            content: '🎄';
+        }
 
 
     </style>
 </head>
 
 <body>
-    <h1>의사 요소 선택자</h1>
+    <h1>의사(가상) 요소 선택자</h1>
     <h2>::after, ::before</h2>
+    <p>CSS content 속성과 함께 사용한다</p>
     <p>내용</p>
 </body>
 
