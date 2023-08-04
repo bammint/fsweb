@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/* 작업중 */
+body * {
+    outline: 1px solid lime;
+}
+
+/* reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* common */
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* logo */
+.logo {
+    float: left;
+}
+
+/* GNB */
+#gnb {
+    float: right;
+}
+
+/* 1depth */
+#gnb .main li {
+    display: inline-block;
+}
+
+/* 2depth */
+#gnb .sub {
+    display: none;
+}
+
+/* slide */
+#slide li {
+    position: absolute;
+}

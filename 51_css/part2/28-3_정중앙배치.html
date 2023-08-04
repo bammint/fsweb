@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스 정중앙 배치</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        body>div {
+            position: relative;
+        }
+        .txt {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* 상속 */
+            color: #fff;
+            /* font-size: 36px;
+            letter-spacing: 4px;
+            font-family: "Segoe UI",Arial,sans-serif; */
+        }
+        /* 
+            가로 중앙 배치
+            1. 블록레벨 요소 -> margin: 0 auto;
+            2. 인라인 요소 -> text-align: center;
+            3. 이미지는 인라인 요소 따라서 텍스트 처럼
+            text-align: center; 사용하여 가운데 배치할 수 있다.
+        */
+        .main_img {
+            width: 850px;
+            margin: 0 auto;
+            /* text-align: center; */
+        }
+        .tit1 {
+            padding: 8px 16px;
+            background-color: #000;
+            /* opacity는 불투명도 0(투명), 1(불투명), 단위 없음 */
+            opacity: 0.75;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="main_img"><img src="/51_css/assets/images/architecture.png" alt="이미지"></div>
+        <div class="txt">
+            <span class="tit1"><b>BR</b></span>
+            <span>Architects</span>
+        </div>
+    </div>
+</body>
+</html>

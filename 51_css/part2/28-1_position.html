@@ -6,23 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        body {margin: 0;}
         .parent {
+            /* 
+                1. 자식이 position: absolute;이면
+                부모 높이가 자식 크기를 갖지 못한다
+
+                2. 요소를 position: absolute; 로 설정하면
+                width: 컨텐츠; height: 컨텐츠;로 된다
+
+                3. position: absolute;의 left, top의 기준은?
+                static이 아닌 조상이다
+             */
             position: relative;
             height:500px;
-            background: yellow;
+            background-color: yellow;
         }
 
         /* .parent의 자식 div를 부모를 기준으로 정중앙 배치하시오. */
         .parent div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
             width:200px;
-            /* height:50px; */
-            background: red;
-            /* width의 절반의 음수 값으로 지정한다. */
-            /* height의 절반의 음수 값으로 지정한다. */
-
-            /* 텍스트 중앙 배치 */
-            text-align: center;
-            line-height: 50px;
+            height:50px;
+            background-color: red;
+            /* 왼쪽 마진을 width의 절반의 음수 값으로 지정한다. */
+            margin-left: -100px;
+            /* 위쪽 마진을 height의 절반의 음수 값으로 지정한다. */
+            margin-top: -25px;
+            /* 가로중앙 */
+            /* margin: auto; */
         }
     </style>
 </head>
