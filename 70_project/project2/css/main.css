@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+/* reset */
+* {
+    box-sizing: border-box;
+}
+body, h1, ul {
+    margin: 0;
+}
+ul {
+    padding: 0;
+}
+img {
+    width: 100%;
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* 와이어프레임 */
+header {
+    background-color: lightblue;
+}
+.sec {
+    height: 800px;
+}
+#sec1 {
+    background-color: lightcoral;
+}
+#sec2 {
+    background-color: lightgreen;
+}
+#sec3 {
+    background-color: lightgoldenrodyellow;
+}
+#sec4 {
+    background-color: lightsalmon;
+}
+footer {
+    background-color: lightblue;
+}
+
+/* 헤더 */
+header {
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+}
+
+/* 로고 */
+.logo {
+    float: left;
+}
+/* 내비게이션 */
+#gnb {
+    float: right;
+}
+#gnb li {
+    display: inline-block;
+    margin: 0 16px;
+}
+/* 섹션 공통 */
+.sec {
+    position: relative;
+    width: 1500px;
+    margin: 0 auto;
+}
+/* 섹션1 */
+#sec1 {
+    top: 55px;
+}
+.txt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -10px;
+    margin-left: -80px;
+    color: #fff;
+    background-color: yellow;
+}
+.tit1 {
+    padding: 8px 16px;
+    background-color: #000;
+    opacity: .75;
+}
+
+/* 섹션2,3의 공통 */
+.sec23 li {
+    float: left;
+    width: 360px;
+    height: 240px;
+    margin-right: 20px;
+}
+.sec23 li:nth-of-type(4n) {
+    margin-right: 0;
+}
+/* 섹션2 */
+/* id > class, 가상 클래스(:), 속성 > 요소, 가상요소(::) */
+#sec2 li {
+    position: relative;
+}
+#sec2 span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    background-color: #111;
+    padding: 8px 16px;
+}
+
+/* 섹션3 */
+
+/* 섹션4 */
+/* 푸터 */
