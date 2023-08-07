@@ -55,6 +55,9 @@ header {
 /* 로고 */
 .logo {
     float: left;
+    width: 186px;
+    height: 15px;
+    margin: 0 15px;
 }
 /* 내비게이션 */
 #gnb {
@@ -62,7 +65,7 @@ header {
 }
 #gnb li {
     display: inline-block;
-    margin: 0 16px;
+    margin: 12px 20px;
 }
 /* 섹션 공통 */
 .sec {
@@ -88,6 +91,9 @@ header {
     background-color: #000;
     opacity: .75;
 }
+.main_img>img {
+    height: 765px;
+}
 
 /* 섹션2,3의 공통 */
 .sec23 li {
@@ -111,6 +117,10 @@ header {
     color: #fff;
     background-color: #111;
     padding: 8px 16px;
+}
+#sec2 img {
+    width: 179px;
+    height: 266px;
 }
 
 /* 섹션3 */
