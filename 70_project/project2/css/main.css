@@ -20,26 +20,11 @@ img {
 }
 
 /* 와이어프레임 */
-header {
-    background-color: lightblue;
-}
 .sec {
     height: 800px;
 }
-#sec1 {
-    background-color: lightcoral;
-}
-#sec2 {
-    background-color: lightgreen;
-}
-#sec3 {
-    background-color: lightgoldenrodyellow;
-}
 #sec4 {
     background-color: lightsalmon;
-}
-footer {
-    background-color: lightblue;
 }
 
 /* 헤더 */
@@ -55,8 +40,6 @@ header {
 /* 로고 */
 .logo {
     float: left;
-    width: 186px;
-    height: 15px;
     margin: 0 15px;
 }
 /* 내비게이션 */
@@ -91,9 +74,6 @@ header {
     background-color: #000;
     opacity: .75;
 }
-.main_img>img {
-    height: 765px;
-}
 
 /* 섹션2,3의 공통 */
 .sec23 li {
@@ -107,6 +87,9 @@ header {
 }
 /* 섹션2 */
 /* id > class, 가상 클래스(:), 속성 > 요소, 가상요소(::) */
+#sec2 {
+    background-color: #fff;
+}
 #sec2 li {
     position: relative;
 }
@@ -118,12 +101,17 @@ header {
     background-color: #111;
     padding: 8px 16px;
 }
-#sec2 img {
-    width: 179px;
-    height: 266px;
-}
-
 /* 섹션3 */
 
 /* 섹션4 */
 /* 푸터 */
+footer {
+    width: 100%;
+    height: 245px;
+    background-color: #9b0f22;
+    color: #fff;
+}
+footer img {
+    width: auto;
+    height: auto;
+}

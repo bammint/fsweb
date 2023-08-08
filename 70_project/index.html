@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>박재한</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <!-- 헤더 -->
     <header>
-        <nav class="gnb">
-            <ul>
+        <nav id="gnb">
+            <ul class="clearfix">
                 <li><a href="#sec1">HOME</a></li>
                 <li><a href="#sec2">ABOUT</a></li>
                 <li><a href="#sec3">PORTFOLIO</a></li>
@@ -26,25 +27,33 @@
     <section id="sec2"" class="sec">
         <h2>나의 소개</h2>
         <p><em>나는 코딩을 좋아한다</em></p>
-        <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class="my_pic">
-            <p><b>박재한</b></p>
-            <img src="images/photo_of_me.png" alt="내 사진">
-        </div>
-        <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-        <!-- 스킬(skill) -->
-        <h3>Im really good at:</h3>
-        <p>Web Planning</p>
-        <div><span>90%</span></div>
-        <p>Frontend programming</p>
-        <div><span>85%</span></div>
-        <p>Backend programming</p>
-        <div><span>75%</span></div>
+        <div class="container">
+            <!-- 보편적 내용 내 소개 마인드 -->
+            <div class="basic clearfix">
+                <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="my_pic">
+                    <p><b>박재한</b></p>
+                    <img src="images/my.png" alt="내 사진">
+                </div>
+                <!-- 내 스킬내용 -->
+                <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            
+            <!-- 스킬(skill) -->
+            <div class="skill">
+                <h3>Im really good at:</h3>
+                <p>Web Planning</p>
+                <div><span>90%</span></div>
+                <p>Frontend programming</p>
+                <div><span>85%</span></div>
+                <p>Backend programming</p>
+                <div><span>75%</span></div>
+            </div><!-- //.skill -->
+        </div><!-- //.container -->
 
         <!-- 카운터 -->
         <div class="counter">
-            <ul>
+            <ul class="clearfix">
                 <li><span>20+</span>Total Pages</li>
                 <li><span>4+</span>Web Projects</li>
                 <li><span>2+</span>App Projects</li>
@@ -58,20 +67,21 @@
         <div><span>PORTFOLIO</span></div>
         <h2>나의 작품</h2>
         <p><em>아래 작품은 나의 최근 작품입니다.<br>이미지를 클릭하면 큰 이미지로 볼 수 있습니다.</em></p>
-        <div class="pf">
-            <ul>
-                <li><img src="images/bear_closeup.png" alt="작품1"></li>
-                <li><img src="images/coffee_beans.png" alt="작품2"></li>
-                <li><img src="images/empty_ghost_train.png" alt="작품3"></li>
-                <li><img src="images/my_beloved_typewriter.png" alt="작품4"></li>
-                <li><img src="images/quiet_ocean.png" alt="작품5"></li>
-                <li><img src="images/sailing.png" alt="작품6"></li>
-                <li><img src="images/the_mist_over_the_mountains.png" alt="작품7"></li>
-                <li><img src="images/the_mist.png" alt="작품8"></li>
-            </ul>
-        </div>
-
-        <a href="#">더보기</a>
+        <div class="container">
+            <div class="pf">
+                <ul class="clearfix">
+                    <li><img src="images/pf1.png" alt="기아자동차"></li>
+                    <li><img src="images/pf2.png" alt="요거프레소"></li>
+                    <li><img src="images/pf3.png" alt="순수치킨"></li>
+                    <li><img src="images/pf4.png" alt="작품4"></li>
+                    <li><img src="images/pf5.png" alt="작품5"></li>
+                    <li><img src="images/pf6.png" alt="작품6"></li>
+                    <li><img src="images/pf7.png" alt="작품7"></li>
+                    <li><img src="images/pf8.png" alt="작품8"></li>
+                </ul>
+            </div>
+            <a href="#">더보기</a>
+        </div><!-- //.container -->
 
     </section>
 
@@ -80,30 +90,44 @@
         <div><span>CONTACT</span></div>
         <h2>나의 위치</h2>
         <p><em>당신의 연락을 기다립니다.</em></p>
-
-        <div class="map"><img src="images/map.png" alt="나의 위치"></div>
-        <div class="addr">
-            <ul>
-                <li>경기도 안양시</li>
-                <li>Phone: +82 10-1234-1234</li>
-                <li>Email: mint@naver.com</li>
-            </ul>
-            <p>Swing by for a cup of , or leave me a note:</p>
-        </div>
-        <form action="main.jpg">
-            <input type="text" placeholder="이름">
-            <input type="email" placeholder="이메일">
-            <input type="text" placeholder="메세지">
-            <button>메세지 보내기</button>
-        </form>
+        <div class="container">
+            <div class="map"><img src="images/mapm.png" alt="나의 위치"></div>
+            <div class="right">
+                <div class="addr">
+                    <ul>
+                        <li>경기도 안양시</li>
+                        <li>Phone: +82 10-1234-1234</li>
+                        <li>Email: mint@naver.com</li>
+                    </ul>
+                    <p>Swing by for a cup of , or leave me a note:</p>
+                </div>
+                <form action="main.jpg">
+                    <input type="text" placeholder="이름">
+                    <input type="email" placeholder="이메일">
+                    <input type="text" placeholder="메세지">
+                    <button>메세지 보내기</button>
+                </form>
+            </div><!-- //.right -->
+        </div><!-- //.container -->
 
     </section>
 
     <!-- 푸터 -->
     <footer>
         <div class="tbtn"><a href="#top">To the top</a></div>
-        <div class="sns">SNS</div>
+        <div class="sns">
+            <a href="#">페이스북</a>
+            <a href="#">인스타그램</a>
+            <a href="#">스냅챗</a>
+            <a href="#">핀터레스트</a>
+            <a href="#">트위터</a>
+            <a href="#">링크드인</a>
+        </div>
         <p class="copy">Copyright 2023 PJH. All rights reserved.</p>
     </footer>
 </body>
 </html>
+<!-- 패럴렉스 배경 이미지: 3장 - 1920*1360
+프로필 사진: 1장 - 425*280
+<del>작품: 8장 - 225*168</del>
+지도: 1장 - 284*160 -->

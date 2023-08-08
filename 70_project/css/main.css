@@ -1,0 +1,99 @@
+@charset "utf-8";
+@import url(reset.css);
+@import url(typo.css);
+
+/* 작업중 */
+body * {
+    outline: 1px solid blue;
+}
+
+/* 레이아웃: 전체 구조 */
+.container {
+    width: 960px;
+    margin: 0 auto;
+    background-color: lightgreen;
+}
+.counter {
+    background-color: #333;
+}
+footer {
+    background-color: #333;
+}
+
+/* 헤더 */
+header {
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 44px;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+}
+/* 내비게이션 */
+#gnb li {
+    float: left;
+}
+#gnb a {
+    padding: 8px 16px;
+}
+#gnb a:hover {
+    background-color: #bbb;
+}
+
+/* 섹션1: 패럴렉스 이미지 */
+/* 단위: px, %, em, rem, vw, vh, vmin, vmax */
+#sec1 {
+    position: relative;
+    height: 700px;
+}
+#sec1 h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -73px;
+    margin-top: -16px;
+}
+/* 메인 타이틀 */
+/* 섹션2: 나의 소개 */
+/* 기본 프로필 */
+.basic p:nth-of-type(1) {
+    margin-bottom: 48px;
+}
+/* 이미지 */
+.my_pic {
+    float: left;
+    width: 425px;
+    margin-right: 48px;
+    margin-left: 24px;
+}
+/* 스킬: 프로그래스바(progressbar) */
+/* 카운터(counter) */
+.counter {
+    padding: 32px 0;
+}
+.counter li {
+    float: left;
+    width: 25%;
+}
+.counter span {
+    display: block;
+}
+
+/* 섹션3: 작품 */
+.pf li {
+    float: left;
+    width: 225px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.pf li:nth-of-type(4n) {
+    margin-right: 0;
+}
+
+/* 섹션4: 연락처 */
+.map {
+    width: 284px;
+}
+
+/* 푸터 */
