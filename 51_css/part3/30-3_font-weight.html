@@ -6,26 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            font-weight: 값;
+            값: 숫자, 키워드
+            키워드: lighter, bold, bolder
+            숫자: 100 ~ 900(단위없음);
+            폰트 종류에 따라 지원하는 굵기의 단계가 다를 수 있다
+        */
         /* 폰트 종류에 따라 지원하는 굵기의 단계가 다를 수 있다. */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
         p {font-family: 'Inter', sans-serif;}
+
+        .fw100 {
+            font-weight: 100;
+        }
+        .fwlighter {
+            font-weight: lighter;
+        }
+        .fw200 {
+            font-weight: 200;
+        }
+        .fw300 {
+            font-weight: 300;
+        }
+        .fw400 {
+            font-weight: 400;
+        }
+        .fw500 {
+            font-weight: 500;
+        }
+        .fw600 {
+            font-weight: 600;
+        }
+        .fw700 {
+            font-weight: 700;
+        }
+        .fwbold {
+            font-weight: bold;
+        }
+        .fwbolder {
+            font-weight: bolder;
+        }
+        .fw800 {
+            font-weight: 800;
+        }
+        .fw900 {
+            font-weight: 900;
+        }
 
 
     </style>
 </head>
 <body>
     <h1>글꼴 굵기</h1>
-    <p class="fw1">font-weight: 100;</p>
-    <p class="fw1_1">font-weight: lighter;</p>
-    <p class="fw2">font-weight: 200;</p>
-    <p class="fw3">font-weight: 300;</p>
-    <p class="fw4">font-weight: 400;</p>
-    <p class="fw5">font-weight: 500;</p>
-    <p class="fw6">font-weight: 600;</p>
-    <p class="fw7">font-weight: 700;</p>
-    <p class="fw7_1">font-weight: bold;</p>
-    <p class="fw7_2">font-weight: bolder;</p>
-    <p class="fw8">font-weight: 800;</p>
-    <p class="fw9">font-weight: 900;</p>
+    <p class="fw100">font-weight: 100;</p>
+    <p class="fwlighter">font-weight: lighter;</p>
+    <p class="fw200">font-weight: 200;</p>
+    <p class="fw300">font-weight: 300;</p>
+    <p class="fw400">font-weight: 400;</p>
+    <p class="fw500">font-weight: 500;</p>
+    <p class="fw600">font-weight: 600;</p>
+    <p class="fw700">font-weight: 700;</p>
+    <p class="fwbold">font-weight: bold;</p>
+    <p class="fwbolder">font-weight: bolder;</p>
+    <p class="fw800">font-weight: 800;</p>
+    <p class="fw900">font-weight: 900;</p>
 </body>
 </html>

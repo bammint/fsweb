@@ -6,8 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
-        /* 글꼴 이름에 공백이 있을 경우 ''으로 묶는다. */
+        /* 
+            타이포(typo) 시스템
+
+            color: 글자색;
+            font-weight: 굵기;
+            font-style: 기울임;
+            *font-family: 글꼴;
+            *font-size: 크기;
+            line-height: 줄간격;
+            letter-spacing: 자간; -> 글자와 글자 사이 간격
+            word-spacing: 어간; -> 단어 사이 간격
+            white-space: 공백; -> 줄바꿈
+            본문 줄간격은 1.5 ~ 2 사이(1.618 황금비율)
+
+            (속기형)
+            font: [굵기] [기울임] 크기[/줄간격] 글꼴;
+
+            text-decoration: 꾸밈; -> 밑줄 생성/제거
+            text-align: 텍스트 정렬; -> 인라인 요소의 좌우
+            vertical-align: 수직 정렬; -> 인라인 요소의 상하
+            
+            text-indent: 들여쓰기; -> 인라인 요소 숨기기
+
+            text-shadow: 텍스트 그림자;
+            box-shadow: 박스 그림자;
+        */
+        /* 
+            글꼴 이름에 공백이 있을 경우 ''으로 묶는다.
+            font-famliy: 글꼴1, 글꼴2, 글꼴3, ...;
+            1. sans-serif - 획X, 깨끗함, 현대적 -> 주로 웹
+            2. serif - 획ㅇ, 우아함, 독창적 -> 주로 인쇄용
+            3. monospace - 고정폭, 기계적
+            4. cursive - 필기체
+            5. fantasy - 장식
+
+            C:\Windows\Fonts
+            폰트 형식
+                1. ttf/otf
+
+            무료 폰트 사이트
+                1. 다폰트: https://www.dafont.com/ -> 영문 폰트
+         */
         /* .ff의 글꼴을  'Courier New', Courier, monospace로 지정해 보세요.*/
+        .ff {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        /* .ff {
+            font-family: 'Segoe UI', Verdana, sans-serif;
+        } */
         
     </style>
 </head>
