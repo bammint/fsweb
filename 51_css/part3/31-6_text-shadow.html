@@ -9,6 +9,9 @@
         p {font-size: 3rem;}
 
         /* 
+            박스 그림자: 
+            box-shadow: 가로위치 세로위치 [흐림] [퍼짐] [색] [inset], 가로위치 세로위치 [흐림] [퍼짐] [색] [inset], ...;
+
             텍스트 그림자: 
             text-shadow: 가로위치 세로위치 [흐림] [색], 가로위치 세로위치 [흐림] [색], ...;
             색의 기본값: 글자색 
@@ -22,6 +25,7 @@
         */
         .ts1 {
             color: white;
+            text-shadow: 2px 2px 4px black;
         }
 
         /* 
@@ -32,6 +36,7 @@
         */
         .ts2 {
             color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
         }
 
 
@@ -44,6 +49,7 @@
         */
         .ts3 {
             color: coral;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         }
     </style>
 </head>

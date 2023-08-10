@@ -6,14 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            text-align
+            vertical-align
+            text-decoration
+            text-indent
+            text-transform
+            line-height
+            letter-spacing
+            word-spacing
+            white-space
+            text-overflow ...(텍스트 줄임)
+            text-shadow
 
+        */
+
+        /* 
+            text-align은 텍스트의 수평(가로) 정렬 속성으로 block 요소 안에 있는 inline 요소(텍스트, 이미지 등)만을 정렬 한다. 즉, block 요소에만 적용할 수 있다.
+        */
+
+        p {
+            border: 1px solid blue;
+        }
+        .tal {
+            text-align: left;
+        }
+        .tar {
+            text-align: right;
+        }
+        .tac {
+            text-align: center;
+        }
+        /* 양쪽 맞춤 */
+        .taj {
+            text-align: justify;
+            /* 영문도 한글처럼 글자별로 줄바꿈 된다 */
+            word-break: break-all;
+        }
+        img {
+            width: 100px;
+        }
+        .taimg {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <h1>텍스트 수평 정렬</h1>
-    <p class="tal">text-align은 텍스트의 수평(가로) 정렬 속성으로 block 요소 안에 있는 inline 요소(텍스트, 이미지 등)만을 정렬 한다. 즉, block 요소에만 적용할 수 있다.</p>
+    <p class="tal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima obcaecati sequi perspiciatis assumenda aut non voluptatibus, eaque, amet aperiam nobis consequatur earum fugit vero odio asperiores! Dolore, qui. Natus, vitae.</p>
     <p class="tar">text-align은 텍스트의 수평(가로) 정렬 속성으로 block 요소 안에 있는 inline 요소(텍스트, 이미지 등)만을 정렬 한다. 즉, block 요소에만 적용할 수 있다.</p>
     <p class="tac">text-align은 텍스트의 수평(가로) 정렬 속성으로 block 요소 안에 있는 inline 요소(텍스트, 이미지 등)만을 정렬 한다. 즉, block 요소에만 적용할 수 있다.</p>
-    <p class="taj">text-align은 텍스트의 수평(가로) 정렬 속성으로 block 요소 안에 있는 inline 요소(텍스트, 이미지 등)만을 정렬 한다. 즉, block 요소에만 적용할 수 있다.</p>
+    <!-- CSS jutify 값이 영문자는 단어별로 줄바꿈된다 한글은 글자별로 자동 줄바꿈 된다 -->
+    <p class="taj">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima obcaecati sequi perspiciatis assumenda aut non voluptatibus, eaque, amet aperiam nobis consequatur earum fugit vero odio asperiores! Dolore, qui. Natus, vitae.</p>
+    <p class="taimg">
+        <img src="/51_css/assets/images/coca.png" alt="코카콜라">
+    </p>
 </body>
 </html>

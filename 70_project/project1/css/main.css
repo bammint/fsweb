@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
 
 /* 작업중 */
 /* body * {
@@ -17,6 +18,41 @@ body, h1, h2, p, ul {
 
 ul {
     padding: 0;
+}
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+/* typo */
+html {
+    font-size: 10px;
+}
+body {
+    font: 1.5rem/1.6 'Noto Sans KR', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+.main a {
+    font-size: 1.8rem;
+    color: #333;
+}
+.sub a {
+    font-size: 1.4rem;
+    color: #777;
+}
+.blogo {
+    text-align: right;
+    opacity: 0.6;
+}
+.copy {
+    color: #888;
+    text-align: center;
+}
+.copy p:last-of-type {
+    font-size: 1.2rem;
 }
 
 /* common */
@@ -97,7 +133,7 @@ header {
     display: none;
     position: absolute;
     width: 424px;
-    height: 160px;
+    height: 150px;
 }
 label {
     display: inline-block;
@@ -109,21 +145,24 @@ label {
 /* 공지사항 */
 #tab1 li {
     border-bottom: 1px solid #ccc;
-    padding-bottom: 8px;
 }
 
 #tab1 span {
     display: inline-block;
     width: 334px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 16px;
 }
 
 /* 갤러리 */
 #tabs #tab2 {
-    background-color: #ccc;
-    padding: 24px 16px;
+    padding: 20px 16px;
 }
 
 #tab2 a {
+    display: inline-block;
     margin: 0 4px;
 }
 

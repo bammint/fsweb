@@ -50,10 +50,6 @@ header {
     display: inline-block;
     margin: 12px 20px;
 }
-#gnb a {
-    text-decoration: none;
-    color: #000;
-}
 /* 섹션 공통 */
 .sec {
     position: relative;
@@ -118,7 +114,4 @@ footer {
 footer img {
     width: auto;
     height: auto;
-}
-.sns, .tel {
-    float: right;
 }

@@ -25,6 +25,7 @@
 
             의사(Pseudo, 가상, 유사) 클래스
             타입을 구분하지 않는다.
+            
 
             선택자:first-child
             선택자:last-child
@@ -39,6 +40,15 @@
             짝수: 2n 또는 even
             홀수: 2n-1 또는 odd
         */
+
+        p:first-child {color: red;}
+        p:last-child {color: red;}
+        p:nth-child(2) {color: red;}
+        p:nth-child(1) {background-color: blue;}
+        p:nth-child(12) {background-color: blue;}
+        p:nth-last-child(1) {border: 1px solid red;}
+        p:nth-child(even) {font-size: 12px;}
+        p:nth-child(2n+1) {font-style: italic;}
 
     </style>
 </head>

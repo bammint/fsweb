@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>말줄임표</title>
+    <style>
+        li {
+            width: 400px;
+            /* 말줄임표: 생략 */
+            text-overflow: ellipsis;
+            /* 줄바꿈하지 않음 */
+            white-space: nowrap;
+            /* 박스 영역을 벗어난 텍스트 숨김 */
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </li>
+        <li>A laboriosam dolores laborum similique. Voluptatem facilis odio voluptates saepe laudantium deserunt.</li>
+    </ul>
+</body>
+</html>
