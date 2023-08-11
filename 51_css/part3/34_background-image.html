@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            색: 단일 색, 그라디언트, 패턴(반복 무늬)
+            -: CSS 3 신기능
+
+            background-color
+                -background-clip: 시작 위치;
+
+            background-image: url(경로/이미지); -> 패턴
+                background-repeat: 반복;
+                    값: repeat, no-repeat, repeat-x, repeat-y
+                background-position: x위치 y위치;
+                    값: px, %, 키워드
+                    x위치: left, right, center
+                    y위치: top, bottom, center
+                background-attachment -> 패럴렉스 이미지
+                -background-size: w크기 h크기;
+                    값: px, %, 키워드
+                    키워드: contain, cover
+                -background-origin: 시작 위치;
+            -background-blend-mode: 합성 방식;
+
+            (속기형)
+            background: color image repeat position/size origin clip
+        */
+
         div {
             width: 500px;
             height: 350px;
@@ -14,8 +39,13 @@
             /* background-image:url(), url(), ... */
             /* 첫 번째로 기록한 url이 위로 지정된다. */
 
-            /* bg3.png와 bg1.jpg 두 개의 이미지를 하나의 배경 이미지 속성으로 지정하시오. */
+            /* italy1.jpg와 star2.png 두 개의 이미지를 하나의 배경 이미지 속성으로 지정하시오. */
+            background-image: url(../assets/images/star2.png), url(../assets/images/italy1.jpg);
+            background-repeat: repeat-x, no-repeat;
+            background-position: 0 bottom;
+            background-size: 5px, cover;
 
+            /* background: image repeat position size; */
         }
     </style>
 </head>

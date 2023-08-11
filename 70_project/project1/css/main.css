@@ -10,14 +10,12 @@
 * {
     /* 요소의 패딩과 테두리를 요소의 안쪽으로 지정 */
     box-sizing: border-box;
-}
-
-body, h1, h2, p, ul {
     margin: 0;
+    padding: 0;
 }
 
-ul {
-    padding: 0;
+li {
+    list-style: none;
 }
 img {
     width: 100%;

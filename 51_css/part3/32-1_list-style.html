@@ -10,13 +10,23 @@
         ul, li {border:1px solid red;}
 
         /* .lsi의 마커를 이미지로 지정 */
+        .lsi {list-style-image: url(../assets/images/star2.png);}
 
         /* .lsp의 마커 위치를 안쪽으로 지정 */
+        .lsp {list-style-position: inside;}
 
         /* .lisn의 마커 숨기기 */
+        .lisn {list-style-type: none;}
 
         /* list-style: 타입 이미지 위치; */
-        /* .lis의 목록 속성을 타입은 circle, dot.png 이미지, 위치는 inside로 지정해 보세요.(속기) */
+        /* .lis의 목록 속성을 타입은 circle, star2.png 이미지, 위치는 inside로 지정해 보세요.(속기) */
+        .lis {
+            /* list-style-type: circle;
+            list-style-image: url(../assets/images/star2.png);
+            list-style-position: inside; */
+
+            list-style: circle url(../assets/images/star2.png) inside;
+        }
         
         
     </style>

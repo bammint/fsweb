@@ -7,27 +7,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            목록의 마커
+            list-style-type: 유형;
+                <ul>,<ol>값: none(없음);
+                <ul>값: disc, circle, square
+                <ol>값: decimal,decimal-leading-zero,
+                    upper-alpha, lower-alph,
+                    upper-roman, lower-roman, ...
+
+                    https://www.w3schools.com/cssref/pr_list-style-type.php
+
+            list-style-image: url('경로/이미지파일');
+            list-style-position: 위치;
+                    값: outside(기본값), inside -> <li>태그 기준
+
+            (속기형))
+            list-style: type [|image] [position];
+        */
+
+        /* 
+            비트맵: png, gif -> 확대할 떄 깨짐o
+            백터: svg -> 확대할 때 깨짐X -> 로고, 아이콘(마커), 버튼
+            
+            https://ko.wikipedia.org/wiki/%EC%8A%A4%EC%BC%80%EC%9D%BC%EB%9F%AC%EB%B8%94_%EB%B2%A1%ED%84%B0_%EA%B7%B8%EB%9E%98%ED%94%BD%EC%8A%A4
+        */
         /* <ul>에 사용 */
         /* disc */
+        .lst1 li {
+            border: 1px solid blue;
+            list-style-type: disc;
+            list-style-image: url(../assets/images/star2.png);
+        }
 
         /* circle */
+        /* 목록 속성은 <ul>,<ol>,<li> 지정한다 */
+        .lst2 li {
+            border: 1px solid blue;
+            /* list-style-type: circle;
+            list-style-position: inside; */
+
+            list-style: url(../assets/images/star2.png) inside;
+        }
 
         /* square */
+        .lst3 {list-style-type: square;}
 
         /* <ul>,<ol>에 모두 사용 - 항목 마커 제거 */
+        .lst10 {
+            /* list-style-type: none; */
+            list-style: none;
+        }
 
         /* <ol>에 사용 */
         /* decimal */
+        .lst4 {list-style-type: decimal;}
         
         /* decimal-leading-zero */
+        .lst5 {list-style-type: decimal-leading-zero;}
 
         /* upper-alpha */
+        .lst6 {list-style-type: upper-alpha;}
 
         /* lower-alpha */
+        .lst7 {list-style-type: lower-alpha;}
 
         /* upper-roman */
+        .lst8 {list-style-type: upper-roman;}
 
         /* lower-roman */
+        .lst9 {list-style-type: lower-roman;}
+
+        /* 기타 */
+        .lst11 {list-style-type: lower-greek;}
 
     </style>
 </head>
@@ -35,6 +87,7 @@
 <body>
     <h1>CSS 목록 관련 속성</h1>
     <h2>순서 없는 목록</h2>
+    <!-- type: "disc|circle|square" -->
     <ul class="lst1">
         <li>아메리카노</li>
         <li>카페모카</li>
@@ -57,6 +110,7 @@
     </ul>
 
     <h2>순서 있는 목록</h2>
+    <!-- type= "1|A|a|I|i" -->
     <ol class="lst4">
         <li>아메리카노</li>
         <li>카페모카</li>
@@ -82,7 +136,7 @@
         <li>카페모카</li>
         <li>카페라떼</li>
     </ol>
-    <ol class="lst9">
+    <ol class="lst9" start="4">
         <li>아메리카노</li>
         <li>카페모카</li>
         <li>카페라떼</li>

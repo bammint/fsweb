@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            background-origin: 이미지 시작 위치;
+                값: padding-box, border-box, content-box
+            background-cilp: 배경색 시작 위치;
+                값: padding-box, border-box, content-box
+        */
         div {
             width: 500px;
             height: 350px;
@@ -13,7 +19,9 @@
             margin: 20px;
             padding: 20px;
 
-            background:url(/51_css/assets/20220511_1124.jpg) no-repeat;
+            background-image:url(../assets/images/italy1.jpg);
+            background-repeat: no-repeat;
+            background-size: 50%;
         }
         .bop {background-origin: padding-box;}
         .bob {background-origin: border-box;}

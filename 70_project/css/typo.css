@@ -7,16 +7,37 @@ html {
 body {
     font: 1.5rem/1.8 'Noto Sans KR', sans-serif ;
 }
-
 a {
     color: #111;
 }
-
+h2 {
+    text-align: center;
+}
+h2+p {
+    text-align: center;
+}
+.skill h3 {
+    text-align: center;
+}
 .counter {
+    text-align: center;
+    color: #fff;
+}
+.counter span {
+    font-size: 2.4rem;
+}
+.parallax {
+    text-align: center;
+}
+.parallax span {
+    letter-spacing: 10px;
+    font-size: 3.6rem;
+    line-height: 400px;
     color: #fff;
 }
 footer {
     color: #fff;
+    text-align: center;
 }
 footer a {
     color: #fff;
