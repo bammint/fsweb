@@ -119,6 +119,12 @@ footer img {
     width: auto;
     height: auto;
 }
-.sns, .tel {
+.tel {
     float: right;
+}
+.sns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    outline: 1px solid blue;
 }
