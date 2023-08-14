@@ -8,49 +8,227 @@
     <title>HTML+CSS</title>
     <style>
         div {
-            width: 200px;
+            width: 100px;
             height: 100px;
             border: 1px solid red;
             margin: 20px;
         }
 
         /* 
+            Gradient:
+            두 가지 이상의 색이 점진적으로 변화되는 색채를 의미하는 뜻으로 색채 표현 방법 -> 입체적
+
+            유형
+            1. 선형 (linear)
+            2. 원형 (radial)
+            3. 원뿔형 (conic)
+
+            형식
+            background-image: url(경로/이미지명)
+            background-image: linear-gradient([to 방향1], 색1, 색2, [색3, ...])
+            background-image: linear-gradient([각도], 색1, 색2, [색3, ...])
+            background-image: radial-gradient([모양], 색1, 색2, [색3, ...]);
+            background-image: conic-gradient([from 각도][at 위치], 색1, 색2, [색3, ...]);
+        */
+
+        /* 
             선형(linear) 그라디언트
-            1) linear-gradient([to 방향1], 색1, 색2, [색3, ...]) 
-                - 방향: left, right, top, bottom
-            
-            2) linear-gradient([각도], 색1, 색2, [색3, ...])
-                - 각도: 0~360deg 
+            1) linear-gradient(to 방향, 색 영역%, 색 영역%, ...) 
+                방향: to left, to right, to top, to bottom
+                    두가지 가능
+                각도: 0~359deg (단, 360deg 이상도 가능, 730deg = 10deg)
+            repeating-linear-gradient()
         */
 
         /* .lg1에 위 blue, 아래 white의 선형 그라디언트를 지정해 보세요. */
-        
+        /* linear-gradient(색1, 색2) */
+        .lg1 {
+            background: linear-gradient(blue, white);
+        }
         
         /* .lg2에 왼쪽 아래 #ff0000, 오른쪽 위 #ffffff의 선형 그라디언트를 지정해 보세요. */
-
+        /* 
+            각도를 나타내는 단위: deg
+            음수 가능
+            to는 ~를 향하여
+            to bottom (기본값) -> 180deg
+            to right -> 90deg
+            to left -> 270deg, -90deg
+            to top -> 0deg
+         */
+        .lg2 {
+            /* background: linear-gradient(45deg, #f00, #fff); */
+            background: linear-gradient(to top right, #f00, #fff);
+        }
 
         /* .lg3에 왼쪽 위 blue, 가운데 white, 오른쪽 아래는 yellow의 선형 그라디언트를 지정해 보세요. */
+        .lg3 {
+            /* background: linear-gradient(to bottom right, blue, white, yellow); */
+            background: linear-gradient(155deg, blue, white, yellow);
+        }
+        /* 
+            linear-gradient([방향], 색1 [숫자%], 색2 [숫자%], ...)
+            0 ~ 10%: 100% red
+            10 ~ 20%: r -> y
+            20% ~: 100% yellow
+        */
+        .lg4 {
+            background: linear-gradient(90deg, red 10%, yellow 20%);
+        }
+        /* 
+            repeating-linear-gradient(방향, 색, 색, ...);
+        */
+        .lg5 {
+            background: repeating-linear-gradient(90deg, red 10%, yellow 20%);
+        }
+        .lg6 {
+            background: linear-gradient(to bottom right, #F00 0%, #FF0 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #F00 0%, #FF0 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #F00 0%, #FF0 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #F00 0%, #FF0 50%) top right / 50% 50% no-repeat;
+        }
 
+        /* https://www.colorzilla.com/gradient-editor/ */
+
+        /* 
+            브라우저 접두사(벤더 프리픽스)
+            -webkit-: 크롬, 사파리
+            -moz-: 파이어폭스
+            -ms-: 인터넷, 익스플로러
+            -o-: 오페라
+        */
 
         /* 
             원형(radial) 그라디언트
-            1) radial-gradient([모양], 색1, 색2, [색3, ...]);
+            radial-gradient([모양] [크기 at 위치,] 색 영역%, 색 영역%, ...);
                 - 모양: circle
+                크기: 
+                    closest-side: 변에서 가장 가까운
+                    closest-corner: 모서리에서 가장 가까운
+                    farthest-side: 변에서 가장 먼
+                    farthest-corner: 모서리에서 가장 먼
+
+            at x위치% y위치%: 원형의 중심 위치
         */
-        /* .rg에 중심은 white, 바깥쪽은 blue인 원형 모양의 그라디언트를 지정해 보세요. */
+        /* .rg에 중심은 white, 바깥쪽은 blue인 타원 모양의 그라디언트를 지정해 보세요. */
+        /* 타원은 박스의 가로/세로 크기가 다를 때 지정된다 */
+        .rg1 {
+            width: 150px;
+            background: radial-gradient(red, green, blue);
+        }
+        .rg2 {
+            width: 150px;
+            background: radial-gradient(circle, red, green, blue);
+        }
+        /* 
+            0 ~5%: red
+            5 ~ 15%: r -> g
+            15 ~60%: g -> b
+            60% ~: blue
+        */
+        .rg3 {
+            background: radial-gradient(red 5%, green 15%, blue 60%);
+        }
+        .rg4 {
+            background: radial-gradient(closest-corner at 60% 55%, red, green, blue);
+        }
+        .rg5 {
+            background: radial-gradient(closest-side at 60% 55%, red, green, blue);
+        }
+        .rg6 {
+            background: radial-gradient(farthest-corner at 60% 55%, red, green, blue);
+        }
+        .rg7 {
+            background: radial-gradient(farthest-side at 60% 55%, red, green, blue);
+        }
+
+        /* 
+            0 ~5%: r ->g
+            5 ~ 10% -> g -> b
+            10 ~15%: r ->g
+            15 ~ 20% -> g -> b
+        */
+        .rg8 {
+            background: repeating-linear-gradient(red 0, green 5%, blue 10%);
+        }
 
         
+        /* 
+            원뿔형(conic) 그라디언트
+            1) conic-gradient(from 각][at 위치], 색1 [각1], 색2 [각2], ...);
+            from 숫자deg: 원뿔의 시작 각도(from 0deg 기본값)
+            at 숫자% 숫자%: 원뿔의 중심 위치(at 50% 50% 기본값)
+        */
+        .cg~div {
+            width: 100px;
+            border-radius: 50%;
+            border: none;
+        }
+        .cg1 {
+            background: conic-gradient(red, yellow, green);
+        }
+        /* 
+            0~45deg: 100% red
+            45~90deg: r -> y
+            90~210deg: y -> g
+            210deg~: 100% green
+         */
+        .cg2 {
+            background: conic-gradient(red 45deg, yellow 90deg, green 210deg);
+        }
+        /* from 각도 -> 색의 시작 위치 */
+        .cg3 {
+            background: conic-gradient(from 90deg, red, yellow, green);
+        }
+        .cg4 {
+            background: conic-gradient(red, yellow, green);
+        }
+        /* 
+            at xPos yPos -> 월뿔의 중심 위치
+            at 50% 50% 기본값
+        */
+        .cg5 {
+            background: conic-gradient(at 50% 50%, red, yellow, green);
+        }
+        /* 
+            0deg: red
+            90deg: red
+            0~90deg: 100% red
+            90deg: yellow
+            180deg: yellow
+            90~180deg: 100% yellow
+            180deg~: green
+            180~360deg: 100% green
+        */
+        .cg6 {
+            background: conic-gradient(red 0deg, red 90deg, yellow 90deg,yellow 180deg, green 180deg);
+        }
+
     </style>
 </head>
 <body>
     <h1>그라디언트</h1>
-    <h2>선형</h2>
+    <h2>선형(linear)</h2>
     <div class="lg1">1</div>
     <div class="lg2">2</div>
     <div class="lg3">3</div>
+    <div class="lg4">4</div>
+    <div class="lg5">5</div>
+    <div class="lg6">Diamond</div>
 
-    <h2>원형</h2>
-    <div class="rg">4</div>
-
+    <h2>원형(radial)</h2>
+    <div class="rg1">1</div>
+    <div class="rg2">2</div>
+    <div class="rg3">3</div>
+    <div class="rg4">4</div>
+    <div class="rg5">5</div>
+    <div class="rg6">6</div>
+    <div class="rg7">7</div>
+    <div class="rg8">8</div>
+    
+    <h2 class="cg">원뿔형(conic)</h2>
+    <div class="cg1"></div>
+    <div class="cg2"></div>
+    <div class="cg3"></div>
+    <div class="cg4"></div>
+    <div class="cg5"></div>
+    <div class="cg6"></div>
 </body>
 </html>

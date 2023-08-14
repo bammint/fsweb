@@ -22,7 +22,7 @@ img {
     vertical-align: top;
 }
 
-/* typo */
+/* typo - 글꼴, 크기, 색, 줄간격, 자간, 굵기, 기울임, 밑줄 */
 html {
     font-size: 10px;
 }
@@ -41,13 +41,8 @@ a {
     font-size: 1.4rem;
     color: #777;
 }
-.blogo {
-    text-align: right;
-    opacity: 0.6;
-}
 .copy {
     color: #888;
-    text-align: center;
 }
 .copy p:last-of-type {
     font-size: 1.2rem;
@@ -176,7 +171,7 @@ label {
 /* footer */
 footer {
     height: 100px;
-    background-color: #05141f;
+    background: #05141f;
     color: #fff;
     padding: 30px;
 }
@@ -191,16 +186,25 @@ footer>div {
 /* 하단 로고 */
 .blogo {
     width: 200px;
+    text-align: right;
+    opacity: 0.6;
+
 }
 /* 주소 및 저작권 */
 .copy {
     width: 640px;
+    text-align: center;
 }
 /* SNS */
 .sns {
     width: 300px;
+    padding-left: 110px;
 }
 .sns li {
     float: left;
     margin: 0 16px;
+}
+.sns img {
+    width: 26px;
+    height: 26px;
 }
