@@ -16,18 +16,47 @@
         div:hover {
             width: 200px;
         }
-        /* 느린 시작과 끝, 시작 속도가 마지막 속도보다 약간 빠름 */
 
-        /* 느린 시작 */
+        /* 
+            가속도(easing)
 
-        /* 느린 끝 */
+            transition-timing-function: 시간 함수;
+                값: ease, ease-in, ease-out, ease-in-out
+                    linear
+                    cubic-bezier(n,n,n,n)
+                    n은 0~1 사이 숫자
+                https://cubic-bezier.com/#.17,.67,.83,.67
+        */
 
-        /* 느린 시작과 끝, 시작 속도가 마지막 속도보다 약간 느림 */
-
+        /* 느림(약간빠름) - 빠름 - 느림 */
+        .trs1 {
+            transition-timing-function: ease;
+            transition-timing-function: cubic-bezier(.25,.1,.25,1);
+        }
+        /* 느림 - 빠름 -> 출발 동작 */
+        .trs2 {
+            transition-timing-function: ease-in;
+            transition-timing-function: cubic-bezier(.42,0,1,1);
+        }
+        /* 빠름 - 느림 -> 정지 동작 */
+        .trs3 {
+            transition-timing-function: ease-out;
+            transition-timing-function: cubic-bezier(0,0,.58,1);
+        }
+        /* 느림 - 빠름 - 느림(약간빠름) */
+        .trs4 {
+            transition-timing-function: ease-in-out;
+            transition-timing-function: cubic-bezier(.42,0,.58,1);
+        }
         /* 등속 */
-
-        /* cubic-bezier(n,n,n,n) */
-        /* https://cubic-bezier.com/#.17,.67,.83,.67  */
+        .trs5 {
+            transition-timing-function: linear;
+            transition-timing-function: cubic-bezier(0,0,1,1);
+        }
+        /* 음수는 0과 같다, 1보다 큰 값은 1과 같다 */
+        .trs6 {
+            transition-timing-function: cubic-bezier();
+        }
         
     </style>
 </head>

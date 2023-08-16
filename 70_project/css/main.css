@@ -2,16 +2,10 @@
 @import url(reset.css);
 @import url(typo.css);
 
-/* 작업중 */
-body * {
-    outline: 1px solid blue;
-}
-
 /* 레이아웃: 전체 구조 */
 .container {
     width: 960px;
     margin: 0 auto;
-    background-color: lightgreen;
 }
 .counter {
     background-color: #333;
@@ -46,13 +40,22 @@ header {
 #gnb a:hover {
     background-color: #bbb;
 }
+#gnb img {
+    width: 15px;
+    height: 15px;
+    margin-top: 6px;
+    margin-right: 4px;
+}
+.serch {
+    float: right;
+}
 
 /* 섹션1: 패럴렉스 이미지 */
 /* 단위: px, %, em, rem, vw, vh, vmin, vmax */
 #sec1 {
     position: relative;
     height: 100vh;
-    background-image: url(../images/bg1.png);
+    background-image: url(../images/bg1_n.png);
 }
 #sec1 h1 {
     position: absolute;
@@ -60,6 +63,10 @@ header {
     top: 50%;
     margin-left: -73px;
     margin-top: -16px;
+    color: #fff;
+    background-color: #111;
+    padding: 2px 6px;
+
 }
 /* 메인 타이틀 */
 /* 섹션2: 나의 소개 */
@@ -123,3 +130,11 @@ input:nth-of-type(2) {float: right; width: 49%;}
 input:nth-of-type(3) {float: left; display: block; width: 100%; margin-top: 8px;}
 
 /* 푸터 */
+footer {
+    height: 288px;
+    padding-top: 80px;
+}
+.sns img {
+    width: 24px;
+    height: 24px;
+}
