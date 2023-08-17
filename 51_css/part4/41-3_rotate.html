@@ -42,8 +42,17 @@
             /* transform: rotate(숫자deg); */
             transform: rotate(45deg);
         }
+        /* 
+            transform-origin: x위치 y위치; -> 변형 대상 요소의 변형 기준
+            perspective-origin: x위치 y위치; -> 변형 대상의 부모 요소 관점 기준
+            값: %, px, 키워드
+            x위치: left, right, center
+            y위치: top, bottom, center
+        */
+
         .outer .trfro {
-            transform-origin: 0% 0%;
+            /* transform-origin: 0% 0%; */
+            transform-origin: left top;
         }
         .outer:hover .trfro {
             /* transform: rotateX(숫자deg); */
@@ -53,7 +62,8 @@
             background: #000;
             color:red;
             perspective: 200px;
-            perspective-origin: right bottom;
+            perspective-origin: 100% 100%;
+            /* perspective-origin: right bottom; */
         }
 
         .trfo1 {
@@ -80,6 +90,7 @@
         }
         .trfo6 {
             /* width:100px, height:100px; */
+            /* %는 요소의 크기 기준 */
             transform-origin: 20% 30%;
             transform-origin: 20px 30px;
         }

@@ -7,6 +7,10 @@
     <title>HTML+CSS</title>
     <style>
         .wrap {
+            /* 
+                float: left; -> 자식(.outer)
+                display: flex; -> . outer의 부모(.wrap)
+             */
             display: flex;
         }
         .outer {
@@ -14,6 +18,7 @@
             border:1px solid black;
             /* perspective: 1000px; */
         }
+        /* trf는 <span>태그 이다 */
         .trf {
             display:inline-block;
             width:100px;
@@ -34,7 +39,17 @@
             transform: perspective(1000px) translateZ(0px);
         }
         .outer:hover .trftz {
-            /* 원근감(perspective)과 함께 사용해야 한다. */
+            /* 
+                원근감(perspective)과 함께 사용해야 한다.
+                perspective: 값; -> 속성
+                transform: perspective(); -> 값
+                transform: 값1 값2 값3 ...;
+
+                1) 부모에 perspective를 지정함
+                transform: translateZ(z);
+                2) 부모에 perspective를 지정하지 않음
+                transform: perspective() translateZ();
+             */
             /* transform: translateZ(z); */
             transform: perspective(1000px) translateZ(100px);
         }
@@ -46,9 +61,18 @@
             transform: perspective(1000px) translate3d(100px,100px,100px);
         }
         .outer:hover .trft {
-            /* transform: translate(x[, y]); */
-            transform: translate(100px, 100px);
-            /* transform: translate(100px); */
+            /* 
+                이동
+                2D
+                transform: translate(x[,y]);
+                transform: translateX(x);
+                transform: translateY(y);
+                3D
+                transform: translateZ(z);
+                transform: translate3D(x,y,z);
+             */
+            /* transform: translate(100px, 100px); */
+            transform: translate(0,100px);
         }
     </style>
 </head>

@@ -7,6 +7,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            함수(function - 기능)
+            background-image: url();
+
+            transform(변환)
+                1. 이동
+                2. 크기 조절
+                3. 회전
+                4. 기울임
+
+            text-transform: 대소문자 변환;
+
+            transform(변환): 값;
+                단위: px, %
+                trnaslateX(x): 좌우
+                trnaslateY(y): 상하
+                trnaslateZ(z): 깊이(앞뒤)
+                trnaslate3D(x,y,z)
+                perspective(값): 원근감 -> 변형 요소에 직접 지정
+                trnaslate(x[,y]) -> y를 생략하면 x만
+
+                단위 없음 기본값(1)
+                scaleX(x): 가로
+                scaleY(y): 세로
+                scaleZ(z): 깊이
+                scale3D(x,y,z)
+                scale(x[,y]) -> y를 생략하면 x에 비례하여 y값이 적용된다
+
+                단위: deg(각도)
+                rotateX(각도) -> 3D
+                rotateY(각도) -> 3D
+                rotateZ(각도) -> 2D
+                rotate3D(x,y,z,각도)
+                rotate(각도) -> 2D
+
+                단위: deg(각도)
+                skewX(각도)
+                skewY(각도)
+                skew(각도,각도)
+
+            2D 변환: x축, y축
+
+            3D 변환: x축, y축, z축
+            perspective: 1000px; -> 관점, 부모 요소에 지정
+                값: px (%는 사용할 수 없다)
+            perspective-origin: x축 y축; -> 관점 기준
+            transform-origin: x축 y축; -> 변형의 기준
+                값: px % 키워드
+                x축: leftm right center
+                y축: top bottom center
+
+            transform-style
+            backface-visibility
+        */
+
         .outer {
             border: 1px solid black;
             /* perspective는 관점 속성으로 부모 요소에 지정한다. */
@@ -32,26 +87,41 @@
         */
 
         /* .outer에 마우스를 올렸을 때 .trftr의 위치를 가로로 100px 이동되게 하시오. */
-
+        .outer:hover .trftr {
+            transform: translate(100px, 0);
+            transform: translate(100px);
+        }
 
         /* .outer에 마우스를 올렸을 때 .trfsc의 크기를 너비/높이 모두 1.2로 지정하시오. */
-
+        .outer:hover .trfsc {
+            transform: scale(1.2, 1.2);
+            transform: scale(1.2);
+        }
 
         .trfro {
             /* 변환의 기준 */
             transform-origin: 0 0;
         }
         /* .outer에 마우스를 올렸을 때 .trfro를 60도 회전되도록 지정하시오. */
-
+        .outer:hover .trfro {
+            transform: rotate(60deg);
+        }
 
         /* .outer에 마우스를 올렸을 때 .trfrox를 x축 기준으로 60도 회전되도록 지정하시오. */
-
+        .outer:hover .trfrox {
+            transform: rotateX(60deg);
+        }
 
         /* .outer에 마우스를 올렸을 때 .trfroy를 y축 기준으로 90도 회전되도록 지정하시오. */
-
+        .outer:hover .trfroy {
+            transform: rotateY(90deg);
+        }
 
         /* .outer에 마우스를 올렸을 때 .trfsk를 y축 기준으로 10도 기울이시오. */
-
+        .outer:hover .trfsk {
+            transform: skew(0, 10deg);
+            transform: skewY(10deg);
+        }
 
     </style>
 </head>
