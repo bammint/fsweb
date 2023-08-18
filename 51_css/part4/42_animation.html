@@ -19,34 +19,67 @@
             animation-name: 애니메이션 이름;
             animation-duration: 애니메이션 시간(단위: s(초));
             animation-iteration-count: 애니메이션 반복 여부;
+                값: 숫자, infinity
             animation-direction: 애니메이션 방향;
+                값: normal, alternate, reverse
             animation-timing-function: 애니메이션 시간 함수;
+                값: ease, ease-in, ease-out, ease-in-out, linear, cubic-bezier(0,0,0,0)
             animation-delay: 애니메이션 지연 시간(단위: s(초));
+
+            animation-fill-mode
+                값: none
+                    forwards: 100% 상태 유지, 반복 횟수는 1로 지정 -> 구름, 텍스트
+                    backwards: 0% 위치에서 시작
+                    both
+            animation-play-state: 실행 상태;
+                값: running, paused
+
+            (속기형)
+            animation: 이름 시간 [지연 시간] [가속도] [반복 횟수] [방향]
+
+            키프레임, 프레임 -> 애니메이션의 작업 단위
+            @keyframes name {
+                from {시작 CSS}
+                to {끝 CSS}
+            }
+            @keyframes name {
+                0% {시작 CSS}
+                50% {중간 CSS}
+                100% {끝 CSS}
+            }
         */
 
 
         /* .anim에 애니메이션의 이름은 move, 시간은 1초, 무한 반복(infinite), 좌우 왕복(alternate), 등속도(linear), 지연 시간은 2초로 지정하시오. */
+            .anim {
+                /* animation-name: move;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-delay: 2s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate; */
 
+                /* 
+                    애니메이션의 이름 규칙
+                    1. 영문의 대소문자 구별한다
+                    2. 첫 글자는 영문자, -, _로 쓴다
+                    3. 두 번째 글자부터 영문자, _, -, 숫자 사용!
+                */
+
+                animation: move 1s ease 2s infinite alternate;
+            }
 
         
-        /* 
-            애니메이션 코드 형식
-            @keyframe 이름 {
-                from {속성: 값;}
-                to {속성: 값;}
-            }
-            
-            또는 
-            
-            @keyframe 이름 {
-                0% {속성: 값;}
-                100% {속성: 값;}
-            }
-        */
 
         @keyframes move {
-            0% {left:0;}
-            100% {left:200px;}
+            /* 0% {left: 0;}
+            100% {left: 200px;} */
+
+            0% {left: 0;}
+            25% {left: 200px; top: 0;}
+            50% {top: 200px; left: 200px;}
+            75% {left:0px; top: 200px;}
+            100% {top:0px;}
         }
 
     </style>

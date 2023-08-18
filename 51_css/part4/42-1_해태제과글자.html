@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS</title>
+    <style>
+        div {
+            width:390px;
+            /* 
+                전체높이: 5880px
+                프레임수(fr): 35fr
+                따라서 5880 / 35 = 168px
+             */
+            height:168px;
+            background: url(../assets/ht/달콤한\ 세상으로의\ 초대.png) no-repeat;
+            margin:20px;
+            text-indent: -9999em;
+        }
+
+            .anim {
+                /* 전체 프레임 수는 35fr 이고, 마지막 프레임에서 멈춰야 하므로 steps는 35fr - 1 값이다 */
+                animation: move 2.5s steps(34) forwards;
+            }
+
+        @keyframes move {
+            0% {background-position: 0 0;}
+            /* 34step * 168 = -5712px */
+            100% {background-position: 0 -5712px;}
+        }
+
+    </style>
+</head>
+<body>
+    <h1>애니메이션</h1>
+    <div class="anim">달콤한 세상으로의 초대</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS</title>
+    <style>
+        div {
+            width:178px;
+            height:100px;
+            background: url(../assets/ht/bg-main0-0.png) no-repeat;
+            margin:20px;
+            text-indent: -9999em;
+            opacity: 0;
+        }
+
+            /* forwards를 사용할 때는 반복 횟수를 쓰지 않는다 */
+            .anim {
+                animation: move 1s forwards;
+            }
+
+        
+
+        @keyframes move {
+            0% {transform: translate(0); opacity: 0;}
+            100% {transform: translate(100px); opacity: 1;}
+        }
+
+    </style>
+</head>
+<body>
+    <h1>애니메이션</h1>
+    <div class="anim">구름</div>
+</body>
+</html>
