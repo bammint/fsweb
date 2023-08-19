@@ -46,10 +46,10 @@
         /* 헤더 */
         header {
             height: 100px;
-            width: 1920px;
+            width: 1600px;
             position: fixed;
             top: 0;
-            margin: 0 151.5px;
+            /* margin: 0 151.5px; */
             z-index: 99;
             background-color: #fff;
         }
@@ -137,10 +137,9 @@
         }
         #container {
             display: flex;
-            width: 1200px;
-            height: 563px;
+            width: 1600px;
+            height: 560px;
             margin: 0 auto;
-            background: lightblue;
         }
 
         table {
@@ -180,19 +179,65 @@
             padding-top: 200px;
         }
         .menu li {
+            border-bottom: 1px solid black;
+            margin-bottom: 0;
+            padding: 10px 10px 0;
+            width: 130px;
+            height: 40px;
+            text-align: center;
+            /* outline: 1px solid blue; */
+        }
+        .menu .m {
             border: 1px solid black;
+            display: block;
+            background-color: rgb(39, 37, 31);
+            color: #fff;
         }
         .notice {
-            background: lightcyan;
             margin-left: 50px;
             margin-top: 50px;
             width: 920px;
+            height: 500px;
+        }
+        .nsearch {
+            height: 20px;
+            width: 670px;
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .nsearch select {
+            border: none;
+            background: none;
+            height: 25px;
+            border-bottom: 2px solid black;
+        }
+        .nsearch input {
+            width: 200px;
+            height: 25px;
+            border: none;
+            background: none;
+            vertical-align: top;
+        }
+        .searchb {
+            height: 25px;
+            border-bottom: 2px solid black;
+            margin: 0 0 0 5px;
+        }
+        .searchb img {
+            width: 20px;
+            height: 20px;
+        }
+        .searchb button {
+            border: none;
+            background: none;
+            height: 25px;
         }
 
 
         /* 푸터 */
         footer {
-            width: 100%;
+            width: 1600px;
             height: 434px;
             background-color: #f0f0f0;
         }
@@ -336,6 +381,9 @@
         <div id="container">
             <div class="menu">
                 <ul>
+                    <li class="m">
+                        <span>메뉴 바로가기</span>
+                    </li>
                     <li>
                         <a href="#">기업소개</a>
                     </li>
@@ -402,6 +450,18 @@
                 </table>
             </div><!-- //notice -->
         </div><!-- //container -->
+        <div class="nsearch">
+            <select name="list">
+                <option value="">제목</option>
+                <option value="">내용</option>
+                <option value="">제목+내용</option>
+                <option value="">이름</option>
+            </select>
+            <div class="searchb">
+                <input type="text" name="search" placeholder="검색어를 입력해 주세요">
+                <button type="submit"><img src="image/search.svg" alt="검색버튼"></button>
+            </div>
+        </div>
         <footer>
             <ul class="b_menu">
                 <li>manu1
