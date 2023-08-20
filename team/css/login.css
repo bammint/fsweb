@@ -1,0 +1,100 @@
+@charset "utf-8";
+@import url(typo.css);
+@import url(common.css);
+
+
+/* main-index */
+
+
+/* login-로그인 */
+#login {
+    height: 800px;
+    margin-top: 100px;
+    text-align: center;
+    background-color: lightgreen;
+}
+#login h2 {
+    margin-top: 150px;
+    margin-bottom: 30px;
+}
+.l_content {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.l_content>div {
+    margin: 0 80px;
+}
+.l_content legend {
+    margin-bottom: 20px;
+}
+.l_member {
+    width: 410px;
+    height: 284px;
+    background-color: lightgoldenrodyellow;
+}
+.l_member input {
+    width: 410px;
+    height: 50px;
+    margin: 5px 0;
+    background-color: lightgray;
+    border-radius: 25px;
+}
+.l_chk_b {
+    display: flex;
+}
+.l_chk_b input {
+    margin-top: 0;
+    margin-right: 3px;
+    width: 17px;
+    height: 17px;
+}
+.l_chk_b label:nth-of-type(1) {
+    margin-right: 15px;
+}
+.l_button {
+    width: 410px;
+    height: 50px;
+    border-radius: 10px;
+}
+.l_help {
+    display: flex;
+    justify-content: space-around;
+    width: 410px;
+    height: 19px;
+    background-color: lightcyan;
+}
+.l_sns {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightblue;
+    width: 410px;
+    height: 45px;
+}
+.sns_login {
+    display: flex;
+}
+.sns_login img {
+    width: 25px;
+    height: 25px;
+    margin: 5px 15px;
+}
+.non_member {
+    width: 410px;
+    height: 371px;
+    background-color: lightcoral;
+}
+.non_member input {
+    width: 410px;
+    height: 50px;
+    margin: 5px 0;
+    border-radius: 25px;
+}
+.non_member button {
+    width: 410px;
+    height: 50px;
+    border-radius: 10px;
+}
+.l_order_button {
+    margin: 10px 0;
+}

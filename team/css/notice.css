@@ -1,0 +1,117 @@
+@charset "utf-8";
+@import url(typo.css);
+@import url(common.css);
+
+
+/* main-index */
+
+
+/* notice-공지사항 */
+#notice {
+    display: flex;
+    margin-top: 100px;
+    width: 1600px;
+    height: 560px;
+    margin-top: 100px;
+}
+
+.nmenu {
+    margin-left: 150px;
+    padding-top: 200px;
+}
+
+.nmenu li {
+    border-bottom: 1px solid black;
+    margin-bottom: 0;
+    padding: 10px 10px 0;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+}
+
+.nmenu .m {
+    border: 1px solid black;
+    display: block;
+    background-color: rgb(39, 37, 31);
+    color: #fff;
+}
+
+.ntable {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 920px;
+    height: 500px;
+}
+
+.ntable table {
+    border-collapse: collapse;
+    border-top: 1px solid black;
+}
+
+th {
+    padding: 17px;
+}
+
+td {
+    padding: 20px;
+}
+
+tr {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#th1 {
+    width: 140px;
+}
+
+#th2 {
+    width: 580px;
+}
+
+#th3 {
+    width: 200px;
+}
+
+.nsearch {
+    height: 20px;
+    width: 650px;
+    margin-top: 5px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+        
+.nsearch select {
+    border: none;
+    background: none;
+    height: 25px;
+    border-bottom: 2px solid black;
+}
+
+.nsearch input {
+    width: 200px;
+    height: 25px;
+    border: none;
+    background: none;
+    vertical-align: top;
+}
+
+.searchb {
+    height: 25px;
+    border-bottom: 2px solid black;
+    margin: 0 0 0 5px;
+}
+
+.searchb img {
+    width: 20px;
+    height: 20px;
+}
+
+.searchb button {
+    border: none;
+    background: none;
+    height: 25px;
+}
