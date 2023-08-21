@@ -11,7 +11,6 @@
     height: 700px;
     margin-top: 100px;
     text-align: center;
-    background-color: lightgreen;
 }
 fieldset {
     border: none;
@@ -19,7 +18,6 @@ fieldset {
 #login h2 {
     margin-top: 150px;
     margin-bottom: 30px;
-    background-color: lightblue;
     padding-right: 900px;
 }
 /* .l_banner {
@@ -31,7 +29,7 @@ fieldset {
     margin-top: 50px;
 }
 .l_content>div {
-    margin: 0 80px;
+    margin: 0 40px;
 }
 .l_content legend {
     margin-bottom: 20px;
@@ -39,7 +37,6 @@ fieldset {
 .l_member {
     width: 410px;
     height: 284px;
-    background-color: lightgoldenrodyellow;
 }
 .l_member input {
     width: 410px;
@@ -69,33 +66,30 @@ input::placeholder {
     height: 50px;
     margin: 10px 0;
     border-radius: 10px;
+    background-color: #000;
 }
 .l_help {
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: center;
     width: 410px;
     height: 19px;
-    margin: 10px 0;
-    background-color: lightcyan;
-}
-.l_help li {
-    margin-right: 5px;
+    margin: 5px 0;
 }
 .l_help :nth-child(1) ::after {
     content: "|";
-    margin-left: 35px;
+    margin: 0 20px;
 }
 .l_help :nth-of-type(2) ::after {
     content: "|";
-    margin-left: 35px;
+    margin: 0 20px;
+
 }
 .l_sns {
     display: flex;
     justify-content: space-between;
-    background-color: lightblue;
     width: 410px;
     height: 45px;
-    margin: 20px 0;
+    margin: 30px 0 0 0;
 }
 .sns_login {
     display: flex;
@@ -108,7 +102,6 @@ input::placeholder {
 .non_member {
     width: 410px;
     height: 371px;
-    background-color: lightcoral;
 }
 .non_member input {
     width: 410px;
@@ -121,6 +114,8 @@ input::placeholder {
     width: 410px;
     height: 50px;
     border-radius: 10px;
+    background-color: #000;
+
 }
 .l_order_button {
     margin: 10px 0;

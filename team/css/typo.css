@@ -44,6 +44,19 @@ body {
 
 
 /* notice*/
+.nmenu {
+    font-size: 1.6rem;
+}
+.nmenu .m {
+    color: #fff;
+}
+.table h2 {
+    font-size: 3rem;
+}
+tr {
+    font-size: 1.6rem;
+}
+
 
 /* login */
 #login h2 {
@@ -63,9 +76,14 @@ body {
 .l_order_button,
 .l_find_button {
     font-size: 1.6rem;
+    color: #fff;
 }
 
-.l_help {
+.l_help a {
     font-size: 1.2rem;
     color: #8f8f8f;
+}
+.l_sns div {
+    font-size: 14px;
+    color: #333;
 }
