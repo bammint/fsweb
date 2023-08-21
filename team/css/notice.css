@@ -13,6 +13,7 @@
     width: 1600px;
     height: 560px;
     margin-top: 100px;
+    justify-content: center;
 }
 
 .nmenu {
@@ -41,6 +42,10 @@
     margin-top: 50px;
     width: 920px;
     height: 500px;
+}
+
+.ntable h2 {
+    margin-bottom: 10px;
 }
 
 .ntable table {
@@ -77,8 +82,8 @@ tr {
 
 .nsearch {
     height: 20px;
-    width: 650px;
-    margin-top: 5px;
+    width: 1430px;
+    margin-top: 15px;
     margin-bottom: 80px;
     display: flex;
     justify-content: flex-end;

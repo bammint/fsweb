@@ -43,14 +43,29 @@ body {
 
 
 
-/* about */
+/* notice*/
 
-.about_sec1 p {
-    color: #fff;
-    font-size: 32px;
-    text-align: center;
+/* login */
+#login h2 {
+    font-size: 3rem;
 }
 
-.about_sec2  h2 {
-    text-align: center;
+#login legend {
+    font-size: 1.5rem;
+}
+
+.l_chk_b label {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.l_button,
+.l_order_button,
+.l_find_button {
+    font-size: 1.6rem;
+}
+
+.l_help {
+    font-size: 1.2rem;
+    color: #8f8f8f;
 }
