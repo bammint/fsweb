@@ -8,9 +8,10 @@
 
 /* login-로그인 */
 #login {
+    width: 960px;
     height: 700px;
-    margin-top: 100px;
     text-align: center;
+    margin: 0 auto;
 }
 fieldset {
     border: none;
@@ -19,10 +20,9 @@ fieldset {
     margin-top: 150px;
     margin-bottom: 30px;
     padding-right: 900px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000;
 }
-/* .l_banner {
-    text-align: center;
-} */
 .l_content {
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@ fieldset {
 }
 .l_member {
     width: 410px;
-    height: 284px;
+    height: 380px;
 }
 .l_member input {
     width: 410px;
