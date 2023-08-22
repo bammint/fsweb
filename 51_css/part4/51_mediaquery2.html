@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어 쿼리</title>
+    <style>
+        /* 
+            https://mediaqueri.es/
+
+            @import url(파일): -> 외부 파일 가져오기
+            @font-face {} -> 외부 글꼴 연결
+            @keyframes {} -> 애니메이션
+
+            @media [not|only] [mediatype] [and|,] (expressions) {
+                CSS-code;
+            }
+
+            mediatype: all, screen(모니터,폰), tv, projection, print, ...
+            and: 그리고
+            , : 또는
+            expressions: 조건으로 min-width, max-width, orientation, ...
+
+            width: 가로 크기;
+            min-width: 최소 가로 크기;
+            max-width: 최대 가로 크기;
+        */
+
+        /* 브레이크 포인트(break point 중단점): 미디어 쿼리의 영역을 나누는 기준 */
+
+        /* 데스크탑 우선 제작 */
+
+        /* desktop */
+        body {
+            background: blue;
+        }
+        /* tablet: 최대 992px -> 992px 이하인 장치 */
+        @media (max-width:992px) {
+            body {background: green;}
+        }
+        /* phone: 최대 768px -> 768px 이하인 장치 */
+        @media (max-width:768px) {
+            body {background-color: red;}
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>미디어쿼리</h1>
+    <p>뷰포트 설정과 미디어쿼리를 이용한 반응형 웹입니다.</p>
+</body>
+
+</html>

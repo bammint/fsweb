@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+/* desktop: 최소 992px -> 992px 이상인 장치 */
+    body {
+        background: blue;
+    }

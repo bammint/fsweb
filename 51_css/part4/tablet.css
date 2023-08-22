@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+/* tablet: 최소 768px -> 768px 이상인 장치 */
+    body {
+        background: green;
+    }

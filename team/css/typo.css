@@ -46,29 +46,41 @@ body {
 /* notice*/
 .nmenu {
     font-size: 1.6rem;
+    line-height: 160%;
+    font-weight: 400;
 }
 .nmenu .m {
     color: #fff;
 }
 .table h2 {
-    font-size: 3rem;
+    font-size: 2rem;
+    line-height: 160%;
+    font-weight: 400;
 }
 tr {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 160%;
+    font-weight: 400;
 }
 
 
 /* login */
 #login h2 {
-    font-size: 3rem;
+    font-size: 2rem;
+    line-height: 160%;
+    font-weight: 400;
 }
 
 #login legend {
     font-size: 1.5rem;
+    line-height: 160%;
+    font-weight: 400;
 }
 
 .l_chk_b label {
     font-size: 1.2rem;
+    line-height: 160%;
+    font-weight: 400;
     color: #333;
 }
 
@@ -76,14 +88,20 @@ tr {
 .l_order_button,
 .l_find_button {
     font-size: 1.6rem;
+    line-height: 160%;
+    font-weight: 400;
     color: #fff;
 }
 
 .l_help a {
     font-size: 1.2rem;
+    line-height: 160%;
+    font-weight: 400;
     color: #8f8f8f;
 }
 .l_sns div {
     font-size: 14px;
+    line-height: 160%;
+    font-weight: 400;
     color: #333;
 }

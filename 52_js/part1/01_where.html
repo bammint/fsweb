@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+JS</title>
+    <!-- 
+        자바스크립트
+        1. 어디에 기록하나?
+        2. 출력 -> 결과 확인
+        3. 데이터
+        4. 변수
+        5. 연산자: 4-1, 5~10
+        6. 제어문: 21~31
+        7. 함수(function): 41~46
+        8. 객체(object): 51~55-2
+        9. BOM(DOM), jQuery(제이쿼리), react
+
+        자바
+    -->
+    <!-- 
+        Java(자바) - 제임스 고슬링, 썬 -> 오라클
+        https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_(%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4_%ED%94%8C%EB%9E%AB%ED%8F%BC)
+        Javascript(자바스크립트)
+            - 브렌던 아이크, 모질라 재단(넷스케이프 내비게이터 -> 파이어폭스, 브레이브)
+            - 객체 기반 프로그래밍 언어
+            - BCMAScript ~6(애크마 스크립트), 바닐라 스크립트
+        https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8
+        https://www.itworld.co.kr/news/295045
+        https://survey.stackoverflow.co/2022/#technology
+    -->
+
+    <!-- 외부 CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 외부 script -->
+    <!-- 외부 script도 내부 script 처럼 <head>와 <body>에 모두 기록 가능하다 -->
+    <script src="script.js"></script>
+
+    <!-- 내부 스크립트 -->
+    <style>
+        /* <style>태그는 <head>태그 사이에 기록한다 */
+        /* CSS 코드 */
+        body {
+            background: yellow;
+        }
+    </style>
+    <!-- 내부 script -->
+    <script>
+        // <script>태그는 <head>와 <body>에 모두 기록할 수 있다
+        // JS코드 -> 한 줄 주석
+        // 단축키: ctrl+/
+        /* 
+            JS코드 -> 여러 줄 주석
+            단축키: alt+shift+a
+         */
+        document.write('Javascript');
+    </script>
+    <!-- 
+        객체 지향 프로그래밍 언어 - 자바
+            - 클래스, 함수
+        객체(프로토타입) 기반 프로그래밍 언어 - 자바스크립트
+            - 함수
+        리액트의 컴포넌트: 클래스, 함수
+
+        자바스크립트 코드 입력시 주의 사항
+            1. 자바스크립트는 대소문자를 구분한다.
+            2. 문장 끝에 세미콜론(;)을 쓴다.
+            3. 문자열 데이터는 큰따옴표("") 또는 작은 따옴표('')로 묶는다.
+    -->
+</head>
+
+<body>
+    <!-- 인라인 script: HTML의 속성 값으로 표기 -->
+    <h1 onclick="document.write('Hello');">어디에?</h1>
+
+    <script src="script.js"></script>
+    <script>
+        document.write('Hello');
+    </script>
+</body>
+
+</html>
