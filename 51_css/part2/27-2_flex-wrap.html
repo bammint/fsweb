@@ -7,10 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            display: flex;
+                flex-direction
+                flex-wrap: 줄바꿈;
+                    값: nowrap: x
+                        wrap: o
+                        wrap-reverse: 역 줄바꿈
+        */
         .container div {
             width: 100px;
             height: 100px;
             background-color: gray;
+
+            flex-grow: 0; /* 성장 */
+            flex-shrink: 1; /* 수축 */
+            flex-basis: auto; /* 너비의 초기값 */
+
+            flex: 0 1 auto; /* 수축은 되지만 성장은 안함 */
         }
 
         .container {
@@ -19,13 +33,20 @@
         }
 
         /* (1) .flwnw에 줄바꿈 속성을 nowrap으로 지정하시오. */
-
+        .flwnw {
+            flex-wrap: nowrap;
+        }
         
-        /* (2) .flwnw에 줄바꿈 속성을 wrap으로 지정하시오. */
+        /* wrap과 wrap-reverse는 줄 바꿈인데, 부모 요소의 너비가 작을 때 적용된다 */
+        /* (2) .flww에 줄바꿈 속성을 wrap으로 지정하시오. */
+        .flww {
+            flex-wrap: wrap;
+        }
 
-
-        /* (3) .flwnw에 줄바꿈 속성을 wrap-reverse으로 지정하시오. */
-
+        /* (3) .flwwr에 줄바꿈 속성을 wrap-reverse으로 지정하시오. */
+        .flwwr {
+            flex-wrap: wrap-reverse;
+        }
 
     </style>
 </head>

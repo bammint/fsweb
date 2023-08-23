@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            display: flex;
+                flex-direction: 방향;
+                값: row(가로)
+                    column(세로)
+                    row-reverse(가로-역)
+                    column-reverse(세로-역)
+        */
         .container div {
             width: 100px;
             height: 100px;
@@ -15,19 +23,29 @@
 
         .container {
             display: flex;
+            outline: 1px solid red;
+            margin: 10px;
         }
 
         /* (1) .fldr에 방향을 row로 지정하시오. */
-
+        .fldr {
+            flex-direction: row;
+        }
 
         /* (2) .fldc에 방향을 column로 지정하시오. */
-
+        .fldc {
+            flex-direction: column;
+        }
 
         /* (3) .fldrr에 방향을 row-reverse로 지정하시오. */
-
+        .fldrr {
+            flex-direction: row-reverse;
+        }
 
         /* (4) .fldcr에 방향을 column-reverse로 지정하시오. */
-
+        .fldcr {
+            flex-direction: column-reverse;
+        }
 
     </style>
 </head>

@@ -7,6 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+CSS</title>
     <style>
+        /* 
+            display: flex;
+                flex-direction
+                flex-wrap
+                flex-flow
+                jutify-content: 주축 정렬
+                    flex-start
+                    flex-end
+                    center
+                    space-between
+                    space-around
+                    space-evenly
+                align-items: 교차축 정렬
+                    normal(stretch|flex-start)
+                    stretch: 아이템의 크기를 지정 안했을 경우 기본값
+                    flex-start: 아이템의 크기를 지정했을 경우 기본값
+                    flex-end
+                    center
+                    baseline
+        */
+
         .container {
             display: flex;
             border:1px solid orange;
@@ -25,20 +46,30 @@
         }
         /* 플렉스 컨테이너 크기 만큼 늘어남. */
         /* 플렉스 아이템의 height를 지정하면 늘어나지 않고, flex-start로 지정된다. */
-
+        .ais {
+            align-items: stretch;
+        }
 
         
-        /* (1) .ais에 플렉스 아이템을 교차축의 시작에 정렬하기 위해 속성을 지정하시오. */
+        /* (1) .aifs에 플렉스 아이템을 교차축의 시작에 정렬하기 위해 속성을 지정하시오. */
+        .aifs {
+            align-items: flex-start;
+        }
 
+        /* (2) .aife에 플렉스 아이템을 교차축의 끝에 정렬하기 위해 속성을 지정하시오. */
+        .aifs {
+            align-items: flex-end;
+        }
 
-        /* (2) .aifs에 플렉스 아이템을 교차축의 끝에 정렬하기 위해 속성을 지정하시오. */
+        /* (3) .aic에 플렉스 아이템을 교차축의 가운데 정렬하기 위해 속성을 지정하시오. */
+        .aic {
+            align-items: center;
+        }
 
-
-        /* (3) .aife에 플렉스 아이템을 교차축의 가운데 정렬하기 위해 속성을 지정하시오. */
-
-
-        /* (4) .aic에 플렉스 아이템을 텍스트 아래 기준선에 맞춰 정렬하기 위해 속성을 지정하시오. */
-
+        /* (4) .aib에 플렉스 아이템을 텍스트 아래 기준선에 맞춰 정렬하기 위해 속성을 지정하시오. */
+        .aib {
+            align-items: baseline;
+        }
 
 
 
