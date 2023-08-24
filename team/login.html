@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/login.css">
     <title>PANDORA</title>
 </head>
@@ -19,27 +18,32 @@
                 </p>
             </div>
             <!-- //.top_notice -->
-            <div class="header_inner claerfix" id="header_inner">
-                <h1 class="logo">
-                    <a href="#"><img src="assets/images/common/logo_pandora.svg" alt="sec1_img"></a>
-                </h1>
+            <div class="header_inner" id="header_inner">
+                <div class="logo" OnClick="location.href ='#';" style="cursor: pointer;">
+                </div>
                 <nav>
                     <!-- gnb=global navigation bar -->
                     <ul class="gnb">
                         <li>
                             <a href="#">판도라</a>
+                            <ul class="sub_list">
+                                <li><a href="#">submenu</a></li>
+                                <li><a href="#">submenu</a></li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="#">Jewelry
-                                <!-- lnb=local navigation bar -->
-                                <ul class="lnb">
-                                    <li><a href="#">Rings & Bracelets</a></li>
-                                    <li><a href="#">Necklaces & Earrings</a></li>
-                                </ul>
-                            </a>
+                            <a href="#">Jewelry</a>
+                            <ul class="sub_list">
+                                <li><a href="#">submenu</a></li>
+                                <li><a href="#">submenu</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">notice</a>
+                            <ul class="sub_list">
+                                <li><a href="#">submenu</a></li>
+                                <li><a href="#">submenu</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </nav>
@@ -48,12 +52,12 @@
                         <button type="button" class="search_btn" id="searchHeaderBtn">
                             Search button
                         </button>
-                        <input type="text" placeholder="SEARCH" />
+                        <input class="ser_input" type="text" placeholder="SEARCH">
                     </div>
                     <!-- //.search -->
-                    <ul class="gnb_icon claerfix">
+                    <ul class="gnb_icon">
                         <li>
-                            <a href="##">store</a>
+                            <a href="#">store</a>
                         </li>
                         <li>
                             <a href="#">mypage</a>
@@ -67,12 +71,19 @@
             </div>
             <!-- //.header_inner -->
         </header>
+        <!-- //header -->
 
         <!-- login -->
         <div id="login">
             <div class="l_banner">
                 <h2>LOGIN</h2>
-                <a href="#"><img src="assets/images/login/login_banner.png" alt="로그인배너"></a>
+                <div id="slide_container">
+                    <ul class="slide">
+                        <li><a href="#"><img src="assets/images/login/login_banner.png" alt="로그인배너"></a></li>
+                        <li><a href="#"><img src="assets/images/login/디즈니.png" alt="로그인배너"></a></li>
+                        <li><a href="#"><img src="assets/images/login/마블.png" alt="로그인배너"></a></li>
+                    </ul>
+                </div>
             </div>
             <div class="l_content">
                 <div class="l_member">
@@ -205,7 +216,6 @@
             </div> <!-- //.footer_inner -->
         </footer> <!-- footer -->
     </div> <!-- //#wrap -->
-    <script src="./js/header.js"></script>
 </body>
 
 </html>

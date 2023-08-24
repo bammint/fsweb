@@ -44,10 +44,11 @@
         .wrap1 .container div {
             width:100px;
         }
-        /* 플렉스 컨테이너 크기 만큼 늘어남. */
-        /* 플렉스 아이템의 height를 지정하면 늘어나지 않고, flex-start로 지정된다. */
+
+        /* 플렉스 아이템의 height를 지정하지않으면 -> stretch */
+        /* 플렉스 아이템의 height를 지정하면 -> flex-start */
         .ais {
-            align-items: stretch;
+            align-items: normal;
         }
 
         
@@ -57,7 +58,7 @@
         }
 
         /* (2) .aife에 플렉스 아이템을 교차축의 끝에 정렬하기 위해 속성을 지정하시오. */
-        .aifs {
+        .aife {
             align-items: flex-end;
         }
 
@@ -69,6 +70,12 @@
         /* (4) .aib에 플렉스 아이템을 텍스트 아래 기준선에 맞춰 정렬하기 위해 속성을 지정하시오. */
         .aib {
             align-items: baseline;
+        }
+        .wrap1 .aib div {
+            writing-mode: horizontal-tb;
+        }
+        .wrap2 .aib div {
+            writing-mode: vertical-lr;
         }
 
 
@@ -83,6 +90,7 @@
             display: flex;
         }
         .wrap2 .container {
+            /* 주축이 세로, 교차축이 가로 */
             flex-direction: column;
             width:200px;
         }

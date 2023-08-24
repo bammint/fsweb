@@ -8,6 +8,26 @@
   box-sizing: border-box;
 }
 
+/* scroll_bar */
+body::-webkit-scrollbar {
+  width: 12px;
+  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 30%;
+  /* 스크롤바의 길이 */
+  background: #fecad4;
+  /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+/* // scroll_bar */
 ul {
   list-style: none;
 }
@@ -19,27 +39,6 @@ a {
 
 button {
   border: none;
-}
-
-.claerfix {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-/* scroll_bar */
-body::-webkit-scrollbar {
-  width: 12px; /* 스크롤바의 너비 */
-}
-
-body::-webkit-scrollbar-thumb {
-  height: 30%; /* 스크롤바의 길이 */
-  background: #fecad4; /* 스크롤바의 색상 */
-
-  border-radius: 10px;
-}
-body::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
 }
 
 /* header */
@@ -60,28 +59,49 @@ header {
 }
 
 .header_inner {
+  display: flex;
   max-width: 1600px;
   height: 70px;
   margin: 0 auto;
   padding: 0 80px;
-  background: #fff;
+  background-color: white;
 }
-/* 스크롤 내릴 때 .header_inner의 scroll_down 클래스 추가하여 css 적용 */
-.scroll_down {
-  max-width: 1600px;
+
+.header_inner:hover {
+  height: 240px;
+  color: black;
+  background: #fff;
+  width: 100%;
+}
+
+.header_inner:hover .sub_list {
+  display: block;
+}
+
+.gnb li {
+  display: inline-block;
+  width: 100px;
   height: 70px;
-  margin: 0 auto;
-  padding: 0 80px;
-  background-color: #fff;
+}
+
+.gnb li a {
+  color: black;
+}
+
+.sub_list {
+  display: none;
+}
+
+.sub_list li a {
+  color: black;
 }
 
 .logo {
-  float: left;
-  width: 170px;
-  height: 70px;
-  margin: 10px 0;
-  background: url(../assets/images/common/logo_pandora.svg) no-repeat center
-    center;
+  display: flex;
+  width: 120px;
+  height: 50px;
+  margin: 5px 150px 0 20px;
+  background: url(../assets/images/common/logo_pandora.svg) no-repeat center center;
 }
 
 .logo a {
@@ -92,19 +112,30 @@ header {
 }
 
 nav {
-  float: left;
   height: 70px;
-  margin-left: 30px;
+  margin-right: auto;
 }
 
 .gnb {
   display: flex;
+  position: relative;
 }
 
-.gnb > li {
-  margin-right: 32px;
+.gnb>li {
+  margin-right: 20px;
   padding: 0 16px;
   line-height: 70px;
+}
+
+.gnb li a:hover {
+  border-bottom: 1px solid #fecad4;
+  padding-bottom: 4px;
+}
+
+.sub_list li a:hover {
+  opacity: 0.7;
+  border-bottom: none;
+  width: 30px;
 }
 
 .lnb {
@@ -123,41 +154,45 @@ nav {
   width: 240px;
   height: 40px;
   line-height: normal;
-  border: 1px solid #27251f;
+  border: 1px solid #fff;
   border-radius: 2px;
 }
+
 
 .search_btn {
   display: inline-block;
   width: 40px;
   height: 38px;
-  background: url(../assets/images/common/ico_search.svg) no-repeat center
-    center/20px;
+  background: url(../assets/images/common/ico_search.svg) no-repeat center center/20px;
   text-indent: -999rem;
 }
 
-.search input {
+.header_inner .search input {
   height: 30px;
   padding: 1px 2px;
-  color: #f0f0f0;
+  color: black;
   border: none;
-  opacity: 0.5;
   background-color: transparent;
+  outline: none;
 }
 
-.search input::placeholder {
+.header_inner .ser_input::placeholder {
   /* font-weight: lighter; */
   letter-spacing: 2px;
   font-size: 12px;
-  color: white;
+  color: black;
 }
+
 
 /* .gnb_icon {
     display: flex;
 } */
+.gnb_icon {
+  margin-left: 12px;
+  display: flex;
+}
 
 .gnb_icon li {
-  float: left;
   width: 40px;
   height: 38px;
   margin-left: 12px;
@@ -171,21 +206,17 @@ nav {
 }
 
 .gnb_icon li:nth-of-type(1) {
-  background: url(../assets/images/common/ico_store.svg) no-repeat center
-    center/16px;
+  background: url(../assets/images/common/ico_store.svg) no-repeat center center/16px;
 }
 
 .gnb_icon li:nth-of-type(2) {
-  background: url(../assets/images/common/ico_mypage.svg) no-repeat center
-    center/20px;
+  background: url(../assets/images/common/ico_mypage.svg) no-repeat center center/20px;
 }
 
 .gnb_icon li:nth-of-type(3) {
-  background: url(../assets/images/common/ico_cart.svg) no-repeat center
-    center/18px;
+  background: url(../assets/images/common/ico_cart.svg) no-repeat center center/18px;
 }
 
-/* footer */
 footer {
   width: 100%;
   height: 434px;
@@ -193,7 +224,7 @@ footer {
 }
 
 .footer_inner {
-  max-width: 1600px;
+  width: 1600px;
   margin: 0 auto;
   padding: 0 80px;
 }
@@ -204,10 +235,11 @@ footer {
   padding-top: 60px;
 }
 
-.fnb > li {
+.fnb>li {
   width: 360px;
 }
-.fnb > li > ul {
+
+.fnb>li>ul {
   margin-top: 20px;
 }
 
@@ -217,13 +249,10 @@ footer {
 }
 
 .f_info1 {
-  max-width: 1440px;
+  display: flex;
+  width: 1440px;
   height: 64px;
-  margin: 16px 0;
-}
-
-.f_about {
-  float: left;
+  margin: 16px 0 5px;
 }
 
 .f_about li:nth-of-type(2) {
@@ -231,11 +260,11 @@ footer {
 }
 
 .sns {
-  float: right;
+  display: flex;
+  margin-left: auto;
 }
 
 .sns li {
-  float: left;
   width: 50px;
   height: 50px;
 }
@@ -248,44 +277,35 @@ footer {
 }
 
 .sns li:nth-of-type(1) {
-  background: url(../assets/images/common/sns_kakaotalk.png) no-repeat center
-    center/18px;
+  background: url(../assets/images/common/sns_kakaotalk.png) no-repeat center center/18px;
 }
 
 .sns li:nth-of-type(2) {
-  background: url(../assets/images/common/sns_facebook.png) no-repeat center
-    center/10px;
+  background: url(../assets/images/common/sns_facebook.png) no-repeat center center/10px;
 }
 
 .sns li:nth-of-type(3) {
-  background: url(../assets/images/common/sns_youtube.svg) no-repeat center
-    center/18px;
+  background: url(../assets/images/common/sns_youtube.svg) no-repeat center center/18px;
 }
 
 .sns li:nth-of-type(4) {
-  background: url(../assets/images/common/sns_instagram.svg) no-repeat center
-    center/18px;
+  background: url(../assets/images/common/sns_instagram.svg) no-repeat center center/18px;
 }
 
 .sns li:nth-of-type(5) {
-  background: url(../assets/images/common/sns_pinterest.svg) no-repeat center
-    center/18px;
+  background: url(../assets/images/common/sns_pinterest.svg) no-repeat center center/18px;
 }
 
 .f_info2 {
-  max-width: 1440px;
-  margin-top: 2px;
-}
-
-.copyright {
-  float: left;
+  width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .inipay {
-  float: right;
   width: 50px;
   height: 50px;
   text-indent: -9999rem;
-  background: url(../assets/images/common/ico_inipay.png) no-repeat center
-    center/50px;
+  background: url(../assets/images/common/ico_inipay.png) no-repeat center center/50px;
 }
