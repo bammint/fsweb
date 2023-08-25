@@ -14,6 +14,13 @@ body {
     font: 1.6rem 'Pretendard-Regular', sans-serif;
 }
 
+h2 {
+    font-size: 2rem;
+    line-height: 160%;
+    font-weight: 400;
+}
+
+
 /* header */
 .top_notice {
     font-size: 1.2rem;
@@ -52,11 +59,6 @@ body {
 .nmenu .m {
     color: #fff;
 }
-.table h2 {
-    font-size: 2rem;
-    line-height: 160%;
-    font-weight: 400;
-}
 tr {
     font-size: 1.4rem;
     line-height: 160%;
@@ -65,16 +67,13 @@ tr {
 
 
 /* login */
-#login h2 {
-    font-size: 2rem;
-    line-height: 160%;
-    font-weight: 400;
-}
-
 #login legend {
     font-size: 1.5rem;
     line-height: 160%;
     font-weight: 400;
+}
+.ntable th {
+    color: #fff;
 }
 
 .l_chk_b label {
