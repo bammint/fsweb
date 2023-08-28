@@ -18,7 +18,13 @@
 
             변수 선언
             var 변수명;
+            변수명 = 값;
+
+            변수 선언 및 할당
             var 변수명 = 값;
+
+            키워드(예약어): true, false, var, let, const
+            let a; const a;
 
             변수명 작성 규칙
             1. 첫 글자는 영문자(AZ 또는 az), 밑줄(_), 달러 기호($)로 시작한다.
@@ -29,6 +35,17 @@
 
             자바스크립트 예약어: https://www.w3schools.com/js/js_reserved.asp 
         */
+
+        // 여기서 a, b는 변수
+        // 'a', 'b'는 문자열
+        var a;/* a를 변수로 선언한다 */
+        a = 10;/* a에 10을 할당한다 */
+
+        var a = 10; /* a를 변수로 선언하는 동시에 10을 할당한다 (재선언, 재할당)) */
+        var b = 5;
+        a = b;
+        document.write(a);
+        console.log(a);
 
     </script>
 </body>

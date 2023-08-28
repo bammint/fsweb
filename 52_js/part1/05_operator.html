@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+JS</title>
+</head>
+<body>
+    <h1>연산자</h1>
+    <script>
+        /* 
+            연산자
+            1. 산술
+            2. 대입
+            3. 비교
+            4. 논리
+            5. 조건
+        */
+
+        var a = 5;
+        var b = 3;
+        document.write(`
+            <h2>산술 연산자</h2>
+            a + b = ${a + b} <br>
+            a - b = ${a - b} <br>
+            a * b = ${a * b} <br>
+            a / b = ${a / b} <br>
+            a % b = ${a % b} <br>
+            a ** b = ${a ** b} <br>
+        `);
+
+        /* 
+            +문장열 연결 연산
+            숫자 + 숫자 -> 숫자
+            숫자 + 문자열 -> 문자열
+            문자열 + 숫자 -> 문자열
+            문자열 + 문자열 -> 문자열
+
+            예) 5 + '2' -> '52'
+
+            -, *, /, %, **는 숫자만 가능
+        */
+        var c = '2';
+        document.write(`
+            <hr>
+            a + b + c = ${a + b + c} <br>
+            a + c + b = ${a + c + b} <br>
+        `);
+
+        c = b;
+        document.write(`
+            <h2>대입(할당) 연산자</h2>
+            b의 값을 c에 할당 <br>
+            c = b -&gt; ${c}
+        `);
+
+    </script>
+</body>
+</html>

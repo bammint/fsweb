@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url(typo.css);
+@import url(login_notice_typo.css);
 
 /* 전체 공통 */
 * {
@@ -215,6 +215,67 @@ nav {
 .gnb_icon li:nth-of-type(3) {
   background: url(../assets/images/common/ico_cart.svg) no-repeat center center/18px;
 }
+
+/* show login & join */
+.gnb_icon li:nth-of-type(2){
+  position: relative;
+}
+.gnb_icon li:nth-of-type(2):hover .mypage_login{
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 170px;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  text-align: center;
+  transform: translateX(-50%);
+  background: white;
+}
+.mypage_login{
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 170px;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  text-align: center;
+  transform: translateX(-50%);
+  background: white; */
+  display: none;
+}
+.mypage_login p{
+  margin: 4px auto;
+}
+.mypage_login p:nth-of-type(2){
+  font-size: 11px;
+  opacity: .5;
+}
+.mypage_login button{
+  display: block;
+  width: 80%;
+  height: 40px;
+  margin: 4px auto;
+}
+.mypage_login button:nth-of-type(1){
+  border: none;
+  background-color: #fecad4;  
+}
+.mypage_login button:nth-of-type(2){
+  border: 1px solid #777;
+  background-color: white;
+}
+
+.gnb_icon li:nth-of-type(2):hover {
+  border-bottom: 2px solid #fecad4;
+}
+/* //show & login */
+
 
 footer {
   width: 100%;

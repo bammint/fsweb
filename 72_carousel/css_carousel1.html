@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드</title>
+    <style>
+        /* reset.css */
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        /* slide */
+        .slide {
+            width: 300px;
+            overflow: hidden;
+        }
+        ul {
+            position: relative;
+            display: flex;
+            width: 400%;
+            animation: slide 9s infinite;
+        }
+        li {
+            width: 25%;
+            flex: 0 0 auto;
+        }
+
+        @keyframes slide {
+            0% {left: 0;}
+            5% {left: -100%;}
+            33.33% {left: -100%;}
+            38% {left: -200%;}
+            66.66% {left: -200%;}
+            71% {left: -300%;}
+            99.99% {left: -300%;}
+            100% {left: 0px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <ul>
+            <li><img src="image/main_visual01.jpg" alt="슬라이드 이미지1"></li>
+            <li><img src="image/main_visual04.jpg" alt="슬라이드 이미지2"></li>
+            <li><img src="image/main_visual05.jpg" alt="슬라이드 이미지3"></li>
+            <li><img src="image/main_visual01.jpg" alt="슬라이드 이미지1"></li>
+        </ul>
+    </div>
+</body>
+</html>

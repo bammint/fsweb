@@ -16,12 +16,14 @@
 </head>
 
 <body>
-    <ul>
-        <li>목록1</li>
-        <li>목록2</li>
-        <li class="red">목록3</li>
-        <li>목록4</li>
-    </ul>
+    <h1>DOM 접근</h1>
+    <h2>getElement~</h2>
+    <p>getElementById</p>
+    <p id="blue">getElementByClassName</p>
+    <p class="red">getElementByTaganme</p>
+    <h2>query~</h2>
+    <p class="red">querySeletor</p>
+    <p>querySeletorAll</p>
 
     <script>
         /* 
@@ -40,14 +42,57 @@
             - 모든 주석은 주석 노드입니다.
 
             DOM에 접근하기
+            // ., # 사용하지 않는다
             - document.getElementById('아이디명')
-            - document.getElementsByClassName('클래스명')
+            - document.getElementsByClassName('클래스명').item(숫자)
+            - document.getElementsByClassName('클래스명').[숫자]
             - document.getElementsByTagName('태그명')
-            - document.querySeletor('선택자')
-            - document.querySeletorAll('선택자들')
+            여기서 숫자는 0,1,2,3, ....
 
+            // ., # 그외 CSS 선택자 기호를 쓴다
+            - document.querySelector('선택자')
+            - document.querySelectorAll('선택자들')
+
+            객체.메서드();
+            객체.메서드().객체.CSS속성
+
+            형식
             객체.style.속성 = 값;
         */
+
+        // 요소 선택
+        // 객체.메서드();
+        // document.write("텍스트");
+        // 문서.가져오다요소의아이디('blue');
+        // 문서의 아이디가 blue인 요소를 선택한다
+        // 자바스크립트의 문자열은 따옴표(''|"")로 묶는다
+        document.write(document.getElementById('blue'));
+        console.log(document.getElementById('blue'));
+
+        // #blue {color: 'blue'}
+        document.getElementById('blue').style.color = 'blue';
+        // .red {color: 'red'}
+        // document.getElementsByClassName('red')[0].style.color = 'red';
+        document.getElementsByClassName('red').item(0).style.color = 'red';
+        document.getElementsByTagName('p')[3].style.color = 'orange';
+        
+        // 카멜 표기법
+        document.querySelectorAll('#blue')[0].style.border = '1px solid red';
+
+        // 변수
+        var red = document.querySelector('.red')
+
+        red.style.border = '1px solid blue';
+        red.style.fontSize = '20px';
+        red.style.background = 'yellow';
+        /* 
+            <태그 속성='값';>내용</태그>
+            요소.innerText = 값; (태그 인식 X)
+            요소.innerHTML = 값; (태그 인식 O)
+         */
+        red.style.background = 'yellow';
+        red.innerHTML = '<h3>yellow</h3>';
+        red.innerText = '<h3>yellow</h3>';
 
     </script>
 </body>
