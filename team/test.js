@@ -31,6 +31,7 @@ btn2.addEventListener("click", () =>{
 // btn1.addEventListener("click", click);
 // btn2.addEventListener("click", click);
 
+// 
 
 var j =0;
 var k =0;
