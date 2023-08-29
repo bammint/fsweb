@@ -90,7 +90,7 @@ tr {
     display: flex;
     justify-content: flex-end;
 }
-        
+
 .nsearch select {
     border: none;
     background: none;
@@ -123,17 +123,20 @@ tr {
     height: 25px;
     cursor: pointer;
 }
+
 .listn {
     display: flex;
     margin-right: 140px;
 }
-.listn span{
+
+.listn span {
     margin: 0 8px;
     opacity: .5;
     width: 20px;
     text-align: center;
     cursor: pointer;
 }
+
 .hide {
     display: none;
 }
