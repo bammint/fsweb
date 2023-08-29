@@ -78,13 +78,11 @@ fieldset {
     width: 410px;
     height: 50px;
     margin: 5px 0;
+    padding: 0 20px;
     border-radius: 25px;
     border: 1px solid rgb(136, 136, 136);
 }
 
-.l_content input::placeholder {
-    padding: 0 10px;
-}
 
 .line {
     display: inline-block;
@@ -164,6 +162,7 @@ fieldset {
     width: 410px;
     height: 50px;
     margin: 5px 0;
+    padding: 0 20px;
     border-radius: 25px;
     border: 1px solid rgb(136, 136, 136);
 }
