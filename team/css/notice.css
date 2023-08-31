@@ -19,6 +19,7 @@
 .nmenu {
     margin-left: 150px;
     padding-top: 200px;
+    border: 1px solid blue;
 }
 
 .nmenu li {
@@ -85,10 +86,11 @@ tr {
 
 .nsearch {
     height: 20px;
-    width: 1430px;
+    width: 1150px;
     margin-bottom: 100px;
     display: flex;
     justify-content: flex-end;
+    border: 1px solid lightcoral;
 }
 
 .nsearch select {

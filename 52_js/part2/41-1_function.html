@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+JS</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', function(){
+            코드;
+        });
+
+        // 존레식
+        $(document).ready(function(){
+            코드;
+        });
+    </script>
+
+</head>
+
+<body>
+    <!-- 
+        인라인 스크립트
+        <태그 이벤트속성="자바스크립트">
+
+        h1을 클릭하면 값을 실행!
+    -->
+    <!-- h1의 텍스트를 클릭하면 fn()을 호출 -->
+    <h1>함수</h1>
+    <p>여기에 출력을 해보자</p>
+
+
+    <script>
+
+        var txt;
+
+        txt = document.querySelector('p');
+        console.log(txt);
+
+        txt.addEventListener('click', fn);
+
+
+        // 익명 함수는 선언 후 호출
+        var fn = function () {
+            txt.innerHTML = `4<br>`;
+            txt.innerHTML += `5<br>`;
+            txt.innerHTML += `6<br>`;
+        }
+
+        // 선언적 함수는 선언 전/후 호출 가능
+        function fn() {
+            txt.innerHTML = `1<br>`;
+            txt.innerHTML += `2<br>`;
+            txt.innerHTML += `3<br>`;
+        }
+        
+        // txt.addEventListener('click', fn);
+
+    </script>
+
+
+    <!--     변수(variables)
+        - 1개의 데이터를 저장
+        - var 키워드를 이용하여 선언
+        - 문자형, 숫자형, 논리형 데이터 보관
+
+    변수?
+        - 하나의 값을 저장
+        - 변수를 선언 후
+        - 변수에 값을 할당
+
+    함수(function, 기능)
+        - 코드를 저장하고 데이터를 반환
+        - function 키워드를 이용하여 선언
+        - 함수는 처음에는 동작 안한다
+
+    자바스크립트는 대소문자 구별한다
+
+    함수 호출
+    함수명();
+
+    함수 선언
+    function 함수명() {
+        코드;
+    }
+
+    함수 호출
+        - 함수를 불러야만 동작한다
+
+    일반 함수
+        function 함수명() {
+            코드;
+        }
+
+    익명 함수(함수명이 없는 함수) 정의
+        var 참조변수 = function() {
+            코드;
+        }
+
+    함수 호출
+        함수명();
+        또는
+        참조변수();
+
+
+    호이스팅(hoisting)?
+        - 자바스크립트 해석기가 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것
+
+    일반 함수의 경우 함수 정의 전에 함수 호출문이 있어도 호이스팅(hoisting) 방식이 적용되어 실행되지만 익명 함수는 적용되지 않는다.
+-->
+
+    <!--     1부터 5까지 화면 출력하시오
+    1,2,3,4,5
+
+    1
+    2
+    3
+    4
+    5
+-->
+    <!-- document.write(표현식, 표현식, ...); -->
+    <!-- 변수, 함수(재사용!, 이벤트), 제어문(반복문) -->
+
+</body>
+
+
+</html>

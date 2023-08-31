@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>케러셀 - bxSlider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css">
+    <style>
+        body {
+            margin: 0;
+        }
+        .sliderWrap {
+            /* 이미지 하나가 344px */
+            width: 1044px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+
+        /* reset */
+        .bx-wrapper {
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+
+        .bx-wrapper .bx-pager {
+            bottom: 32px;
+        }
+        .bx-wrapper .bx-pager.bx-default-pager a:active, .bx-wrapper .bx-pager.bx-default-pager a:focus {
+            background: red;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a {
+            background: #666;
+            text-indent: -9999px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            outline: 0;
+            border-radius: 5px;
+        }
+
+        /* 
+            미디어<img>, <video>의 크기
+            object-fit: cover, contain
+            object-position: x위치 y위치;
+
+            배경 이미지:
+            background-size: cover, contain;
+            background-position: x위치 y위치
+        */
+    </style>
+</head>
+
+<body>
+    <div id="section">
+        <div class="sliderWrap">
+            <div class="bxslider">
+                <!-- alt는 웹 접근성으로 반드시 기록한다 -->
+                <div>
+                    <img src="./image/762676C01.png" alt="이미지1">
+                    <p>투톤 셀레셜 트리플 댕글 참</p>
+                    <p>&#x20a9;138,000</p>
+                    <a href="#">제품보기</a>
+                </div>
+                <div><img src="./image/791691C02.png" alt="이미지2"></div>
+                <div><img src="./image/792680C01.png" alt="이미지3"></div>
+                <div><img src="./image/792681C01.png" alt="이미지4"></div>
+                <div><img src="./image/792687C01.png" alt="이미지5"></div>
+                <div><img src="./image/792694C01.png" alt="이미지6"></div>
+                <div><img src="./image/792695C01.png" alt="이미지7"></div>
+                <div><img src="./image/792698C01.png" alt="이미지8"></div>
+                <div><img src="./image/792703C01.png" alt="이미지9"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 제이쿼리? 자바스크립트 라이브러리 CDN 언어이다 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- bx슬라이더 라이브러리 CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <script>
+        // {}: 객체(object)
+        // 객체.메서드();
+        // 자스 데이터: 숫자, 문자열, 불리언, 객체{}, ...
+        // 객체 정의
+        /* 
+            객체
+            {
+                속성: 값,
+                속성: 값,
+                속성: 값,
+                ....
+            }
+        */
+        // 요소,메서드();
+        // $(jq선택자).bxSlider({});
+        $('.bxslider').bxSlider({
+            // auto: true,
+            // autoControls: true,
+            // stopAutoOnClick: true,
+            // pager: true,
+            slideWidth: 348,
+            minSlides: 3,
+            maxSlides: 3,
+            moveSlides: 3
+        });
+    </script>
+</body>
+
+</html>

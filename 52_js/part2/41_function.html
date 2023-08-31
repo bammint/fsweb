@@ -6,6 +6,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+JS</title>
+
+    <script>
+        // 돔(HTML)을 읽기 전에 script를 실행시킨다
+
+        window.addEventListener('DOMContentLoaded', loadFn);
+
+        /* 
+            형식:
+            요소.addEventListener('이벤트', 함수);
+
+            window.addEventListener('DOMContentLoaded', loadFn);
+            창.추가이벤트듣고있는자('돔내용불러오기', 함수);
+            창이 돔(HTML태그구조)의 내용을 불러왔는지 듣고 있다가 추가 이벤트가 완료되면 함수를 실행!
+
+            이벤트: click, load, DOMContentLoaded
+        */
+
+        var txt;
+
+                // 익명 함수
+        // 익명 함수가 우선적으로 호출된다
+        var fn = function () {
+            // write(); 는 화면 정보를 지우고 실행
+            txt.innerHTML = `4<br>`;
+            txt.innerHTML += `5<br>`;
+            txt.innerHTML += `6<br>`;
+        }
+
+        // 선언적 함수
+        function fn() {
+            // write(); 는 화면 정보를 지우고 실행
+            txt.innerHTML = `1<br>`;
+            txt.innerHTML += `2<br>`;
+            txt.innerHTML += `3<br>`;
+        }
+
+        // 선언적 함수
+        function loadFn() {
+
+
+
+            // fn()이 호출되면 중괄호 안의 코드가 실행된다
+            /* 
+                선언적 함수 -> 이름이 있는 함수
+                function 함수(매개변수, ...) {
+                    코드();
+                }
+    
+                익명 함수 -> 이름이 없는 함수
+                var 변수 = function () {코드;}
+    
+                ********** 화살표 함수 ******************
+                var 변수 = (매개변수, ...) => {코드; 코드;}
+    
+                1) 매개변수 1개이면 () 생략
+                var 변수 = 매개변수 => {코드; 코드;}
+                2) 코드가 한 문장이면 {} 생략
+                var 변수 = (매개변수, ...) => 코드;
+                3) 매개변수가 없으면
+                var 변수 = () => 코드;
+                *****************************************
+    
+                함수 호출
+                함수();
+            */
+            txt = document.querySelector('p')
+            txt.style.color = 'red';
+            txt.addEventListener('click', fn);
+
+        } // loadfn()
+
+
+    </script>
 </head>
 
 <body>
@@ -15,84 +88,79 @@
 
         h1을 클릭하면 값을 실행!
     -->
-    <h1 onclick="fn();">함수</h1>
+    <!-- h1의 텍스트를 클릭하면 fn()을 호출 -->
+    <h1>함수</h1>
+    <p>여기에 출력을 해보자</p>
+
+
     <script>
-        /* 
-            변수(variables)
-                - 1개의 데이터를 저장
-                - var 키워드를 이용하여 선언
-                - 문자형, 숫자형, 논리형 데이터 보관
-
-            변수?
-                - 하나의 값을 저장
-                - 변수를 선언 후
-                - 변수에 값을 할당
-
-            함수(function, 기능)
-                - 코드를 저장하고 데이터를 반환
-                - function 키워드를 이용하여 선언
-                - 함수는 처음에는 동작 안한다
-
-            자바스크립트는 대소문자 구별한다
-
-            함수 호출
-            함수명();
-
-            함수 선언
-            function 함수명() {
-                코드;
-            }
-
-            함수 호출
-                - 함수를 불러야만 동작한다
-
-            일반 함수
-                function 함수명() {
-                    코드;
-                }
-
-            익명 함수(함수명이 없는 함수) 정의
-                var 참조변수 = function() {
-                    코드;
-                }
-
-            함수 호출
-                함수명();
-                또는
-                참조변수();
+        // 돔의 내용을 모두 읽고 스크립트를 실행한다
+    </script>
 
 
-            호이스팅(hoisting)?
-                - 자바스크립트 해석기가 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것
+    <!--     변수(variables)
+        - 1개의 데이터를 저장
+        - var 키워드를 이용하여 선언
+        - 문자형, 숫자형, 논리형 데이터 보관
 
-            일반 함수의 경우 함수 정의 전에 함수 호출문이 있어도 호이스팅(hoisting) 방식이 적용되어 실행되지만 익명 함수는 적용되지 않는다.
-        */
+    변수?
+        - 하나의 값을 저장
+        - 변수를 선언 후
+        - 변수에 값을 할당
 
-        /* 
-            1부터 5까지 화면 출력하시오
-            1,2,3,4,5
+    함수(function, 기능)
+        - 코드를 저장하고 데이터를 반환
+        - function 키워드를 이용하여 선언
+        - 함수는 처음에는 동작 안한다
 
-            1
-            2
-            3
-            4
-            5
-        */
+    자바스크립트는 대소문자 구별한다
 
-        // document.write(표현식, 표현식, ...);
-        // 변수, 함수(재사용!, 이벤트), 제어문(반복문)
+    함수 호출
+    함수명();
 
-        function fn() {
-            // write(); 는 화면 정보를 지우고 실행
-            document.write(1,'<br>');
-            document.write(2,'<br>');
-            document.write(3,'<br>');
-            document.write(4,'<br>');
-            document.write(5);
+    함수 선언
+    function 함수명() {
+        코드;
+    }
+
+    함수 호출
+        - 함수를 불러야만 동작한다
+
+    일반 함수
+        function 함수명() {
+            코드;
         }
 
+    익명 함수(함수명이 없는 함수) 정의
+        var 참조변수 = function() {
+            코드;
+        }
 
-    </script>
+    함수 호출
+        함수명();
+        또는
+        참조변수();
+
+
+    호이스팅(hoisting)?
+        - 자바스크립트 해석기가 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것
+
+    일반 함수의 경우 함수 정의 전에 함수 호출문이 있어도 호이스팅(hoisting) 방식이 적용되어 실행되지만 익명 함수는 적용되지 않는다.
+-->
+
+    <!--     1부터 5까지 화면 출력하시오
+    1,2,3,4,5
+
+    1
+    2
+    3
+    4
+    5
+-->
+    <!-- document.write(표현식, 표현식, ...); -->
+    <!-- 변수, 함수(재사용!, 이벤트), 제어문(반복문) -->
+
 </body>
+
 
 </html>

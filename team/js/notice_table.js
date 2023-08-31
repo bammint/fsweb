@@ -43,4 +43,5 @@ function iconClick(){
 
 console.log(myPage.classList);
 
-icon.addEventListener("click", iconClick);
+icon.addEventListener("mouseover", iconClick);
+icon.addEventListener("mouseout", iconClick);
