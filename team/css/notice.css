@@ -7,41 +7,33 @@
 
 
 /* notice-공지사항 */
+html {
+    scroll-behavior: smooth;
+}
 #notice {
     display: flex;
-    margin-top: 100px;
+    margin-top: 120px;
     width: 1600px;
-    height: 550px;
-    margin-top: 100px;
-    justify-content: center;
-}
-
-.nmenu {
-    margin-left: 150px;
-    padding-top: 200px;
-    border: 1px solid blue;
-}
-
-.nmenu li {
-    border-bottom: 1px solid black;
-    margin-bottom: 0;
-    padding: 10px 10px 0;
-    width: 130px;
-    height: 40px;
+    /* height: 550px; */
+    justify-content: space-evenly;
+    outline: 1px solid lightcoral;
+    /* position: relative;
+    top: 50%;
+    left: 10%; */
     text-align: center;
 }
 
-.nmenu .m {
-    border: 1px solid black;
-    display: block;
-    background-color: rgb(39, 37, 31);
+.n_slide {
+    outline: 1px solid lightgreen;
+    
 }
 
 .ntable {
-    margin-left: 50px;
-    margin-top: 50px;
+    margin-left: 100px;
+    margin-top: 100px;
     width: 920px;
     height: 450px;
+    outline: 1px solid lightblue;
 }
 
 .ntable h2 {
@@ -138,6 +130,28 @@ tr {
     text-align: center;
     cursor: pointer;
 }
+
+.nmenu {
+    margin-left: 150px;
+    padding-top: 200px;
+    border: 1px solid blue;
+}
+
+.nmenu li {
+    border-bottom: 1px solid black;
+    margin-bottom: 0;
+    padding: 10px 10px 0;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+}
+
+.nmenu .m {
+    border: 1px solid black;
+    display: block;
+    background-color: rgb(39, 37, 31);
+}
+
 
 .hide {
     display: none;

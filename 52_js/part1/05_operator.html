@@ -47,6 +47,16 @@
             a + c + b = ${a + c + b} <br>
         `);
 
+        // 산술, 단항: ++, --
+        // a = 5, b = 3
+        document.write(`
+            <h2>++, --</h2>
+            ++는 1씩 증가<br>
+            --는 1씩 감소<br>
+            a = b++;일때 ${a = b++}, b는 ${b}<br>
+            a = ++b;일때 ${a = ++b}, b는 ${b}
+        `)
+
         // 표현식? 값이 출력되는 문장
         document.write(`
             <h2>typeof</h2>
@@ -78,6 +88,22 @@
             c **= b, c는 ${c **= b}
         `);
 
+        document.write(`
+            <h2>대입(비교) 연산자</h2>
+            비교 연산의 결과는 true 아니면 false이다<br>
+            a = ${a}, b = ${b = '5'}<br>
+            a > b는 ${a > b}<br>
+            a < b는 ${a < b}<br>
+            a >= b는 ${a >= b}<br>
+            a <= b는 ${a <= b}<hr>
+
+            a == b는 ${a == b}<br>
+            a != b는 ${a != b}<br>
+
+            ===과 !==은 데이터의 유형을 구분한다<br>
+            a === b는 ${a === b}<br>
+            a !== b는 ${a !== b}<br>
+        `)
     </script>
 </body>
 </html>

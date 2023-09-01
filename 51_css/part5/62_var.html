@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS</title>
+    <style>
+        /* :root는 HTML */
+        /* 
+            변수 정의
+            :root {
+                --변수명: 값;
+            }
+            변수 사용
+            선택자 {
+                속성: var(변수명);
+            }
+        */
+        :root {
+            --redc: red;
+            --bluec: blue;
+            --fz24: 24px;
+            --fz15: 15px;
+        }
+
+        h1 {color: var(--redc); font-size: var(--fz24);}
+        p:nth-of-type(1) {color: var(--bluec);}
+        p:nth-of-type(2) {font-size: var(--fz15);}
+    </style>
+</head>
+<body>
+    <h1>변수</h1>
+    <p>변수를 선언한다.</p>
+    <p>변수를 적용한다.</p>
+</body>
+</html>

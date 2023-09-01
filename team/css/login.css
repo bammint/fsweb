@@ -6,6 +6,9 @@
 
 
 /* login-로그인 */
+html {
+    scroll-behavior: smooth;
+}
 #login {
     width: 960px;
     height: 1000px;

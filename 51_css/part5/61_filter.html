@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS</title>
+    <style>
+        img {width: 300px;}
+        /* 밝기: 기본값 100%, 0% 검은색, 100% 초과는 밝게 */
+        .f1 {filter: brightness(200%);}
+        /* 대비: 기본값 100%, 0% 검은색, 100% 초과는 대비차를 크게 */
+        .f2 {filter: contrast(200%);}
+        /* 회색조: 기본값 0%, 100% 회색, 음수는 지정할 수 없다. */
+        .f3:hover {filter: grayscale(100%);}
+        /* 반전: 기본값 0%, 100% 반전, 음수는 지정할 수 없다. */
+        .f4 {filter: invert(100%);}
+        /* 불투명도: 기본값 100%, 0% 투명, 음수는 지정할 수 없다. */
+        .f5 {
+            /* opacity: 0(투명) ~ 1(기본값, 불투명); */
+            filter: opacity(30%);
+        }
+        /* 세피아: 기본값 0%, 100% 세피아, 음수는 지정할 수 없다. */
+        .f6 {filter: sepia(100%);}
+        /* 채도: 기본값 100%, 0% 채도 없음, 음수는 지정할 수 없다. */
+        .f7 {filter: saturate(0%);}
+        /* 흐림: 기본값 0px, 음수는 지정할 수 없다. */
+        .f8 {
+            /* box-shadow: 0 0 30px 0 transparent; */
+            filter: blur(5px);
+        }
+        /* 색상 회전: 기본값 0deg, 최대값은 360deg */
+        .f9 {filter: hue-rotate(180deg);}
+        /* 그림자: h위치 v위치 흐림 색 */
+        .f10 {
+            /* box-shadow: 0 0 30px 0 transparent; */
+            filter: drop-shadow(8px 8px 10px gray);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>필터</h1>
+    <h2>brightness(200%)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f1">
+    <h2>contrast(200%)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f2">
+    <h2>grayscale(100%)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f3">
+    <h2>invert(100%)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f4">
+    <h2>opacity(30%)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f5">
+    <h2>sepia(100%)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f6">
+    <h2>saturate(7)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f7">
+    <h2>blur(5px)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f8">
+    <h2>hue-rotate(90deg)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f9">
+    <h2>drop-shadow(8px 8px 10px gray)</h2>
+    <img src="../assets/images/italy3.jpg" alt="테스트" class="f10">
+</body>
+
+</html>

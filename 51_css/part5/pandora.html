@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pandora</title>
+    <style>
+        /* reset.css */
+        p {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* section */
+        /* bg */
+        .blur {
+            position: relative;
+            width: 1600px;
+            height: 792px;
+            margin: 0 auto;
+            background: url(../assets/82_Bg_20230809151825.jpg);
+            animation: blur .3s;
+        }
+
+        @keyframes blur {
+            0% { filter: blur(0px); }
+            100% { filter: blur(5px); }
+        }
+
+        /* txt & btn */
+        .txt {
+            position: absolute;
+            bottom: 130px;
+            right: 920px;
+        }
+
+        .txt p {
+            font-size: 86px;
+            letter-spacing: -1px;
+            margin-bottom: 32px;
+            opacity:0;
+            transform: translateX(30px);
+            animation: txt .5s 1s forwards;
+        }
+
+        @keyframes txt {
+            0% {transform: translateX(30px); opacity:0;}
+            100% {transform: translateX(0); opacity:1;}
+        }
+
+        .txt a {
+            display: block;
+            width: 130px;
+            line-height: 45px;
+            text-align: center;
+            background: #ffcad4;
+            color: #333;
+            font-size: 13px;
+            transform: translateX(30px); 
+            opacity:0;
+            animation: txt .5s 1.5s forwards;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <div class="blur">
+            <!-- <img src="images/82_Bg_20230809151825.jpg" alt="blur"> -->
+            <div class="txt">
+                <p>SEEK THE SUN</p>
+                <a href="#">바로가기</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
