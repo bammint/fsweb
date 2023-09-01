@@ -10,79 +10,59 @@
 html {
     scroll-behavior: smooth;
 }
+
 #notice {
     display: flex;
-    margin-top: 120px;
-    width: 1600px;
-    /* height: 550px; */
-    justify-content: space-evenly;
-    outline: 1px solid lightcoral;
-    /* position: relative;
-    top: 50%;
-    left: 10%; */
-    text-align: center;
+    justify-content: space-between;
+    margin-top: 196px;
+    margin-bottom: 220px;
+    margin-left: 220px;
+    margin-right: 220px;
+    position: relative;
 }
 
-.n_slide {
-    outline: 1px solid lightgreen;
-    
+.nmenu .m {
+    display: block;
+    background-color: #27251F;
+    padding-left: 20px;
+}
+.nmenu li {
+    border-top: 1px solid #ededed;
+    margin-bottom: 0;
+    width: 220px;
+    height: 30px;
+}
+.nmenu a {
+    display: block;
+    padding-left: 20px;
+}
+.nmenu a:hover {
+    text-decoration: underline;
 }
 
+/* 테이블 */
 .ntable {
-    margin-left: 100px;
-    margin-top: 100px;
     width: 920px;
     height: 450px;
-    outline: 1px solid lightblue;
+}
+
+.ntable>div {
+    display: flex;
+    justify-content: space-between;
 }
 
 .ntable h2 {
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, .5);
+    padding-bottom: 1.5rem;
 }
 
-.ntable table {
-    border-collapse: collapse;
-    border-top: 1px solid black;
-}
-
-.ntable th {
-    padding: 17px;
-    background: #000;
-    border: none;
-}
-
-td {
-    padding: 20px;
-}
-
-tr {
-    border: none;
-    border-bottom: 1px solid black;
-    padding: 20px 0;
-    text-align: center;
-}
-
-#th1 {
-    width: 140px;
-}
-
-#th2 {
-    width: 580px;
-}
-
-#th3 {
-    width: 200px;
-}
-
+/* 검색창 */
 .nsearch {
     height: 20px;
-    width: 1150px;
-    margin-bottom: 100px;
+    /* width: 1400px;
+    margin-bottom: 100px; */
+    /* margin-left: 300px; */
     display: flex;
-    justify-content: flex-end;
-    border: 1px solid lightcoral;
+    /* justify-content: flex-end; */
 }
 
 .nsearch select {
@@ -118,9 +98,55 @@ tr {
     cursor: pointer;
 }
 
-.listn {
-    display: flex;
-    margin-right: 140px;
+.ntable table {
+    border-collapse: collapse;
+}
+.t1,.t2,th,td {
+    border-left: 0;
+    border-right: 0;
+}
+.ntable th {
+    padding: 17px 0;
+    display: table-cell;
+    border-top-color: #333333;
+    border-bottom-color: #333333;
+}
+
+.ntable td {
+    height: 21px;
+    padding: 20px 0;
+}
+
+.ntable tr {
+    padding: 20px 0;
+    border: none;
+    border-bottom-color: #c4c4c4;
+}
+
+.ntable span {
+    display: inline-block;
+}
+
+.t_num {
+    width: 140px;
+    text-align: center;
+}
+
+.t_tit {
+    width: 580px;
+}
+
+.t_date {
+    width: 200px;
+    text-align: center;
+}
+
+#notice .listn {
+    justify-content: center;
+    /* margin-top: 16px; */
+    position: absolute;
+    bottom: 0;
+    right: 50%;
 }
 
 .listn span {
@@ -131,27 +157,59 @@ tr {
     cursor: pointer;
 }
 
-.nmenu {
-    margin-left: 150px;
-    padding-top: 200px;
-    border: 1px solid blue;
-}
-
-.nmenu li {
-    border-bottom: 1px solid black;
-    margin-bottom: 0;
-    padding: 10px 10px 0;
-    width: 130px;
-    height: 40px;
-    text-align: center;
-}
-
-.nmenu .m {
-    border: 1px solid black;
+/* slide */
+.n_slide {
     display: block;
-    background-color: rgb(39, 37, 31);
+    margin: auto 0;
+    width: 243px;
+    overflow: hidden;
 }
 
+.n_slide ul {
+    position: relative;
+    display: flex;
+    width: 400%;
+    animation: slide 9s infinite;
+}
+
+.n_slide li {
+    width: 25%;
+    flex: 0 0 auto;
+}
+
+@keyframes slide {
+    0% {
+        left: 0;
+    }
+
+    5% {
+        left: -100%;
+    }
+
+    33.33% {
+        left: -100%;
+    }
+
+    38% {
+        left: -200%;
+    }
+
+    66.66% {
+        left: -200%;
+    }
+
+    71% {
+        left: -300%;
+    }
+
+    99.99% {
+        left: -300%;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
 
 .hide {
     display: none;

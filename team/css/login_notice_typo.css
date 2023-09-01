@@ -51,18 +51,25 @@ h2 {
 
 
 /* notice*/
+.ntable h2 {
+    font-size: 2rem;
+    line-height: 3rem;
+}
+.ntable th {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    font-weight: normal;
+}
+.ntable tr {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+}
 .nmenu {
-    font-size: 1.6rem;
-    line-height: 160%;
-    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 3rem;
 }
 .nmenu .m {
     color: #fff;
-}
-tr {
-    font-size: 1.4rem;
-    line-height: 160%;
-    font-weight: 400;
 }
 
 
@@ -71,9 +78,6 @@ tr {
     font-size: 1.5rem;
     line-height: 160%;
     font-weight: 400;
-}
-.ntable th {
-    color: #fff;
 }
 
 .l_chk_b label {
