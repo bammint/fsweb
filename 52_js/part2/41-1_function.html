@@ -6,122 +6,142 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+JS</title>
-    <script>
-        window.addEventListener('DOMContentLoaded', function(){
-            코드;
-        });
-
-        // 존레식
-        $(document).ready(function(){
-            코드;
-        });
-    </script>
 
 </head>
 
 <body>
-    <!-- 
-        인라인 스크립트
-        <태그 이벤트속성="자바스크립트">
-
-        h1을 클릭하면 값을 실행!
-    -->
-    <!-- h1의 텍스트를 클릭하면 fn()을 호출 -->
     <h1>함수</h1>
-    <p>여기에 출력을 해보자</p>
-
+    <p>함수1 출력</p>
+    <p>함수2 출력</p>
+    <p>함수3 출력</p>
+    <p>함수4 출력</p>
+    <p>함수5 출력</p>
+    <p>함수6 출력</p>
+    <p>함수6의 리턴값</p>
 
     <script>
+        /* 
+            1. 매개변수(매개값)
+            2. 리턴(return) - 값을 되돌려 주거나, 함수 종료
+            3. 스코프(scope, 영역) - 변수, 함수
 
-        var txt;
+            문(statement)
+                1. 표현식(expression): 결과 값이 있는 문장;
+                2. 함수문, 제어문(if, for) - 결과 값이 없는 문장;
 
-        txt = document.querySelector('p');
-        console.log(txt);
+            함수정의
+            
+            선언적 함수: 이름 있는 함수, 호이스팅(hoisting)
+            function 함수명([parameter],[매개변수],[....]) {
+                코드;
+                return [표현식];
+            }
 
-        txt.addEventListener('click', fn);
+            익명 함수: 이름 없는 함수
+            var 참조변수 = function() {
+                코드;
+            }
 
+            익명 함수는 화살표 함수로 변경 가능!
+            화살표 함수
+            var 참조변수 = () => {
+            코드;
+            }
 
-        // 익명 함수는 선언 후 호출
-        var fn = function () {
-            txt.innerHTML = `4<br>`;
-            txt.innerHTML += `5<br>`;
-            txt.innerHTML += `6<br>`;
+            함수호출
+            함수([매개값]); 또는 참조 변수();
+        */
+
+        // 요소 선택
+        const pTags = document.querySelectorAll('p');
+
+        // 익명 함수
+        const fn1 = function (para1, para2, para3) {
+            // HTML 내용 변경
+            // innerHTML의 경우 줄바꿈 하려면 <br> 사용
+            // innerText의 경우 Enter키 사용한 만큼 줄바꿈 된다
+            pTags[0].innerHTML = `
+                fn1의 결과:<br>
+                para1+para2 = ${para1+para2}<br>
+                para2+para3 = ${para2+para3}
+            `;
+            // CSS 속성 변경
+            pTags[0].style.color = 'orange';
         }
 
-        // 선언적 함수는 선언 전/후 호출 가능
-        function fn() {
-            txt.innerHTML = `1<br>`;
-            txt.innerHTML += `2<br>`;
-            txt.innerHTML += `3<br>`;
+        // 익명 함수는 화살표 함수로 변경 가능
+        // 화살표 함수
+        var fn2 = (para1, para2, para3) => {
+            // HTML 내용 변경
+            pTags[1].innerText = `
+                fn2의 결과:
+                para1+para2 = ${para1+para2}
+                para2+para3 = ${para2+para3}
+            `;
+            // CSS 속성 변경
+            pTags[1].style.color = 'orange';
         }
-        
-        // txt.addEventListener('click', fn);
+
+        // 매개변수가 1개일 경우 () 생략
+        var fn3 = para1 => {
+            // HTML 내용 변경
+            pTags[2].innerText = `
+                fn3의 결과:
+                para1 = ${para1}
+                para1+para1 = ${para1+para1}
+            `;
+            // 함수 종료
+            return;
+
+            // CSS 속성 변경
+            pTags[2].style.color = 'red';
+        }
+
+        // 명령문이 1개일 경우 {} 생략
+        var fn4 = para1 =>
+            // HTML 내용 변경
+            pTags[3].innerText = `
+                fn4의 결과:
+                para1 = ${para1}
+                para1+para1 = ${para1+para1}
+            `;
+
+        // 매개변수가 없으면 () 생략 불가
+        var fn5 = () => 
+            // HTML 내용 변경
+            pTags[4].innerText = `
+                fn5의 결과:
+                10
+            `;
+
+        // 선언적 함수
+        function fn6 (a, b, c) {
+            // HTML 내용 변경
+            pTags[5].innerText = `
+                fn6의 결과:
+                para1 = ${a}
+                para1+para1 = ${a+a}
+            `;
+            return a - b - c;
+        }
+
+        // 익명 함수
+        fn1(10, 20, 30);
+
+        // 화살표 함수
+        fn2(10, 20, 30);
+        fn3(10);
+        fn4(10);
+        fn5();
+
+        // 선언적 함수
+        var refVar = fn6(10, 20, 30);
+        pTags[6].innerText = `
+            f6의 리턴값:
+            refVar = ${refVar}
+        `;
 
     </script>
-
-
-    <!--     변수(variables)
-        - 1개의 데이터를 저장
-        - var 키워드를 이용하여 선언
-        - 문자형, 숫자형, 논리형 데이터 보관
-
-    변수?
-        - 하나의 값을 저장
-        - 변수를 선언 후
-        - 변수에 값을 할당
-
-    함수(function, 기능)
-        - 코드를 저장하고 데이터를 반환
-        - function 키워드를 이용하여 선언
-        - 함수는 처음에는 동작 안한다
-
-    자바스크립트는 대소문자 구별한다
-
-    함수 호출
-    함수명();
-
-    함수 선언
-    function 함수명() {
-        코드;
-    }
-
-    함수 호출
-        - 함수를 불러야만 동작한다
-
-    일반 함수
-        function 함수명() {
-            코드;
-        }
-
-    익명 함수(함수명이 없는 함수) 정의
-        var 참조변수 = function() {
-            코드;
-        }
-
-    함수 호출
-        함수명();
-        또는
-        참조변수();
-
-
-    호이스팅(hoisting)?
-        - 자바스크립트 해석기가 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것
-
-    일반 함수의 경우 함수 정의 전에 함수 호출문이 있어도 호이스팅(hoisting) 방식이 적용되어 실행되지만 익명 함수는 적용되지 않는다.
--->
-
-    <!--     1부터 5까지 화면 출력하시오
-    1,2,3,4,5
-
-    1
-    2
-    3
-    4
-    5
--->
-    <!-- document.write(표현식, 표현식, ...); -->
-    <!-- 변수, 함수(재사용!, 이벤트), 제어문(반복문) -->
-
 </body>
 
 
