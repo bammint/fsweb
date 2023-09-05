@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS+JS</title>
+    <style>
+        div {
+            position: fixed;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>제어문</h1>
+    <div>
+        <label for="val">a =</label>
+        <input type="text" id="val" placeholder="숫자를 입력하세요" value="5">
+    </div>
+
+    <h2>if</h2>
+    <p class="p1">결과</p>
+    <h2>if-else</h2>
+    <p class="p2">결과</p>
+    <h2>if-else if-else</h2>
+    <p class="p3" title="툴팁">결과</p>
+    <h2>switch-case</h2>
+    <p class="p4">결과</p>
+    <h2>for</h2>
+    <p class="p5">결과</p>
+    <h2>while</h2>
+    <p class="p6">결과</p>
+    <h2>do-while</h2>
+    <p class="p7">결과</p>
+    <h2>break</h2>
+    <p class="p8">결과</p>
+    <h2>continue</h2>
+    <p class="p9">결과</p>
+
+    <script>
+        /* 
+
+            3. 논리
+            a는 10보다 크면서(그리고 &&) 20보다 작다
+            a>10 && a<20
+            a는 10보다 크거나(또는 ||) 20보다 작다
+            a>10 || a<20
+            a는 10보다 작거나 같다(!)
+            !(a<10)
+
+            4. 대입(할당)
+            5. 조건
+
+            조건식
+            조건식에 사용할 표현식 결과는 true 또는 false
+            false: '', 0, false, undefined, null
+
+            제어문
+            1. 조건문: if, else
+            2. 선택문: switch-case, default
+            3. 반복문: for, while, do
+
+            var a = 3;
+            if (a >= 5) {
+                T코드1;
+            }
+            TF코드2;
+
+            if (a >= 5) {
+                T코드1;
+            } else {
+                F코드2;
+            }
+        */
+
+        // prompt의 결과는 문자이다
+        // '10'
+        // 입력
+        // let a = prompt('숫자를 입력해주세요','');
+
+        // 요소 선택
+        const inEle = document.querySelector('input');
+        const pEle = document.querySelectorAll('p');
+
+        /* pEle1
+        pEle[0] 또는 pEle.item(0) */
+
+        // const pEle1 = document.querySelector('.p1');
+        // const pEle2 = document.querySelector('.p2');
+        // const pEle3 = document.querySelector('.p3');
+        // const pEle4 = document.querySelector('.p4');
+        // const pEle5 = document.querySelector('.p5');
+        // const pEle6 = document.querySelector('.p6');
+        // const pEle7 = document.querySelector('.p7');
+        // const pEle8 = document.querySelector('.p8');
+        // const pEle9 = document.querySelector('.p9');
+        
+        // 문자열과 숫자를 비교(>,>=,<,<=)하면? false
+        // '십' -> 숫자로 바뀔 수 없는 문자열
+        // '10' -> 숫자로 바뀔 수 있는 문자열
+        // '십' > 5 -> F
+        // '십' < 5 -> F
+        // 사전 순으로 뒤에 나오는 문자열이 크다
+        // '가' > '나' -> F
+        // '가' < '나' -> T
+        // 한글과 영문 비교 시 한글이 크다
+        // 'ㄱ' > 'z' -> T
+
+        let a = 3;
+        // if: 참일 때 실행
+        if (a > 10) {
+            // 참인 경우 코드 실행
+            pEle1.style.background = 'red';
+        }
+
+        a = 13;
+        // if: 둘 중 하나 실행
+        if (a > 5) {
+            // 참인 경우 코드 실행
+            // <p>결과</p>
+            pEle2.innerText = 'red';
+        } else {
+            // 거짓인 경우 코드 실행
+            pEle2.innerText = 'blue';
+        }
+
+        /* 
+            요소.HTML속성 = '값';
+            요소.setAttribute(속성, 값)
+        */
+
+        a = 3;
+        // if: 세가지 이상의 코드 중 하나 선택
+        if (a === 1) {
+            // 조건1: T
+            pEle3.title = '첫 번째 조건이 참입니다';
+        } else if (a === 2) {
+            // 조건1: F, 조건2: T
+            pEle3.title = '첫 번째 조건은 거짓이고 두 번째 조건이 참입니다';
+        } else {
+            // 조건1,2: F
+            // pEle3.title = '두 조건 모두 거짓입니다';
+            pEle3.setAttribute('title', '두 조건 모두 거짓입니다');
+        }
+
+        /* 
+            switch-case, default, break
+                표현식이 값과 일치하면 코드 실행
+
+            switch (표현식) {
+                case 값1: 코드1; [break;]
+                case 값2: 코드2; [break;]
+                case 값3: 코드3; [break;]
+                ...
+                [default: 코드4;]
+            }
+        */
+
+        console.log(inEle.value);
+        // input에 입력한 데이터는 문자열이다
+        inEle.value = '1';
+
+        switch (inEle.value) {
+            case '1':
+                pEle4.innerText = 'a가 1이다';
+                break;
+            case '2':
+                pEle4.innerText = 'a가 2다';
+                break;
+            default: pEle4.setAttribute('innerText', 'a는 1,2가 아니다');
+        }
+
+        /* 
+            for (초기식; 조건식; 증감식) {
+                코드;
+            }
+        */
+
+        // 값이 변하면 let, 변하지 않으면 const
+        // pEle5.innerHTML = 0 + '<br>';
+        for (let i = 0; i < 10; i++) {
+            // 조건식이 true이면 아래 코드 실행
+            // 조건이 false이면 for를 빠져나간다
+                pEle5.innerHTML += '<br>' + i;
+            }
+            /* 
+                step1: let i = 0, i < 10 -> T, pEle5.innerHTML = 0, i++ -> 1
+                step2: 1 < 10 -> T, pEle5.innerHTML = 1, i++ -> 2
+                step3: 2 < 10 -> T, pEle5.innerHTML = 2, i++ -> 3
+                step4: 3 < 10 -> T, pEle5.innerHTML = 3, i++ -> 4
+                step5: 4 < 10 -> T, pEle5.innerHTML = 4, i++ -> 5
+                step6: 5 < 10 -> T, pEle5.innerHTML = 5, i++ -> 6
+                step7: 6 < 10 -> T, pEle5.innerHTML = 6, i++ -> 7
+                step8: 7 < 10 -> T, pEle5.innerHTML = 7, i++ -> 8
+                step9: 8 < 10 -> T, pEle5.innerHTML = 8, i++ -> 9
+                step10: 9 < 10 -> T, pEle5.innerHTML = 9, i++ -> 10
+                step11: 10 < 10 -> F, for문 탈출!
+            */
+        
+            /* 
+                초기식
+                whlie (조건식) {
+                    // 조건식 true이면 코드 실행
+                    // 조건식이 false이면 while 탈출!
+                    코드;
+                    증감식;
+                } 
+            */
+
+            // i는 전역변수
+            let i = 0;
+            while ( i < 10) {
+                // 조건식이 true이면 아래 코드 실행
+                // 조건이 false이면 while을 빠져나간다
+                pEle6.innerHTML += '<br>' + i;
+                i++;
+            }
+
+
+            /* 
+                1번은 무조건 코드가 실행된다
+
+                초기식
+                do {
+                    // 조건식 true이면 코드 실행
+                    // 조건식이 false이면 while 탈출!
+                    코드;
+                    증감식;
+                } whlie (조건식)
+            */
+
+            i = 0;
+            do {
+                // 조건식이 true이면 아래 코드 실행
+                // 조건이 false이면 while을 빠져나간다
+                pEle7.innerHTML += '<br>' + i;
+                i++;
+            } while ( i < 10)
+
+            /* 
+                제어문에서 break를 만나면 제어문을 탈출한다
+            */
+            for (let i=0; i<10; i++) {
+                // if문에서 실행코드가 한 문장이면 중괄호 생략 가능
+                if (i === 6) break;
+                pEle8.innerHTML +=  '<br>' + i;
+            }
+
+            /* 
+                제어문에서 continue를 만나면 continue 아래있는 코드는 실행하지 않고, 제어문의 시작으로 올라간다
+            */
+            for (let i=0; i<10; i++) {
+                // if문에서 실행코드가 한 문장이면 중괄호 생략 가능
+                if (i >=3 && i <= 6) continue;
+                pEle9.innerHTML +=  '<br>' + i;
+            }
+
+    </script>
+</body>
+</html>

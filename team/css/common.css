@@ -116,6 +116,7 @@ header {
   transform: translateX(-50%);
   background: white;
   display: none;
+  outline: 1px solid blue;
 }
 .mypage_login p{
   margin: 4px auto;
