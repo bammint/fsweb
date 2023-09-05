@@ -37,6 +37,7 @@ button,
 footer {
     color: var(--cfff);
 }
+/* //typo */
 
 /* reset */
 * {
@@ -76,7 +77,10 @@ a {
 p {
     line-height: 161.8%;
 }
-
+iframe {
+    width: 100%;
+    height: 100%;
+}
 /*-----------------------------------------------------------*/
 
 /* 전체 */
@@ -240,8 +244,11 @@ section:first-of-type~section>p {
     cursor: pointer;
     margin: 16px 0 48px 0;
 }
+#sec4 button:hover {
+    background-color: #7c0c1b;
+}
 .map {
-    height: 184px;
+    height: 185px;
 }
 /* 푸터 */
 footer {
@@ -273,6 +280,7 @@ footer {
 
 .tel {
     display: flex;
+    justify-content: center;
 }
 
 .tel span {
@@ -282,7 +290,7 @@ footer {
 }
 
 /*****************************************
-    768px 이상
+    768px 이상 - 태블릿
 *****************************************/
 @media (min-width:768px) {
 
@@ -371,20 +379,55 @@ footer {
         width: 48%;
         outline: 1px solid red;
         margin-top: 0;
-        height: 750px;
-        min-height: 750px;
+        height: auto;
+        /* max-height: 730px; */
+    }
+    #sec3 a {
+        margin-top: 0;
+        margin-bottom: 16px;
     }
 
     /* 섹션4 */
 
     /* 푸터 */
+    .blogo {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .blogo>img {
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    .sns img {
+        margin-top: 20px;
+        width: 26px;
+        height: 26px;
+    }
+
+    .fcontent {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .copy {
+        margin: 20px 0 0 0;
+        font-size: 12px;
+    }
+
+
+    .tel span {
+        margin: 20px;
+    }
+
 
 
 }/* @media 768px이상 */
 
 
 /*****************************************
-    992px 이상
+    992px 이상 - 데스크탑
 *****************************************/
 @media (min-width:992px) {
 
@@ -462,7 +505,9 @@ footer {
     }
 
     /* 섹션4 */
-
+    .map {
+        height: 845px;
+    }
 
     /* 푸터 */
     .blogo {
