@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모달</title>
+</head>
+<style>
+    #mcontainer {
+        position: relative;
+    }
+    .modal {
+        position: absolute;
+        z-index: 9998;
+        display: none;
+    }
+    .close {
+        position: absolute;
+        z-index: 9999;
+        right: 0;
+        color: #fff;
+        outline: 1px solid lightblue;
+    }
+</style>
+<body>
+    <div class="button">
+        <button type="button">버튼</button>
+    </div>
+    <div id="mcontainer">
+        <div class="modal">
+            <div class="close">X</div>
+            <div class="popup">
+                <img src="./modal.png" alt="모달">
+            </div>
+        </div>
+    </div>
+    <script src="모달.js"></script>
+</body>
+</html>
