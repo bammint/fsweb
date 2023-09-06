@@ -176,6 +176,16 @@ section h2 {
 #sec2 li+li {
     margin-top: 16px;
 }
+#sec2 span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background-color: #9b0f22;
+    padding: 2px 8px;
+}
+
 
 /* 섹션 3,4의 공통 */
 section:first-of-type~section>p {
@@ -265,16 +275,15 @@ footer {
 }
 
 .sns img {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-right: 20px;
     width: 26px;
     height: 26px;
 }
 
 .fcontent {
-    /* display: flex;
-    justify-content: space-evenly; */
     text-align: center;
+    margin-top: 20px;
 
 }
 
@@ -284,7 +293,7 @@ footer {
 }
 
 .tel span {
-    margin: 30px;
+    margin: 20px;
     font-size: 24px;
     text-align: center;
 }
@@ -360,7 +369,7 @@ footer {
         position: absolute;
         top: 0;
         left: 0;
-        color: #000;
+        color: #fff;
         background-color: #9b0f22;
         padding: 2px 8px;
     }
@@ -370,14 +379,12 @@ footer {
         display: flex;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        outline: 1px solid blue;
     }
     #sec3 ul>li {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         width: 48%;
-        outline: 1px solid red;
         margin-top: 0;
         height: auto;
         /* max-height: 730px; */
@@ -388,6 +395,9 @@ footer {
     }
 
     /* 섹션4 */
+    .map {
+        height: 300px;
+    }
 
     /* 푸터 */
     .blogo {
@@ -397,11 +407,11 @@ footer {
 
     .blogo>img {
         width: 200px;
-        margin-top: 20px;
+        margin-top: 40px;
     }
 
     .sns img {
-        margin-top: 20px;
+        margin-top: 40px;
         width: 26px;
         height: 26px;
     }
@@ -431,11 +441,14 @@ footer {
 *****************************************/
 @media (min-width:992px) {
 
-
-
-
     /* 헤더 */
     /* 로고 */
+    .logo {
+        width: 154px;
+        height: 22px;
+        margin-bottom: 30px;
+    }
+    
     /* 내비게이션 */
 
     #gnb li {
@@ -451,7 +464,12 @@ footer {
     }
 
     /* 섹션1 */
-
+    .tit1 {
+        padding: 8px 16px;
+    }
+    .tit2 {
+        font-size: 3.6rem;
+    }
 
     /* 섹션 2,3,4의 공통 */
     section {
@@ -459,16 +477,8 @@ footer {
     }
 
     /* 섹션2,3의 공통 */
-    .sec23 ul {
-        /* 이미지 가로 배치 */
-        display: flex;
-        /* 줄바꿈 -> 이미지 한 줄에 4개씩 */
-        flex-wrap: wrap;
-    }
 
-    .sec23 li {
-        width: 360px;
-        height: 240px;
+    .sec23 .wtxt>li {
         margin-right: 20px;
     }
 
@@ -487,21 +497,24 @@ footer {
     }
 
     #sec2 span {
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: #111;
+        background-color: #9b0f22;
         padding: 8px 16px;
     }
+    #sec2 .wtxt>li {
+        width: 360px;
+    }
+    #sec2 .wtxt img {
+        margin: 0;
+    }
+    
 
     /* 섹션3 */
-
-    #sec3 li {
-        display: flex;
-        flex-direction: column;
+    #sec3 ul {
         justify-content: space-between;
-        height: 770px;
-        max-height: 770px;
+    }
+    #sec3 ul>li {
+        width: 360px;
+        height: 780px;
     }
 
     /* 섹션4 */
@@ -510,30 +523,16 @@ footer {
     }
 
     /* 푸터 */
-    .blogo {
-        display: flex;
-        justify-content: space-around;
-    }
 
-    .blogo>img {
-        width: 200px;
-        margin-top: 40px;
-    }
-
-    .sns img {
-        margin-top: 40px;
-        margin-right: 20px;
-        width: 26px;
-        height: 26px;
-    }
 
     .fcontent {
-        display: flex;
-        justify-content: space-evenly;
+        margin: 0;
     }
 
-    .copy {
+    .fcontent .copy {
         margin: 30px 0 0 0;
+        font-size: 15px;
+        text-align: left;
     }
 
 
