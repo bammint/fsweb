@@ -20,7 +20,9 @@ btn.addEventListener('click', ()=>{
 }) 
 
 
-function btnClick() {
+
+
+/* function btnClick() {
     modal.style.display = 'block';
 }
 
@@ -29,7 +31,7 @@ btn.addEventListener("click", btnClick);
 function closeBtn() {
     modal.style.display = 'none';
 }
-
+ */
 /* close가 click 이벤트 인식 =>
 클릭을 하면 함수 closeBtn()이 실행된다  */
 

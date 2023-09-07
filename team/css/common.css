@@ -85,9 +85,10 @@ header {
 }
 
 /* show login & join */
-.gnb_icon li:nth-of-type(2){
+.gnb_icon li:nth-of-type(2) {
   position: relative;
 }
+
 /* .gnb_icon li:nth-of-type(2):hover .mypage_login{
   display: block;
   display: flex;
@@ -102,7 +103,7 @@ header {
   transform: translateX(-50%);
   background: white;
 } */
-.mypage_login{
+.mypage_login {
 
   display: flex;
   flex-direction: column;
@@ -116,26 +117,31 @@ header {
   transform: translateX(-50%);
   background: white;
   display: none;
-  outline: 1px solid blue;
 }
-.mypage_login p{
+
+.mypage_login p {
   margin: 4px auto;
 }
-.mypage_login p:nth-of-type(2){
+
+.mypage_login p:nth-of-type(2) {
   font-size: 11px;
   opacity: .5;
 }
-.mypage_login button{
+
+.mypage_login button {
   display: block;
   width: 80%;
   height: 40px;
   margin: 4px auto;
+  cursor: pointer;
 }
-.mypage_login button:nth-of-type(1){
+
+.mypage_login button:nth-of-type(1) {
   border: none;
-  background-color: #fecad4;  
+  background-color: #fecad4;
 }
-.mypage_login button:nth-of-type(2){
+
+.mypage_login button:nth-of-type(2) {
   border: 1px solid #777;
   background-color: white;
 }
@@ -143,6 +149,7 @@ header {
 .gnb_icon li:nth-of-type(2):hover {
   border-bottom: 2px solid #fecad4;
 }
+
 /* //show & login */
 
 
@@ -193,7 +200,7 @@ nav {
 .gnb li a:hover {
   border-bottom: 1px solid #fecad4;
   padding-bottom: 4px;
-  
+
 }
 
 .sub_list li a:hover {
@@ -202,10 +209,12 @@ nav {
   width: 35px;
   height: 5px;
 }
-.Jewelry{
+
+.Jewelry {
   width: 240px;
   overflow: clip;
 }
+
 .lnb {
   display: none;
 }
@@ -282,8 +291,9 @@ nav {
 .gnb_icon li:nth-of-type(3) {
   background: url(../assets/images/common/ico_cart.svg) no-repeat center center/18px;
 }
-.show{
-  display: block;    
+
+.show {
+  display: block;
 }
 
 /* footer */

@@ -10,40 +10,80 @@
         body {
             height: 2000px;
         }
+
         div {
-            width: 300px;
-            height: 300px;
-            margin: 50px;
-            font-size: 50px;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            font-size: 20px;
             color: #fff;
         }
+
         .box1 {
             background: red;
         }
+
         .box2 {
             background: blue;
         }
+
+        .box3 {
+            background: yellow;
+        }
+
         p {
+            position: fixed;
+            right: 300px;
             font-size: 30px;
         }
     </style>
+    <script>
+        // window.addEventListener('DOMContentLoaded',loadFn);
+        window.addEventListener('load', loadFn);
+
+
+        // 전역 함수 (Global Finction)
+        function loadFn() {
+
+            /*
+            요소.addEventListener('이벤트', function(para){
+                코드;
+            });
+    
+            
+            요소.addEventListener('이벤트', fn);
+            요소.addEventListener('이벤트', function(){fn(para)});
+            
+                function fn(para) {
+                    코드;
+                }
+            */
+            box3.addEventListener('click', function () {
+                txt.innerText = '박스3을 클릭했습니다';
+            });
+
+        } // loadFn.END
+
+    </script>
 </head>
 
 <body>
-    <div class="box1">박스1</div>
+    <p>여기에 출력</p>
+    <!-- 인라인 스크립트: HTML 이벤트 속성으로 지정 -->
+    <div class="box1" onclick="ev1();">박스1</div>
     <div class="box2">박스2</div>
-    <p></p>
+    <div class="box3">박스3</div>
 
     <script>
-        /* 
+        /*
             Event(이벤트): 웹 문서 영역 안에서 웹 브라우저 또는 사용자가 행하는 동작
 
             이벤트 종류
-            1. 마우스 이벤트: click, mouseenter, mouseleave, mousemove
+            1. 마우스 이벤트: click, mouseenter(mouseover), mouseleave(mouseout), mousemove
             2. 키보드 이벤트: keydown, keypress, keyup
             3. 윈도우 이벤트: scroll, resize
 
-            이벤트 처리기(이벤트 핸들러): 이벤트가 발생할 때 그 이벤트에 반응하여 실행하는 함수
+            이벤트 핸들러: 이벤트가 발생할 때 그 이벤트에 반응하여 실행하는 함수
 
             //방법1
             <태그 on이벤트명="함수명()">
@@ -52,13 +92,59 @@
             요소.onclick = 함수;
             function 함수(){}
 
-            //방법3
+            
             요소.onclick = function(){};
 
-            //방법4
+            //방법3
             요소.addEventListener('이벤트', function(){});
 
         */
+
+        /*
+            요소.on이벤트 = function() {
+                코드;
+            };
+
+            요소.on이벤트 = fn;
+
+            요소.on이벤트 = fn(para);
+
+            function fn(para) {
+                코드;
+            };
+        */
+
+        /* function qs(sel) {
+            return document.querySelector(sel);
+        } */
+
+        // const qs = function(sel){return document.querySelector(sel);};
+        const qs = sel=> document.querySelector(sel);
+
+        const box1 = qs('.box1');
+        const box2 = qs('.box2');
+        const box3 = qs('.box3');
+        const txt = qs('p');
+
+        box1.onmouseenter = ev4;
+        box1.onmouseleave = ev5;
+        box2.onclick = ev2;
+
+        function ev1() {
+            txt.innerText = '박스1을 클릭했습니다';
+        }
+        function ev2() {
+            txt.innerText = '박스2을 클릭했습니다';
+        }
+        function ev4() {
+            txt.innerText = '박스1에 들어갔습니다';
+            box1.style.background = 'lightblue' 
+        }
+        function ev5() {
+            txt.innerText = '박스1에서 나갔습니다';
+            box1.style.background = 'red'
+        }
+
 
     </script>
 </body>

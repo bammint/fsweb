@@ -10,16 +10,51 @@
 
 <body>
     <h1>나이 계산하기</h1>
+    <!-- input의 정보가 변경되면 age() 호출 -->
+    <input type="text" onchange="age();" placeholder="출생년도를 입력하세요">
+    <p>출력은 여기에</p>
 
     <script>
+
+        /* [요구사항]
+            1. input을 이용한 입력
+            2. age()함수 사용
+            3. 출력은 p태그 안에 탬플릿 리터럴 방식(`)
+        */
+
         // 변수 선언 및 할당
+        // date는 날짜/시간 인스턴스(복제본) 객체
+        const date = new Date();
+        // 날짜/시간에서 현재년도 추출
+        const currentYear = date.getFullYear();
 
-        // 입력
+        // HTML 요소 선택
+        const inVal = document.querySelector('input')
+        const result = document.querySelector('p')
 
-        // 처리
 
-        // 출력
+        // prompt의 결과는 문자열이다
+        // birthYear = prompt("당신의 태어난 년도를 4자리로 입력하세요.", '2000');
+        // NaN (Not a Number) -> 숫자가 아닌 값을 연산한 결과 값
+        function age() {
+            // 입력: 태어난 년도
+            // 요소.HTML속성 = 값; -> 속성 값을 바꾼다
+            // 요소.HTML속성 -> 속성 값을 가져온다
+            // const birthYear = inVal.value;
+            // 나이 출력
+            result.innerHTML = `당신의 나이는
+            ${currentYear - inVal.value + 1}살입니다`
+        }
 
+        // 처리: 나이 계산
+        // 나이 = 현재년도 - 태어난연도 + 1
+        // 나이 = 2023 - 2000 + 1 -> 24살
+        // age = currentYear - birthYear + 1;
+
+        // 나이 출력
+        // 문자열 + 변수 + 문자열
+        // document.write('당신의 나이는 ' + age + '살입니다.');
+        
     </script>
 </body>
 
