@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경남아너스빌</title>
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <style>
+        /* typo: 크기, 색 */
+        .main a {
+            color: #fff;
+            font-size: 1.8rem;
+        }
+
+        .sub a {
+            color: #00000079;
+            font-size: 1.6rem;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        /* #header */
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            padding: 0 50px;
+            transition: .3s;
+        }
+        #header:hover {
+            background: #000;
+        }
+
+        #header::after {
+            content: '';
+            z-index: -1;
+            position: absolute;
+            left: 0;
+            top: 95px;
+            width: 100%;
+            height: 0;
+            background: green;
+            transition: .5s;
+        }
+
+        #header:hover::after {
+            height: 200px;
+        }
+
+        /* logo */
+        .logo {
+            width: 207px;
+        }
+
+        .inner {
+            height: 95px;
+        }
+
+        #gnb {
+            position: relative;
+            z-index: 1;
+            height: 95px;
+            overflow: hidden;
+            transition: .5s;
+            text-align: center;
+        }
+
+        #header:hover #gnb {
+            height: 295px;
+        }
+
+        /* 1depth */
+        #gnb .main {
+            display: flex;
+        }
+
+        #gnb .main>li {
+            line-height: 95px;
+        }
+
+        #gnb .main>li>a {
+            padding: 4px 16px;
+        }
+
+        /* 2depth */
+        .sub li {
+            line-height: 1.8;
+            margin: 4px 8px;
+        }
+
+
+        .sub a {
+            display: block;
+            color: #fff;
+        }
+
+        section {
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <h1 class="logo"><a href="#"><img src="./honorsville/honorsville_logo.png" alt="아너스빌"></a></h1>
+        <div class="inner">
+            <nav id="gnb">
+                <ul class="main">
+                    <li>
+                        <a href="#">분양단지</a>
+                        <ul class="sub">
+                            <li><a href="#">분양중인 단지</a></li>
+                            <li><a href="#">분양예정 단지</a></li>
+                            <li><a href="#">분양완료 단지</a></li>
+                            <li><a href="#">연간분양계획</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">브랜드</a>
+                        <ul class="sub">
+                            <li><a href="#">브랜드 스토리</a></li>
+                            <li><a href="#">브랜드 아이덴티티</a></li>
+                            <li><a href="#">특화아이템</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">아너스빌 멤버스</a>
+                        <ul class="sub">
+                            <li><a href="#">아너스빌 소식</a></li>
+                            <li><a href="#">청약가이드</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">마이 아너스빌</a>
+                        <ul class="sub">
+                            <li><a href="#">자주 묻는 질문</a></li>
+                            <li><a href="#">1:1 문의</a></li>
+                            <li><a href="#">A/S 문의</a></li>
+                            <li><a href="#">관심단지 관리</a></li>
+                            <li><a href="#">개인정보 변경</a></li>
+                        </ul>
+                    </li>
+                </ul><!-- .main -->
+            </nav><!-- //#gnb -->
+        </div><!-- //.inner -->
+        <!-- utill -->
+        <div class="utill">
+            <div class="sns"><a href="#">SNS</a></div>
+            <ul class="member">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+            </ul>
+        </div>
+    </header><!-- //#header -->
+
+    <!-- video -->
+    <section>
+        <div class="vid">
+            <video autoplay muted loop>
+                <source src="./honorsville/main_video2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+</body>
+
+</html>

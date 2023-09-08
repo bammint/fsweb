@@ -6,12 +6,21 @@
     <title>모달</title>
 </head>
 <style>
-    #mcontainer {
+    .bg {
+        background: #000;
+        opacity: .1;
+        width: 100%;
+        height: 100vh;
         position: relative;
+        z-index: 3;
+        display: none;
     }
     .modal {
         position: absolute;
         z-index: 9998;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: none;
     }
     .close {
@@ -23,15 +32,17 @@
         cursor: pointer;
     }
 </style>
-<body>
+<div>
     <div class="button">
         <button type="button">버튼</button>
     </div>
     <div id="mcontainer">
-        <div class="modal">
-            <div class="close">X</div>
-            <div class="popup">
-                <img src="./modal.png" alt="모달">
+        <div class="bg mo_cls"></div>
+            <div class="modal mo_cls">
+                <div class="close">X</div>
+                <div class="popup">
+                    <img src="./modal.png" alt="모달">
+                </div>
             </div>
         </div>
     </div>

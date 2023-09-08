@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+JS</title>
+    <style>
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo {
+            width: 300px;
+            height: 300px;
+            background: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>이미지 갤러리</h1>
+    <div>
+        <div class="photo">
+            <img src="/51_css/assets/images/italy1.jpg" alt="이미지">
+        </div>
+        <!-- 인디케이터 -->
+        <div class="ctls">
+            <a href="#">prev</a>
+            <a href="#">next</a>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelectorAll('a');
+        const img = document.querySelector('img');
+        let cnt = 1;
+
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+
+                if (i === 1) {
+                    // next: 1->2->3->4->5
+                    cnt++;
+                    if (cnt === 6) cnt = 1;
+                } else {
+                    // prev: 5->4->3->2->1
+                    cnt--;
+                    if (cnt === 0) cnt = 5;
+                };
+                console.log(cnt)
+                img.src = `/51_css/assets/images/italy${cnt}.jpg`;
+            };
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS+JS</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            font-size: 40px;
+            color: #fff;
+        }
+
+        .box1 {
+            background: red;
+        }
+
+        .box2 {
+            background: blue;
+        }
+
+        .box3 {
+            background: rgb(94, 94, 31);
+        }
+
+        p {
+            position: fixed;
+            right: 0;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>여기에 출력~</p>
+    <div class="box1" onclick="ev(1);">박스1</div>
+    <div class="box2">박스2</div>
+    <div class="box3">박스3</div>
+    <input type="text">
+    
+    <script>
+
+        /* 
+            이벤트
+            click(mousedown, mouseup), mouseenter(mouseover),mouseleave(mouseout), mousemove
+            wheel, keydown, keyup
+            window: scroll, resize
+        */
+
+        const qs = sel => document.querySelector(sel);
+
+        const box1 = qs('.box1');
+        const box2 = qs('.box2');
+        const box3 = qs('.box3');
+        const txt = qs('p');
+        const inBox = qs('input');
+
+        box2.onclick = () => ev(2);
+        box3.addEventListener('click', () => 
+            txt.innerText = '박스3을 클릭했습니다.'
+        );
+        box1.onmouseenter = () => ev(4);
+        box1.onmouseleave = () => ev(5);
+        box3.onmousemove = () => ev(6);
+        window.onresize = () => ev(7);
+        window.onscroll = () => ev(8);
+        inBox.onkeydown = () => ev(9);
+        inBox.onkeyup = () => ev(10);
+
+
+        // if 제어문을 이용하여 하나의 함수로
+        function ev(num) {
+            if (num === 1) {
+                txt.innerText = '박스1을 클릭했습니다.';
+            } else if (num === 2) {
+                txt.innerText = '박스2을 클릭했습니다.';
+            } else if (num === 4) {
+                txt.innerText = '박스1에 들어갔습니다.';
+                box1.style.background = 'hotpink';
+            } else if (num === 5) {
+                txt.innerText = '박스1에서 나갔습니다.';
+                box1.style.background = 'red';
+            } // if.end
+
+            // switch ~ case
+            switch (num) {
+                case 6:
+                    txt.innerText = '박스3에서 움직입니다.';
+                    break;
+                case 7:
+                    txt.innerText = '창 크기를 조절했습니다.';
+                    break;
+                case 8:
+                    txt.innerText = '창이 스크롤 되었습니다.';
+                    break;
+                case 9:
+                    txt.innerText = '키보드의 키를 눌렀습니다.';
+                    break;
+                case 10:
+                    txt.innerText = '키보드의 키를 떼었습니다.';
+                    break;
+            }
+        } // ev().end
+    </script>
+</body>
+
+</html>
