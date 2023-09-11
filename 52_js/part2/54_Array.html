@@ -10,26 +10,66 @@
 
 <body>
     <h1>배열 객체</h1>
+    <ul>
+    </ul>
     <script>
         /* 
             배열? 여러 개의 데이터를 하나의 저장소에 저장
 
-            var 참조변수 = new Array();
+            const 참조변수 = new Array();
                 참조변수[0] = 값1;
                 참조변수[1] = 값2;
                 참조변수[2] = 값3;
                 ...
                 참조변수[n-1] = 값n;
 
-            var 참조변수 = new Array(값1, 값2, 값3, ... 값n);
-            var 참조변수 = [값1, 값2, 값3, ... 값n];
+            const 참조변수 = new Array(값1, 값2, 값3, ... 값n);
+            const 참조변수 = [값1, 값2, 값3, ... 값n];
 
             배열 객체에 저장된 데이터 가져오기
                 참조변수[인덱스번호];
                 인덱스 번호는 0부터 시작
        */
 
+        /* 
+            const 변수 = [값, 값, 값, 값, ....];
+            변수[0];
+
+            function 함수(){
+                코드;
+            }
+
+        */
+
+        let num = 10;
+        const list = document.querySelector('ul');
+        // 숫자, 문자열, 불리언, 객체, undefined
+        const arr1 = [10, 20, 30, 40, 50, 60];
         
+        // 배열.length 속성: 배열의 총 개수
+        for (let i = 0; i<arr1.length; i++) {
+            list.innerHTML += '<li></li>';
+        }
+
+        // const listItem = document.querySelectorAll('li');
+
+        for (let i = 0; i<arr1.length; i++) {
+            list.innerHTML += `<li>${arr1[i]}</li>`;}
+
+        
+/*         listItem[0].innerText = arr1[0];
+        listItem[1].innerText = arr1[1];
+        listItem[2].innerText = arr1[2];
+        listItem[3].innerText = arr1[3];
+ */
+/*         console.log(`
+            arr1[0] = ${arr1[0]}
+            arr1[1] = ${arr1[1]}
+            arr1[2] = ${arr1[2]}
+            arr1[3] = ${arr1[3]}
+            arr1[4] = ${arr1[4]}
+        `);
+ */        
     </script>
 </body>
 

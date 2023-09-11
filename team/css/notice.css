@@ -100,16 +100,17 @@ html {
 
 .ntable table {
     border-collapse: collapse;
-}
-.t1,.t2,th,td {
     border-left: 0;
     border-right: 0;
+}
+td {
+    border-bottom: 1px solid #c4c4c4;
 }
 .ntable th {
     padding: 17px 0;
     display: table-cell;
-    border-top-color: #333333;
-    border-bottom-color: #333333;
+    border-bottom: 1px solid #333333;
+    border-top: 1px solid #333333;
 }
 
 .ntable td {
@@ -117,11 +118,6 @@ html {
     padding: 20px 0;
 }
 
-.ntable tr {
-    padding: 20px 0;
-    border: none;
-    border-bottom-color: #c4c4c4;
-}
 
 .ntable span {
     display: inline-block;
