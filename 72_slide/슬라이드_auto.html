@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐로셀 - 데이터, 자동 슬라이드</title>
+    <style>
+        /* reset.css */
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        img {
+            vertical-align: top;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* slide */
+        #slideWrap {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 300px;
+        }
+        
+        ul {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow:hidden;
+        }
+
+        li {
+            position: absolute;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            transition: .5s ease-out;
+        }
+
+        li:first-of-type {
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slideWrap">
+        <!-- 콘텐츠 -->
+        <ul class="slide"></ul>
+        <!-- 좌우버튼 -->
+        <!-- 인디케이터 -->
+    </div>
+
+    <script src="슬라이드_data.js"></script>
+    <script>
+        // 슬라이드 이미지 개수
+        // let slideCount = 10;
+
+        // 데이터 정의
+        // const imgObj = {};
+
+        // 슬라이드 이미지 생성
+        /* for (let i=1; i<=slideCount; i++) {
+            console.log(i);
+            imgObj['imgData' + i] = {
+                imgSrc: `/assets/images/pic${i}.jpg`,
+                imgAlt: `이미지${i}`
+            };
+        } */
+
+        // 슬라이드 이미지 개수 초기화
+        let slideCount = 0;
+
+        // for ~ in 제어문
+        for (let i in imgObj) {
+            slideCount++;
+            // console.log(slideCount);
+        }
+
+        // 요소 선택
+        const list = document.querySelector('.slide');
+
+        // 이미지를 요소에 삽입
+        for (let i = 1; i <= slideCount; i++) {
+            list.innerHTML += `
+                <li><img src="${imgObj['imgData' + i].imgSrc}" alt="${imgObj['imgData' + i].imgAlt}"></li>
+            `;
+        }
+
+        const listItem = document.querySelectorAll('.slide li');
+
+        // 자동 슬라이드
+        // 반복실행: setInterval(function(){코드}, 시간);
+        // 1회 실행: setTimeout(function(){코드}, 시간);
+
+        setInterval(moveSlide, 3000);
+
+        let i = 0;
+        function moveSlide() {
+            console.log(i);
+            listItem[i].style.left = '0%';
+            listItem[i].style.zIndex = '1';
+
+            // j는 0,1,2,3,4
+            for(let j=0; j<slideCount; j++) {
+                if (i !== j) {
+                    listItem[j].style.left = '-100%';
+                    listItem[j].style.zIndex = '-1';
+                }
+            }
+
+            setTimeout(function () {
+                listItem[i].style.left = '100%';
+            }, 500);
+
+            i++;
+            if (i === 5) i=0;
+        }
+    </script>
+</body>
+
+</html>
