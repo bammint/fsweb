@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>요거프레소_박재한</title>
+    <title>케러셀 - bxSlider</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css">
     <style>
         /* reset.css */
@@ -159,8 +159,8 @@
             background: transparent;
             box-shadow: none;
             border: none;
-            height: 100%;
             overflow: hidden;
+            margin: 0;
         }
 
         .bx-wrapper .bx-pager {
@@ -169,10 +169,6 @@
             width: 100%;
         }
 
-        .bx-wrapper .bx-pager.bx-default-pager a:active,
-        .bx-wrapper .bx-pager.bx-default-pager a:focus {
-            background: red;
-        }
 
         .bx-wrapper .bx-pager.bx-default-pager a {
             background: #666;
@@ -184,65 +180,9 @@
             outline: 0;
             border-radius: 5px;
         }
-
-
-        /* .slideWrap ul {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow:hidden;
-        }
-
-        .slideWrap li {
-            position: absolute;
-            left: 100%;
-            width: 100%;
-            height: 100%;
-        }
-
-        .slideWrap li:first-of-type {
-            left: 0;
-        }
-
-        .slidewrap img {
-            width: 1200px;
+        .bxslider img {
             height: 500px;
         }
-
-        .slide {
-            display: flex;
-        }
-
-        .btn {
-            display: flex;
-            justify-content: space-between;
-            z-index: 1;
-            position: absolute;
-            width: 1200px;
-            top: 40%;
-            padding: 0 30px;
-        }
-
-        .btn a {
-            font-size: 30px;
-        }
-
-        .indi {
-            display: flex;
-            position: absolute;
-            top: 75%;
-            left: 50%;
-        }
-
-        .indi li {
-            width: 10px;
-            height: 10px;
-            border-radius: 5px;
-            background-color: #555555;
-            text-indent: -9899999px;
-            margin: 5px;
-        } */
-
 
         /* 푸터 */
         footer {
@@ -316,103 +256,42 @@
                 </ul>
             </div>
         </header>
-        <div class="slidewrap">
-            <ul class="bxslider">
-                <li><img src="./images/slide1.jpg" alt="슬라이드1"></li>
-                <li><img src="./images/slide2.jpg" alt="슬라이드2"></li>
-                <li><img src="./images/slide3.jpg" alt="슬라이드3"></li>
-            </ul>
-            <div class="btn">
-                <a href="#" class="prev">&lang;</a>
-                <a href="#" class="next">&rang;</a>
+
+        <section id="section">
+            <div class="tit">
+                <h2 class="tit1"></h2>
+                <p class="tit2"></p>
             </div>
-            <ul class="indi">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-            </ul>
-        </div>
+            <div class="sliderWrap">
+                <div class="bxslider">
+                    <div><img src="./images/slide1.jpg" alt="슬라이드1"></div>
+                    <div><img src="./images/slide2.jpg" alt="슬라이드2"></div>
+                    <div><img src="./images/slide3.jpg" alt="슬라이드3"></div>
+                </div>
+            </div>
+        </section>
         <footer>
             <p>Copyright 박재한. All rights reserved.</p>
         </footer>
     </div><!-- //.wrap -->
 
-    <script>
 
-        /*         const slideImg = {
-                    img1: {
-                        imgSrc: './images/slide1.jpg',
-                        imgAlt: '슬라이드1'
-                    },
-                    img2: {
-                        imgSrc: './images/slide2.jpg',
-                        imgAlt: '슬라이드2'
-                    },
-                    img3: {
-                        imgSrc: './images/slide3.jpg',
-                        imgAlt: '슬라이드3'
-                    }
-                }
-        
-                let slideCount = 0;
-        
-                for (let i in slideImg) {
-                    slideCount++;
-                }
-                const list = document.querySelector('.slide');
-        
-                for (let i = 1; i <= slideCount; i++) {
-                    list.innerHTML += `
-                        <li><img src="${slideImg['img' + i].imgSrc}" alt="${slideImg['img' + i].imgAlt}"></li>
-                        `;
-                }
-        
-                const listItem = document.querySelectorAll('.slide li');
-                const nextBtn = document.querySelector('.next');
-                let cnt = 0;
-                console.log(listItem);
-                nextBtn.onclick = function () {
-                    cnt++;
-                    if (cnt === slideCount) cnt = 0;
-                    listItem[cnt].style.left = '100%';
-                    listItem[cnt].style.transition = '.3s';
-                    moveSlide(cnt);
-                };
-        
-                function moveSlide(i) {
-                    listItem[i].style.left = '0%';
-                    listItem[i].style.zIndex = '1';
-                    listItem[i].style.transition = '.3s';
-        
-                    for (let j = 0; j < slideCount; j++) {
-                        if (i !== j) {
-                            listItem[j].style.left = '-100%';
-                            listItem[j].style.zIndex = '-1';
-                            listItem[j].style.transition = '.3s';
-                            setTimeout(function () {
-                                listItem[j].style.left = '100%';
-                                listItem[j].style.transition = 'none';
-                            }, 2000);
-                        }
-                    }
-                }
-         */
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- bx슬라이더 라이브러리 CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
     <script>
         $('.bxslider').bxSlider({
             auto: true,
-            // autoControls: true,
-            stopAutoOnClick: true,
+            // stopAutoOnClick: true,
             pager: true,
-            // slideWidth: 1200
         });
 
-    </script>
+        const tit1 = document.querySelector('.tit1');
+        const tit2 = document.querySelector('.tit2');
+        // console.log(tit2)
 
+        tit1.innerText = '요거프레소';
+
+    </script>
 </body>
 
 </html>

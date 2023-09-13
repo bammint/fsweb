@@ -52,7 +52,7 @@
             left: 0;
         }
 
-        /* indicator(인디캐이터) */
+        /* indicator(인디케이터) */
         .indi {
             display: flex;
             z-index: 9999;
@@ -62,6 +62,7 @@
             bottom: 20px;
             color: #fff;
         }
+
         .indi li {
             margin: 0 4px;
             cursor: pointer;
@@ -71,7 +72,7 @@
 
 <body>
     <div id="slideWrap">
-        <!-- 컨텐츠 -->
+        <!-- 콘텐츠 -->
         <ul class="slide"></ul>
         <!-- next/prev -->
         <!-- 인디케이터 -->
@@ -85,62 +86,60 @@
     </div>
 
     <script>
-// 데이터 정의
-const imgObj = {
-    imgData1: {
-        imgSrc: '/assets/images/cat1.jpg',
-        imgAlt: '고양이1'
-    },
-    imgData2: {
-        imgSrc: '/assets/images/cat2.jpg',
-        imgAlt: '고양이2'
-    },
-    imgData3: {
-        imgSrc: '/assets/images/cat3.jpg',
-        imgAlt: '고양이3'
-    },
-    imgData4: {
-        imgSrc: '/assets/images/cat4.jpg',
-        imgAlt: '고양이4'
-    },
-    imgData5: {
-        imgSrc: '/assets/images/cat5.jpg',
-        imgAlt: '고양이5'
-    }
-}
-
+        // 데이터 정의
+        const imgObj = {
+            imgData1: {
+                imgSrc: '/assets/images/pic1.jpg',
+                imgAlt: '하늘'
+            },
+            imgData2: {
+                imgSrc: '/assets/images/pic2.jpg',
+                imgAlt: '산'
+            },
+            imgData3: {
+                imgSrc: '/assets/images/pic3.jpg',
+                imgAlt: '로보트'
+            },
+            imgData4: {
+                imgSrc: '/assets/images/pic4.jpg',
+                imgAlt: '자동차'
+            },
+            imgData5: {
+                imgSrc: '/assets/images/pic5.jpg',
+                imgAlt: '바다'
+            },
+        }
 
         // 슬라이드 이미지 개수 초기화
         let slideCount = 0;
 
-        // for  ~ in 제어문
+        // for ~ in 제어문
         for (let i in imgObj) {
             slideCount++;
+            // console.log(slideCount);
         }
 
         // 요소 선택
-        const list = document.querySelector('ul');
-        const indiItem = document.querySelectorAll('.indi li');
+        const list = document.querySelector('.slide');
 
         // 이미지를 요소에 삽입
         for (let i = 1; i <= slideCount; i++) {
             list.innerHTML += `
-            <li><img src="${imgObj['imgData' + i].imgSrc}" alt="${imgObj['imgData' + i].imgAlt}"></li>
+                <li><img src="${imgObj['imgData' + i].imgSrc}" alt="${imgObj['imgData' + i].imgAlt}"></li>
             `;
         }
 
         const listItem = document.querySelectorAll('.slide li');
-        const nextBtn = document.querySelector('.nextBtn');
-
+        const indiBtn = document.querySelectorAll('.indi li');
         let cnt = 0;
 
-        nextBtn.onclick = function () {
-            cnt++;
-            if (cnt === slideCount) cnt = 0;
-            listItem[cnt].style.left = '100%';
-            listItem[cnt].style.transition = '.3s';
-            moveSlide(cnt);
-        };
+        for (let i=0; i<slideCount; i++) {
+            indiBtn[i].onclick = function(){
+                listItem[i].style.left = '100%';
+                listItem[i].style.transition = '.3s';
+                moveSlide(i);
+            };
+        }
 
         function moveSlide(i) {
             console.log(i);
@@ -157,9 +156,10 @@ const imgObj = {
                     setTimeout(function () {
                         listItem[j].style.left = '100%';
                         listItem[j].style.transition = 'none';
-                    }, 1000);
+                    }, 2000);
                 }
             }
+
         }
     </script>
 </body>
