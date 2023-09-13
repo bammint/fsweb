@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요거프레소_박재한</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css">
+    <style>
+        /* reset.css */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            font: 1.5rem/1.6 'Noto Sans KR', sans-serif;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ul {
+            margin: 0;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        button {
+            border: none;
+            background: transparent;
+        }
+
+        .wrap {
+            width: 1200px;
+            height: 600px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            z-index: 9999;
+            width: 1200px;
+            padding: 0 50px;
+        }
+
+        #header:hover {
+            background: #fff;
+            /* transition: .8s; */
+        }
+
+        .navwrap::after {
+            content: '';
+            z-index: -1;
+            position: absolute;
+            left: 0;
+            top: 95px;
+            width: 100%;
+            height: 0;
+            background: #fff;
+            /* outline: 1px solid black; */
+            transition: .3s;
+        }
+
+        .navwrap:hover::after {
+            height: 200px;
+        }
+
+        /* logo */
+        .logo {
+            width: 200px;
+        }
+
+        .logo a {
+            display: flex;
+        }
+
+        /* nav */
+        .navwrap {
+            height: 95px;
+        }
+
+        #gnb {
+            position: relative;
+            z-index: 1;
+            height: 95px;
+            overflow: hidden;
+            transition: .3s;
+            text-align: center;
+        }
+
+        .navwrap:hover #gnb {
+            height: 260px;
+        }
+
+
+        /* 1depth */
+        #gnb .main {
+            display: flex;
+        }
+
+        #gnb .main>li {
+            line-height: 95px;
+        }
+
+        #gnb .main>li>a {
+            padding: 8px 24px;
+            margin: 0 16px;
+        }
+
+        /* 2depth */
+        .sub li {
+            line-height: 1.8;
+            margin: 6px 24px;
+        }
+
+
+        .sub a {
+            display: block;
+        }
+
+
+        /* header content */
+        .member {
+            display: flex;
+        }
+
+        .member li {
+            margin-left: 10px;
+        }
+
+        /* 슬라이드 */
+        .bx-wrapper {
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .bx-wrapper .bx-pager {
+            position: absolute;
+            bottom: 48px;
+            width: 100%;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a:active,
+        .bx-wrapper .bx-pager.bx-default-pager a:focus {
+            background: red;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a {
+            background: #666;
+            text-indent: -9999px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            outline: 0;
+            border-radius: 5px;
+        }
+
+
+        /* .slideWrap ul {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow:hidden;
+        }
+
+        .slideWrap li {
+            position: absolute;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slideWrap li:first-of-type {
+            left: 0;
+        }
+
+        .slidewrap img {
+            width: 1200px;
+            height: 500px;
+        }
+
+        .slide {
+            display: flex;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: space-between;
+            z-index: 1;
+            position: absolute;
+            width: 1200px;
+            top: 40%;
+            padding: 0 30px;
+        }
+
+        .btn a {
+            font-size: 30px;
+        }
+
+        .indi {
+            display: flex;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+        }
+
+        .indi li {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #555555;
+            text-indent: -9899999px;
+            margin: 5px;
+        } */
+
+
+        /* 푸터 */
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            background-color: #9B0F22;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header id="header">
+            <!-- 로고 -->
+            <h1 class="logo">
+                <a href="#"><img src="./images/logo.svg" alt="로고"></a>
+            </h1>
+            <!-- 내비게이션 -->
+            <div class="navwrap">
+                <nav id="gnb">
+                    <ul class="main">
+                        <li>
+                            <a href="#">BRAND</a>
+                            <ul class="sub">
+                                <li><a href="#">브랜드소개</a></li>
+                                <li><a href="#">연혁</a></li>
+                                <li><a href="#">메뉴경쟁력</a></li>
+                                <li><a href="#">멤버쉽</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">MENU</a>
+                            <ul class="sub">
+                                <li><a href="#">신메뉴</a></li>
+                                <li><a href="#">전체메뉴</a></li>
+                                <li><a href="#">MD</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">FRANCHISE</a>
+                            <ul class="sub">
+                                <li><a href="#">경쟁력</a></li>
+                                <li><a href="#">인테리어</a></li>
+                                <li><a href="#">개설절차</a></li>
+                                <li><a href="#">개설비용</a></li>
+                                <li><a href="#">가맹문의</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">COMMUNITY</a>
+                            <ul class="sub">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">언론보도</a></li>
+                                <li><a href="#">이벤트</a></li>
+                            </ul>
+                        </li>
+                    </ul><!-- //.main -->
+                </nav><!-- //#gnb -->
+            </div><!-- //.navwrap -->
+            <!-- sns,로그인,회원가입 -->
+            <div class="h_content">
+                <ul class="member">
+                    <li>
+                        <div class="sns"><a href="#">SNS</a></div>
+                    </li>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="slidewrap">
+            <ul class="bxslider">
+                <li><img src="./images/slide1.jpg" alt="슬라이드1"></li>
+                <li><img src="./images/slide2.jpg" alt="슬라이드2"></li>
+                <li><img src="./images/slide3.jpg" alt="슬라이드3"></li>
+            </ul>
+            <div class="btn">
+                <a href="#" class="prev">&lang;</a>
+                <a href="#" class="next">&rang;</a>
+            </div>
+            <ul class="indi">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <footer>
+            <p>Copyright 박재한. All rights reserved.</p>
+        </footer>
+    </div><!-- //.wrap -->
+
+    <script>
+
+        /*         const slideImg = {
+                    img1: {
+                        imgSrc: './images/slide1.jpg',
+                        imgAlt: '슬라이드1'
+                    },
+                    img2: {
+                        imgSrc: './images/slide2.jpg',
+                        imgAlt: '슬라이드2'
+                    },
+                    img3: {
+                        imgSrc: './images/slide3.jpg',
+                        imgAlt: '슬라이드3'
+                    }
+                }
+        
+                let slideCount = 0;
+        
+                for (let i in slideImg) {
+                    slideCount++;
+                }
+                const list = document.querySelector('.slide');
+        
+                for (let i = 1; i <= slideCount; i++) {
+                    list.innerHTML += `
+                        <li><img src="${slideImg['img' + i].imgSrc}" alt="${slideImg['img' + i].imgAlt}"></li>
+                        `;
+                }
+        
+                const listItem = document.querySelectorAll('.slide li');
+                const nextBtn = document.querySelector('.next');
+                let cnt = 0;
+                console.log(listItem);
+                nextBtn.onclick = function () {
+                    cnt++;
+                    if (cnt === slideCount) cnt = 0;
+                    listItem[cnt].style.left = '100%';
+                    listItem[cnt].style.transition = '.3s';
+                    moveSlide(cnt);
+                };
+        
+                function moveSlide(i) {
+                    listItem[i].style.left = '0%';
+                    listItem[i].style.zIndex = '1';
+                    listItem[i].style.transition = '.3s';
+        
+                    for (let j = 0; j < slideCount; j++) {
+                        if (i !== j) {
+                            listItem[j].style.left = '-100%';
+                            listItem[j].style.zIndex = '-1';
+                            listItem[j].style.transition = '.3s';
+                            setTimeout(function () {
+                                listItem[j].style.left = '100%';
+                                listItem[j].style.transition = 'none';
+                            }, 2000);
+                        }
+                    }
+                }
+         */
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- bx슬라이더 라이브러리 CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <script>
+        $('.bxslider').bxSlider({
+            auto: true,
+            // autoControls: true,
+            stopAutoOnClick: true,
+            pager: true,
+            // slideWidth: 1200
+        });
+
+    </script>
+
+</body>
+
+</html>
