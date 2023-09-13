@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.carousel-container {
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  /* border: 8px solid blue; */
+}
+
+.carousel-slide {
+  display: flex;
+  width: 600px;
+  height: 400px;
+}
+.carousel-slide img {
+  width: 600px;
+  height: 400px;
+}
+#prevBtn {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 48px;
+  background: none;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(50%, -50%);
+  z-index: 10;
+  font-size: 48px;
+  background: none;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  opacity: 0.4;
+  cursor: pointer;
+}
+/* 인디케이터 */
+.indi {
+  display: flex;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.indi li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #777;
+  text-indent: -9899999px;
+  margin: 5px;
+}
+.indi li:first-of-type {
+  background: #fff;
+}
