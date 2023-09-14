@@ -154,8 +154,9 @@ section h2 {
 
 /* 섹션2,3 공통 */
 .sec23 li {
-    width: auto;
-    height: auto;
+    /* width: auto;
+    height: auto; */
+    aspect-ratio: 1.5 / 1;
 }
 
 /* 섹션2 */
@@ -221,7 +222,8 @@ section:first-of-type~section>p {
     /* line-height: 40px; */
     padding: 8px 0;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 16px;
+    margin-bottom: 24px;
 }
 
 #sec3 a:hover {
@@ -364,7 +366,10 @@ footer {
     #sec2 ul>li {
         width: 48%;
         position: relative;
-        margin-top: 16px;
+        margin-top: 24px;
+    }
+    #sec2 ul>li:nth-of-type(2n-1) {
+        margin-right: 24px;
     }
     #sec2 img {
         margin: 16px 0;
@@ -394,9 +399,12 @@ footer {
         height: auto;
         /* max-height: 730px; */
     }
-    #sec3 a {
+    #sec3 ul>li:nth-of-type(2n-1) {
+        margin-right: 24px;
+    }
+    #sec3 li>a {
         margin-top: 0;
-        margin-bottom: 16px;
+        margin-bottom: 40px;
     }
 
     /* 섹션4 */
@@ -480,9 +488,6 @@ footer {
 
     /* 섹션2,3의 공통 */
 
-    .sec23 .wtxt>li {
-        margin-right: 20px;
-    }
 
     .sec23 li:nth-of-type(4n) {
         margin-right: 0;
@@ -497,7 +502,9 @@ footer {
     #sec2 li:nth-of-type(4)~li {
         margin-top: 20px;
     }
-
+    #sec2 ul>li:nth-of-type(2n-1) {
+        margin-right: 0;
+    }
     #sec2 span {
         background-color: #9b0f22;
         padding: 8px 16px;
@@ -518,6 +525,13 @@ footer {
         width: 360px;
         height: 780px;
     }
+    #sec3 ul>li:nth-of-type(2n-1) {
+        margin-right: 0;
+    }
+    #sec3 li>a {
+        margin-bottom: 0;
+    }
+
 
     /* 섹션4 */
     .map {
