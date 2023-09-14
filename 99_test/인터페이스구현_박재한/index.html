@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -191,6 +191,12 @@
             border-radius: 5px;
         }
 
+        .bx-wrapper .bx-pager.bx-default-pager a:hover,
+        .bx-wrapper .bx-pager.bx-default-pager a.active,
+        .bx-wrapper .bx-pager.bx-default-pager a:focus {
+            background: #fd5a70;
+        }
+
         .bxslider img {
             height: 500px;
         }
@@ -215,6 +221,11 @@
         .bx-controls-direction>.bx-next {
             background: none;
             background-image: url(./images/right.svg);
+        }
+
+        .bx-wrapper .bx-next:hover,
+        .bx-wrapper .bx-next:focus {
+            background-position: 0 0;
         }
 
         /* 푸터 */
@@ -242,7 +253,6 @@
                     <ul class="main">
                         <li>
                             <a href="#">BRAND</a>
-                            <!-- AD172B 180,3 -->
                             <ul class="sub">
                                 <li><a href="#">브랜드소개</a></li>
                                 <li><a href="#">연혁</a></li>
@@ -320,4 +330,5 @@
         });
     </script>
 </body>
+
 </html>

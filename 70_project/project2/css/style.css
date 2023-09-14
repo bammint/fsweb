@@ -257,9 +257,14 @@ section:first-of-type~section>p {
 #sec4 button:hover {
     background-color: #7c0c1b;
 }
-.map {
+/* .map {
     height: 185px;
+} */
+.map {
+    width: 100%;
+    aspect-ratio: 1.8 / 1;
 }
+
 /* 푸터 */
 footer {
     width: 100%;
@@ -395,9 +400,6 @@ footer {
     }
 
     /* 섹션4 */
-    .map {
-        height: 300px;
-    }
 
     /* 푸터 */
     .blogo {
