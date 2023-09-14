@@ -6,10 +6,13 @@
 .container {
     width: 960px;
     margin: 0 auto;
+    padding-bottom: 64px;
 }
+
 .counter {
     background-color: #333;
 }
+
 footer {
     background-color: #333;
 }
@@ -30,24 +33,33 @@ header {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     background-color: #fff;
 }
+
 /* 내비게이션 */
-#gnb li {
-    float: left;
+#gnb {
+    display: flex;
+    justify-content: space-between;
 }
+
+#gnb ul {
+    display: flex;
+}
+#gnb i {
+    margin-right: 8px;
+}
+
 #gnb a {
     padding: 8px 16px;
 }
+
 #gnb a:hover {
     background-color: #bbb;
 }
+
 #gnb img {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    /* height: 16px; */
     margin-top: 6px;
     margin-right: 4px;
-}
-.serch {
-    float: right;
 }
 
 /* 섹션1: 패럴렉스 이미지 */
@@ -57,6 +69,7 @@ header {
     height: 100vh;
     background-image: url(../images/bg1_n.png);
 }
+
 #sec1 h1 {
     position: absolute;
     left: 50%;
@@ -68,73 +81,197 @@ header {
     padding: 2px 6px;
 
 }
+
 /* 메인 타이틀 */
+
+/* 섹션 2,3,4 */
+.sec h2 {
+    padding-top: 64px;
+}
+
+.sec h2+p {
+    margin: 24px 0 16px 0;
+}
+
 /* 섹션2: 나의 소개 */
 /* 기본 프로필 */
 .basic p:nth-of-type(1) {
     margin-bottom: 48px;
 }
+
+.profile2 {
+    display: flex;
+}
+
 /* 이미지 */
 .my_pic {
-    float: left;
+    flex-shrink: 0;
     width: 425px;
     margin-right: 48px;
     margin-left: 24px;
 }
+
 /* 스킬: 프로그래스바(progressbar) */
+.skill h3 {
+    margin: 48px 0 32px 0;
+}
+
+.skill p {
+    margin: 16px 0;
+}
+
+.skill p i {
+    margin-right: 8px;
+}
+
+.progress {
+    background: #e6e6e6;
+}
+
+.progressbar {
+    background: #616161;
+    height: 36px;
+    color: #fff;
+    text-align: center;
+}
+
+.progress:nth-of-type(1) {
+    width: 90%;
+}
+
+.progress:nth-of-type(2) {
+    width: 85%;
+}
+
+.progress:nth-of-type(3) {
+    width: 75%;
+}
+
 /* 카운터(counter) */
 .counter {
     padding: 32px 0;
 }
+
+.counter ul {
+    display: flex;
+}
+
 .counter li {
-    float: left;
     width: 25%;
 }
+
 .counter span {
     display: block;
 }
 
-/* 섹션3: 작품 */
-#sec3 .parallax{
+/* 섹션3: 나의 작품 */
+#sec3 .parallax {
     background-image: url(../images/bg2.png);
 }
-.pf li {
-    float: left;
-    width: 225px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+
+.pf ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 48px;
 }
+
+.pf li {
+    width: 225px;
+    aspect-ratio: 1.4 / 1;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
 .pf li:nth-of-type(4n) {
     margin-right: 0;
 }
 
+.pfBtn {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.pfBtn a {
+    background: red;
+    padding: 12px 24px;
+}
+
 /* 섹션4: 연락처 */
-#sec4 .parallax{
+#sec4 .parallax {
     background-image: url(../images/bg3.png);
 }
 
-.map {
-    float: left;
-    width: 284px;
+#sec4 .pos {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 48px auto 64px;
 }
+
+.map {
+    width: 284px;
+    aspect-ratio: 1.8 / 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
 .right {
-    float: right;
     width: 640px;
+}
+.addr ul i {
+    margin-right: 24px;
+}
+.addr p {
+    margin: 32px 0 16px;
 }
 input {
     padding: 8px;
     border: 1px solid #ccc;
 }
-input:nth-of-type(1) {float: left; width: 49%;}
-input:nth-of-type(2) {float: right; width: 49%;}
-input:nth-of-type(3) {float: left; display: block; width: 100%; margin-top: 8px;}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+input:nth-of-type(1) {
+    width: calc(50% - 4px);
+}
+
+input:nth-of-type(2) {
+    width: calc(50% - 4px);
+}
+
+input:nth-of-type(3) {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+}
+form div {
+    width: 100%;
+    text-align: right;
+}
+button {
+    background: red;
+    padding: 12px 24px;
+    margin-top: 16px;
+}
+button i {
+    margin-right: 8px;
+}
+
 
 /* 푸터 */
 footer {
-    height: 288px;
-    padding-top: 80px;
+    padding: 64px 0;
 }
-.sns img {
-    width: 24px;
-    height: 24px;
+
+.toTop a {
+    background: red;
+    padding: 12px 24px;
+}
+
+.sns {
+    margin: 16px 0;
 }
