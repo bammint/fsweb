@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS+JS</title>
+    <style>
+        div {
+            width: 360px;
+            height: 240px;
+            background: blue;
+            transform: translateY(600px);
+            transition: .3s ease-out;
+        }
+
+        section {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>섹션1</h2>
+    </section>
+    <section>
+        <h2>섹션2</h2>
+        <div>박스</div>
+    </section>
+
+    <script>
+        /* 
+            스크롤바를 아래로 내리면
+            아래 박스가 위로 올라온다
+        */
+
+        const docEle = document.documentElement;
+        const sec = document.querySelectorAll('section');
+        const box = document.querySelector('div');
+
+        window.onscroll = function () {
+            let st = docEle.scrollTop;
+            console.log(st);
+
+            if (st > 700) {
+                box.style.transform = 'translateY(0)';
+            } else {
+                box.style.transform = 'translateY(600px)';
+            }
+        };
+
+    </script>
+</body>
+
+</html>

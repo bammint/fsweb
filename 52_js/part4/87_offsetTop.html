@@ -9,8 +9,8 @@
     <style>
         div {
             position: absolute;
-            left:0;
-            top:300px;
+            left: 0;
+            top: 300px;
             width: 200px;
             height: 200px;
             background: blue;
@@ -20,12 +20,44 @@
 
 <body>
     <button>버튼</button><span></span>
+    <p>여기에 출력</p>
     <div></div>
 
     <script>
         /* 
+            (읽기전용)
             요소.offsetTop ~ 창 끝에서 요소의 y축 위치 반환
+            요소.offsetLeft ~ 창 끝에서 요소의 x축 위치 반환
         */
+
+        // 요소 선택
+        // const box = document.querySelector('div');
+        // const txt = document.querySelector('p');
+
+        // box.offsetTop = 200;
+
+        // // 출력
+        // txt.innerText = `
+        //     box.offsetTop = ${box.offsetTop}
+        //     box.offsetLeft = ${box.offsetLeft}
+        // `;
+
+        // 요소 선택
+        const btn = document.querySelector("button");
+        const box = document.querySelector("div");
+        // box의 x, y값 출력
+        const box_x = box.offsetLeft;
+        const box_y = box.offsetTop;
+        console.log(box_x);
+        console.log(box_y);
+        //  span 생성
+        const Nspan = document.createElement("span");
+        //   버튼을 눌렀을 때
+        btn.addEventListener("click", () => {
+            // 생성한 span을 box의 자식요소로 넣는다.
+            box.appendChild(Nspan);
+            Nspan.innerText = `box.offsetLeft = ${box_x} box.offsetTop = ${box_y}`;
+        });
 
     </script>
 </body>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>full-page-height</title>
+    <style>
+        /* reset.css */
+        body,h2 {
+            margin: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* fullpage layout */
+        .sec {
+            height: 100vh;
+        }
+
+        #sec1 {
+            background: lightblue;
+        }
+
+        #sec2 {
+            background: lightcoral;
+        }
+
+        #sec3 {
+            background: lightgreen;
+        }
+
+        #sec4 {
+            background: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <section id="sec1" class="sec">
+            <h2>섹션1</h2>
+        </section>
+        <section id="sec2" class="sec">
+            <h2>섹션2</h2>
+        </section>
+        <section id="sec3" class="sec">
+            <h2>섹션3</h2>
+        </section>
+        <section id="sec4" class="sec">
+            <h2>섹션4</h2>
+        </section>
+    </div>
+
+    <script>
+        const docEle = document.documentElement;
+        const sec = document.querySelectorAll('.sec');
+
+        for(let i=0; i<sec.length;i++){
+        sec[i].onwheel = (e) => {
+            // 기본 이벤트 방지
+            e.preventDefault();
+            if (e.deltaY > 0) {
+                // 마우스 휠 내림
+                // 이벤트 함수 안에서 사용한 e.currentTarget은 이벤트가 발생한 요소
+                let next = e.currentTarget.nextElementSibling.offsetTop;
+                docEle.scrollTop = next;
+            } else {
+                //마우스 휠 올림
+                let prev = e.currentTarget.previousElementSibling.offsetTop;
+                docEle.scrollTop = prev;
+            }
+        };
+
+        // this를 쓰려면 화살표함수 X
+        // for(let i=0; i<sec.length;i++){
+        // sec[i].onwheel = function (e) {
+        //     // 기본 이벤트 방지
+        //     e.preventDefault();
+        //     if (e.deltaY > 0) {
+        //         // 마우스 휠 내림
+        //         // 이벤트 함수 안에서 사용한 this는 이벤트가 발생한 요소
+        //         let next = this.nextElementSibling.offsetTop;
+        //         docEle.scrollTop = next;
+        //     } else {
+        //         //마우스 휠 올림
+        //         let prev = this.previousElementSibling.offsetTop;
+        //         docEle.scrollTop = prev;
+        //     }
+        // };
+    }
+
+
+    </script>
+</body>
+
+</html>

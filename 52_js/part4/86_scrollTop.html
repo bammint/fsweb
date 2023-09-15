@@ -21,14 +21,29 @@
 </head>
 
 <body>
+    <button>버튼</button>
     <p></p>
 
     <script>
         /* 
             document.documentElement ~ <html> 요소 반환
-            document.querySelector('html')
-            document.documentElement.scrollTop ~ 창에서 스크롤한 양 반환
+            document.body ~ <body> 요소 반환
+
+            요소.scrollTop ~ 요소의 스크롤 양 반환
+            요소.scrollLeft ~ 요소의 스크롤 양 반환
         */
+
+        const txt = document.querySelector('p');
+        const btn = document.querySelector('button');
+        const htmlele = document.documentElement;
+
+        btn.onclick = function(){
+            htmlele.scrollTop = 700;
+        };
+
+        window.onscroll = function(){
+            txt.innerText = htmlele.scrollTop;
+        };
 
     </script>
 </body>

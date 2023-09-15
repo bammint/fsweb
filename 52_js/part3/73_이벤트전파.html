@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+CSS+JS</title>
+    <style>
+        .ancestor {
+            width: 500px;
+            height: 500px;
+            background: #ccc;
+        }
+
+        .parent {
+            width: 400px;
+            height: 400px;
+            background: #ddd;
+        }
+        
+        .child {
+            width: 300px;
+            height: 300px;
+            background: #eee;
+        }
+
+        div {
+            font-size: 2rem;
+        }
+        a {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ancestor">ancestor
+        <div class="parent">parent
+            <div class="child"><a href="https://www.naver.com">child</a></div>
+        </div>
+    </div>
+    <script>
+        /*
+            요소.on이벤트 = 함수;
+                :하나의 요소에 단일 이벤트만 등록 가능
+
+            요소.addEventListener('이벤트', 함수, 불); 
+                :하나의 요소에 다중 이벤트 등록 가능
+
+
+            이벤트 전파(Event Propagation)
+
+            버블링(Bubbling) : 자식 요소에서 발생한 이벤트가 바깥 부모 요소로 전파 (기본값)        
+            캡쳐링(Capturing) : 자식 요소에서 발생한 이벤트가 부모 요소부터 시작하여 안쪽 자식 요소까지 도달
+
+            addEventListener('이벤트', 함수[, useCapture]);
+                불: false(기본값) -> 버블링, true -> 캡쳐링
+
+            event.currentTarget: 이벤트 전파로 인해 이벤트가 발생한 대상 요소나 부모 요소
+            event.target: 이벤트가 실제로 발생한 요소
+            
+            event.stopPropagation(): 이벤트 전파 방지
+            event.preventDefault(): 이벤트 기본값 방지
+        */
+
+        const ancestor = document.querySelector('.ancestor');
+        const parent = document.querySelector('.parent');
+        const child = document.querySelector('.child');
+
+        ancestor.addEventListener('click', ()=>{
+            event.target.style.border = '5px solid red';
+            // event.currentTarget.style.background = 'red';
+            console.log(event.target);
+            // console.log(event.currentTarget);
+        });
+        parent.addEventListener('click', ()=>{
+            event.target.style.fontWeight = 'bold';
+            // event.currentTarget.style.background = 'green';
+            console.log(event.target);
+            // console.log(event.currentTarget);
+        });
+        child.addEventListener('click', ()=>{
+            event.target.style.background = 'blue';
+            // event.currentTarget.style.background = 'blue';
+            console.log(event.target);
+            // console.log(event.currentTarget);
+            // 부모/조상으로 전파되는 이벤트 정지
+            // event.stopPropagation();
+            // a태그 링크 기본 이벤트 막기
+            event.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

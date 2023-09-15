@@ -9,23 +9,52 @@
 </head>
 
 <body>
-    <p><span class="txt1">텍스트</span></p>
-    <p><span class="txt2">텍스트</span></p>
+    <h1>요소 탐색 ~ 부모, 자식, 형제</h1>
+    <div>
+        <ul>
+            <li>부모 관계: parentElement</li>
+            <li>자식 관계: children[노드번호]</li>
+            <li>형제 관계: nextElementSibling, previousElementSibling</li>
+        </ul>
+    </div>
+
 
     <script>
         /* 
+            document.getElementById('id');
+            document.getElementsByClssName('class');
+            document.getElementsByTagName('tag');
+
+            document.querySlector('요소');
+            document.querySlectorAll('요소들');
+
             document.documentElement ~ <html>
             document.body ~ <body>
+
+            노드: 요소, 텍스트, 주석
             parentElement ~ 부모 요소 노드 선택
             children[노드번호] ~ 자식 요소 노드 선택
             nextElementSibling ~ 다음 형제 요소 노드 선택
             previousElementSibling ~ 이전 형제 요소 노드 선택
 
-            $('선택자').parent()
-            $('선택자').children()
-            $('선택자').next()
-            $('선택자').prev()
+            parentNode ~ 부모 요소 노드 선택
+            childNode[노드번호] ~ 자식 요소 노드 선택
+            nextSibling ~ 다음 형제 요소 노드 선택
+            previousSibling ~ 이전 형제 요소 노드 선택
+
+            제이쿼리
+                $('선택자').parent()
+                $('선택자').children()
+                $('선택자').next()
+                $('선택자').prev()
         */
+
+        const ulTag = document.querySelector('ul');
+        ulTag.parentElement.style.border = '1px solid red';
+        ulTag.style.border = '1px solid blue';
+        ulTag.children[1].innerText = '자식 관계';
+        ulTag.children[1].previousElementSibling.innerText = '형';
+        ulTag.children[1].nextElementSibling.innerText = '제';
 
 
     </script>
