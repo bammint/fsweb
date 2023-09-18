@@ -2,6 +2,7 @@
 
 const docEle = document.documentElement;
 const sec = document.querySelectorAll('.sec');
+const wh = window.innerHeight;
 
 for (let i = 0; i < sec.length; i++) {
     sec[i].onwheel = (e) => {
@@ -10,12 +11,31 @@ for (let i = 0; i < sec.length; i++) {
         if (e.deltaY > 0) {
             // 마우스 휠 내림
             // 이벤트 함수 안에서 사용한 e.currentTarget은 이벤트가 발생한 요소
+            if (docEle.scrollTop > wh * (sec.length - 2) + 100) return;
             let next = e.currentTarget.nextElementSibling.offsetTop;
             docEle.scrollTop = next;
         } else {
             //마우스 휠 올림
-            let prev = e.currentTarget.previousElementSibling.offsetTop;
-            docEle.scrollTop = prev;
+            // html의 스크롤 값이 창의 높이 보다 작으면 휠 이벤트 멈춤
+            // if (docEle.scrollTop < wh) return;
+            /*
+                try ~ catch 예외 처리
+
+                try {
+                    정상코드;
+                } catch(err) {
+                    에러일 때 코드;
+                } finally {
+                    무조건 실행할 코드;
+                }
+            */
+
+            try {
+                let prev = e.currentTarget.previousElementSibling.offsetTop;
+                docEle.scrollTop = prev;
+            } catch(err) {
+                alert('끝까지 올라왔습니다')
+            }
         }
     };
 

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐로셀</title>
+    <style>
+        /* reset.css */
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* vertical-align: top; */
+        }
+
+        /* 캐로셀(carousel) */
+        #slideWrap {
+            /* 화면의 가로/세로 가운데 */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* 이미지 크기 변경 */
+            width: 1200px;
+            height: 700px;
+            overflow: hidden;
+        }
+
+        .slide li {
+            /* 애니메이션 대상이 li */
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* li 모두 */
+            left: 100%;
+        }
+
+        .slide li:first-of-type {
+            left: 0;
+        }
+
+        /* next/prev Button */
+        .ctls {
+            z-index: 9999;
+            /* 수직 가운데 */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+        }
+
+        .ctls a {
+            position: absolute;
+            color: #fff;
+            text-shadow: 0 0 1px #111;
+        }
+
+        /* prev button */
+        #pb {
+            left: 10%;
+        }
+
+        /* next button */
+        #nb {
+            right: 10%;
+        }
+
+        /* indi */
+        .indi {
+            z-index: 9999;
+            display: flex;
+            /* 수평 가운데 */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 7%;
+        }
+
+        .indi li {
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            /* 숫자 숨기기 */
+            text-indent: -9999em;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .indi li.on {
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slideWrap">
+        <ul class="slide">
+            <li><img src="/assets/images/cat1.jpg" alt="이미지1"></li>
+            <li><img src="/assets/images/cat2.jpg" alt="이미지2"></li>
+            <li><img src="/assets/images/cat3.jpg" alt="이미지3"></li>
+            <li><img src="/assets/images/cat4.jpg" alt="이미지4"></li>
+            <li><img src="/assets/images/cat5.jpg" alt="이미지5"></li>
+        </ul>
+
+        <!-- 좌우버튼 -->
+        <div class="ctls">
+            <a href="#" id="pb">prev</a>
+            <a href="#" id="nb">next</a>
+        </div>
+
+        <!-- 인디케이터 -->
+        <ul class="indi">
+            <li class="on">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
+    <script>
+        // 변수 선언
+        let idx = 0,
+            eDelay = 0,
+            currentIdx = 0,
+            auto;
+
+        const slide = document.querySelector('.slide'),
+            slideList = slide.querySelectorAll('li'),
+            npBtn = document.querySelectorAll('.ctls a'),
+            indiBtn = document.querySelectorAll('.indi li'),
+            speed = 700;
+
+        // 로딩 시 자동 슬라이드
+        autoSlide();
+
+        function autoSlide() {
+            // setInterval(함수, 시간): 시간(밀리초) 후 반복
+            // auto 변수는 사용자가 버튼 클릭 시 자동 슬라이드를 정지
+            auto = setInterval(() => nextSlide(), speed * 4);
+        }
+
+        // prev
+        npBtn[0].onclick = () => {
+            // 사용자가 버튼 클릭 시 자동 슬라이드 정지
+            clearInterval(auto);
+
+            // 만약 dDelay가 0이 아니면 click 이벤트 벗어남.
+            if (eDelay) return;
+            // 두 번째 클릭시 적용
+            eDelay = 1;
+            setTimeout(() => { eDelay = 0; autoSlide(); }, speed);
+
+            prevSlide();
+
+        }; //prev
+
+        // next
+        npBtn[1].onclick = () => {
+            // 사용자가 버튼 클릭 시 자동 슬라이드 정지
+            clearInterval(auto);
+
+            // 만약 dDelay가 0이 아니면 click 이벤트 벗어남.
+            if (eDelay) return;
+            // 두 번째 클릭시 적용
+            eDelay = 1;
+            setTimeout(() => { eDelay = 0; autoSlide(); }, speed);
+
+            nextSlide();
+
+        }; //next
+
+        function prevSlide() {
+            // 0 -> 4 -> 3 -> 2 -> 1
+            slideList[idx].style.left = '-100%';
+            slideList[idx].style.transition = `left ${speed / 1000}s ease-out`;
+            // 4 -> 3 -> 2 -> 1 -> 0
+            if (idx === 0) idx = 5;
+            slideList[idx - 1].style.left = '0%';
+            slideList[idx - 1].style.transition = `left ${speed / 1000}s ease-out`;
+            indiActive(idx - 1, idx);
+
+            // setTimeout(함수, 시간): 시간후 1회
+            // setInterval(함수, 시간): 시간후 반복
+            setTimeout(function () {
+                if (idx === 5) idx = 0;
+                slideList[idx].style.left = '100%';
+                slideList[idx].style.transition = 'none';
+                idx--;
+                if (idx === -1) idx = 4;
+            }, 700);
+        }
+
+        function nextSlide() {
+            // 0 -> 1 -> 2 -> 3 -> 4
+            slideList[idx].style.left = '-100%';
+            slideList[idx].style.transition = `left ${speed / 1000}s ease-out`;
+            // 1 -> 2 -> 3 -> 4 -> 5
+            if (idx === 4) idx = -1;
+            slideList[idx + 1].style.left = '0%';
+            slideList[idx + 1].style.transition = `left ${speed / 1000}s ease-out`;
+            indiActive(idx + 1, idx);
+
+            // setTimeout(함수, 시간): 시간후 1회
+            // setInterval(함수, 시간): 시간후 반복
+            setTimeout(function () {
+                if (idx === -1) idx = 4;
+                slideList[idx].style.left = '100%';
+                slideList[idx].style.transition = 'none';
+                idx++;
+                if (idx === 5) idx = 0;
+            }, 700);
+        }
+
+        for (let i = 0; i < indiBtn.length; i++) {
+            indiBtn[i].onclick = () => {
+                // 사용자가 버튼 클릭 시 자동 슬라이드 정지
+                clearInterval(auto);
+
+                // 만약 dDelay가 0이 아니면 click 이벤트 벗어남.
+                if (eDelay) return;
+                // 두 번째 클릭시 적용
+                eDelay = 1;
+                setTimeout(() => { eDelay = 0; autoSlide(); }, speed);
+
+                // 인디케이터의 누른 버튼 순번과 0%의 이미지 순번이 같으면 클릭 함수를 벗어남.
+                if (currentIdx === i) return;
+
+                // i = 0,1,2,3,4
+                currentIdx = i;
+
+                // idx는 0
+                // 0% 이미지(currentIdx)는 -100%로
+                slideList[idx].style.left = '-100%';
+                slideList[idx].style.transition = `left ${speed / 1000}s ease-out`;
+
+                // i는 0,1,2,3,4
+                // 인디 버튼 순번에 해당하는 이미지는 0%로
+                slideList[currentIdx].style.left = '0%';
+                slideList[currentIdx].style.transition = `left ${speed / 1000}s ease-out`;
+                indiActive(currentIdx, idx);
+
+
+                // 일정 시간 후 -100% 이미지는 100%로
+                setTimeout(function () {
+                    slideList[idx].style.left = '100%';
+                    slideList[idx].style.transition = 'none';
+
+                    idx = currentIdx;
+                }, speed);
+            }; // indiBtn[i].onclick
+        } // for
+
+        function indiActive(currentIdx, idx) {
+            // -1(x), 0,1,2,3,4, 5(x)
+            // next
+            if (idx === 5) idx = 0;
+            // prev
+            if (idx === -1) idx = 4;
+            indiBtn[idx].classList.remove('on');
+            indiBtn[currentIdx].classList.add('on');
+        }
+
+    </script>
+</body>
+
+</html>

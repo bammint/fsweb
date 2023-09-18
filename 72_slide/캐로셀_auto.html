@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐로셀 - auto</title>
+    <!--reset.css -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <style>
+        /* 캐로셀(carousel) */
+        #slideWrap {
+            /* 화면의 가로/세로 가운데 */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .slide {
+            height: 100%;
+        }
+
+        .slide li {
+            /* 애니메이션 대상이 li */
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* li 모두 */
+            left: 100%;
+        }
+
+        .slide li:first-of-type {
+            left: 0;
+        }
+
+        /* 좌우버튼 */
+        .ctls {
+            z-index: 9999;
+            /* 수직 가운데 */
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ctls a {
+            position: absolute;
+            color: #fff;
+            text-shadow: 0 0 1px #111;
+        }
+
+        /* prev 버튼 */
+        #pb {
+            left: 5%;
+        }
+
+        /* next 버튼 */
+        #nb {
+            right: 5%;
+        }
+
+        /* indi */
+        .indi {
+            z-index: 9999;
+            display: flex;
+            /* 수평 가운데 */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 5%;
+        }
+
+        .indi li {
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            /* 숫자 숨기기 */
+            text-indent: -9999em;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .indi li.on {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slideWrap">
+        <ul class="slide">
+            <li><img src="/assets/images/cat1.jpg" alt="이미지1"></li>
+            <li><img src="/assets/images/cat2.jpg" alt="이미지2"></li>
+            <li><img src="/assets/images/cat3.jpg" alt="이미지3"></li>
+            <li><img src="/assets/images/cat4.jpg" alt="이미지4"></li>
+            <li><img src="/assets/images/cat5.jpg" alt="이미지5"></li>
+        </ul>
+
+        <!-- 좌우버튼 -->
+        <!-- <div class="ctls">
+            <a href="#" id="pb">prev</a>
+            <a href="#" id="nb">next</a>
+        </div> -->
+
+        <!-- 인디케이터 -->
+        <!-- <ul class="indi">
+            <li class="on">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul> -->
+    </div>
+
+    <script>
+        // 변수 선언
+        let idx = 0;
+        let eDelay = 0;
+        const speed = 700;
+
+        // 요소 선택
+        const slide = document.querySelector('.slide');
+        slideList = slide.querySelectorAll('li');
+        npBtn = document.querySelectorAll('.ctls a');
+
+        // setInterval(함수, 시간): 시간(밀리초) 후 반복
+        setInterval(() => nextSlide(), speed * 4);
+        /* setInterval(() => {
+            nextSlide();
+        }, speed * 4); */
+
+
+        function nextSlide() {
+            // 0 -> 1 -> 2 -> 3 -> 4
+            slideList[idx].style.left = '-100%';
+            slideList[idx].style.transition = `left ${speed / 1000}s ease-out`;
+            // 1 -> 2 -> 3 -> 4 -> 5
+            if (idx === 4) idx = -1;
+            slideList[idx + 1].style.left = '0%';
+            slideList[idx + 1].style.transition = `left ${speed / 1000}s ease-out`;
+            // setTimeout(함수, 시간): 시간 후 1회
+            // setInterval(함수, 시간): 시간 후 반복
+            setTimeout(function () {
+                if (idx === -1) idx = 4;
+                slideList[idx].style.left = '100%';
+                slideList[idx].style.transition = 'none';
+                idx++;
+                if (idx === 5) idx = 0;
+            }, speed);
+        };
+
+    </script>
+</body>
+
+</html>

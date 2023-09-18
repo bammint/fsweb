@@ -26,6 +26,84 @@
 /* 헤더 */
 
 /* 섹션1 */
+/* 캐로셀(carousel) */
+#slideWrap {
+    /* 화면의 가로/세로 가운데 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* 이미지 크기 변경 */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#slideWrap .slide li {
+    /* 애니메이션 대상이 li */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* li 모두 */
+    left: 100%;
+}
+
+#slideWrap .slide li:first-of-type {
+    left: 0;
+}
+
+/* next/prev Button */
+#slideWrap .ctls {
+    z-index: 9999;
+    /* 수직 가운데 */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+#slideWrap .ctls a {
+    position: absolute;
+    color: #fff;
+    text-shadow: 0 0 1px #111;
+}
+
+/* prev button */
+#slideWrap #pb {
+    left: 10%;
+}
+
+/* next button */
+#slideWrap #nb {
+    right: 10%;
+}
+
+/* indi */
+#slideWrap .indi {
+    z-index: 9999;
+    display: flex;
+    /* 수평 가운데 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 7%;
+}
+
+#slideWrap .indi li {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    /* 숫자 숨기기 */
+    text-indent: -9999em;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #fff;
+}
+
+#slideWrap .indi li.on {
+    background: #000;
+}
+
 
 /* 섹션2 */
 
@@ -33,8 +111,9 @@
 /* 패럴렉스 이미지 */
 #sec3 {
     position: relative;
-    background: url(../images/230814_1_pc_pick_bg.jpg) no-repeat 50% 50%/cover;
+    background: url(../images/230814_1_pc_pick_bg.jpg) no-repeat 50% 50%/cover fixed;
 }
+
 #sec3 .container {
     display: flex;
     justify-content: space-between;
@@ -43,19 +122,40 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1400px;
-    background: yellow;
 }
+
 #sec3 .des {
     width: 400px;
     text-align: right;
-    background-color: lightseagreen;
 }
+
+#sec3 .tit1 {
+    transform: translateX(-400px);
+    transition: 1.5s;
+    opacity: 0;
+}
+
+#sec3 .tit2 {
+    margin: 48px 0;
+    transform: translateX(-400px);
+    transition: 1.5s .3s;
+    opacity: 0;
+}
+
+#sec3 .tit2 p:first-of-type {
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+
 /* 고스트 버튼 */
-#sec3 a {
+#sec3 .proBtn {
     border: 2px solid #fff;
     border-radius: 5px;
     padding: 6px 24px;
+    transition: .3s;
+    opacity: 0;
 }
+
 /* 상품 이미지 */
 #product {
     /* 요소의 텍스트 숨기기 */

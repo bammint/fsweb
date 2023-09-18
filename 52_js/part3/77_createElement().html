@@ -6,19 +6,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML+JS</title>
+    <style>
+        .on {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>텍스트 노드를 사용하는 새로운 요소 추가하기</h1>
-    <div id="info">
-    </div>
+    <h1>새로운 요소 추가</h1>
+    <button>on/off 클래스 추가</button>
 
     <script>
-        /* 
-            요소.createElement(노드명) ~ 요소에 요소 노드 추가
-            요소.createTextNode(텍스트) ~ 요소에 텍스트 노드 추가
-            부모노드.appendChild(자식노드) ~ 부모 노드에 자식 노드 연결
+        /*
+            노드: 요소, 텍스트, 주석
+            document.createElement(노드명) ~ document에 요소 노드 추가
+            document.createAttribute(속성명) ~ document에 속성 추가
+            document.createTextNode(텍스트) ~ document에 텍스트 노드 추가
+
+            요소.setAttributeNode(속성) ~ 요소에 속성 삽입
+            부모요소.appendChild(자식요소) ~ 부모요소 노드에 끝에 자식요소 노드 삽입
+            부모요소.insertBefore(새로운 자식요소, 기준자식요소) ~ 기준자식요소 앞에 자식요소 삽입
+
+            요소.setAttribute('속성', 값) ~ HTML의 속성 값 변경
+            요소.getAttribute('속성') ~ HTML의 속성 값 가져오기
+
+            요소.classList.add('클래스명') - 클래스 추가
+            요소.classList.remove('클래스명') - 클래스 제거
+            요소.classList.contains('클래스명') - 클래스 확인하여 있으면 true, 없으면 false
+            요소.classList.toggle('클래스명') - add와 remove를 번갈아 적용
         */
+
+        const bodyT = document.body;
+        // div, img, 텍스트, HTML 속성 생성
+        const divT = document.createElement('div');
+        const imgT = document.createElement('img');
+        const txtNode = document.createTextNode('나는 텍스트 노드입니다');
+        const srcAttr = document.createAttribute('src');
+        const altAttr = document.createAttribute('alt');
+
+        // 연결
+        bodyT.appendChild(divT);
+        divT.innerHTML += '새로운 텍스트가 추가됩니다<br>';
+        // div의 자식으로 자식 중 끝에 삽입
+        divT.appendChild(txtNode);
+        // div의 자식으로 txtNode 앞에 img 삽입
+        // <img>
+        divT.insertBefore(imgT, txtNode);
+
+        //속성 추가
+        // <img src alt>
+        imgT.setAttributeNode(srcAttr);
+        imgT.setAttributeNode(altAttr);
+
+        //값 추가
+        imgT.setAttribute('src', '/51_css/assets/images/coca.png');
+        imgT.setAttribute('alt', '코카콜라');
+        imgT.style.height = '200px';
+        console.log('아무것도', imgT.getAttribute('src'));
+
+        const btn = document.querySelector('button');
+
+        /* let state = 0;
+
+        btn.onclick = () => {
+            if (state) {
+                divT.classList.add('on');
+                state = 0;
+            } else {
+                divT.classList.remove('on');
+                state = 1;
+            }
+        }; */
+        
+        /* btn.onclick = () => {
+            if (divT.classList.contains('on')) {
+                divT.classList.remove('on');
+            } else {
+                divT.classList.add('on');
+            }
+        }; */
+
+        btn.onclick = () => {
+                divT.classList.toggle('on');
+        };
 
     </script>
 </body>
