@@ -4,6 +4,7 @@ const docEle = document.documentElement;
 const sec = document.querySelectorAll('.sec');
 const wh = window.innerHeight;
 
+console.log(sec.length);
 for (let i = 0; i < sec.length; i++) {
     sec[i].onwheel = (e) => {
         // 기본 이벤트 방지
@@ -19,15 +20,15 @@ for (let i = 0; i < sec.length; i++) {
             // html의 스크롤 값이 창의 높이 보다 작으면 휠 이벤트 멈춤
             // if (docEle.scrollTop < wh) return;
             /*
-                try ~ catch 예외 처리
-
-                try {
-                    정상코드;
-                } catch(err) {
-                    에러일 때 코드;
-                } finally {
-                    무조건 실행할 코드;
-                }
+            try ~ catch 예외 처리
+            
+            try {
+                정상코드;
+            } catch(err) {
+                에러일 때 코드;
+            } finally {
+                무조건 실행할 코드;
+            }
             */
 
             try {
@@ -54,7 +55,5 @@ for (let i = 0; i < sec.length; i++) {
     //         let prev = this.previousElementSibling.offsetTop;
     //         docEle.scrollTop = prev;
     //     }
-    // };
+//     };
 }
-
-

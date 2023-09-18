@@ -47,6 +47,10 @@
     /* li 모두 */
     left: 100%;
 }
+#slideWrap .slide li img{
+    width: 100%;
+    height: 100%;
+}
 
 #slideWrap .slide li:first-of-type {
     left: 0;
