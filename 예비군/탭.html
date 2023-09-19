@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭</title>
+    <style>
+        /* reset.css */
+        html {
+            font-size: 10px;
+        }
+
+        body,
+        figure,
+        ul {
+            margin: 0;
+        }
+
+        body {
+            font-size: 1.5rem;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* section */
+        h2 {
+            font-size: 4.4rem;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            padding-bottom: 48px;
+        }
+        
+        .container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 1400px;
+            height: 700px;
+        }
+
+        /* 탭 버튼 */
+        #tabs .btn {
+            z-index: 9999;
+            position: absolute;
+            right: 335px;
+        }
+
+        #tabs .btn a {
+            /* 버튼의 공통 글자 색 */
+            color: #555;
+        }
+
+        #tabs .btn li.on a {
+            /* li 중에서 on 클래스가 있는 것만 글자 색 변경 */
+            color: #007fa8;
+        }
+
+        #tabs .btn li {
+            display: inline-block;
+            padding: 8px;
+        }
+
+        /* 
+            li+li란? 첫 번째 li빼고 나머지
+            li:nth-of-type(1) ~ li
+        */
+        #tabs .btn li+li::before {
+            content: '|';
+            margin-right: 20px;
+        }
+
+        /*  탭 내용 */
+        #tabs div {
+            /* 모두 숨김. */
+            display: none;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: absolute;
+            width: 1120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #tabs div.on {
+            /* 4개 중 하나만 보임. */
+            display: flex;
+        }
+
+        #tabs figure {
+            flex-shrink: 0;
+            /* 모든 이미지 크기 */
+            width: 224px;
+        }
+        
+        #tabs figure:first-of-type {
+            /* 1위 이미지만 크게 다시 지정 */
+            width: 576px;
+        }
+
+        #tabs figcaption {
+            /* 모든 캡션의 글자 크기 */
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: -1.8px;
+            margin: 8px 0;
+        }
+
+        #tabs figure:first-of-type figcaption {
+            position: absolute;
+            /* 왼쪽 맞춤 때문에 left로 지정해야함. */
+            left: 633px;
+            top: 60px;
+            /* 1위 캡션의 글자 크기 재 설정 */
+            font-size: 4rem;
+        }
+
+        #tabs figure:first-of-type::after {
+            content: "1위";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            background: #007fa8;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        #tabs figure:first-of-type+figure {
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <h2>Model</h2>
+            <p>최근 한 달 동안 고객님들이 가장 많이 구매하신 모델입니다.</p>
+            <!-- 탭 -->
+            <div id="tabs">
+                <!-- 버튼 영역 -->
+                <ul class="btn">
+                    <!-- on은 첫 번째 버튼의 CSS 지정 -->
+                    <li class="on"><a href="#tab1">전체</a></li>
+                    <li><a href="#tab2">2~30대</a></li>
+                    <li><a href="#tab3">40대</a></li>
+                    <li><a href="#tab4">50대</a></li>
+                </ul>
+                <!-- 내용 영역 -->
+                <!-- on이 있는 것만 보임. -->
+                <div id="tab1" class="on">
+                    <figure>
+                        <img src="hyundai/GN02_EXT.jpg" alt="디 올 뉴 그랜저 Hybrid">
+                        <figcaption>1위. 디 올 뉴 그랜저 Hybrid</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="hyundai/CN12_EXT.jpg" alt="더 뉴 아반떼">
+                        <figcaption>2위. 더 뉴 아반떼</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="hyundai/NX06_EXT.jpg" alt="투싼 Hybrid">
+                        <figcaption>3위. 투싼 Hybrid</figcaption>
+                    </figure>
+                </div>
+                <div id="tab2">
+                    <figure>
+                        <img src="hyundai/CN12_EXT.jpg" alt="더 뉴 아반떼">
+                        <figcaption>1위. 더 뉴 아반떼</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="hyundai/GN02_EXT.jpg" alt="디 올 뉴 그랜저 Hybrid">
+                        <figcaption>2위. 디 올 뉴 그랜저 Hybrid</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="hyundai/SX02_EXT.jpg" alt="디 올 뉴 코나 Hybrid">
+                        <figcaption>3위. 디 올 뉴 코나 Hybrid</figcaption>
+                    </figure>
+                </div>
+                <div id="tab3">
+                    <figure>
+                        <img src="hyundai/GN02_EXT.jpg" alt="디 올 뉴 그랜저 Hybrid">
+                        <figcaption>1위. 디 올 뉴 그랜저 Hybrid</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="hyundai/LX06_EXT.jpg" alt="팰리세이드">
+                        <figcaption>2위. 팰리세이드</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="hyundai/CN12_EXT.jpg" alt="더 뉴 아반떼">
+                        <figcaption>3위. 더 뉴 아반떼</figcaption>
+                    </figure>
+                </div>
+                <div id="tab4">
+                    <figure>
+                        <img src="hyundai/GN02_EXT.jpg" alt="디 올 뉴 그랜저 Hybrid">
+                        <figcaption>1위. 디 올 뉴 그랜저 Hybrid</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="hyundai/CN12_EXT.jpg" alt="더 뉴 아반떼">
+                        <figcaption>2위. 더 뉴 아반떼</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="hyundai/NX06_EXT.jpg" alt="투싼 Hybrid">
+                        <figcaption>3위. 투싼 Hybrid</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const tabBtn = document.querySelectorAll('#tabs li');
+        const tabCont = document.querySelectorAll('#tabs div');
+
+        // 탭 버튼을 클릭하면
+        for(let i=0; i<tabBtn.length; i++) {
+            tabBtn[i].onclick = ()=>{
+                console.log('몇 번을 눌렀니?', i);
+                // tabs div의 on클래스를 모두 제거
+                for(let j=0; j<tabBtn.length; j++) {
+                    tabCont[j].classList.remove('on');
+                }
+                // tabs div의 on클래스를 버튼 누를 것만 추가
+                tabCont[i].classList.add('on');
+            };
+        }
+        // #tabs div에 on 클래스가 있으면 보이고(display:flex;), 없으면 숨겨짐(display:none;)
+        // 요소.classList.add('클래스')
+        // 요소.classList.remove('클래스')
+    </script>
+</body>
+</html>

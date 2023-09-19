@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 메뉴 아이콘</title>
+    <style>
+        body {
+            background: lightseagreen;
+        }
+
+        /* 모바일 버튼 */
+        .mBtn {
+            z-index: 9999;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 20px;
+            height: 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .mBtn span {
+            position: absolute;
+            left: 0;
+            /* span 3개 모두 수직 중앙에 있음. */
+            top: 50%;
+            width: 100%;
+            border-top: 3px solid #000;
+            transition: .3s;
+        }
+
+        .mBtn span:first-of-type {
+            /* 첫 번째 span은 위로 */
+            top: 0;
+        }
+
+        .mBtn span:last-of-type {
+            /* 마지막 span은 아래로 */
+            top: 100%;
+        }
+
+        /* .active가 있으면 x모양 */
+        /* 첫 번째 span을 숨김 */
+        .mBtn.active span:first-of-type {
+            opacity: 0;
+        }
+
+        /* 모든 span을 수직 중앙 배치 */
+        .mBtn.active span:first-of-type,
+        .mBtn.active span:last-of-type {
+            top: 50%;
+        }
+
+        .mBtn.active span:nth-of-type(2) {
+            transform: rotate(45deg);
+            border-top: 3px solid #fff;
+        }
+
+        .mBtn.active span:last-of-type {
+            transform: rotate(-45deg);
+            border-top: 3px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" class="mBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <script>
+        const mBtn = document.querySelector('.mBtn');
+        // 버튼을 클릭하면
+        mBtn.onclick = ()=>{
+            mBtn.classList.toggle('active');
+        };
+        // x로 변경 -> mBtn에 active 클래스 추가
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 메뉴</title>
+    <style>
+        /* reset.css */
+        @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            font-size: 1.5rem;
+            background: yellowgreen;
+        }
+
+        body,
+        h1 {
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* 헤더 */
+        header {
+            background: #fdd000;
+            padding: 10px 20px;
+            transition: .3s;
+            /* overflow:hidden; */
+        }
+
+        header:hover {
+            background: #fff;
+        }
+
+        header h1 {
+            width: 150px;
+        }
+
+        /* 모바일 버튼 */
+        .mBtn {
+            z-index: 9999;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 20px;
+            height: 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .mBtn span {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            border-top: 3px solid #000;
+            transition: .3s;
+        }
+
+        .mBtn span:first-of-type {
+            top: 0;
+        }
+
+        .mBtn span:last-of-type {
+            top: 100%;
+        }
+
+        .mBtn.active span:first-of-type {
+            opacity: 0;
+        }
+
+        .mBtn.active span:first-of-type,
+        .mBtn.active span:last-of-type {
+            top: 50%;
+        }
+
+        .mBtn.active span:nth-of-type(2) {
+            transform: rotate(45deg);
+            border-top: 3px solid #fff;
+        }
+
+        .mBtn.active span:nth-of-type(3) {
+            transform: rotate(-45deg);
+            border-top: 3px solid #fff;
+        }
+
+        /* 모바일 헤더 */
+        #mHeader {
+            position: absolute;
+            top: 0;
+            /* 장치 밖 오른쪽 배치 */
+            right: -100%;
+            transition: .3s;
+            width: 60%;
+            height: 100vh;
+            background: #222;
+            padding: 60px 30px;
+        }
+
+        #mHeader .gnb {
+            margin-top: 48px;
+        }
+
+        /* 1depth */
+        #mHeader .main {
+            font-size: 1.8rem;
+        }
+
+        #mHeader .main>li {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        #mHeader .main>li::after {
+            content: '\f054';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 700;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #fff;
+            transition: .3s;
+        }
+
+        #mHeader .main>li.on::after {
+            transform: rotate(90deg);
+        }
+
+        #mHeader a {
+            color: #fff;
+        }
+
+        /* 2depth */
+        #mHeader .sub {
+            font-size: 1.4rem;
+            margin-top: 16px;
+            padding-left: 32px;
+            /* 서브 메뉴 높이로 숨김 */
+            height: 0;
+            transition: .3s;
+            overflow: hidden;
+
+        }
+
+        #mHeader .sub li {
+            margin: 8px;
+        }
+
+        #mHeader .sub a {
+            color: #777;
+        }
+
+        #mHeader .sub a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="#"><img src="megacoffee/logo_b.png" alt="megacoffee"></a></h1>
+        <button type="button" class="mBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div id="mHeader">
+            <div><a href="#"><img src="megacoffee/logo_w.png" alt="megacoffee"></a></div>
+            <div class="gnb">
+                <ul class="main">
+                    <li><a href="#">메가스토리</a>
+                        <ul class="sub">
+                            <li><a href="#">브랜드</a></li>
+                            <li><a href="#">BI</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴소개</a>
+                        <ul class="sub">
+                            <li><a href="#">음료</a></li>
+                            <li><a href="#">푸드</a></li>
+                            <li><a href="#">상품</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">매장</a>
+                        <ul class="sub">
+                            <li><a href="#">매장찾기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">창업안내</a>
+                        <ul class="sub">
+                            <li><a href="#">개설비용</a></li>
+                            <li><a href="#">인테리어</a></li>
+                            <li><a href="#">창업문의</a></li>
+                            <li><a href="#">창업뉴스</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메가소식</a>
+                        <ul class="sub">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">고객의 소리</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">채용</a>
+                        <ul class="sub">
+                            <li><a href="#">채용안내</a></li>
+                        </ul>
+                    </li>
+                </ul><!-- //.main -->
+            </div><!-- //.gnb -->
+        </div><!-- //#mHeader -->
+    </header>
+
+    <script>
+        const mBtn = document.querySelector('.mBtn');
+        const mHeader = document.querySelector('#mHeader');
+        const mainMenuList = mHeader.querySelectorAll('.main>li');
+        const mainMenuListLink = mHeader.querySelector('.main>li>a');
+        const subMenu = mHeader.querySelectorAll('.sub');
+        let mState = 0;
+        let btnState = 0;
+
+        // 버튼 클릭
+        mBtn.onclick = () => {
+            // #mHeader가 화면에 나타나게 right:0;
+            mBtn.classList.toggle('active');
+            if (btnState) {
+                mHeader.style.right = '-100%';
+                btnState = 0;
+            } else {
+                // 모바일 헤더가 오른쪽에서 왼쪽으로 나타남
+                mHeader.style.right = 0;
+                btnState = 1;
+            }
+        };
+
+        // .main>li (메인메뉴)를 클릭하면
+        for (let i = 0; i < mainMenuList.length; i++) {
+            mainMenuList[i].onclick = (e) => {
+                // a태그의 기본 이벤트 막기
+                e.preventDefault();
+                // .sub의 height를 auto로 지정한다.
+                // auto는 transition이 적용되지 않는다.
+                if (mState === 0) {
+                    subMenu[i].style.height = '120px';
+                    mainMenuList[i].classList.add('on');
+                    mainMenuListLink.style.color = '#fdd000';
+                    mState = 1;
+                } else {
+                    subMenu[i].style.height = 0;
+                    mainMenuList[i].classList.remove('on');
+                    mainMenuListLink.style.color = '#fff';
+                    mState = 0;
+                }
+            };
+        }
+
+
+    </script>
+</body>
+
+</html>

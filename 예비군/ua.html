@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ua.html</title>
+</head>
+
+<body>
+    <h1>브라우저와 운영체제 정보</h1>
+    <p>여기에 출력</p>
+
+    <script>
+        /* 
+            screen: 사용자의 모니터 정보 제공
+            location: 사용자의 현재 URL에 대한 정보와 새로 고침 메서드 제공
+            navigator: 사용자의 브라우저와 운영체제 정보 제공
+            
+            <a href="https://www.naver.com">
+            location.href = 'https://www.naver.com'; 
+            -> 지정한 url로 위치 이동
+            location.reload(); -> 브라우저 새로 고침
+
+            웹사이트 개발
+            홈페이지 -> 브라우저의 시작 페이지로 설정해 놓은 페이지
+            웹페이지 -> 홈페이지, 메인페이지, 서브페이지
+            포털사이트
+            메인페이지
+            서브페이지 -> sub.html
+            특정 사이트의 홈페이지 -> 메인 페이지 -> index.html
+            https://id.dothome.co.kr/index.html
+            https://id.dothome.co.kr
+            https://id.dothome.co.kr/sub.html
+            https://id.dothome.co.kr/ua.html
+
+            url(Uniform Resource Locator): 
+            프로토콜://호스트:포트/경로?매개변수#부분식별자
+            https://news.naver.com:8080/main/main.naver?mode=LSD&mid=shm&sid1=105
+
+            domain(도메인): www.naver.com
+            ip(아이피): 223.130.195.200
+            ipv4 -> ipv6
+
+            navigator.userAgent;
+                - 기본 플랫폼
+                - 운영체제 정보
+                - 사용중인 브라우저의 엔진 이름
+                - 사용 중인 브라우저 이름
+                - 같은 엔진을 사용 중이며 호환 가능한 다른 브라우저
+
+                // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36
+                // Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/71.0.3758.78 Mobile/15E148 Safari/605.1
+                // Mozilla/5.0 (Linux; Android 9; SM-G955N Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.89 Mobile Safari/537.36
+
+            적응형(Adaptive)
+                https://naver.com
+                https://m.naver.com
+            
+            String(문자열) 객체
+                문자열a.indexOf('문자열b') ~ a에 b가 존재하면 색인 번호 출력, 아니면 -1
+                문자열.toLowerCase() ~ 문자열을 소문자로 변환
+        */
+
+        const p = document.querySelector('p');
+        p.innerText = navigator.userAgent;
+
+
+
+    </script>
+</body>
+
+</html>
