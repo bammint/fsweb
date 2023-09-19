@@ -7,13 +7,6 @@
     height: 100vh;
 }
 
-#sec1 {
-    background: lightblue;
-}
-
-#sec2 {
-    background: lightcoral;
-}
 
 #sec3 {
     background: lightgreen;
@@ -110,6 +103,123 @@
 
 
 /* 섹션2 */
+#sec2 {
+    position: relative;
+}
+#sec2 h2 {
+    font-size: 4.4rem;
+    text-align: center;
+}
+
+#sec2 p {
+    text-align: center;
+    padding-bottom: 48px;
+}
+
+#sec2 .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1400px;
+    height: 700px;
+}
+
+/* 탭 버튼 */
+#sec2 #tabs .btn {
+    z-index: 9999;
+    position: absolute;
+    right: 335px;
+}
+
+#sec2 #tabs .btn a {
+    /* 버튼의 공통 글자 색 */
+    color: #555;
+}
+
+#sec2 #tabs .btn li.on a {
+    /* li 중에서 on 클래스가 있는 것만 글자 색 변경 */
+    color: #007fa8;
+}
+
+#sec2 #tabs .btn li {
+    display: inline-block;
+    padding: 8px;
+}
+
+/* 
+    li+li란? 첫 번째 li빼고 나머지
+    li:nth-of-type(1) ~ li
+*/
+#sec2 #tabs .btn li+li::before {
+    content: '|';
+    margin-right: 20px;
+}
+
+/*  탭 내용 */
+#sec2 #tabs div {
+    /* 모두 숨김. */
+    display: none;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: absolute;
+    width: 1120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#sec2 #tabs div.on {
+    /* 4개 중 하나만 보임. */
+    display: flex;
+}
+
+#sec2 #tabs figure {
+    flex-shrink: 0;
+    /* 모든 이미지 크기 */
+    width: 224px;
+}
+
+#sec2 #tabs figure:first-of-type {
+    /* 1위 이미지만 크게 다시 지정 */
+    width: 576px;
+}
+
+#sec2 #tabs figcaption {
+    /* 모든 캡션의 글자 크기 */
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: -1.8px;
+    margin: 8px 0;
+}
+
+#sec2 #tabs figure:first-of-type figcaption {
+    position: absolute;
+    /* 왼쪽 맞춤 때문에 left로 지정해야함. */
+    left: 633px;
+    top: 60px;
+    /* 1위 캡션의 글자 크기 재 설정 */
+    font-size: 4rem;
+}
+
+#sec2 #tabs figure:first-of-type::after {
+    content: "1위";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background: #007fa8;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+#sec2 #tabs figure:first-of-type+figure {
+    margin-left: 30px;
+}
+
 
 /* 섹션3 */
 /* 패럴렉스 이미지 */

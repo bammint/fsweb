@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            location.href = 'url';
+                http://id.dothome.co.kr/index.html -> userAgent
+                http://id.dothome.co.kr/main.html -> 데스크탑
+                http://id.dothome.co.kr/m/index.html -> 모바일
+
+            문자열a.indexOf('문자열b') ~ a에 b가 존재하면 색인 번호 출력, 아니면 -1
+            문자열.toLowerCase() ~ 문자열을 소문자로 변환
+        */
+
+        const ua = navigator.userAgent.toLowerCase();
+
+        if (ua.indexOf('window') > 0) {
+            // ua에 window 문자열이 있으면 데스크탑
+            location.href = 'http://frontendw.dothome.co.kr/main.html';
+        } else {
+            location.href = 'http://frontendw.dothome.co.kr/m/index.html';
+        }
+
+    </script>
+</body>
+
+</html>

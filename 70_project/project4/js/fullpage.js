@@ -35,7 +35,7 @@ for (let i = 0; i < sec.length; i++) {
                 let prev = e.currentTarget.previousElementSibling.offsetTop;
                 docEle.scrollTop = prev;
             } catch(err) {
-                alert('끝까지 올라왔습니다')
+                
             }
         }
     };
