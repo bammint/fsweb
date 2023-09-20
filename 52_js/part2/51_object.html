@@ -15,7 +15,15 @@
 
 <body>
     <h1>객체</h1>
-    <div></div>
+    <div>여기에 출력</div>
+
+    <h2>Date</h2>
+    <p>여기에 출력</p>
+    <h2>Math</h2>
+    <p>여기에 출력</p>
+    <h2>String</h2>
+    <p>여기에 출력</p>
+
     <script>
         /*  객체
                 const 변수 = {
@@ -32,7 +40,7 @@
                 객체는 속성과 매서드가 있다
                 속성의 값이 함수일 경우가 매서드이다
                 메서드: 특정 기능을 수행하기 위한 코드들의 집합체
-        */   
+        */
 
         /* 
             const 변수 = 값;
@@ -52,17 +60,51 @@
                     특징            property(속성)
                     동작            method(매서드)
 
-            객체는 속성과 매서드(function을 가진 속성)을 가지고 있다
+            - 객체는 속성과 매서드(function을 가진 속성)을 가지고 있다
+            - 메서드는 함수 값을 가진 속성이다
+            - 객체의 속성 값은 숫자, 문자열, 객체, 불, 객체, 함수, ...
+            - 객체를 저장한 변수를 특별히 인스턴스(복제본)라 부른다
+            - 인스턴스를 사용하여 객체의 속성과 메서드를 사용한다
 
-            객체의 값은 숫자, 문자열, 객체, 불, 객체, 함수, ...
-
-            객체 선언
+            객체 리터럴 방식으로 선언
             const 객체 = {
                 속성: 값,
-                속성: {속성:값, ...},
+                속성: {},
                 매서드: function(){},
                 ...
             };
+
+            const arr = {
+                값1,
+                값2,
+                ...
+            };
+            
+            new 키워드 방식으로 생성
+                -> 코드가 복잡해지고 속도가 느려진다
+            const 객체 = new Object();
+            const 객체 = new Array();
+            const 객체 = new Date();
+            const 객체 = new String();
+
+            배열의 값을 가져오기
+                arr[0]
+
+            객체의 값을 가져오기
+                // []안에 속성은 문자열로 표기
+                // 속성의 이름에 공백이 있을 경우
+                //속성을 문자열과 변수로 결합하여 처리할 경우
+                객체['속성']
+                객체.속성
+                
+                객체의 값을 수정하기
+                객체.속성 = 값;
+
+                객체의 매서드를 실행
+                객체.매서드()
+
+
+
 
             객체 사용
                 객체['속성'] 또는 객체.속성
@@ -89,47 +131,320 @@
         */
 
 
-    const box = document.querySelector('div');
+        const box = document.querySelector('div');
 
-    // 객체 생성(선언)
-    const person = {
-        'first name': '길동',
-        lastname: '홍',
-        age: 20,
-        gender: '남',
-        name: function(){
+        // 변수
+        var name = '홍길동';
+        var age = '20';
+        var gender = '남';
+        var fn = function () {
             return person.lastname + person['first name'];
-        }
-    };
+        };
+
+        // 배열 생성
+        const arr = [
+            '길동',
+            '홍',
+            20,
+            '남',
+            function () {
+                return person.lastname + person['first name'];
+            }
+        ];
+
+
+        // 객체 생성(선언)
+        const person = {
+            'first name': '길동',
+            lastname: '홍',
+            age: 20,
+            gender: '남',
+            name: function () {
+                return person.lastname + person['first name'];
+            }
+        };
 
 
 
-    // 객체의 값을 가져오기
-    // 방법2. 객체['속성']
-    // person['age'] + '<br>'
+        // 객체의 값을 가져오기
+        // 방법1. 객체.속성
+        // person.gender + '<br>'
 
-    // 방법1. 객체.속성
-    // person.gender + '<br>'
-
-    // 속성의 이름에 공백이 있을경우
-    // []안에 속성은 문자열로 표기
-    // person['first name'] + '<br>'
-
-    // 객체의 값을 수정하기
-    // 객체.속성 = 값;
-    person['first name'] = '철수';
-    
-    // 객체의 매서드를 실행
-    // 객체.매서드()
-    // person.name();
+        // 방법2. 객체['속성']
+        // person['age'] + '<br>'
 
 
-    // 출력
-    box.innerText = `
+        // 속성의 이름에 공백이 있을경우
+        // []안에 속성은 문자열로 표기
+        // person['first name'] + '<br>'
+
+        // 객체의 값을 수정하기
+        // 객체.속성 = 값;
+        person['first name'] = '철수';
+
+        // 객체의 매서드를 실행
+        // 객체.매서드()
+        // person.name();
+
+
+        // 출력
+        box.innerText = `
         나의 이름은 ${person.name()}입니다
         나이는 ${person['age']}세이고요
         성별은 ${person.gender}자 입니다
     `;
+
+
+
+        // getter(게터): 가져오기
+        // 변수 = 객체.매서드();
+
+        // setter(세터): 지정하기
+        // 객체.매서드(값);
+
+        // 현재 시간과 날짜
+        // 참조변수 = new Date()
+        // 참조변수 = new Date(연,월,일)
+
+
+        // 날짜 정보를 수정할 때(set)
+        // setFullYear()
+        // setMonth()
+        // setDate()
+        // setHours()
+        // setMinutes()
+        // setSeconds()
+        // setMilliseconds()
+        // setTime()
+
+
+        const ele = document.querySelectorAll('p');
+
+
+        setInterval(clock, 1000);
+
+        function clock() {
+            // 참조변수 = new Date()
+            const d = new Date();
+
+            // Wed Sep 20 2023 11:26:22 GMT+0900 (한국 표준시) 
+            ele[0].innerText = d;
+
+            // getFullYear(): 년
+            ele[0].innerHTML += '<br>' + d.getFullYear() + '년 ';
+
+            // getMonth(): 0(1월) ~ 11(12월)
+            // 1을 더해야 숫자로 월 결과가 나온다
+            ele[0].innerHTML += (d.getMonth() + 1) + '월 ';
+
+            // getDate(): 일
+            ele[0].innerHTML += d.getDate() + '일 ';
+
+            // getDay(): 0(일) ~ 6(토)
+            let week;
+            switch (d.getDay()) {
+                case 0: week = '일'; break;
+                case 1: week = '월'; break;
+                case 2: week = '화'; break;
+                case 3: week = '수'; break;
+                case 4: week = '목'; break;
+                case 5: week = '금'; break;
+                case 6: week = '토'; break;
+            }
+            ele[0].innerHTML += `(${week}요일)<br>`;
+
+            // getHours(): 시
+            ele[0].innerHTML += d.getHours() + ':';
+
+            // getMinutes(): 분
+            ele[0].innerHTML += d.getMinutes() + ':';
+
+            // getSeconds(): 초
+            ele[0].innerHTML += d.getSeconds();
+
+            // getMilliseconds(): 밀리초
+            ele[0].innerHTML += `(${d.getMilliseconds()})`;
+
+            // getTime(): 1970년 1월 1일부터 경과된 시간을 밀리초로 반환
+            ele[0].innerHTML += '<br>' + d.getTime();
+
+            // toGMTString(): GMT 표준 표기 방식으로 문자열 데이터로 반환
+            ele[0].innerHTML += '<br>' + d.toGMTString();
+
+            // toLocaleString(): 운영 시스템 표기 방식으로 문자열 데이터로 반환
+            ele[0].innerHTML += '<br>' + d.toLocaleString();
+
+            // 요소.toLocaleDateString() ~ 날짜 객체의 날짜(시간 아님)를 문자열로 반환
+            ele[0].innerHTML += '<br>' + d.toLocaleDateString();
+
+            // 요소.toLocaleTimeString() ~날짜 객체의 시간 부분을 문자열로 반환
+            ele[0].innerHTML += '<br>' + d.toLocaleTimeString();
+
+            // 참조변수 = new Date(연,월,일)
+            // const dDay = new Date('2023-12-26')
+            const dDay = new Date(2023, 12, 26)
+            // 몇 일 남았을까?
+            // 종강일 - 현재일
+            // 26 - 20 = 6
+            // 1일 -> 24시간 -> 24 * 60분 -> 24 * 60 * 60초 -> 24 * 60 * 60 * 1000밀리초
+            // 1970-01-01 ~ 2023-09-20
+            // 1970-01-01 ~ 2023-12-26
+            // console.log('현재일',d.getTime()/(24 * 60 * 60 * 1000));
+            // console.log('종강일',dDay.getTime()/(24 * 60 * 60 * 1000));
+            ele[0].innerHTML += '<br>남은 일 수: ' + (dDay.getTime() / (24 * 60 * 60 * 1000) - d.getTime() / (24 * 60 * 60 * 1000));
+
+            console.log('남은 일 수', dDay.getTime() / (24 * 60 * 60 * 1000) - d.getTime() / (24 * 60 * 60 * 1000));
+
+            // setFullYear()
+            d.setFullYear(2024);
+            ele[0].innerHTML += '<br>' + d.getFullYear();
+
+        }
+
+        // Math.abs(숫자): 절대값(음수를 양수로) 반환
+        ele[1].innerHTML = `Math.abs(-10) = ${Math.abs(-10)}<br>`;
+
+        // Math.max(숫자1, 숫자2, 숫자3, ...): 가장 큰 값 반환
+        // Math.min(숫자1, 숫자2, 숫자3, ...): 가장 작은 값 반환
+        ele[1].innerHTML += `
+            Math.max(10,45,24) = ${Math.max(10, 45, 24)}<br>
+            Math.min(10,45,24) = ${Math.min(10, 45, 24)}<br>
+        `;
+
+        // Math.pow(숫자, 제곱값): 거듭제곱값 반환
+        ele[1].innerHTML += `
+            Math.pow(2, 5) = ${Math.pow(2, 5)}<br>
+            2 ** 5 = ${2 ** 5}<br>
+        `;
+
+        // Math.random(): 0(포함) ~1(제외) 사이의 난수 반환
+        // 0 * 6 <= num * 6 && num * 6 < 1 * 6
+        // 0 + 1 <= num * 6 + 1 && num * 6 + 1 < 6 + 1
+        // 1 <= num * 6 + 1 && num * 6 + 1 < 7
+        let num = Math.random();
+        ele[1].innerHTML += `
+            Math.random() = ${num * 6 + 1}<br>
+        `;
+
+        // Math.round(숫자): 소수점 첫째 자리에서 반올림한 정수 반환
+        // Math.ceil(숫자): 소수점 첫째 자리에서 올림한 정수 반환
+        // Math.floor(숫자): 소수점 첫째 자리에서 버림한 정수 반환
+        ele[1].innerHTML += `
+            Math.round(num * 6 + 1) = ${Math.round(num * 6 + 1)}<br>
+            Math.ceil(num * 6 + 1) = ${Math.ceil(num * 6 + 1)}<br>
+            Math.floor(num * 6 + 1) = ${Math.floor(num * 6 + 1)}<br>
+        `;
+
+        // Math.sqrt(숫자): 제곱근값 반환
+        ele[1].innerHTML += `
+            Math.sqrt(4) = ${Math.sqrt(4)}<br>
+        `;
+
+        // Math.PI: 원주율(3.141592653589793...) 상수 반환
+        ele[1].innerHTML += `
+            Math.PI = ${Math.PI}<br>
+        `;
+
+
+
+        let str1 = '홍길동, Hello Javacript, 1234';
+        let str2 = '2023-09-20-14-30-25';
+
+        // 문자열객체.charAt(index): index 번호에 해당하는 문자열 반환
+        ele[2].innerHTML = `
+            str1.charAt(7) = ${str1.charAt(7)}<br>
+        `;
+
+        // indexOf('찾을문자'): 객체의 왼쪽부터 문자열을 찾아 최초 일치하는 index 번호 반환(없으면 - 1)
+        ele[2].innerHTML += `
+            str1.indexOf('J') = ${str1.indexOf('J')}<br>
+            str1.indexOf('7') = ${str1.indexOf('7')}<br>
+        `;
+
+        // indexOf('찾을문자', 인덱스): 인덱스 번호 부터 오른쪽 방향으로 찾을문자와 최초 일치하는 인덱스 번호 반환
+        ele[2].innerHTML += `
+            str1.indexOf('J') = ${str1.indexOf('J')}<br>
+            str1.indexOf('a', 8) = ${str1.indexOf('a', 8)}<br>
+        `;
+
+        // lastIndexOf('찾을문자'): 객체의 오른쪽부터 문자열을 찾아 최초 일치하는 index 번호 반환(없으면 - 1)
+        // lastIndexOf('찾을문자', 인덱스): 인덱스 번호 부터 왼쪽 방향으로 찾을문자와 최초 일치하는 인덱스 번호 반환
+        ele[2].innerHTML += `
+            str1.lastIndexOf('J') = ${str1.lastIndexOf('J')}<br>
+            str1.lastIndexOf('a', 8) = ${str1.lastIndexOf('a', 8)}<br>
+        `;
+
+        // match('찾을문자'): 객체의 왼쪽부터 문자열을 찾아 최초 일치하는 문자열을 반환(없으면 null)
+        ele[2].innerHTML += `
+            str1.match('J') = ${str1.match('J')}<br>
+            str1.match('A') = ${str1.match('A')}<br>
+        `;
+
+        // search('찾을문자'): 객체의 왼쪽부터 문자열을 찾아 최초 일치하는 index 번호 반환(없으면 - 1)
+        ele[2].innerHTML += `
+            str1.search('J') = ${str1.search('J')}<br>
+            str1.search('j') = ${str1.search('j')}<br>
+        `;
+
+        // substr(index, 개수): 인덱스 번호부터 개수만큼 문자열 반환
+        ele[2].innerHTML += `
+            str1.substr(6, 4) = ${str1.substr(6, 4)}<br>
+        `;
+
+        // substring(index1, index2): 인덱스1부터 인덱스2 이전 구간의 문자열 반환, (단, 음수인 경우 인덱스 0을 가리킴)
+        ele[2].innerHTML += `
+            str1.substring(6, 4) = ${str1.substring(6, 4)}<br>
+            str1.substring(6, 10) = ${str1.substring(6, 10)}<br>
+            str1.substring(-6, 10) = ${str1.substring(-6, 10)}<br>
+        `;
+
+        // replace('바꿀문자', '새문자'): 객체의 왼쪽부터 바꿀 문자열을 찾아 일치하는 문자열을 새 문자열로 치환
+        ele[2].innerHTML += `
+            str1.replace('Javascript', 'HTML') = ${str1.replace('Javascript', 'HTML')}<br>
+        `;
+
+        // toLowerCase(): 소문자로 반환
+        // toUpperCase(): 대문자로 반환
+        // length: 문자열의 문자 총 개수 반환
+        ele[2].innerHTML += `
+            str1.toLowerCase() = ${str1.toLowerCase()}<br>
+            str1.toUpperCase() = ${str1.toUpperCase()}<br>
+            str1.length = ${str1.length}<br>
+        `;
+
+        // slice(a개수, b다음): 왼쪽에서 a개의 문자를 자르고, b번째 이후에 문자열을 자른 후 남은 문자열을 반환(단, b가 - 1인 경우 뒤에서부터 1글자를 가리킴)
+        ele[2].innerHTML += `
+            str1.slice(6,10) = ${str1.slice(6,10)}<br>
+            str1.slice(6,-1) = ${str1.slice(6,-1)}<br>
+        `;
+
+        // split('문자'): 지정한 문자를 기준으로 문자열 데이터를 나누어 배열에 저장하여 반환
+        ele[2].innerHTML += `
+            str1.split(',') = ${str1.split(',')}<br>
+            str2.split('-') = ${str2.split('-')}<br>
+        `;
+
+        // concat('새문자열'): 문자열에 새 문자열 결합
+        ele[2].innerHTML += `
+            str1.concat(', 남') = ${str1.concat(', 남')}<br>
+        `;
+
+        // String.fromCharCode(아스키코드값): 아스키코드 값에 해당하는 문자열 반환
+        ele[2].innerHTML += `
+            String.fromCharCode(65) = ${String.fromCharCode(65)}<br>
+            String.fromCharCode(97) = ${String.fromCharCode(97)}<br>
+            String.fromCharCode(72) = ${String.fromCharCode(72)}<br>
+        `;
+
+        // charCodeAt(index): 인덱스 번호에 해당하는 문자열의 아스키코드 값을 반환(인덱스를 생략하면 0)
+        ele[2].innerHTML += `
+            str1.charCodeAt(5) = ${str1.charCodeAt(5)}<br>
+        `;
+
+        // trim(): 문자열 앞 또는 뒤에 공백 문자열 삭제
+        ele[2].innerHTML += `
+            's    t   r   i   n   g'.trim(5) = ${'s    t   r   i   n   g'.trim(5)}<br>
+        `;
 
     </script>
 </body>

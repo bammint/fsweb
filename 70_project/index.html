@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>박재한</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -24,7 +25,7 @@
     </header>
 
     <!-- 섹션1 -->
-    <section id="sec1"" class="parallax">
+    <section id="sec1"" class=" parallax">
         <h1>Park Jae-han</h1>
     </section>
     <!-- 섹션2 -->
@@ -119,15 +120,25 @@
         <div class="container">
             <div class="pf">
                 <ul>
-                    <li><img src="images/pf1.png" alt="기아자동차"></li>
-                    <li><img src="images/pf2.png" alt="요거프레소"></li>
-                    <li><img src="images/pf3.png" alt="순수치킨"></li>
-                    <li><img src="images/pf4.png" alt="작품4"></li>
+                    <li><a href="images/pf1_big.png" data-lightbox="roadtrip"><img src="images/pf1.png" alt="작품1"></a></li>
+                    <li><a href="images/pf2.png" data-lightbox="roadtrip"><img src="images/pf2.png" alt="작품2"></a></li>
+                    <li><a href="images/pf3.png" data-lightbox="roadtrip"><img src="images/pf3.png" alt="작품3"></a></li>
+                    <li><a href="images/pf4.png" data-lightbox="roadtrip"><img src="images/pf4.png" alt="작품4"></a></li>
                     <li><img src="images/pf5.png" alt="작품5"></li>
                     <li><img src="images/pf6.png" alt="작품6"></li>
                     <li><img src="images/pf7.png" alt="작품7"></li>
                     <li><img src="images/pf8.png" alt="작품8"></li>
                 </ul>
+                <!-- <ul>
+                    <li><a href="https://bammint.github.io/fsweb/70_project/project1/index.html" target="_blank"><img src="images/pf1.png" alt="기아자동차"></a></li>
+                    <li><a href="https://bammint.github.io/fsweb/70_project/project2/index.html" target="_blank"><img src="images/pf2.png" alt="요거프레소"></a></li>
+                    <li><a href="https://bammint.github.io/fsweb/70_project/project4/index.html" target="_blank"><img src="images/pf3.png" alt="순수치킨"></a></li>
+                    <li><a href="https://bammint.github.io/fsweb/team/notice.html" target="_blank"><img src="images/pf4.png" alt="공지사항"></a></li>
+                    <li><a href="https://bammint.github.io/fsweb/team/login.html" target="_blank"><img src="images/pf5.png" alt="로그인"></a></li>
+                    <li><img src="images/pf6.png" alt="작품6"></li>
+                    <li><img src="images/pf7.png" alt="작품7"></li>
+                    <li><img src="images/pf8.png" alt="작품8"></li>
+                </ul> -->
             </div><!-- //.pf -->
             <div class="pfBtn"><a href="#">작품 더보기</a></div>
         </div><!-- //.container -->
@@ -141,7 +152,8 @@
         <p><em>당신의 연락을 기다립니다.</em></p>
         <div class="container pos">
             <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.136973311645!2d126.92995197632955!3d37.38659287208573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b67358179ce51%3A0x16cc2bb45393b48b!2z66eM7JWI6rWs7LKt!5e0!3m2!1sko!2skr!4v1694679052196!5m2!1sko!2skr"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.136973311645!2d126.92995197632955!3d37.38659287208573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b67358179ce51%3A0x16cc2bb45393b48b!2z66eM7JWI6rWs7LKt!5e0!3m2!1sko!2skr!4v1694679052196!5m2!1sko!2skr"></iframe>
             </div>
             <div class="right">
                 <div class="addr">
@@ -176,6 +188,9 @@
         </div>
         <p class="copy">Copyright 2023 PJH. All rights reserved.</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스킬바</title>
+    <style>
+        .progress {
+            width: 100%;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+
+        .progressbar {
+            width: 0%;
+            height: 30px;
+            background-color: #04AA6D;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Progress Bar</h1>
+
+    <div class="progress">
+        <div class="progressbar">0%</div>
+    </div>
+    <div class="progress">
+        <div class="progressbar">0%</div>
+    </div>
+    <div class="progress">
+        <div class="progressbar">0%</div>
+    </div>
+
+    <br>
+    <button>Click Me</button>
+
+    <script>
+        const pgBtn = document.querySelector('button');
+        const pgBar = document.querySelectorAll('.progressbar');
+
+        pgBtn.onclick = () => skill();
+
+        function skill() {
+
+            let i0 = 0;
+            let i1 = 0;
+            let i2 = 0;
+            const pgTimer0 = setInterval(() => counter0(), 100);
+            const pgTimer1 = setInterval(() => counter1(), 100);
+            const pgTimer2 = setInterval(() => counter2(), 100);
+
+            function counter0() {
+                if (i0 >= 10) {
+                    clearInterval(pgTimer0);
+                } else {
+                    i0++;
+                    pgBar[0].style.width = i0 + '%';
+                    pgBar[0].innerHTML = i0 + '%';
+                }
+            }
+            function counter1() {
+                if (i1 >= 20) {
+                    clearInterval(pgTimer1);
+                } else {
+                    i1++;
+                    pgBar[1].style.width = i1 + '%';
+                    pgBar[1].innerHTML = i1 + '%';
+                }
+            }
+            function counter2() {
+                if (i2 >= 30) {
+                    clearInterval(pgTimer2);
+                } else {
+                    i2++;
+                    pgBar[2].style.width = i2 + '%';
+                    pgBar[2].innerHTML = i2 + '%';
+                }
+            }
+
+        } //skill();
+
+        /* const myBar = document.querySelectorAll('.progressBar');
+        const prgBtn = document.querySelector('.prgBtn');
+        let persent = [];
+
+        function fill(idx) {
+            persent = [65, 90, 75];
+            let counter = 0;
+            setInterval(() => {
+                for (let i = 0; i < myBar.length; i++) {
+                    if (counter === persent[idx]) {
+                        clearInterval();
+                    } else {
+                        counter++;
+                        myBar[idx].style.width = `${counter}%`;
+                        myBar[idx].innerHTML = counter + "%";
+                    }
+                }
+            }, 20)
+        }
+
+        prgBtn.addEventListener('click', () => {
+            fill(0);
+            fill(1);
+            fill(2);
+        }); */
+    </script>
+</body>
+
+</html>

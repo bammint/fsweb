@@ -124,11 +124,13 @@ header {
     margin-right: 8px;
 }
 
-.progress {
-    background: #e6e6e6;
+.skill .progress {
+    background: red;
+    outline: 1px solid blue;
 }
 
-.progressbar {
+.skill .progressbar {
+    outline: 1px solid red;
     background: #616161;
     height: 36px;
     color: #fff;
