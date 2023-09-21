@@ -1,0 +1,36 @@
+내 API 코드
+fb0765e4330792a94f1658f89a20d930
+
+API 호출
+http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}
+
+도시코드 - 안양
+1846898
+
+도시코드 - 서울
+1835848
+
+
+http://api.openweathermap.org/data/2.5/forecast?id=1846898&appid=fb0765e4330792a94f1658f89a20d930
+
+
+{"name": "Jones"}
+JavaScript Object Notation(JSON) - 자바스크립트 객체 문법으로 구조화된 데이터 표현
+
+출력되어 나온 온도는 Kelvin 온도다
+296.73
+
+
+&units=metric -> 섭씨
+
+&units=imperia(화씨)
+
+http://api.openweathermap.org/data/2.5/forecast?id=1846898&appid=fb0765e4330792a94f1658f89a20d930&units=metric
+
+forecast(예보)
+weather(날씨)
+
+http://api.openweathermap.org/data/2.5/weather?id=1846898&appid=fb0765e4330792a94f1658f89a20d930&units=metric
+
+날씨 아이콘
+https://openweathermap.org/weather-conditions

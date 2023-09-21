@@ -1,0 +1,46 @@
+{
+    "coord": {
+        "lon": 126.9269,
+        "lat": 37.3925
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 21.38,
+        "feels_like": 21.04,
+        "temp_min": 20.69,
+        "temp_max": 21.66,
+        "pressure": 1012,
+        "humidity": 56,
+        "sea_level": 1012,
+        "grnd_level": 1006
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 1.83,
+        "deg": 22,
+        "gust": 2.36
+    },
+    "clouds": {
+        "all": 100
+    },
+    "dt": 1695261958,
+    "sys": {
+        "type": 1,
+        "id": 5509,
+        "country": "KR",
+        "sunrise": 1695244715,
+        "sunset": 1695288770
+    },
+    "timezone": 32400,
+    "id": 1846898,
+    "name": "Anyang-si",
+    "cod": 200
+}
