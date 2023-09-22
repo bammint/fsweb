@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        ul,
+        button {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .tab {
+            width: 360px;
+            height: 180px;
+            border: 2px solid black;
+        }
+
+        .tab_menu,
+        .tab_list {
+            display: flex;
+        }
+
+        .tab_menu li {
+            padding: 8px 16px;
+        }
+
+        .tab_list li {
+            display: none;
+        }
+
+        .on {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <ul class="tab_menu">
+            <li class="on">공지사항</li>
+            <li>갤러리</li>
+            <li>정보마당</li>
+        </ul>
+        <ul class="tab_list">
+            <li class="tl1">
+                <div>공지사항입니다.</div>
+                <div>공지사항입니다.</div>
+                <div>공지사항입니다.</div>
+            </li>
+            <li class="tl2">
+                <div>갤러리입니다.</div>
+                <div>갤러리입니다.</div>
+                <div>갤러리입니다.</div>
+            </li>
+            <li class="tl3">
+                <div>정보마당입니다.</div>
+                <div>정보마당입니다.</div>
+                <div>정보마당입니다.</div>
+            </li>
+        </ul>
+    </div>
+    <script>
+
+        const btn = document.querySelectorAll('.tab_menu li');
+        const tl = document.querySelectorAll('.tab_list li');
+
+        tl[0].style.display = 'block';
+
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+                for (let j = 0; j < tl.length; j++) {
+                    tl[j].style.display = 'none';
+                    btn[j].classList.remove('on');
+                };
+                tl[i].style.display = 'block';
+                btn[i].classList.add('on');
+            };
+        };
+
+        // const tabMenuItems = document.querySelectorAll('.tab_menu li');
+        // const tabListItems = document.querySelectorAll('.tab_list li');
+
+        // tabMenuItems.forEach((item, i) => {
+        //     item.addEventListener('click', () => {
+        //         // 1. 'on' 클래스를 클릭한 요소에 추가하고 다른 요소에서 제거
+        //         tabMenuItems.forEach((menuItem) => {
+        //             menuItem.classList.remove('on');
+        //         });
+        //         item.classList.add('on');
+
+        //         // 2. 클릭한 인덱스와 같은 인덱스를 가진 tabListItems에 'on' 클래스 추가
+        //         tabListItems.forEach((listItem, index) => {
+        //             if (i === index) {
+        //                 listItem.classList.add('on');
+        //             } else {
+        //                 listItem.classList.remove('on');
+        //             }
+        //         });
+        //     });
+        // });
+
+
+    </script>
+</body>
+
+</html>
