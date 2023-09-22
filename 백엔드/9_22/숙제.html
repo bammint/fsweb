@@ -14,6 +14,7 @@
         ul {
             list-style: none;
         }
+
         a {
             text-decoration: none;
             color: black;
@@ -22,7 +23,6 @@
         body {
             width: 1200px;
             height: 700px;
-            outline: 1px solid black;
             margin: 0 auto;
         }
 
@@ -35,22 +35,40 @@
             justify-content: flex-end;
             align-items: center;
         }
+
         /* 내비 */
         .main {
             display: flex;
             align-items: center;
-            /* margin-right: 20px; */
+            margin-right: 20px;
         }
         .main li {
-            text-align: center;
-            outline: 1px solid blue;
-            padding: 8px 16px;
+            padding: 10px 0;
+            background: yellow;
         }
-        .main>li {
+        .main>li>a {
+            padding: 12px 32px;
+        }
+
+        #gnb {
             position: relative;
         }
+
         .sub {
             position: absolute;
+            display: none;
+            /* transition: 5s; */
+        }
+        
+        .sub li {
+            background: yellow;
+        }
+        .sub li:first-of-type {
+            margin-top: 11px;
+        }
+        
+        .sub>li>a {
+            padding: 12px 32px;
         }
 
         /* 섹션 */
@@ -63,19 +81,45 @@
             height: 170px;
             display: flex;
         }
+
         .sec2sub1 {
             background: lightgreen;
             width: 400px;
         }
+
         .sec2sub2 {
             background: lightpink;
             width: 400px;
         }
+
         .sec2sub3 {
             background: lightsalmon;
             width: 400px;
         }
-
+        /* 푸터 */
+        footer {
+            display: flex;
+            height: 110px;
+        }
+        .f1 {
+            height: 110px;
+            width: 200px;
+            background: rgb(206, 255, 114);
+        }
+        .fc {
+            display: flex;
+            flex-direction: column;
+        }
+        .f2,.f3 {
+            height: 55px;
+            width: 1000px;
+        }
+        .f2 {
+            background: rgb(133, 178, 245);
+        }
+        .f3 {
+            background: rgb(47, 255, 220);
+        }
     </style>
 </head>
 
@@ -125,10 +169,31 @@
         <div class="sec2sub3"></div>
     </div>
     <footer>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="f1"></div>
+        <div class="fc">
+            <div class="f2"></div>
+            <div class="f3"></div>
+        </div>
     </footer>
+    <script>
+        const mm = document.querySelectorAll('.main>li');
+        const mmh = document.querySelectorAll('.main>li>a');
+        const sm = document.querySelectorAll('.sub');
+
+        for (let i = 0; i < mm.length; i++) {
+            mm[i].addEventListener('mouseover', function () {
+                sm[i].style.display = 'block';
+                mm[i].style.background = 'black';
+                mmh[i].style.color = 'white';
+            });
+            mm[i].addEventListener('mouseout', function () {
+                sm[i].style.display = 'none';
+                mm[i].style.background = 'yellow';
+                mmh[i].style.color = 'black';
+            });
+        };
+
+    </script>
 </body>
 
 </html>
