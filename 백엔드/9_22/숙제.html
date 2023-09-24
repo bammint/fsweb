@@ -37,6 +37,9 @@
         }
 
         /* 내비 */
+        #gnb {
+            position: relative;
+        }
         .main {
             display: flex;
             align-items: center;
@@ -44,14 +47,14 @@
         }
         .main li {
             padding: 10px 0;
-            background: yellow;
         }
         .main>li>a {
+            background: yellow;
             padding: 12px 32px;
         }
-
-        #gnb {
-            position: relative;
+        .main .onM {
+            background: #000;
+            color: #fff;
         }
 
         .sub {
@@ -60,14 +63,16 @@
             /* transition: 5s; */
         }
         
-        .sub li {
-            background: yellow;
+        .sub>li>a:hover {
+            background: rgb(209, 209, 0);
+            color: #6d6d6d;
         }
         .sub li:first-of-type {
             margin-top: 11px;
         }
         
         .sub>li>a {
+            background: yellow;
             padding: 12px 32px;
         }
 
@@ -99,7 +104,6 @@
         /* 푸터 */
         footer {
             display: flex;
-            height: 110px;
         }
         .f1 {
             height: 110px;
@@ -181,15 +185,13 @@
         const sm = document.querySelectorAll('.sub');
 
         for (let i = 0; i < mm.length; i++) {
-            mm[i].addEventListener('mouseover', function () {
+            mm[i].addEventListener('mouseover', ()=> {
                 sm[i].style.display = 'block';
-                mm[i].style.background = 'black';
-                mmh[i].style.color = 'white';
+                mmh[i].classList.add('onM');
             });
             mm[i].addEventListener('mouseout', function () {
                 sm[i].style.display = 'none';
-                mm[i].style.background = 'yellow';
-                mmh[i].style.color = 'black';
+                mmh[i].classList.remove('onM');
             });
         };
 
