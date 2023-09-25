@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.bigbox {
+    width: 1000px;
+    margin: 0 auto;
+    border: 5px solid tan;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bigbox .box {
+    border: 5px solid tan;
+    width: 150px;
+    height: 200px;
+}
+
+.bigbox .box1 {
+    background: url(../images/a1.jpg) no-repeat 50% 50%;
+    background-size: 100%;
+    transition: all .3s;
+}
+
+.bigbox .box1:hover {
+    background-size: 120%;
+}
+
+.bigbox .box2 {
+    background: url(../images/aa1.jpg) no-repeat 0 0;
+    transition: all .3s;
+}
+
+.bigbox .box2:hover {
+    background: url(../images/aa1.jpg) no-repeat 0 -200px;
+    /* background-position: 0 -200px */
+}
+
+.bigbox .box3 {
+    background: url(../images/ab1.jpg) no-repeat 0 0;
+    transition: all .3s;
+}
+
+.bigbox .box3:hover {
+    background: url(../images/ab1.jpg) no-repeat -150px 0;
+}
+
+/* .bigbox .box4 {
+    background: url(../images/a4.jpg) no-repeat 0 0;
+    position: relative;
+    overflow: hidden;
+}
+.bigbox .box4 .b4h {
+    background-color: rgba(0, 0, 0, 0.404);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 9;
+    transition: .5s;
+    
+}
+.bigbox .box4:hover .b4h {
+    left: 0;
+} */
+
+.bigbox .box4 {
+    background: url(../images/a4.jpg) no-repeat 0 0;
+    transition: all .3s;
+    position: relative;
+}
+
+.bigbox .box4::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 200px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    transition: all .3s;
+    overflow: hidden;
+}
+
+.bigbox .box4:hover::before {
+    width: 150px;
+    color: #fff;
+    content: '귀여운';
+    text-align: center;
+}
+.bigbox .box4::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 50px;
+    top: 40%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.bigbox .box4:hover::after {
+    transition: all .7s;
+    width: 150px;
+    color: #fff;
+    content: '고양이';
+    text-align: center;
+}
+
+
+.bigbox .box5 {
+    background: url(../images/a5.jpg) no-repeat 0 0;
+    transition: all .3s;
+    position: relative;
+}
+
+.bigbox .box5::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 200px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    transition: all .3s;
+    overflow: hidden;
+}
+
+.bigbox .box5:hover::before {
+    width: 150px;
+}
+.bigbox .box5::after {
+    content: '페르시안고양이 \A 우아하고기품있는 \A 2살먹은고양이';
+    white-space: pre;
+    text-align: center;
+    position: absolute;
+    width: 150px;
+    height: 50%;
+    top: 30%;
+    left: 0;
+    color: #fff;
+    transition: all .3s;
+    opacity: 0;
+}
+
+.bigbox .box5:hover::after {
+    opacity: 1;
+}

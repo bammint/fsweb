@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            border: 1px solid black;
+            background: url(./img/f1.png) no-repeat 50% 50%;
+            animation: img 3s infinite;
+        }
+        @keyframes img {
+            0% {left: 0;}
+            40% {background: url(./img/f2.png) no-repeat 50% 50%;}
+            50% {left: 200px;}
+            100% {left: 0;}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
