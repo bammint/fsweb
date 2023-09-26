@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 5000px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        img {
+            width: 466px;
+            height: 466px;
+            opacity: 1;
+            transition: 1s;
+            transform: translateY(600px);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>스크롤시 이미지가 나타납니다!</h1>
+    <img src="images/work1.jpg" alt="img1">
+    <img src="images/work2.jpg" alt="img2">
+    <img src="images/work3.jpg" alt="img3">
+    <img src="images/work4.jpg" alt="img4">
+    <img src="images/work5.jpg" alt="img5">
+    <img src="images/work6.jpg" alt="img6">
+    <script>
+        const docEle = document.documentElement;
+        const img = document.querySelectorAll('img');
+        const arr = [100, 900, 1700, 2490, 3290, 4090]
+
+        window.onscroll = function () {
+            let st = docEle.scrollTop;
+            console.log(st); // 스크롤값
+            for (let i = 0; i < img.length; i++) {
+                if (st > arr[i]) {
+                    img[i].style.opacity = '1';
+                    img[i].style.transform = 'translateY(0)';
+                } else if (st < arr[i]) {
+                    img[i].style.opacity = '0';
+                    img[i].style.transform = 'translateY(600px)';
+                }
+            }
+        };
+
+        // const images = document.getElementsByTagName('img');
+        // // console.log(images);
+        // wh = window.innerHeight;
+        // // console.log(wh);
+        // window.onscroll = () => {
+        //     wy = window.scrollY;
+        //     // console.log(window.scrollY);
+        //     for (let i = 0; i < images.length; i++) {
+        //         if (wy > i * 800) {
+        //             images[i].style.opacity = '1';
+
+        //         }
+        //     }
+
+        // }
+    </script>
+</body>
+
+</html>
