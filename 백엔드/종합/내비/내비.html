@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        body {
+            width: 1200px;
+            height: 700px;
+            margin: 0 auto;
+        }
+
+        /* 헤더 */
+
+        header {
+            height: 70px;
+            background: lightblue;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        /* 내비 */
+        #gnb {
+            position: relative;
+        }
+        .main {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .main li {
+            padding: 10px 0;
+        }
+        .main>li>a {
+            background: yellow;
+            padding: 12px 32px;
+        }
+        .main .onM {
+            background: #000;
+            color: #fff;
+        }
+
+        .sub {
+            position: absolute;
+            display: none;
+            /* transition: 5s; */
+        }
+        
+        .sub>li>a:hover {
+            background: rgb(209, 209, 0);
+            color: #6d6d6d;
+        }
+        .sub li:first-of-type {
+            margin-top: 11px;
+        }
+        
+        .sub>li>a {
+            background: yellow;
+            padding: 12px 32px;
+        }
+
+        /* 섹션 */
+        .sec1 {
+            height: 350px;
+            background: lightcoral;
+        }
+
+        .sec2 {
+            height: 170px;
+            display: flex;
+        }
+
+        .sec2sub1 {
+            background: lightgreen;
+            width: 400px;
+        }
+
+        .sec2sub2 {
+            background: lightpink;
+            width: 400px;
+        }
+
+        .sec2sub3 {
+            background: lightsalmon;
+            width: 400px;
+        }
+        /* 푸터 */
+        footer {
+            display: flex;
+        }
+        .f1 {
+            height: 110px;
+            width: 200px;
+            background: rgb(206, 255, 114);
+        }
+        .fc {
+            display: flex;
+            flex-direction: column;
+        }
+        .f2,.f3 {
+            height: 55px;
+            width: 1000px;
+        }
+        .f2 {
+            background: rgb(133, 178, 245);
+        }
+        .f3 {
+            background: rgb(47, 255, 220);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav id="gnb">
+            <ul class="main">
+                <li><a href="">메인메뉴1</a>
+                    <ul class="sub">
+                        <li><a href="">서브메뉴1</a></li>
+                        <li><a href="">서브메뉴2</a></li>
+                        <li><a href="">서브메뉴3</a></li>
+                        <li><a href="">서브메뉴4</a></li>
+                    </ul>
+                </li>
+                <li><a href="">메인메뉴2</a>
+                    <ul class="sub">
+                        <li><a href="">서브메뉴1</a></li>
+                        <li><a href="">서브메뉴2</a></li>
+                        <li><a href="">서브메뉴3</a></li>
+                        <li><a href="">서브메뉴4</a></li>
+                    </ul>
+                </li>
+                <li><a href="">메인메뉴3</a>
+                    <ul class="sub">
+                        <li><a href="">서브메뉴1</a></li>
+                        <li><a href="">서브메뉴2</a></li>
+                        <li><a href="">서브메뉴3</a></li>
+                        <li><a href="">서브메뉴4</a></li>
+                    </ul>
+                </li>
+                <li><a href="">메인메뉴4</a>
+                    <ul class="sub">
+                        <li><a href="">서브메뉴1</a></li>
+                        <li><a href="">서브메뉴2</a></li>
+                        <li><a href="">서브메뉴3</a></li>
+                        <li><a href="">서브메뉴4</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="sec1"></div>
+    <div class="sec2">
+        <div class="sec2sub1"></div>
+        <div class="sec2sub2"></div>
+        <div class="sec2sub3"></div>
+    </div>
+    <footer>
+        <div class="f1"></div>
+        <div class="fc">
+            <div class="f2"></div>
+            <div class="f3"></div>
+        </div>
+    </footer>
+    <script>
+        const mm = document.querySelectorAll('.main>li');
+        const mmh = document.querySelectorAll('.main>li>a');
+        const sm = document.querySelectorAll('.sub');
+
+        for (let i = 0; i < mm.length; i++) {
+            mm[i].addEventListener('mouseover', ()=> {
+                sm[i].style.display = 'block';
+                mmh[i].classList.add('onM');
+            });
+            mm[i].addEventListener('mouseout', function () {
+                sm[i].style.display = 'none';
+                mmh[i].classList.remove('onM');
+            });
+        };
+
+    </script>
+</body>
+
+</html>

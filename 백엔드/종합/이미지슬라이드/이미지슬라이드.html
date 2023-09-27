@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slideWrap .slide {
+            display: flex;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 600px;
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .slideWrap img {
+            position: absolute;
+            left: 600px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slideWrap img:first-of-type {
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideWrap">
+        <div class="slide">
+            <img src="./images/slide1.jpg" alt="이미지슬라이드1">
+            <img src="./images/slide2.jpg" alt="이미지슬라이드2">
+            <img src="./images/slide3.jpg" alt="이미지슬라이드3">
+        </div>
+    </div>
+
+    <script>
+        const slide = document.querySelectorAll('.slideWrap img');
+
+        setInterval(autoSlide, 3000); // 이미지 3초마다 넘김
+
+        let i = 0; // 이미지 순서 초기화
+        function autoSlide() {
+            slide[i].style.left = '0'; // i번째 이미지 메인 노출
+            slide[i].style.zIndex = '1'; // i번째 이미지 우선 노출(다른 이미지들이 보이지 않게)
+            slide[i].style.transition = '.3s'; // 이미지가 스르륵 넘어감
+            
+            for (let j = 0; j < slide.length; j++) {
+                if (i !== j) {
+                    slide[j].style.left = '-600px' // j번째 이미지가 i번째 이미지와 같지 않을 때 메인자리 왼편으로 넘어감
+                    slide[j].style.zIndex = '-1' // 메인 이미지가 노출될때 보이지 않게
+                }
+            };
+            setTimeout(function () {
+                slide[i].style.left = '600px' // .5초마다 메인 이미지 왼편에서 오른편으로 넘어감
+            }, 500);
+            i++;
+            if (i === 3) i = 0; // i가 3과 같으면 i는 0
+        }
+    </script>
+</body>
+
+</html>
