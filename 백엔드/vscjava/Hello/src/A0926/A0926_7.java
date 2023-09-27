@@ -17,7 +17,7 @@ public class A0926_7 {
         int result = x + y;
         System.out.println("x + y: " + result);
         System.out.println();
-
+        //-----------------------------------------------
         while(true) {
             System.out.print("입력 문자열: ");
             String data = scanner.nextLine();
