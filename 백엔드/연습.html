@@ -9,22 +9,30 @@
 
 <body>
     <script>
-        for(let i = 0; i<10;i++){
-            if(i%2===0) continue;
-            console.log('*'.repeat(i));
+        // for(let i = 0; i<10;i++){
+        //     if(i%2===0) continue;
+        //     console.log('*'.repeat(i));
+        // };
+        // for(let i = 0; i<10;i++){
+        //     if(i%2===0) continue;
+        //     console.log('*'.repeat(10-i));
+        // };
+        // for(let i = 0; i<10;i++){
+        //     if(i%2===0) continue;
+        //     console.log((' '.repeat(i))+('*'.repeat(10-i)));
+        // };
+        // for(let i = 0; i<10;i++){
+        //     if(i%2===0) continue;
+        //     console.log((' '.repeat(10-i))+('*'.repeat(i)));
+        // };
+
+        const arr = ['가','라','다','라','마','라'];
+        let i = arr.indexOf('라');
+         while(i>-1){
+            arr.splice(i,1);
+            i=arr.indexOf('라')
         };
-        for(let i = 0; i<10;i++){
-            if(i%2===0) continue;
-            console.log('*'.repeat(10-i));
-        };
-        for(let i = 0; i<10;i++){
-            if(i%2===0) continue;
-            console.log((' '.repeat(i))+('*'.repeat(10-i)));
-        };
-        for(let i = 0; i<10;i++){
-            if(i%2===0) continue;
-            console.log((' '.repeat(10-i))+('*'.repeat(i)));
-        };
+        // 왜??
     </script>
 </body>
 
