@@ -13,5 +13,6 @@ public class A1004_0_34 {
                 break;
             }
         }
+        scanner.close();
     }
 }

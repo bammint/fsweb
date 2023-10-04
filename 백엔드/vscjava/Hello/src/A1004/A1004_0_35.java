@@ -12,7 +12,8 @@ public class A1004_0_35 {
             if(i%2 == 0){
                 sum += i;
             }
-            System.out.println(sum);
         }
+        System.out.println(sum);
+        scanner.close();
     }
 }
