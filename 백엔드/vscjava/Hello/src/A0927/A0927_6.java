@@ -31,6 +31,6 @@ public class A0927_6 {
         System.out.println("학점: " + grade);
 
         // 스캐너 닫기(권장사항)
-        // scanner.close();
+        scanner.close();
     }   
 }

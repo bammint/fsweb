@@ -28,5 +28,6 @@ public class A0926_7 {
             System.out.println();
         }
         System.out.println("종료");
+        scanner.close();
     }
 }

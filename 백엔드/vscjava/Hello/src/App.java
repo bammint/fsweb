@@ -1,44 +1,54 @@
-import java.util.Scanner;
+// import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        // int score = 69;
-
-        // if(score>=90){
-        // System.out.println("점수가 90점 이상입니다.");
-        // System.out.println("등급은 A입니다.");
-        // } else if (score>=80){
-        // System.out.println("점수가 80점 이상입니다.");
-        // System.out.println("등급은 B입니다.");
-        // } else if (score>=70){
-        // System.out.println("점수가 70점 이상입니다.");
-        // System.out.println("등급은 C입니다.");
-        // } else {
-        // System.out.println("점수가 70점 미만입니다.");
-        // System.out.println("등급은 F입니다.");
+        // int sum = 0;
+        // int i = 0;
+        // for (i = 1; i <= 100; i++) {
+        //     if(i%3 ==0){
+        //         System.out.println(i);
+        //         sum += i;
+        //     }
+        // } 
+        // -------------------------------------------
+        // for (i = 1; i <= 100; i++) {
+        //     if(i%3 !=0){
+        //         continue;
+        //     } 
+        //     sum += i;
         // }
+        // System.out.println("1~100 3의 배수 합: " + sum);
 
-        // System.out.println(score);
+        // ----------------------------------------------
+        // while(true){
+        //     int num1 = (int)(Math.random()*6) + 1;
+        //     int num2 = (int)(Math.random()*6) + 1;
+        //     if(num1+num2 != 5){
+        //         continue;
+        //     }
+        //     System.out.println(num1+","+num2);
+        //     break;
+        // }
+        //-----------------------------------------------------
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("점수 입력: ");
-        String score = scanner.nextLine();
-        int scr = Integer.parseInt(score);
-        if (scr >= 90) {
-            System.out.println("점수가 90점 이상입니다.");
-            System.out.println("등급은 A입니다.");
-        } else if (scr >= 80) {
-            System.out.println("점수가 80점 이상입니다.");
-            System.out.println("등급은 B입니다.");
-        } else if (scr >= 70) {
-            System.out.println("점수가 70점 이상입니다.");
-            System.out.println("등급은 C입니다.");
-        } else {
-            System.out.println("점수가 70점 미만입니다.");
-            System.out.println("등급은 F입니다.");
-        }
-
+        // for(int i=1; i<=10; i++){
+        //     int num1= 4*i;
+        //     for (int j=1; j<=10; j++){
+        //         int num2= 5*j;
+        //         if(num1+num2 ==60){
+        //             System.out.println("("+i+","+j+")");
+        //         }
+        //     }
+        // }
+        //----------------------------------------------------
         
+        for(int i=1; i<5; i++){
+            System.out.println("*");
+            for(int j=0; j<i; j++){
+                System.out.print("*");
+            }
+        }
+        System.out.print("*");
     }
 }
