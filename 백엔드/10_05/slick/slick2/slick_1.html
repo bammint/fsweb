@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/slick.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="js/slick.js"></script>
+<style>
+*{margin:0;padding:0;}
+#s_wrap{
+	width:100%;
+	max-width:960px;
+	margin:0 auto;
+	position:relative;
+}
+.slick-prev:before,
+.slick-next:before{
+	
+}
+
+.slick{
+	position:relative;
+
+}
+.slick button{
+	position:absolute;
+	z-index:100;
+	top:50%;
+	transform:translate(0,-50%);
+	width:71px; height:71px;
+	background:rgba(0,0,0,0.5);
+	border:none;
+	font-size:0; color:transparent;
+	border-radius:50%;
+}
+.slick-prev{
+	left:50px;
+}
+.slick-next{
+	right:50px;
+}
+
+.slick button:before{
+	font-family:'xeicon';
+	color:#fff;
+	font-size:45px;
+}
+
+.slick-prev:before{
+	content:"\e93d";
+
+}
+.slick-next:before{
+	content:"\e940";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<script>
+$(function(){
+	$('.slick').slick({
+		autoplay:true,
+		autoplaySpeed:2000,
+	});
+
+});
+
+
+</script>
+
+
+
+	
+</head>
+<body>
+<div id="s_wrap">
+	<div  class="slick">
+		<div>
+			<img src="images/images1.jpg" />
+		</div>
+		<div>
+			<img src="images/images2.jpg" />
+		</div>
+		<div>
+			<img src="images/images3.jpg" />
+		</div>
+		<div>
+			<img src="images/images4.jpg" />
+		</div>
+		<div>
+			<img src="images/images5.jpg" />
+		</div>
+	</div>
+</div>	
+</body>
+</html>

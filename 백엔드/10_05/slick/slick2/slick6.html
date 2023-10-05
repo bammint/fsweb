@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/slick.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<!-- <link rel="stylesheet" href="css/slick-theme.css"/> -->
+	<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="js/slick.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+#s_wrap{
+	width:100%;
+	
+}
+
+.slick-prev:before,
+.slick-next:before{
+	color:black;
+}
+.slick5{
+	position:relative;
+
+}
+.second{
+	background:url(images/main_visual_2.jpg) no-repeat center / cover;
+	
+	width:100%;
+	height:100vh;
+}
+
+
+
+
+
+.slick5 button{
+	position:absolute;
+	z-index:100;
+	top:50%;
+	transform:translate(0,-50%);
+	width:71px; height:71px;
+	background:rgba(0,0,0,0.5);
+	border:none;
+	font-size:0; color:transparent;
+	border-radius:50%;
+}
+
+
+.slick-prev{
+	left:50px;
+	z-index:999;
+}
+.slick-next{
+	right:50px;
+	
+}
+.slick5 button:before{
+	font-family:'xeicon';
+	color:#fff;
+	font-size:45px;
+}
+.slick-prev:before{
+	content:"\e93d";
+
+}
+.slick-next:before{
+	content:"\e940";
+}
+
+
+.slick5 .second h2{
+	font-size:60px;
+	text-align:center;
+}
+
+.slick5 .second .text1{
+	transform:translate(-50px,0); transition:all .5s .5s; 
+	opacity:0;
+}
+.slick5 .slick-active .second .text1{
+	transform:translate(0px,0); transition:all .5s .5s; 
+	opacity:1;
+}
+.slick5 .second .txt2{
+	transform:translate(50px,0); transition:all .5s .5s;
+	opacity:0;
+}
+.slick5 .slick-active .second .txt2{
+	transform:translate(0,0); transition:all .5s .5s;
+	opacity:1;
+}
+.slick5 .second .txt3{
+	transform:translate(0,50px); transition:all .5s .5s;
+	opacity:0;
+}
+.slick5 .slick-active .second .txt3{
+	transform:translate(0,0); transition:all .5s .5s;
+	opacity:1;
+}
+
+
+
+
+
+
+
+
+</style>
+<script>
+$(function(){
+	$('.slick5').slick({
+		autoplay:true,
+		autoplaySpeed:3000,
+	});
+
+});
+
+
+</script>
+
+
+
+	
+</head>
+<body>
+<div id="s_wrap">
+	<div  class="slick5 slider">
+		<div>
+			<img src="images/main_visual_1.jpg" />
+		</div>
+		<div class="second">
+			<h2 class="txt1">좌측에서 우측으로 나오는 텍스트</h2>
+			<h2 class="txt2">우측에서 좌측으로 나오는 텍스트</h2>
+			<h2 class="txt3">아래에서 위로 나오는 텍스트</h2>
+		</div>
+		<div>
+			<img src="images/main_visual_3.jpg" />
+		</div>
+		<div>
+			<img src="images/main_visual_4.jpg" />
+		</div>
+		<div>
+			<img src="images/main_visual_5.jpg" />
+		</div>
+		<div>
+			<img src="images/main_visual_6.jpg" />
+		</div>
+	</div>
+</div>	
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bx-wrapper {
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .bx-wrapper .bx-pager {
+            position: absolute;
+            bottom: 48px;
+            width: 100%;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a:active,
+        .bx-wrapper .bx-pager.bx-default-pager a:focus {
+            background: red;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a {
+            background: #666;
+            text-indent: -9999px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            outline: 0;
+            border-radius: 5px;
+        }
+
+        .bx-controls-direction>.bx-prev {
+            background: none;
+            background-image: url(./images/btn_slide_prev.png);
+        }
+
+        .bx-controls-direction>.bx-next {
+            background: none;
+            background-image: url(./images/btn_slide_next.png);
+        }
+
+        .bx-wrapper .bx-next:hover,
+        .bx-wrapper .bx-next:focus {
+            background-position: 0 0;
+        }
+        .bx-wrapper .bx-controls-direction a {
+            width: 78px;
+            height: 78px;
+            /* z-index: 1; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bxslider">
+        <img src="./img/images(1).jpg" alt="">
+        <img src="./img/images(2).jpg" alt="">
+        <img src="./img/images(3).jpg" alt="">
+        <img src="./img/images(4).jpg" alt="">
+        <img src="./img/images(5).jpg" alt="">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+
+    <script>
+        $('.bxslider').bxSlider({
+            auto: true,
+            // autoControls: true,
+            // stopAutoOnClick: true,
+            pager: true,
+            // slideWidth: 1200
+        });
+    </script>
+
+</body>
+
+</html>

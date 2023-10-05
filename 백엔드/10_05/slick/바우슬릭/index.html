@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/slick.css"/>
+	<link rel="stylesheet" href="css/slick-theme.css"/>
+	<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="./js/slick.js"></script>
+<style>
+*{margin:0;padding:0;}
+ul{list-style:none;}
+section{
+	position:relative;
+	width:100%;
+	height:auto;
+}
+.pc-slide{
+	position:relative;
+}
+.pc-slide ul{
+	position:relative;
+	width:100%;
+	height:auto; margin:0 auto;
+}
+.pc-slide ul li{
+	position:relative;
+	width:100%;
+	height:auto;}
+.pc-slide ul li a{display:block;width:100%;}
+.pc-slide ul li a img{display:block;width:100%;height:auto;}
+.pc-slide .prev-btn{
+	position:absolute;
+	top:50%;
+	left:50px;
+	transform:translateY(-50%);
+	cursor:pointer;
+}
+.pc-slide .next-btn{
+	position:absolute;
+	top:50%;
+	right:50px;
+	transform:translateY(-50%);
+	cursor:pointer;
+}
+
+
+
+
+.mo-slide{
+	position:relative;
+}
+.mo-slide ul{
+	position:relative;
+	width:100%;
+	height:auto; margin:0 auto;
+}
+.mo-slide ul li{
+	position:relative;
+	
+	height:auto;}
+.mo-slide ul li a{display:block;width:100%;}
+.mo-slide ul li a img{display:block;width:100%;height:auto;}
+.mo-slide .prev-btn{
+	position:absolute;
+	top:50%;
+	left:50px;
+	transform:translateY(-50%);
+	cursor:pointer;
+}
+.mo-slide .next-btn{
+	position:absolute;
+	top:50%;
+	right:50px;
+	transform:translateY(-50%);
+	cursor:pointer;
+}
+
+.mo-slide{
+	display:none;
+}
+
+@media screen and (max-width:800px){
+.pc-slide{
+	display:none;
+}
+.mo-slide{
+	display:block;
+}
+
+
+}
+
+
+
+
+
+
+</style>
+
+<script>
+$(function(){
+	var pc_prev = $('.pc-slide .prev-btn');
+	var pc_next = $('.pc-slide .next-btn');
+	
+	$('.pc-slide ul').slick({
+		autoplay:true,
+		autoplaySpeed : 4000,
+		infinite : true,
+		speed : 1000,
+		pauseOnHover : true,
+		draggable : true,
+		prevArrow : pc_prev,
+		nextArrow : pc_next,
+	});
+	
+	var mo_prev = $('.mo-slide .prev-btn');
+	var mo_next = $('.mo-slide .next-btn');
+	
+	$('.mo-slide ul').slick({
+		autoplay:true,
+		dots:true,
+		autoplaySpeed : 4000,
+		infinite : true,
+		speed : 1000,
+		pauseOnHover : true,
+		draggable : true,
+		prevArrow : mo_prev,
+		nextArrow : mo_next,
+		responsive : [{
+			breakpoint : 540,
+			settings : {
+				
+			}
+		}]
+		
+		
+	});
+	
+	$(window).resize(function(){
+		var w = $(this).width();
+		if(w <= 600){
+			mo_prev.hide();
+			mo_next.hide();
+		}else{
+			mo_prev.show();
+			mo_next.show();
+		}
+	
+	});
+	$(window).trigger("resize");
+
+});
+
+
+
+</script>
+
+
+	
+</head>
+<body>
+<section>
+	<div class="pc-slide">
+		<ul class="cf">
+			<li><a href="#"><img src="./images/main-slide1.jpg" alt=""/></a></a></li>
+			<li><a href="#"><img src="./images/main-slide2.jpg" alt=""/></a></a></li>
+			<li><a href="#"><img src="./images/main-slide3.jpg" alt=""/></a></a></li>
+		</ul>
+		<div class="prev-btn"><img src="./images/left_arrow.png" alt=""/></div>
+		<div class="next-btn"><img src="./images/right_arrow.png" alt=""/></div>
+	</div>
+	<div class="mo-slide">
+		<ul class="cc">
+			<li><a href="#"><img src="./images/mo_main_slide1.jpg" alt=""/></a></a></li>
+			<li><a href="#"><img src="./images/mo_main_slide2.jpg" alt=""/></a></a></li>
+			<li><a href="#"><img src="./images/mo_main_slide3.jpg" alt=""/></a></a></li>
+		</ul>
+		<div class="prev-btn"><img src="./images/left_arrow.png" alt=""/></div>
+		<div class="next-btn"><img src="./images/right_arrow.png" alt=""/></div>
+	</div>
+</section>		
+	
+	
+</body>
+</html>
