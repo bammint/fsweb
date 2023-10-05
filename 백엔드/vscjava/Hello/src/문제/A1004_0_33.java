@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class A1004_0_33 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("월별 계절: ");
         int ch = Integer.parseInt(scanner.nextLine());
         switch(ch){
             case 12:

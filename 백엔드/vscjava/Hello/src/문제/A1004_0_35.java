@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class A1004_0_35 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("숫자를 입력하세요.");
         int num = scanner.nextInt();
         int sum = 0;
 
@@ -13,7 +14,7 @@ public class A1004_0_35 {
                 sum += i;
             }
         }
-        System.out.println(sum);
+        System.out.println("짝수의 합: " + sum);
         scanner.close();
     }
 }
