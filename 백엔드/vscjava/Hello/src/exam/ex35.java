@@ -1,8 +1,8 @@
-package 문제;
+package exam;
 
 import java.util.Scanner;
 
-public class A1004_0_35 {
+public class ex35 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("숫자를 입력하세요.");

@@ -1,8 +1,8 @@
-package 문제;
+package exam;
 
 import java.util.Scanner;
 
-public class A1004_0_32 {
+public class ex32 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("grade: ");
@@ -10,19 +10,20 @@ public class A1004_0_32 {
 
         switch(ch){
             case 'D':
-            System.out.println("slowly~");
-            break;
+                System.out.println("slowly~");
+                break;
             case 'C':
-            System.out.println("run!");
-            break;
+                System.out.println("run!");
+                break;
             case 'B':
-            System.out.println("good!!");
-            break;
+                System.out.println("good!!");
+                break;
             case 'A':
-            System.out.println("best!!!");
-            break;
+                System.out.println("best!!!");
+                break;
             default:
-            System.out.println("what?");
+                System.out.println("what?");
+                break;
         }
         scanner.close();
     }
