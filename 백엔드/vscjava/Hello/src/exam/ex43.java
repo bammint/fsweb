@@ -8,8 +8,8 @@ public class ex43 {
         String str = scan.nextLine();
         char[] arr = str.toCharArray();
 
-        for(int i=0; i<str.length();i++){
-            switch(arr[i]){
+        for (int i = 0; i < str.length(); i++) {
+            switch (arr[i]) {
                 case '1':
                     arr[i] = '일';
                     break;
@@ -38,8 +38,23 @@ public class ex43 {
                     arr[i] = '구';
                     break;
             }
-            if(i== arr.length-2)System.out.println(arr[i]+"십");
-            System.out.println(arr);
+            if (i == arr.length - 2)
+                System.out.print(arr[i] + "십");
+            else if (i == arr.length - 3)
+                System.out.print(arr[i] + "백");
+            else if (i == arr.length - 4)
+                System.out.print(arr[i] + "천");
+            else if (i == arr.length - 5) {
+                System.out.print(arr[i] + "만");
+                if (i == arr.length - 7)
+                    System.out.print(arr[i] + "십");
+                else if (i == arr.length - 8)
+                    System.out.print(arr[i] + "백");
+                else if (i == arr.length - 9)
+                    System.out.print(arr[i] + "천");
+            } else
+                System.out.print(arr[i]);
+
         }
         // System.out.print(arr[i] + unit1[arr.length-1]);
         // System.out.println(arr);
