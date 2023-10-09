@@ -5,35 +5,47 @@ import java.util.Scanner;
 public class ex43 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int num = scan.nextInt();
-        String out = Integer.toString(num);
+        String str = scan.nextLine();
+        char[] arr = str.toCharArray();
+        char[] unit1 = {' ','십','백','천'};
+        // char[] unit2 = {' ','만'};
+        char[] f = new char[arr.length];
 
-        String[] str = { "", "십", "백", "천", "만", "십", "백", "천", "억" };
-
-        System.out.println();
-    }
-
-    public static String read(int num) {
-        switch (num) {
-            case 1:
-                return "일";
-            case 2:
-                return "이";
-            case 3:
-                return "삼";
-            case 4:
-                return "사";
-            case 5:
-                return "오";
-            case 6:
-                return "육";
-            case 7:
-                return "칠";
-            case 8:
-                return "팔";
-            case 9:
-                return "구";
+        int i = 0;
+        for(i=0; i<arr.length;i++){
+            switch(arr[i]){
+                case '1':
+                    arr[i] = '일';
+                    break;
+                case '2':
+                    arr[i] = '이';
+                    break;
+                case '3':
+                    arr[i] = '삼';
+                    break;
+                case '4':
+                    arr[i] = '사';
+                    break;
+                case '5':
+                    arr[i] = '오';
+                    break;
+                case '6':
+                    arr[i] = '육';
+                    break;
+                case '7':
+                    arr[i] = '칠';
+                    break;
+                case '8':
+                    arr[i] = '팔';
+                    break;
+                case '9':
+                    arr[i] = '구';
+                    break;
+            }
+            f = unit1[arr.length-1];
+            // System.out.print(arr[i] + unit1[arr.length-1]);
         }
-        return null;
+        // System.out.println(arr);
+        // System.out.println(arr[i]);
     }
 }
