@@ -43,12 +43,45 @@ public class App {
         // }
         //----------------------------------------------------
         
-        for(int i=1; i<5; i++){
-            System.out.println("*");
-            for(int j=0; j<i; j++){
-                System.out.print("*");
-            }
-        }
-        System.out.print("*");
+        // for(int i=1; i<5; i++){
+        //     System.out.println("*");
+        //     for(int j=0; j<i; j++){
+        //         System.out.print("*");
+        //     }
+        // }
+        // System.out.print("*");
+        //---------------------------------------
+
+        // int[]array = {1,5,3,8,2};
+        // int max = 0;
+
+        // for(int i=0; i<array.length; i++){
+        //     if(array[i]>max){
+        //         max = array[i];
+        //     }
+        // }
+        // System.out.println(max);
+        //---------------------------------------------
+
+        // int[][] array = {
+        //     {95,86},
+        //     {83,92,96},
+        //     {78,83,93,87,88}
+        // };
+
+        // int stu = 0;
+        // int sum = 0;
+        // for(int i=0; i<array.length; i++){
+        //     stu += array[i].length;
+        //     for(int j=0; j<array[i].length; j++){
+        //         sum += array[i][j];
+        //     }
+        // }
+        // System.out.println(stu);
+        // System.out.println(sum);
+        // System.out.println((double)sum/stu);
+        //--------------------------------------------------
+
+        
     }
 }

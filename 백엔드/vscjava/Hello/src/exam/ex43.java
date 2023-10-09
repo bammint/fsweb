@@ -7,12 +7,8 @@ public class ex43 {
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
         char[] arr = str.toCharArray();
-        char[] unit1 = {' ','십','백','천'};
-        // char[] unit2 = {' ','만'};
-        char[] f = new char[arr.length];
 
-        int i = 0;
-        for(i=0; i<arr.length;i++){
+        for(int i=0; i<str.length();i++){
             switch(arr[i]){
                 case '1':
                     arr[i] = '일';
@@ -42,9 +38,10 @@ public class ex43 {
                     arr[i] = '구';
                     break;
             }
-            f = unit1[arr.length-1];
-            // System.out.print(arr[i] + unit1[arr.length-1]);
+            if(i== arr.length-2)System.out.println(arr[i]+"십");
+            System.out.println(arr);
         }
+        // System.out.print(arr[i] + unit1[arr.length-1]);
         // System.out.println(arr);
         // System.out.println(arr[i]);
     }
