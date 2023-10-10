@@ -21,5 +21,6 @@ public class ex54 {
                 break;
             }
         }
+        scan.close();
     }
 }
