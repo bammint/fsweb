@@ -7,6 +7,7 @@ public class ex43 {
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
         char[] arr = str.toCharArray();
+        String[] unit1 = { "", "십", "백", "천" };
 
         for (int i = 0; i < str.length(); i++) {
             switch (arr[i]) {
@@ -38,26 +39,25 @@ public class ex43 {
                     arr[i] = '구';
                     break;
             }
-            if (i == arr.length - 2)
-                System.out.print(arr[i] + "십");
-            else if (i == arr.length - 3)
-                System.out.print(arr[i] + "백");
-            else if (i == arr.length - 4)
-                System.out.print(arr[i] + "천");
-            else if (i == arr.length - 5) {
-                System.out.print(arr[i] + "만");
-                if (i == arr.length - 7)
-                    System.out.print(arr[i] + "십");
-                else if (i == arr.length - 8)
-                    System.out.print(arr[i] + "백");
-                else if (i == arr.length - 9)
-                    System.out.print(arr[i] + "천");
-            } else
-                System.out.print(arr[i]);
 
+            // if (i == arr.length - 2)
+            // System.out.print(arr[i] + "십");
+            // else if (i == arr.length - 3)
+            // System.out.print(arr[i] + "백");
+            // else if (i == arr.length - 4)
+            // System.out.print(arr[i] + "천");
+            // else if (i == arr.length - 5) {
+            // System.out.print(arr[i] + "만");
+            // if (i == arr.length - 7)
+            // System.out.print(arr[i] + "십");
+            // else if (i == arr.length - 8)
+            // System.out.print(arr[i] + "백");
+            // else if (i == arr.length - 9)
+            // System.out.print(arr[i] + "천");
+            // } else
+            // System.out.print(arr[i]);
+
+            System.out.print(arr[i] + unit1[arr.length-1]);
         }
-        // System.out.print(arr[i] + unit1[arr.length-1]);
-        // System.out.println(arr);
-        // System.out.println(arr[i]);
     }
 }
