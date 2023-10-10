@@ -1,4 +1,4 @@
-package A1004;
+
 
 import java.io.InputStream;
 
