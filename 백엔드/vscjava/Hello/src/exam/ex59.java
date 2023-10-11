@@ -32,7 +32,7 @@ public class ex59 {
         for (int i = 0; i < lottoNum.length; i++) {
             for (int j = 0; j < myNum.length; j++) {
                 if (lottoNum[i] == myNum[j]) {
-                    // System.out.println(myNum[j]);
+                    System.out.println(myNum[j]);
                     if (myNum[j] == 3 && myNum[j] <4) {
                         System.out.println("5 당첨");
                     }
