@@ -14,7 +14,7 @@ public class ex59 {
         int lottoNum6 = scan.nextInt();
         int bonusNum = scan.nextInt();
 
-        int[] lottoNum = { lottoNum1, lottoNum2, lottoNum3, lottoNum4, lottoNum5, lottoNum6 };
+        int[] lottoNum = { lottoNum1, lottoNum2, lottoNum3, lottoNum4, lottoNum5, lottoNum6, bonusNum };
         // System.out.println(lottoNum);
         // for(int i=0; i<lottoNum.length; i++ ){
         // System.out.println(lottoNum[i]);
@@ -27,29 +27,31 @@ public class ex59 {
         int myNum5 = scan.nextInt();
         int myNum6 = scan.nextInt();
         int[] myNum = { myNum1, myNum2, myNum3, myNum4, myNum5, myNum6 };
-        int[] n = new int[6];
+        int[] n = new int[7];
 
         for (int i = 0; i < lottoNum.length; i++) {
             for (int j = 0; j < myNum.length; j++) {
                 if (lottoNum[i] == myNum[j]) {
-                    System.out.println(myNum[j]);
-                    if (myNum[j] == 3 && myNum[j] <4) {
-                        System.out.println("5 당첨");
-                    }
-                    if (myNum[j] == 4 && myNum[j] <5) {
-                        System.out.println("4 당첨");
-                    }
-                    if (myNum[j] == 5 && myNum[j] <6) {
-                        System.out.println("3 당첨");
-                        if (myNum[j] == bonusNum) {
-                            System.out.println("2 당첨");
-                        }
-                    }
-                    if (myNum[j] == 6) {
-                        System.out.println("1 당첨");
-                    }
+                    // System.out.println(myNum[j]);
+                    n[i] = myNum[j];
                 }
             }
+            if (n[5] != 0 && n[i] == bonusNum) {
+                System.out.println("2 당첨");
+            }
+        }
+        if (n[2] != 0 && n[3] == 0) {
+            System.out.println("5 당첨");
+        }
+        if (n[3] != 0 && n[4] == 0) {
+            System.out.println("4 당첨");
+        }
+        if (n[4] != 0 && n[5] == 0) {
+            System.out.println("3 당첨");
+            System.out.println(n[5]);
+        }
+        if (n[5] != 0) {
+            System.out.println("1 당첨");
         }
     }
 }
