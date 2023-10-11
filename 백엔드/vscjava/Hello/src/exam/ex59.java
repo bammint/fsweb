@@ -26,7 +26,8 @@ public class ex59 {
         int myNum4 = scan.nextInt();
         int myNum5 = scan.nextInt();
         int myNum6 = scan.nextInt();
-        int[] myNum = { myNum1, myNum2, myNum3, myNum4, myNum5, myNum6 };
+        int myNum7 = 0;
+        int[] myNum = { myNum1, myNum2, myNum3, myNum4, myNum5, myNum6,myNum7 };
         int[] n = new int[7];
 
         for (int i = 0; i < lottoNum.length; i++) {
@@ -36,9 +37,6 @@ public class ex59 {
                     n[i] = myNum[j];
                 }
             }
-            if (n[5] != 0 && n[i] == bonusNum) {
-                System.out.println("2 당첨");
-            }
         }
         if (n[2] != 0 && n[3] == 0) {
             System.out.println("5 당첨");
@@ -46,12 +44,15 @@ public class ex59 {
         if (n[3] != 0 && n[4] == 0) {
             System.out.println("4 당첨");
         }
-        if (n[4] != 0 && n[5] == 0) {
+        if (n[4] != 0 && n[5] == 0 && n[6] == 0) {
             System.out.println("3 당첨");
-            System.out.println(n[5]);
+            System.out.println(n[6]);
         }
         if (n[5] != 0) {
             System.out.println("1 당첨");
+        }
+        if (n[5] == 0 && n[6] != 0) {
+            System.out.println("2 당첨");
         }
     }
 }
