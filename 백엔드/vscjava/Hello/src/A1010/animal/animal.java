@@ -1,4 +1,4 @@
-package A1010.animal;
+package a1010.animal;
 
 class ani1 {
     String name = "얼룩이";

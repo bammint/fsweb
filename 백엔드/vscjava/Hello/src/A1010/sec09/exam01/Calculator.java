@@ -1,4 +1,4 @@
-package A1010.sec09.exam01;
+package a1010.sec09.exam01;
 
 public class Calculator {
     // 정사각형의 넓이

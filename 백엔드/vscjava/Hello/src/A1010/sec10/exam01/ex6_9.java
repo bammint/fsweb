@@ -1,4 +1,4 @@
-package A1010.sec10.exam01;
+package a1010.sec10.exam01;
 
 
 class MyMath2 {

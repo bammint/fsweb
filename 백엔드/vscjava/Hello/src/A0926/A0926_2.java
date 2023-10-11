@@ -1,4 +1,4 @@
-package A0926;
+package a0926;
 
 public class A0926_2 {
     public static void main(String[] args) {

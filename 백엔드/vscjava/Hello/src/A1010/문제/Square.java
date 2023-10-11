@@ -1,4 +1,4 @@
-package A1010.문제;
+package a1010.문제;
 
 public class Square {
     // 1. 필드를 추가하시오

@@ -1,4 +1,4 @@
-package A0926;
+package a0926;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package A1004;
+package a1004;
 
 import java.util.Scanner;
 

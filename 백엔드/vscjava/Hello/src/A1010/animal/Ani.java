@@ -1,4 +1,4 @@
-package A1010.animal;
+package a1010.animal;
 
 class Dog {
     String name; // 이름

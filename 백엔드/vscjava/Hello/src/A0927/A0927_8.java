@@ -1,4 +1,4 @@
-package A0927;
+package a0927;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

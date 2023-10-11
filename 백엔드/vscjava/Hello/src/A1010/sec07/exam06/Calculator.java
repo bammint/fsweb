@@ -1,4 +1,4 @@
-package A1010.sec07.exam06;
+package a1010.sec07.exam06;
 
 public class Calculator {
     // 리턴값이 없는 메소드 선언

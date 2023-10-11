@@ -1,4 +1,4 @@
-package A1010.sec08.exam01;
+package a1010.sec08.exam01;
 
 public class Computer {
     // 가변길이 매개변수를 갖는 메소드 선언

@@ -1,4 +1,4 @@
-package A1010.sec07.exam01;
+package a1010.sec07.exam01;
 
 public class Car {
     String model;

@@ -1,4 +1,4 @@
-package A1010.sec05.exam01;
+package a1010.sec05.exam01;
 
 public class CarExample {
     public static void main(String[] args) {
