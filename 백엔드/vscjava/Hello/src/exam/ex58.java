@@ -10,7 +10,7 @@ public class ex58 {
         int b = scan.nextInt();
         int c = scan.nextInt();
 
-        if(c<a+b){
+        if(c<(a+b)){
             System.out.println("yes");
         } else {
             System.out.println("no");
