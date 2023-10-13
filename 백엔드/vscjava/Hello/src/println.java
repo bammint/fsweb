@@ -1,4 +1,5 @@
-public class A0926_println {
+
+public class println {
     public static void main(String[] args) {
 
         // 서식 없는 출력

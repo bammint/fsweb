@@ -1,4 +1,4 @@
-public class A0926_기본개념 {
+public class 기본개념 {
     public static void main(String[] args) {
 
         // 자바는 기본 자료형으로 만든 변수는 일반 변수로 취급하고 클래스로 만든 변수(객체)는 참조형 변수로 취급한다.

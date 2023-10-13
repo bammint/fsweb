@@ -10,6 +10,17 @@ public class ex62_1 {
         int cl = scan.nextInt();
         int num = scan.nextInt();
 
+        if(grade<=0 || cl<=0|| num<=0){
+            System.out.println("음수는 안됩니다\n다시 실행해주세요");
+            return;
+        }
+
+        // String s =  String.valueOf(grade).replaceAll("[^0-9]", "!");
+        // if(s.equals("!")){
+        //     System.out.println("문자가 입력되었습니다.");
+        // }
+
+
         if(grade!=0&&grade<=3){
             System.out.print(grade);
         }else{

@@ -19,6 +19,22 @@ class Circle extends Shape {
         return Math.PI * radius * radius;
     }
 }
+// Shape 추상 클래스를 상속받는 구체 클래스 (하위 클래스)
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    // 추상 메서드 구현
+    public double getArea() {
+        return width * height;
+    }
+}
+
 
 public class AbstractExample {
     public static void main(String[] args) {
@@ -27,7 +43,7 @@ public class AbstractExample {
         System.out.println("원의 넓이: " + circle.getArea());
 
         // Rectangle 객체생성
-        Rectangle rectangle = new Rectangle(4.0);
+        Rectangle rectangle = new Rectangle(4.0,6.0);
         System.out.println("사각형의 넓이: " + rectangle.getArea());
     }
 }
