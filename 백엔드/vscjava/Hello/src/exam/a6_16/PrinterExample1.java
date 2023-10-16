@@ -17,9 +17,11 @@ class Printer{
 
 public class PrinterExample1 {
     public static void main(String[] args) {
-        Printer.println(10);       // int
-        Printer.println(true);     // boolean
-        Printer.println(5.7);      // double
-        Printer.println("홍길동"); // String
+        Printer printer= new Printer();
+        
+        printer.println(10);       // int
+        printer.println(true);     // boolean
+        printer.println(5.7);      // double
+        printer.println("홍길동"); // String
     }
 }
