@@ -9,7 +9,7 @@ body {
     overflow-x: hidden;
 }
 
-h1 {
+h1.htop {
     position: fixed;
     right: 10px;
     bottom: 10px;
@@ -71,6 +71,10 @@ section>div {
 section>div p {
     color: #fff;
     padding: 8px;
+}
+
+section>div p.p1 {
+    color: black;
 }
 
 #area1 {
@@ -156,4 +160,109 @@ section>div p {
 .closeWrap button {
     margin-left: 20px;
     cursor: pointer;
+}
+
+#pdt_basic {
+    position: fixed;
+    width: 326px;
+    height: 450px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+#leftdiv {
+    width: 44px;
+    height: 207px;
+    position: fixed;
+    left: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../images/remote_bg.png) no-repeat 0 0;
+}
+
+/*검정색배경*/
+#leftdiv ul li {
+    width: 44px;
+    height: 25px;
+    background: url(../images/remote_btnoff.png) no-repeat 8px 0;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/*동그라미*/
+
+#leftdiv ul li.on {
+    background: url(../images/remote_btnon.png) no-repeat 8px 0;
+}
+
+/*작은새우*/
+
+#leftdiv ul li:nth-child(1) {
+    margin-top: 5px;
+}
+
+#leftdiv .leftdiv_title {
+    width: 44px;
+    height: 43px;
+    background: url(../images/remote_mainoff.png) no-repeat 0 0;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+/*홈(집) 색상흰색*/
+
+#leftdiv .leftdiv_title.on {
+    background: url(../images/remote_mainon.png) no-repeat 0 0;
+}
+
+/*홈(집) 색상오랜지*/
+#area4 {
+    position: relative;
+}
+
+.s4_cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    margin-left: -450px;
+    height: 200px;
+    text-align: center;
+    border: 1px solid red;
+    display: flex;
+}
+
+.s4_cover>div {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 200px;
+    color: black;
+    padding: 30px 0;
+    margin-top: 70px;
+    margin-left: 20px;
+    opacity: 0;
+    transition: all 0.8s;
+}
+
+.s4_cover>div.active {
+    margin-top: 0px;
+    opacity: 1;
+
+}
+
+.s4_cover>div.s4_1 {
+    transition: all 0.8s;
+}
+
+.s4_cover>div.s4_2 {
+    transition: all 0.8s 0.4s;
+}
+
+.s4_cover>div.s4_3 {
+    transition: all 0.8s 0.8s;
+}
+
+.s4_cover>div.s4_4 {
+    transition: all 0.8s 1.2s;
 }
