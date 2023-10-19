@@ -31,6 +31,7 @@ body {
     min-width: 1000px;
     height: 3000px;
     background-color: #fff;
+    scroll-behavior: smooth;
 }
 
 button {
@@ -313,6 +314,9 @@ header .gnb {
     width: 194px;
     height: 200px;
     margin-left: 6px;
+}
+#s3 .s3_table li:hover{
+    border: 1px solid #000;
 }
 
 #s3 .s3_table li:nth-child(1) {
