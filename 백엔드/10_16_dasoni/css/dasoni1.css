@@ -193,6 +193,22 @@ header .gnb {
     height: 635px;
     background-color: red;
 }
+#s2 .s2_wrap {
+    width: 1000px;
+    margin: 100px auto;
+    outline: 1px solid blue;
+    text-align: center;
+}
+#s2 .s2_wrap .s2_table{
+    display: flex;
+    justify-content: center;
+}
+#s2 .s2_wrap .s2_table .slide {
+    width: 250px;
+    height: 250px;
+    background: #fff;
+}
+
 #s3{
     width: 100%;
     background: url(../img/sec3_bg.jpg);
@@ -287,6 +303,15 @@ header .gnb {
     width: 100%;
     height: 395px;
     background-color: lightgrey;
+}
+#s6 .s6_wrap{
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+}
+#s6 .s6_wrap .s6_tit a {
+    display: flex;
+    justify-content: space-between;
 }
 footer{
     width: 100%;
