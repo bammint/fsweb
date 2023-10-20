@@ -32,6 +32,7 @@ body {
     height: 3000px;
     background-color: #fff;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 button {
@@ -270,10 +271,22 @@ header .gnb {
     border-radius: 50px;
     margin: 50px 0 0 67px;
 }
+#s2 .s2_wrap .s2_table .slide a:hover{
+    background: #fff;
+    color: #FF8F2B;
+    outline: 1px solid #FF8F2B;
+    transition: .3s;
+}
 
 #s2 .s2_wrap .s2_table .slide:nth-child(4) a {
     background: #fff;
     color: #FF8F2B;
+}
+#s2 .s2_wrap .s2_table .slide:nth-child(4) a:hover{
+    background: #FF8F2B;
+    color: #fff;
+    outline: 1px solid #fff;
+    transition: .3s;
 }
 
 #s3 {
@@ -316,7 +329,7 @@ header .gnb {
     margin-left: 6px;
 }
 #s3 .s3_table li:hover{
-    border: 1px solid #000;
+    outline: 1px solid #000;
 }
 
 #s3 .s3_table li:nth-child(1) {
@@ -421,10 +434,22 @@ header .gnb {
     border-radius: 50px;
     margin: 50px 0 0 67px;
 }
+#s4 .s4_wrap .s4_table .slide a:hover{
+    background: #fff;
+    color: #65B07E;
+    outline: 1px solid #65B07E;
+    transition: .3s;
+}
 
 #s4 .s4_wrap .s4_table .slide:nth-child(4) a {
     background: #fff;
     color: #65B07E;
+}
+#s4 .s4_wrap .s4_table .slide:nth-child(4) a:hover{
+    background: #65B07E;
+    color: #fff;
+    outline: 1px solid #fff;
+    transition: .3s;
 }
 
 #s5 {
@@ -463,6 +488,12 @@ header .gnb {
     color: #fff;
     /* padding: 8px 16px; */
 }
+#s5 .s5_title .s5_btn:hover{
+    background: #fff;
+    color: #4f3a53;
+    outline: 1px solid #4f3a53;
+    transition: .3s;
+}
 
 #s6 {
     width: 100%;
@@ -495,6 +526,10 @@ header .gnb {
     font-size: 22px;
     font-weight: 700;
     line-height: 25px;
+}
+#s6 .s6_wrap .s6_content .s6_tit a:hover img{
+    transform: rotate(180deg);
+    transition: .5s;
 }
 #s6 .s6_wrap .s6_content .s6_tit img{
     object-fit: contain;
