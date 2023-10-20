@@ -5,6 +5,7 @@ interface JavaCoding2 {
     String nowCoding();
 }
 
+// 매개변수는 없고 리턴값은 있는 람다식
 public class Ram12 {
     public static void main(String[] args) {
         // 객체 선언
@@ -28,4 +29,29 @@ public class Ram12 {
         jc = () -> str3;
         System.out.println(jc.nowCoding());
     }
+    // --------------------------------------------------------------------
+    // jc = new JavaCoding2() {
+    // @Override
+    // public String nowCoding() {
+    // return str1;
+    // }
+    // };
+    // System.out.println(jc.nowCoding());
+
+    // jc = new JavaCoding2() {
+    // @Override
+    // public String nowCoding() {
+    // return str2;
+    // }
+    // };
+    // System.out.println(jc.nowCoding());
+
+    // jc = new JavaCoding2() {
+    // @Override
+    // public String nowCoding() {
+    // return str3;
+    // }
+    // };
+    // System.out.println(jc.nowCoding());
+
 }
