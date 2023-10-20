@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML+JS</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>객체</h1>
+    <div>여기에 출력</div>
+
+    <h2>Date</h2>
+    <p>여기에 출력</p>
+
+    <script>
+        // getter(게터): 가져오기
+        // 변수 = 객체.매서드();
+
+        // setter(세터): 지정하기
+        // 객체.매서드(값);
+
+        // 현재 시간과 날짜
+        // 참조변수 = new Date()
+        // 참조변수 = new Date(연,월,일)
+
+
+        // 날짜 정보를 수정할 때(set)
+        // setFullYear()
+        // setMonth()
+        // setDate()
+        // setHours()
+        // setMinutes()
+        // setSeconds()
+        // setMilliseconds()
+        // setTime()
+
+
+        const ele = document.querySelectorAll('p');
+
+
+        setInterval(clock, 1000);
+
+        function clock() {
+            // 참조변수 = new Date()
+            const d = new Date();
+
+            // Wed Sep 20 2023 11:26:22 GMT+0900 (한국 표준시) 
+            ele[0].innerText = d;
+
+            // getFullYear(): 년
+            ele[0].innerHTML += '<br>' + d.getFullYear() + '년 ';
+
+            // getMonth(): 0(1월) ~ 11(12월)
+            // 1을 더해야 숫자로 월 결과가 나온다
+            ele[0].innerHTML += (d.getMonth() + 1) + '월 ';
+
+            // getDate(): 일
+            ele[0].innerHTML += d.getDate() + '일 ';
+
+            // getDay(): 0(일) ~ 6(토)
+            let week;
+            switch (d.getDay()) {
+                case 0: week = '일'; break;
+                case 1: week = '월'; break;
+                case 2: week = '화'; break;
+                case 3: week = '수'; break;
+                case 4: week = '목'; break;
+                case 5: week = '금'; break;
+                case 6: week = '토'; break;
+            }
+            ele[0].innerHTML += `(${week}요일)<br>`;
+
+            // getHours(): 시
+            ele[0].innerHTML += d.getHours() + ':';
+
+            // getMinutes(): 분
+            ele[0].innerHTML += d.getMinutes() + ':';
+
+            // getSeconds(): 초
+            ele[0].innerHTML += d.getSeconds();
+
+            // getMilliseconds(): 밀리초
+            ele[0].innerHTML += `(${d.getMilliseconds()})`;
+
+            // getTime(): 1970년 1월 1일부터 경과된 시간을 밀리초로 반환
+            ele[0].innerHTML += '<br>' + d.getTime();
+
+            // toGMTString(): GMT 표준 표기 방식으로 문자열 데이터로 반환
+            ele[0].innerHTML += '<br>' + d.toGMTString();
+
+            // toLocaleString(): 운영 시스템 표기 방식으로 문자열 데이터로 반환
+            ele[0].innerHTML += '<br>' + d.toLocaleString();
+
+            // 요소.toLocaleDateString() ~ 날짜 객체의 날짜(시간 아님)를 문자열로 반환
+            ele[0].innerHTML += '<br>' + d.toLocaleDateString();
+
+            // 요소.toLocaleTimeString() ~날짜 객체의 시간 부분을 문자열로 반환
+            ele[0].innerHTML += '<br>' + d.toLocaleTimeString();
+
+            // 참조변수 = new Date(연,월,일)
+            // const dDay = new Date('2023-12-26')
+            const dDay = new Date(2023, 12, 26)
+            // 몇 일 남았을까?
+            // 종강일 - 현재일
+            // 26 - 20 = 6
+            // 1일 -> 24시간 -> 24 * 60분 -> 24 * 60 * 60초 -> 24 * 60 * 60 * 1000밀리초
+            // 1970-01-01 ~ 2023-09-20
+            // 1970-01-01 ~ 2023-12-26
+            // console.log('현재일',d.getTime()/(24 * 60 * 60 * 1000));
+            // console.log('종강일',dDay.getTime()/(24 * 60 * 60 * 1000));
+            ele[0].innerHTML += '<br>남은 일 수: ' + (dDay.getTime() / (24 * 60 * 60 * 1000) - d.getTime() / (24 * 60 * 60 * 1000));
+
+            console.log('남은 일 수', dDay.getTime() / (24 * 60 * 60 * 1000) - d.getTime() / (24 * 60 * 60 * 1000));
+
+            // setFullYear()
+            d.setFullYear(2024);
+            ele[0].innerHTML += '<br>' + d.getFullYear();
+
+        }
+    </script>
+</body>
+
+</html>

@@ -41,6 +41,7 @@ button {
 
 .wrap {
     width: 100%;
+    position: relative;
 }
 
 /* hrader */
@@ -527,12 +528,12 @@ header .gnb {
     font-weight: 700;
     line-height: 25px;
 }
-#s6 .s6_wrap .s6_content .s6_tit a:hover img{
-    transform: rotate(180deg);
-    transition: .5s;
-}
 #s6 .s6_wrap .s6_content .s6_tit img{
     object-fit: contain;
+}
+#s6 .s6_wrap .s6_content .s6_tit:hover img{
+    transform: rotate(180deg);
+    transition: .5s;
 }
 #s6 .s6_wrap .s6_content .s6_tit1{
     background: url(../img/sec6_tit.png) no-repeat left center;
@@ -627,4 +628,22 @@ footer .f_content .f_sns ul a {
 
 footer .f_content .f_sns ul a:nth-child(3) {
     margin: 0;
+}
+
+/* float_menu */
+/* #float_menu{
+    outline: 1px solid blue;
+} */
+#float_menu {
+    position: absolute;
+    left: 80%;
+    top: 0;
+    z-index: 999;
+    outline: 1px solid red;
+}
+#float_menu li {
+    width: 75px;
+    height: 75px;
+    background: yellow;
+    border-radius: 50%;
 }
