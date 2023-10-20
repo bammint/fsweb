@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.write("<h1>현재날씨/시간 정보</h1>");
+        var today = new Date();
+
+        var nYear = today.getFullYear();
+        var nMonth = today.getMonth()+1; // 0 부터 시작이라 +1 해줌
+        var nDate = today.getDate();
+        var nDay = today.getDay(); // 0부터 일요일
+        var nHour = today.getHours();
+        var nMinutes = today.getMinutes();
+        var nSeconds = today.getSeconds();
+
+        document.write("년: " + nYear + "<br>");
+        document.write("월: " + nMonth + "<br>");
+        document.write("일: " + nDate + "<br>");
+        document.write("요일: " + nDay + "<br>");
+        document.write("시: " + nHour + "<br>");
+        document.write("분: " + nMinutes + "<br>");
+        document.write("초: " + nSeconds + "<br>");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

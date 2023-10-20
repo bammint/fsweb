@@ -14,10 +14,12 @@ $(function () {
     $(window).scroll(function () {
         var sct = $(window).scrollTop();
         $('#sTop').text(sct);
+        // 새우깡
         pdt = sct * 0.0005;
         if (pdt <= 1) {
             $("#pdt_basic").css('opacity', pdt);
         }
+        // 내비
         if (sct >= 100) {
             $('nav').addClass('fixed');
         } else {
@@ -26,7 +28,11 @@ $(function () {
         if (sct >= 2700) {
             $('.s4_cover>div').addClass('active');
         }
+
+        // float menu
         $("#floatdiv").stop().animate({ top: dTop + sct }, 500);
+
+        // 집모양 섭메뉴
         if (sct >= $('section>div').eq(0).offset().top) {
             $('nav ul li').removeClass('on');
             $('nav ul li').eq(0).addClass('on');
@@ -79,6 +85,8 @@ $(function () {
             $('#leftdiv ul li').eq(4).addClass('on');
         }
     });
+
+
     $('nav ul li').click(function () {
         var index_nav = $(this.index()); // 클릭한 nav ul li 인덱스 번호
         var offset_nav = $('section div').eq(index_nav).offset().top;
@@ -126,6 +134,8 @@ $(function () {
     }, function () {
         $(this).removeClass('on');
     });
+
+    // popup
 
     $('#popup').draggable();
 

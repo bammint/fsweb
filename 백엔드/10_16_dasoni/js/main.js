@@ -1,4 +1,5 @@
 $(function () {
+    // sec1 slide
     setTimeout(function () {
         $('.slider li .text0').addClass('on');
         $('.slider li .atext0').addClass('on');
@@ -20,7 +21,31 @@ $(function () {
             $('.slider li .text' + k).addClass('on');
             $('.slider li .atext' + k).addClass('on');
         }
+    });
+    // //sec1 slide
 
+    // #float_menu
+    // var dTop = $('#float_menu').offset().top; //250
+
+    // $(window).scroll(function () {
+    //     var sct = $(window).scrollTop();
+    // });
+    // $('#float_menu').stop().animate({ top: dTop + sct }, 500);
+
+    // $('#float_menu ul li').click(function () {
+    //     var index_f = $(this.index()); // 클릭한 f ul li 인덱스 번호
+    //     var offset_f = $('section div').eq(index_f).offset().top;
+
+    //     $('html,body').stop().animate({ scrollTop: offset_f }, 1000);
+    // });
+
+    const float = document.querySelector("#float_menu ul");
+
+    $(window).scroll(function () {
+        var sct = $(window).scrollTop();
+        // console.log(sct);
+        float.style.top = `${sct+400}px`;
     });
 
+    
 });

@@ -634,16 +634,17 @@ footer .f_content .f_sns ul a:nth-child(3) {
 /* #float_menu{
     outline: 1px solid blue;
 } */
-#float_menu {
+#float_menu ul {
     position: absolute;
     left: 80%;
-    top: 0;
     z-index: 999;
     outline: 1px solid red;
+    transition: .2s;
 }
-#float_menu li {
+#float_menu ul li {
     width: 75px;
     height: 75px;
     background: yellow;
     border-radius: 50%;
+    margin-bottom: 20px;
 }

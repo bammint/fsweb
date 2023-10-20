@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(function(){
+            autotime();
+            setInterval(autotime,1000)
+            function autotime() {
+                var today = new Date();
+
+                var y = today.getFullYear();
+                var m = today.getMonth() + 1; // 0 부터 시작이라 +1 해줌
+                var d = today.getDate();
+                var n = today.getDay(); // 0부터 일요일
+                var yoil;
+                if (n == 0) {
+                    yoil = "일";
+                } else if (n == 1) {
+                    yoil = "월";
+                } else if (n == 2) {
+                    yoil = "화";
+                } else if (n == 3) {
+                    yoil = "수";
+                } else if (n == 4) {
+                    yoil = "목";
+                } else if (n == 5) {
+                    yoil = "금";
+                } else {
+                    yoil = "토";
+                }
+                var h = today.getHours();
+                var m1 = today.getMinutes();
+                var s = today.getSeconds();
+
+                //document.querySelector("#year").innerHTML = y;
+                // document.querySelector("#month").innerHTML = m;
+                // document.querySelector("#date").innerHTML = d;
+                // document.querySelector("#nday").innerHTML = yoil;
+                // document.querySelector("#hour").innerHTML = hr;
+                // document.querySelector("#minute").innerHTML = m1;
+                // document.querySelector("#second").innerHTML = s;
+                $("#year").text(y);
+                $("#month").text(m);
+                $("#date").text(d);
+                $("#nday").text(yoil);
+                $("#hour").text(h);
+                $("#minute").text(m1);
+                $("#second").text(s);
+
+                if(h>12){
+                    h = h-12;
+                }
+                
+                var hhh = (h*30)+(m1/2);
+                var hhh = parseInt(hhh); /* 시침의 각도를 정수형으로 변환 */
+                var mmm = m1*6;
+                var sss = s*6;
+                $('#hour1').css('transform','rotate('+hhh+'deg)');
+                $('#minute1').css('transform','rotate('+mmm+'deg)');
+                $('#second1').css('transform','rotate('+sss+'deg)');
+            }
+        });
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #clock{
+            margin: 100px auto 0;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #333;
+            position: relative;
+        }
+        #clock img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>
+        <span id="year">0000</span>년
+        <span id="month">00</span>월
+        <span id="date">00</span>일
+        <span id="nday">0</span>요일
+        <span id="hour">00</span>시
+        <span id="minute">00</span>분
+        <span id="second">00</span>초
+    </h1>
+    <div id="clock">
+        <img src="./clock.png" alt="">
+        <img src="./h.png" alt="" id="hour1">
+        <img src="./m.png" alt="" id="minute1">
+        <img src="./s.png" alt="" id="second1">
+    </div>
+</body>
+
+</html>

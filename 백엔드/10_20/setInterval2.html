@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+    <script>
+        var i=0;
+        function auto1(){
+            i++;
+            document.getElementById("num").innerHTML = i;
+        }
+        setInterval(auto1,1000);
+    </script>
+</head>
+<body>
+    <p id="num">0 </p>
+</body>
+</html>
