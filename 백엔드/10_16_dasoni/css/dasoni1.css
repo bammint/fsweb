@@ -170,14 +170,12 @@ header .gnb {
     display: flex;
     justify-content: center;
     position: relative;
-    top: -4px;
 }
 
-/* #popup .close img {
+#popup img {
     display: block;
-    width: 400px;
-    height: 400px;
-} */
+}
+
 #popup .close label {
     margin-left: 5px;
 }
