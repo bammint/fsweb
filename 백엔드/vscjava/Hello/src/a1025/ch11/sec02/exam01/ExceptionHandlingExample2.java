@@ -1,4 +1,4 @@
-package a1025.sec02.exam01;
+package a1025.ch11.sec02.exam01;
 
 public class ExceptionHandlingExample2 {
     public static void printLength(String data){

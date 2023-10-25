@@ -1,4 +1,4 @@
-package a1025.sec02.exam02;
+package a1025.ch11.sec02.exam02;
 
 public class ExceptionHandlingExample {
     public static void main(String[] args) {

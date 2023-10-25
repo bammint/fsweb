@@ -1,4 +1,4 @@
-package ch8;
+package exam.a8_6;
 
 public class Cat implements Soundable {
 

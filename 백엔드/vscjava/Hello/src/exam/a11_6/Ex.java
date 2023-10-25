@@ -1,4 +1,6 @@
-public class ex {
+package exam.a11_6;
+
+public class Ex {
     public static void main(String[] args) {
 
         String[] strArray = { "10", "2a" };
