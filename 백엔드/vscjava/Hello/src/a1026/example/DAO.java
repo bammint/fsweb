@@ -28,10 +28,19 @@ public class DAO {
     }
 
     // CRUD
+    // Create
     private void insert(MemberDTO m) {
         // 데이터 추가
         mlist.add(m);
         // listSize++;
+    }
+    // Delete
+    private void delete(int index){
+        mlist.remove(index);
+    }
+    // Select(검색)
+    private MemberDTO select(int index){
+        return mlist.get(index);
     }
 
     // user 메서드: 사용자의 입력값있음.
@@ -57,4 +66,46 @@ public class DAO {
         insert(m);
     }
 
+    // 인덱스 찾기: 키 - 이름
+    private int findIndex(){
+        System.out.println("회원 이름을 입력하시오: ");
+        String name = sc.next();
+        for(int i=0; i<mlist.size(); i++){
+            if(mlist.get(i).getName().equals(name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // userDelete
+    public void userDelete(){
+        int index = findIndex();
+        if(index != -1){
+            delete(index);
+            System.out.println("회원을 삭제했습니다");
+        }else{
+            // 이름이 없는 경우
+            System.out.println("해당 회원이 없습니다");
+        }
+    }
+
+    // userSelect 멤버 값 리턴하기
+    public void userSelect(){
+        int index = findIndex();
+        if(index != -1){ // 인덱스가 있는 경우
+            MemberDTO m = select(index);
+            int id = m.getId();
+            String name = m.getName();
+            int age = m.getAge();
+            String address = m.getAddress();
+            System.out.println("< "+name+" 의 회원정보 >");
+            System.out.println(" - 회원번호: " + id);
+            System.out.println(" - 이름: " + name);
+            System.out.println(" - 나이: " + age);
+            System.out.println(" - 주소: " + address);
+        }else{
+            System.out.println("회원이 없습니다");
+        }
+    }
 }
