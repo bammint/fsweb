@@ -43,7 +43,7 @@ public class MainClass {
                 }
             }else if(choice == 7){
                 test.dataLoad();
-            }else if(choice == 0){
+            }else if(choice == 8){
                 System.out.println(":종료합니다");
                 sc.close();
                 System.exit(0);
