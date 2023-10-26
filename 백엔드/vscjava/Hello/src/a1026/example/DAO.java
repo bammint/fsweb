@@ -9,10 +9,10 @@ public class DAO {
     private ArrayList<MemberDTO> mlist;
 
     // file 직접 d: 저장하려면 클래스인 FileClass 만들 예정
-    private FileClass file = new FileClass("sun","memberInfo");
+    private FileClass file = new FileClass("sun", "memberInfo");
 
     // 생성자 constructor
-    public DAO(){
+    public DAO() {
         mlist = new ArrayList<MemberDTO>();
 
         // 테스트용 데이터
@@ -27,5 +27,34 @@ public class DAO {
         mlist.add(m4);
     }
 
-    
+    // CRUD
+    private void insert(MemberDTO m) {
+        // 데이터 추가
+        mlist.add(m);
+        // listSize++;
+    }
+
+    // user 메서드: 사용자의 입력값있음.
+    // user Insert
+
+    public void userInsert() {
+        MemberDTO m = new MemberDTO();
+        System.out.println("< 회원 정보입력 >");
+        System.out.print("회원번호: ");
+        int id = sc.nextInt();
+        System.out.print("이름: ");
+        String name = sc.next();
+        System.out.print("나이: ");
+        int age = sc.nextInt();
+        System.out.print("주소: ");
+        String ad = sc.next();
+
+        m.setId(id);
+        m.setName(name);
+        m.setAge(age);
+        m.setAddress(ad);
+
+        insert(m);
+    }
+
 }
