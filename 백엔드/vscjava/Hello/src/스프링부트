@@ -1,0 +1,109 @@
+controller
+-html 값을 넘겨주거나
+값을 받아서 service 일을 시킴
+
+service
+-실제 비즈니스 로직
+
+repository
+-저장관련
+
+
+1. spring.start.io
+    들어가서
+    gradle
+    스프링 버전 2.7.17
+    jar
+    hello-spring1
+    java version 11
+    dependency
+
+    web 추가
+    thymeleaf 추가
+
+    generate
+
+    다운 받은 후에
+
+    D:/ 압축풀어서
+    인텔리제이에서 open으로 열고
+
+    http://localhost8080/
+
+    아무것도 없으니까 에러페이지가 뜨면 성공이다
+    ctrl + f5
+
+    jdk 설정 
+        1.File > Project Structure > Platform Setting > SDKs >
+
+        File > Project Structure > Project Settings > Projcet > 
+        Project SDK, Project language level 확인
+
+
+2. WelcomPage 만들기
+    리소스 - 스태틱 폴더안에 index.html
+    <body>
+        hello
+        <a href="/hellohi">hello</a>
+    </body>
+
+3. 
+controller폴더 만들고
+@Controller 
+HelloController - 파일명
+public class HelloController {
+    @GetMapping("hello")
+    public String hello(Model model){
+        model.addAttribute("data","hello");
+        return "hello";
+    }
+}
+
+<body>
+<p th:text="안녕하세요"+${data}> 안녕하세요. 손님</p>
+<a href="/hello">hello</a>
+
+4.
+@GetMapping("hello-mvc")
+    public String helloMvc(@RequestParam(value = "name", required = false) String name, Model model) {
+        model.addAttribute("name", name);
+        return "hello-template";
+    }
+<body>
+<p th:text="'hello ' + ${name}">hello! empty</p>
+</body>
+
+
+
+@GetMapping("hello-api")
+    @ResponseBody
+    public Hello helloApi(@RequestParam("name") String name) {
+        Hello hello = new Hello();
+        hello.setName(name);
+        return hello;
+    }
+    static class Hello {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
+
+1. mvc란?
+2. 스프링과 스프링 부트 차이
+3. @Controller
+    @Service
+    @Repository
+    란?
+4, GetMapping, postMapping
+5. 인테리제이 단축키
+6. restapi란?
+7. Model model 이란?
+8. model.addAttribute
+9.dto란?
+10.entity란?
