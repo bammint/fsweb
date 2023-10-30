@@ -11,32 +11,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-sm bg-white navbar-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand text-black" href="#">My Website</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50" id="mypage">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Ezen Academy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">About</a>
+                        <a class="nav-link" href="#services">SERVICES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Services</a>
+                        <a class="nav-link" href="#portfolio">PORTFOLIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Contact</a>
+                        <a class="nav-link" href="#pricing">PRICING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">CONTACT</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <!-- ------------------------------------------------------------------- -->
     <!-- Carousel -->
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
