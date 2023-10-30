@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+body{
+    font:400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color:#818181;
+    position: relative;
+}
+
+h2{
+    font-size: 24px;
+    text-transform: uppercase;
+    color:#303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4{
+    font-size: 18px;
+    line-height: 1.375em;
+    color:#303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+.navbar{
+    margin-bottom: 0;
+    background-color: #f4511e ;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.43 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+.navbar-nav li a{
+    color:#fff;
+}
+.jumbo{
+    background-color: #f4511e;
+    color:#fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+}
+.container-fluid{
+    padding: 60px 50px;
+}
+.logo{
+    color:#f4511e;
+    font-size: 200px;
+  }
+  .logo-small{
+    color:#f4511e;
+    font-size: 50px;
+  }
+  .img-thumbnail{
+    padding: 0 0 15px 0;
+    
+    border-radius: 0;
+  }
+  .img-thumbnail img{
+    width:100%;
+    height:100%;
+    margin-bottom: 10px;
+  }
+
+  .carousel-control-prev, .carousel-control-next{
+    background-color:#818181 !important;
+  }
+.card{
+    border:1px solid #f4511e;
+    transition: box-shadow 0.5s;
+}
+  .card:hover{
+    box-shadow: 5px 0px 40px rgba(0,0,0,0.2);
+  }
+  .card-header{
+    color:#fff !important;
+    background-color: #f4511e !important;
+  }
+
+  .card-footer .btn{
+    margin: 15px 0;
+    background-color: #f4511e;
+    color: #fff;
+  }
+  .card-footer .btn:hover{
+    border:1px solid #f4511e;
+    background-color:#fff !important;
+    color:#f4511e;
+  }
+  .slideanim {visibility: hidden;}
+  .slide{
+    animation-name: slide;
+    animation-duration: 1s;
+    visibility: visible;
+  }
+  @keyframes slide{
+    0%{
+      opacity: 0;
+      transform: translateY(70%);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+@media screen and (max-width : 768px){
+  .col-sm-4{
+    text-align: center;
+    margin: 25px 0;
+  }
+  .btn-lg{
+    width:100%;
+    margin-bottom: 35px;
+  }
+}
+@media screen and (max-width : 480px){
+  .logo{
+    font-size: 150px;
+  }
+}
