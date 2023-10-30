@@ -6,12 +6,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class HelloController {
-    @GetMapping("/hello")
+    @GetMapping("hellohi")
     public String hello(Model model){
-        model.addAttribute("data","하이");
+        model.addAttribute("data","박재한");
         return "hello";
+    }
+
+    @GetMapping("/fruit")
+    public String getFruit(Model model) {
+        //Model 객체를 통해 view(타임리프 html )로 전달
+        Map<String, String> fruitmap = new HashMap<String, String>();
+        fruitmap.put("fruit1", "apple");
+        fruitmap.put("fruit2", "banana");
+        fruitmap.put("fruit3", "orange");
+        model.addAttribute("fruit", fruitmap);
+
+        return "fruit/fruit";
     }
 
     @GetMapping("hello-mvc")
