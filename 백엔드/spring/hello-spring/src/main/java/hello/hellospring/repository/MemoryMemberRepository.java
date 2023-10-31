@@ -1,21 +1,27 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 import java.util.stream.Stream;
 
+// @Repository
 public class MemoryMemberRepository implements MemberRepository {
 
     // Map: java의 데이터 저장 방식 중 하나
     // key: Long, value: Member
-    private static Map<Long, Member> store = new HashMap<>();
+    static Map<Long, Member> store = new HashMap<>();
     // sequence: key값을 생성해줌
-    private static long sequence = 0L;
+    static long sequence = 0L;
     @Override
     public Member save(Member member) { // save
         member.setId(++sequence);   // sequence값 증가(key값)
         store.put(member.getId(), member);  // store에 저장
+        System.out.println("Store contents:");
+        for (Map.Entry<Long, Member> entry : store.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
         return member;
     }
 
