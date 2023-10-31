@@ -1,0 +1,30 @@
+7. Model model 이란?
+모델이라는 데이터 타입(클래스)을 갖는 모델이라는 객체.
+
+1. Model이란?
+
+Model은 HashMap 형태를 갖고 있으며, key, value값을 가지고 있습니다. 또한 addAttribute()와 같은 기능을 통해 모델에 원하는 속성과 그것에 대한 값을 주어 전달할 뷰에 데이터를 전달할 수 있습니다.
+
+Spring에서 Controller의 메서드를 작성할 때는 특별하게 Model이라는 타입을 파라미터로 지정할 수 있습니다. Model 객체는 JSP에 컨트롤러에서 생성된 데이터를 담아서 전달하는 역할을 하는 존재입니다. 이를 이용해서 JSP와 같은 뷰(View)로 전달해야 하는 데이터를 담아서 보낼 수 있습니다. 메서드의 파라미터에 Model 타입이 지정된 경우에는 스프링은 특별하게 Model 타입의 객체를 만들어서 메서드에 주입하게 됩니다.
+
+
+JSP는 Java Server Pages 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적 웹페이지를 생성하는 웹어플리케이션 도구이다.
+
+매개변수(parameter 파라미터)란 변수의 특별한 한 종류로서, 함수 등과 같은 서브루틴의 인풋으로 제공되는 여러 데이터 중 하나를 가리키기 위해 사용된다.
+
+
+8. model.addAttribute
+
+
+- Model addAttribute(String name, Object value)
+value객체를 name이름으로 추가한다, 뷰 코드에서는 name으로 지정한 이름을 통해서 value를 사용한다.
+
+- Model addAttribute(Object value)
+value 를 추가한다,. value의 패키지 이름을 제외한 단순 클래스 이름을 모델이름으로 사용한다. 이 때 첫 글짜는 소문자로 처리한다.
+value가 배열이거나 콜렉션인 경우 첫 번째 원소의 클래스 이름뒤에 "List"를 붙인 걸 모델 이름으로 사용한다. 이 경우에도 클래스 이름의 첫자는 소문자로 처리한다.
+
+- Model addAllAttributes(Collection<?> values)
+addAttribute(Object value)메서드를 이용해서 콜랙션에 포함된 객체들을 차례대로 추가한다.
+
+- Model addAllAttributes(Map<String, ?>attributes)
+Map에 포함된 <키,값>에 대해 키를 모델이름으로 사용해서 값을 모델로 추가한다.
