@@ -1,0 +1,30 @@
+롬복(Lombok) - 자바언어 라이브러리
+1. 반복적인 코드를 축약
+2. java빈 (POJO), 데이터 객체, 동일성 및 해시코드 메서드 생성
+3. 코드의 가독성 향상
+
+롬복 기능
+1. @Getter @Setter : 게터 세터 메서드 생성
+
+2. @ToString
+
+3. @EqualsAndHashCode: equals() 및 hashCode() 메서드를 자동으로 생성
+
+4. @AllArgsConstructor (일반 생성자)
+   @NoArgsConstructor (기본 생성자)
+   @RequiredArgsConstructor:
+   'final' 로 선언된 필드들을 인자로 받는 생성자가 생성
+
+5. @Builder: 빌더 패턴을 사용한 객체 생성
+
+6. @Data :
+   @ToString, @EqualsAndHashCode, @Getter, @Setter,
+   @RequiredArgsConstructor를 포함한 모든 것을 자동으로 생성합니다.
+
+롬복 설치
+ - 롬복 라이브러리에 추가
+firstproject/build.gradle
+
+플러그인 설치
+shift키 두번 plugins 검색
+lombok 검색 -> 설치
