@@ -17,7 +17,7 @@ import javax.persistence.Id;
 @Getter
 public class Article {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // ==Auto_increment
     private Long id;
     private String title;
     private String content;
