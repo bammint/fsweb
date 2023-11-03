@@ -1,6 +1,7 @@
 package secondproject.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Article {
     @Id
