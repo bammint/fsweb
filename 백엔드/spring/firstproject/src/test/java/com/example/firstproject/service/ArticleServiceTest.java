@@ -1,9 +1,11 @@
 package com.example.firstproject.service;
 
+import com.example.firstproject.dto.ArticleForm;
 import com.example.firstproject.entity.Article;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest // 해당 클래스는 스프링부트와 연동되어 테스팅된다
+@Transactional
 class ArticleServiceTest {
     @Autowired
     ArticleService articleService;
@@ -31,10 +34,99 @@ class ArticleServiceTest {
     }
 
     @Test
-    void show() {
+    void show_성공() {
+        // 예상
+        Long id = 1L;
+        Article expected = new Article(id,"가가가가","1111");
+        // 실제
+        Article article = articleService.show(id);
+        // 비교
+        assertEquals(expected.toString(),article.toString());
     }
 
     @Test
-    void create() {
+    void show_실패() {    // 존재할 수 없는 id 입력
+        // 예상
+        Long id = -1L;
+        Article expected = null;
+        // 실제
+        Article article = articleService.show(id);
+        // 비교
+        assertEquals(expected,article); // null값은 toString 메서드 사용 X
+    }
+
+    @Test
+    void create_성공() {  // title과 content만 있는 dto입력
+        // 예상
+        String title = "라라라라";
+        String content = "4444";
+        ArticleForm dto = new ArticleForm(null,title,content);
+        Article expected = new Article(4L,title,content);
+
+        // 실제
+        Article article = articleService.create(dto);
+        // 비교
+        assertEquals(expected.toString(),article.toString());
+        System.out.println("예상결과: " + expected.toString());
+        System.out.println("실제결과: " + article.toString());
+    }
+    @Test
+    void create_실패() {  // id가 포함된 dto입력
+        // 예상
+        String title = "라라라라";
+        String content = "4444";
+        ArticleForm dto = new ArticleForm(4L,title,content);
+        Article expected = null;
+
+        // 실제
+        Article article = articleService.create(dto);
+        // 비교
+        assertEquals(expected,article);
+    }
+
+    @Test
+    void update_성공(){
+        // 예상
+        Long id = 1L;
+        ArticleForm dto = new ArticleForm(id,"가나가나가나","121212");
+        Article expected = new Article(id,"가나가나가나","121212");
+        // 실제
+        Article article = articleService.update(id,dto);
+        // 비교
+        assertEquals(expected.toString(),article.toString());
+    }
+
+    @Test
+    void update_실패(){
+        // 예상
+        Long id = 1L;
+        ArticleForm dto = new ArticleForm(id,"가나가나가나","121212");
+        Article expected = null;
+        // 실제
+        Article article = articleService.update(-1L,dto);
+        // 비교
+        assertNull(article);
+    }
+
+    @Test
+    void delete_성공(){
+        // 예상
+        Long id = 1L;
+        Article expected = new Article(id,"가가가가","1111");
+        // 실제
+        Article article = articleService.delete(id);
+        // 비교
+        assertEquals(expected.toString(),article.toString());
+    }
+
+    @Test
+    void delete_실패(){
+        // 예상
+        Long id = -1L; // 존재하지 않는 id
+        Article expected = null;
+        // 실제
+        Article article = articleService.delete(id);
+        // 비교
+        assertNull(article);
     }
 }
