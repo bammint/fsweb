@@ -1,8 +1,10 @@
 package com.example.firstproject.controller;
 
 import com.example.firstproject.dto.ArticleForm;
+import com.example.firstproject.dto.CommentDto;
 import com.example.firstproject.entity.Article;
 import com.example.firstproject.repository.ArticleRepository;
+import com.example.firstproject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ import java.util.List;
 @Slf4j // 로깅을 위한 롬복 어노테이션
 public class ArticleController {
      private final ArticleRepository articleRepository;
+
+     private final CommentService commentService;
+
 //    @Autowired
 //    public ArticleController(ArticleRepository articleRepository) {
 //        this.articleRepository = articleRepository;
@@ -79,8 +84,10 @@ public class ArticleController {
 
         // 1. id로 이용해서 데이터를 가져옴
         Article articleEntity = articleRepository.findById(id).orElse(null);
+        List<CommentDto> commentsDtos = commentService.comments(id);
         // 2. 가져온 데이터를 모델에 등록
         model.addAttribute("article",articleEntity);
+        model.addAttribute("commentDtos",commentsDtos);
         // 보여줄 페이지를 설정
         return "articles/show";
     }
