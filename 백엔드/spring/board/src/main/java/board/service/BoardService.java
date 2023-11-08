@@ -42,8 +42,10 @@ public class BoardService {
         if(optionalBoardEntity.isPresent()){
             BoardEntity boardEntity = optionalBoardEntity.get();
             BoardDTO boardDTO = BoardDTO.toBoardDTO(boardEntity);
+            System.out.println("아이디 찾음");
             return boardDTO;
         } else {
+            System.out.println("아이디 못찾음");
             return null;
         }
     }
