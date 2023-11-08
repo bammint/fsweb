@@ -5,8 +5,9 @@ import board.entity.BoardEntity;
 import board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class BoardService {
     public List<BoardDTO> findAll() {
         List<BoardEntity> boardEntityList = boardRepository.findAll();
         List<BoardDTO> boardDTOList = new ArrayList<>();
-        for(BoardEntity boardEntity : boardEntityList){
+        for (BoardEntity boardEntity: boardEntityList) {
             boardDTOList.add(BoardDTO.toBoardDTO(boardEntity));
         }
         return boardDTOList;
@@ -39,13 +40,11 @@ public class BoardService {
 
     public BoardDTO findById(Long id) {
         Optional<BoardEntity> optionalBoardEntity = boardRepository.findById(id);
-        if(optionalBoardEntity.isPresent()){
+        if (optionalBoardEntity.isPresent()) {
             BoardEntity boardEntity = optionalBoardEntity.get();
             BoardDTO boardDTO = BoardDTO.toBoardDTO(boardEntity);
-            System.out.println("아이디 찾음");
             return boardDTO;
         } else {
-            System.out.println("아이디 못찾음");
             return null;
         }
     }
