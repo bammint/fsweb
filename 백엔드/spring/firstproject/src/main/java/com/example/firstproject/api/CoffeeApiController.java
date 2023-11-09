@@ -44,34 +44,18 @@ public class CoffeeApiController {
     // patch(update)
     @PatchMapping("/api/coffees/{id}")
     public ResponseEntity<Coffee> update(@PathVariable Long id, @RequestBody CoffeeDto coffeeDto){
-        Coffee coffee = coffeeDto.toEntity();
-        log.info("id: {}, coffee: {}", id, coffee.toString());
-
-        Coffee target = coffeeService.show(id);
-
-        if(target == null || id != coffee.getId()){
-            log.info("잘못된 요청! id: {}, coffee: {}", id, coffee.toString());
-            return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
-                    .body(null);
-        }
-        target.patch(coffee);
-        Coffee updated = coffeeService.save(target);
-        return ResponseEntity.status(HttpStatus.OK).body(updated);
+        Coffee updated = coffeeService.update(id,coffeeDto);
+        return (updated != null)?
+                ResponseEntity.status(HttpStatus.OK).body(updated):
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     // delete
     @DeleteMapping("/api/coffees/{id}")
     public ResponseEntity<Coffee> delete(@PathVariable Long id){
-        Coffee target = coffeeService.show(id);
-
-        if(target == null){
-            return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
-                    .body(null);
-        }
-        coffeeService.delete(target);
-
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        Coffee deleted = coffeeService.delete(id);
+        return (deleted != null)?
+                ResponseEntity.status(HttpStatus.OK).build():
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 }
