@@ -1,5 +1,6 @@
 package com.example.firstproject.service;
 
+import com.example.firstproject.dto.CoffeeDto;
 import com.example.firstproject.entity.Coffee;
 import com.example.firstproject.repository.CoffeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,11 +26,18 @@ public class CoffeeService {
 
     }
 
-    public Coffee save(Coffee coffee) {
+    public Coffee create(CoffeeDto coffeeDto) {
+        Coffee coffee = coffeeDto.toEntity();
+        if(coffee.getId() != null){
+            return null;
+        }
         return coffeeRepository.save(coffee);
     }
+
 
     public void delete(Coffee target) {
         coffeeRepository.delete(target);
     }
+
+
 }
