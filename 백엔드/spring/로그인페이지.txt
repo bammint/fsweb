@@ -1,0 +1,277 @@
+- 멤버 컨트롤러 만들기
+@Controller
+
+- 멤버 레파지토리 만들기
+
+- 멤버 폼 만들기(DTO)
+private  String email;
+private  String password;
++생성자 만들기
+toString
+
+- 템플릿츠에 멤버스 파일 만들고 new.mustache 만들기
+{{>layouts/header}}
+
+<form class="container" action="/join" method="post">
+    <div class="mb-3">
+        <label class="form-label">이메일</label>
+        <input type="email" class="form-control" name="email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">비밀번호</label>
+        <input type="password" class="form-control" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/members">Back</a>
+</form>
+
+{{>layouts/footer}}
+
+
+- 멤버 레파지토리에 익스텐스 CrudRepository<Member, Long>
+
+- 엔티티에 멤버 만들기
+@Entity
+public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
+    private String email;
+    @Column
+    private String password;
+
+    public Member(Long id, String email, String password) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
+
+- 멤버 컨트롤러
+package com.example.firstproject.controller;
+
+import com.example.firstproject.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+@RequiredArgsConstructor
+public class MemberController {
+    public final MemberRepository memberRepository;
+//    @Autowired
+//    MemberRepository memberRepository;
+
+    @GetMapping("/signup")
+    public String signUppage(){
+        return "members/new";
+    }
+}
+
+잘 나오나 확인 후
+@PostMapping("/join") // new.mustache의 액션과 동일해야한다
+    public String join(MemberForm memberForm){
+        Member member = MemberForm.toEntity();
+
+        return "";
+    }
+
+- 멤버폼에
+toEntity 만들기
+public Member toEntity() {
+        return new Member(null,email,password);
+    }
+
+- 컨트롤러에
+@PostMapping("/join") // new.mustache의 액션과 동일해야한다
+    public String join(MemberForm memberForm){
+        System.out.println(memberForm.toString());
+        Member member = memberForm.toEntity();
+        System.out.println(member.toString());
+        Member saved = memberRepository.save(member);
+        System.out.println(saved.toString());
+
+        return "";
+    }
+
+    // 게터,세터 방법
+//    public String join(MemberForm memberForm) {
+//        Member member = new Member();
+//        member.setUsername(memberForm.getUsername());
+//        member.setEmail(memberForm.getEmail());
+//
+//        Member saved = memberRepository.save(member);
+//
+//        return "";
+//    }
+
+- 멤버와 멤버폼에
+@NoArgsConstructor 추가 // 출력 안돼서 지움
+
+- 컨트롤러에
+@Slf4j 추가
+sout을 log.info로 바꾸기
+
+@GetMapping("/members/{id}")
+    public String show(@PathVariable Long id, Model model){
+        Member member = memberRepository.findById(id).orElse(null);
+        model.addAttribute("member",member);
+        return "members/show";
+    }
+
+@GetMapping("/members")
+    public String index(Model model){
+        Iterable<Member> members = memberRepository.findAll();
+        model.addAttribute("members", members);
+        return "members/index";
+    }
+}
+
+- show.mustache
+{{>layouts/header}}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#member}}
+        <tr>
+            <th>{{id}}</th>
+            <td>{{email}}</td>
+            <td>{{password}}</td>
+        </tr>
+    {{/member}}
+    </tbody>
+</table>
+<a href="/members/{{member.id}}/edit" class="btn btn-primary">수정하기</a>
+<a href="/members/{{member.id}}/delete" class="btn btn-danger">삭제하기</a>
+<a href="/members">Go to member list</a>
+
+{{>layouts/footer}}
+
+-index.mustache
+{{>layouts/header}}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#members}}
+        <tr>
+            <th>{{id}}</th>
+            <td><a href="/members/{{id}}">{{email}}</a></td>
+            <td>{{password}}</td>
+        </tr>
+    {{/members}}
+    </tbody>
+</table>
+
+<a href="/signup">회원가입</a>
+
+{{>layouts/footer}}
+
+- 컨트롤러 Post맵핑 /join에
+return "redirect:/members/" + saved.getId(); 추가
+
+잘 되나 확인 후
+@GetMapping("/members/{id}/edit")
+    public String edit(@PathVariable Long id, Model model){
+        Member memberEntity = memberRepository.findById(id).orElse(null);
+        model.addAttribute("member", memberEntity);
+        return "members/edit";
+    }
+
+- edit.mustache 생성
+{{>layouts/header}}
+{{#member}}
+<form class="container" action="/members/update" method="post">
+    <input type="hidden" name="id" value="{{id}}">
+    <div class="mb-3">
+        <label class="form-label">이메일</label>
+        <input type="email" class="form-control" name="email" value="{{email}}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">비밀번호</label>
+        <input type="password" class="form-control" name="password" value="{{password}}">
+    </div>
+    <button type="submit" class="btn btn-primary">수정완료</button>
+    <a href="/members">Back</a>
+</form>
+{{/member}}
+
+{{>layouts/footer}}
+
+- 컨트롤러에
+@PostMapping("/members/update")
+    public String update(MemberForm form){
+        log.info(form.toString());
+        // 엔티티로 변환
+        Member memberEntity = form.toEntity();
+        // DB에서 데이터를 가져옴
+        Member target = memberRepository.findById(memberEntity.getId()).orElse(null);
+        // 만약 데이터가 있다면 내용 갱신
+        if(target != null){
+            memberRepository.save(memberEntity);
+        }
+        // 수정 결과 페이지로 리다이렉트
+        return "redirect:/members/" + memberEntity.getId();
+    }
+
+- 멤버 폼에
+package com.example.firstproject.dto;
+
+import com.example.firstproject.entity.Member;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+
+@AllArgsConstructor
+@ToString
+public class MemberForm {
+    private Long id;
+    private  String email;
+    private  String password;
+
+
+    public Member toEntity() {
+        return new Member(id,email,password);
+    }
+}
+
+확인하고
+-컨트롤러에
+@GetMapping("/members/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes rttr, Model model){
+        log.info("삭제 요청이 들어왔습니다");
+        // 1. 삭제 대상을 가져옴
+        Member target = memberRepository.findById(id).orElse(null);
+        log.info(target.toString());
+        // 2. 대상 삭제
+        if(target != null){
+            memberRepository.delete(target);
+            rttr.addFlashAttribute("msg","삭제되었습니다");
+        }
+        // 결과 페이지
+        return "redirect:/members";
+    }
+

@@ -1,4 +1,4 @@
--- article ?? ???
+-- article 더미 데이터
 insert into article(title,content) values('가가가가','1111');
 insert into article(title,content) values('나나나나','2222');
 insert into article(title,content) values('다다다다','3333');
@@ -21,3 +21,8 @@ insert into comment(article_id,nickname,body) values(5,'Choi','초밥');
 insert into comment(article_id,nickname,body) values(6,'Park','조깅');
 insert into comment(article_id,nickname,body) values(6,'Kim','유튜브');
 insert into comment(article_id,nickname,body) values(6,'Choi','독서');
+
+-- coffee 더미 데이터
+INSERT INTO coffee(name, price) VALUES('아메리카노', '4500');
+INSERT INTO coffee(name, price) VALUES('라떼', '5000');
+INSERT INTO coffee(name, price) VALUES('카페 모카', '5500');
