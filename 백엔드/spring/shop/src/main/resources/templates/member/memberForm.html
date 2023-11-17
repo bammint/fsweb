@@ -2,17 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout1}">
-<!--사용자 css 추가-->
+
+<!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
     <style>
-        .fieldError{
+        .fieldError {
             color: #bd2130;
         }
     </style>
 </th:block>
 
-<!--사용자 스크립트 추가-->
+<!-- 사용자 스크립트 추가 -->
 <th:block layout:fragment="script">
+
     <script th:inline="javascript">
         $(document).ready(function(){
             var errorMessage = [[${errorMessage}]];
@@ -21,19 +23,21 @@
             }
         });
     </script>
+
 </th:block>
 
 <div layout:fragment="content">
-    <form action="/members/new" role="form" method="post" th:object="${memberFormDto}">
+
+    <form action="/members/new" role="form" method="post"  th:object="${memberFormDto}">
         <div class="form-group">
             <label th:for="name">이름</label>
             <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력해주세요">
-            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                        class="fieldError">Incorrect data</p>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">Incorrect data</p>
         </div>
         <div class="form-group">
             <label th:for="email">이메일주소</label>
-            <input type="email" th:field="*{email}" class="form-control" placeholder="이메일을 입력해주세요">
+            <input type="email" th:field="*{email}" class="form-control"
+                   placeholder="이메일을 입력해주세요">
             <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
                class="fieldError">Incorrect data</p>
         </div>
@@ -55,5 +59,5 @@
         <!--csrf - Cross Site Request Forgery-->
     </form>
 </div>
-
 </html>
+
