@@ -81,8 +81,8 @@
                     <a th:onclick="'javascript:page(' + ${page - 1} + ')'" th:inline="text" class="page-link">[[${page}]]</a>
                 </li>
                 <!--                각 페이지 번호 리스트를 순환하면서 각 페이지번호를 표시합니다.-->
-                <!-- 현재페이지 인경우 active 클래스 추가해서 페이지강조(css 적용) -->
-                <!-- r각페이지 번호에 대한 링크생성 페이지를 클릭하면 해당 페이지로 이동 -->
+                <!-- 현재 페이지인 경우 active 클래스 추가해서 페이지 강조(css 적용) -->
+                <!-- 각 페이지 번호에 대한 링크생성 페이지를 클릭하면 해당 페이지로 이동 -->
 
                 <li class="page-item" th:classappend="${items.last}?'disabled'">
                     <!--                    마지막 페이지 일경우 비활성화-->

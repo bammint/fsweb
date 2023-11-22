@@ -21,5 +21,5 @@ public class ItemSearchDto {
 // 3. 상품을 조회할 때 어떤 유형으로 조회할지 선택함
     // itemNm : 상품명 createBy : 상품등록
 // 4.searchQuery 조회할 검색어 저장 변수
-// searchBy - itemNm 상품명
-// searchBy - createBy 상품 등록자 아이디 기준
+    // searchBy - itemNm 상품명
+    // searchBy - createBy 상품 등록자 아이디 기준

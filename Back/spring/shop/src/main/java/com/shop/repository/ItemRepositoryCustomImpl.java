@@ -1,12 +1,16 @@
 package com.shop.repository;
 
+import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Wildcard;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.shop.constant.ItemSellStatus;
 import com.shop.dto.ItemSearchDto;
+import com.shop.dto.MainItemDto;
+import com.shop.dto.QMainItemDto;
 import com.shop.entity.Item;
 import com.shop.entity.QItem;
+import com.shop.entity.QItemImg;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +37,7 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
     private BooleanExpression regDtsAfter(String searchDateType){
 
         LocalDateTime dateTime = LocalDateTime.now();
+        // dateTime 현재 시간
 
         if(StringUtils.equals("all", searchDateType) || searchDateType == null){
             return null;
@@ -51,7 +56,7 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
     private BooleanExpression searchByLike(String searchBy, String searchQuery){
         if(StringUtils.equals("itemNm",searchBy)){
             return QItem.item.itemNm.like("%"+searchQuery+"%");
-        }else if(StringUtils.equals("createBy",searchBy)){
+        }else if(StringUtils.equals("createdBy",searchBy)){
             return QItem.item.createdBy.like("%"+searchQuery+"%");
         }
 
@@ -81,4 +86,47 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
         return new PageImpl<>(content,pageable,total);
         // PageImpl 을 사용하여 페이징된 결과를 Page<Item> 형태로 반환
     }
+
+    @Override
+    public Page<MainItemDto> getMainItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
+        QItem item = QItem.item;
+        QItemImg itemImg = QItemImg.itemImg;
+        // QItem과 QItemImg를 사용해서 QueryDsl에서 사용할 수 있는 객체 정의
+
+        List<MainItemDto> content = queryFactory
+                .select( //MainItemDto를 선택하고
+                        new QMainItemDto(
+                                item.id,
+                                item.itemNm,
+                                item.itemDetail,
+                                itemImg.imgUrl,
+                                item.price)
+                )
+                .from(itemImg)
+                .join(itemImg.item, item) // itemImg / item 조인하여
+                .where(itemImg.repimgYn.eq("Y")) // 대표이미지
+                .where(itemNmLike(itemSearchDto.getSearchQuery())) // 상품명 검색
+                .orderBy(item.id.desc()) // 상품id를 기준으로 내림차순  정렬
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize()) // 페이지 네이션 처리
+                .fetch();
+
+        long total = queryFactory
+                .select(Wildcard.count)
+                .from(itemImg)
+                .join(itemImg.item, item)
+                .where(itemImg.repimgYn.eq("Y"))
+                .where(itemNmLike(itemSearchDto.getSearchQuery()))
+                .fetchOne();
+                // 전체 갯수를 조회
+        return new PageImpl<>(content,pageable,total);
+        // PageImpl 을 사용하여 페이지 네이션된 결과를 page<MainItemDto> 형태로 반환
+    }
+
+    private BooleanExpression itemNmLike(String searchQuery) {
+        return StringUtils.isEmpty(searchQuery) ?
+                null : QItem.item.itemNm.like("%" + searchQuery + "%");
+    }
+
+
 }

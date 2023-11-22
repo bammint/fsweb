@@ -30,9 +30,14 @@ public class ItemImgService {
         if(!StringUtils.isEmpty(oriImgName)){
             imgName = fileService.uploadFile(itemImgLocation, oriImgName,
                     itemImgFile.getBytes());
+            // 저장할 경로, 실제 파일명, 파일의 바이트 배열
             imgUrl = "/images/item/" + imgName;
         }
-
+        // 저장할 상품 이미지를 불러올 경로
+        // D:/shop/item 에 저장함으로
+        // 상품을 불러오는 경로는 /images/item/
+        // 앞에 /images/가 붙는 이유는 WebMvcConfig 클래스에 /images/**
+        
         //상품 이미지 정보 저장
         itemImg.updateItemImg(oriImgName, imgName, imgUrl);
         itemImgRepository.save(itemImg);
@@ -70,6 +75,8 @@ public class ItemImgService {
 
             savedItemImg.updateItemImg(oriImgName, imgName, imgUrl);
             //이미지 정보 엔티티의 필드를 업데이트 합니다.
+            // savedItemImg - 영속 상태이므로 데이터를 변경하는 것만으로 변경감지 적용
+            // 트랜잭션이 끝날 때 update 쿼리가 실행
         }
     }
 

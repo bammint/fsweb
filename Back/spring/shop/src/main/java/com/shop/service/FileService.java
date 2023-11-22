@@ -11,9 +11,9 @@ import java.util.UUID;
 @Log
 public class FileService {
     public String uploadFile(String uploadPath, String originalFileName, byte[] fileData) throws Exception{
-        UUID uuid = UUID.randomUUID();
+        UUID uuid = UUID.randomUUID(); // 변경한 파일명
         String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
-        String savedFileName = uuid.toString() + extension;
+        String savedFileName = uuid.toString() + extension; // 변경한 파일명과 확장명을 조합
         String fileUploadFullUrl = uploadPath + "/" + savedFileName;
         FileOutputStream fos = new FileOutputStream(fileUploadFullUrl);
         fos.write(fileData);

@@ -105,4 +105,13 @@ public class ItemController {
         // 이 값을 템플릿에서 사용하여 페이지네이션 UI를 그릴때(핸더링) 활용
         return "item/itemMng";
     }
+
+    @GetMapping("/item/{itemId}")
+    public String itemDtl(Model model, @PathVariable("itemId")Long itemId){
+        ItemFormDto itemFormDto = itemService.getItemDtl(itemId);
+        model.addAttribute("item", itemFormDto);
+        return "item/itemDtl";
+    }
+
+
 }
