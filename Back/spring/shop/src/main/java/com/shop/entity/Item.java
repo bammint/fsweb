@@ -60,4 +60,6 @@ public class Item extends BaseEntity {
     public void addStock(int stockNumber){
         this.stockNumber += stockNumber;
     }
+    // 주문 취소시 주문했던 수량만큼 재고로 더해줌
+
 }
