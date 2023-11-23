@@ -28,6 +28,6 @@ public class MemberController {
         System.out.println("memberDto = " + memberDto);
         memberService.save(memberDto);
 
-        return "index";
+        return "login";
     }
 }
