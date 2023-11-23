@@ -73,9 +73,12 @@ public class OrderController {
     @PostMapping("/order/{orderId}/cancel")
     public @ResponseBody ResponseEntity cancelOrder(
             @PathVariable("orderId") Long orderId, Principal principal){
+        // 주문 취소 시 orderId와 접속중인 사용자의 이메일을 가져와서
+        // 접속중인 USER가 주문한 USER가 맞는지 비교하여 return
         if(!orderService.validateOrder(orderId,principal.getName())){
             return new ResponseEntity<String>("주문 취소 권한이 없습니다",HttpStatus.FORBIDDEN);
         }
+        // 주문 취소한 USER가 주문 요청한 USER가 맞을시 OrderService의 cancelOrder() 메서드 호출
         orderService.cancelOrder(orderId);
         return new ResponseEntity<Long>(orderId, HttpStatus.OK);
     }

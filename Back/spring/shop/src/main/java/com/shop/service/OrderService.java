@@ -73,7 +73,7 @@ public class OrderService {
        // 페이지 구현객체를 생성하여 반환함
     }
 
-
+    @Transactional(readOnly = true)
     public boolean validateOrder(Long orderId, String email) {
         Member curMember = memberRepository.findByEmail(email);
         Order order = orderRepository.findById(orderId)
@@ -86,6 +86,8 @@ public class OrderService {
         return true;
     }
 
+    // Controller로 부터 OrderId를 넘겨받아
+    // 주문한 상품의 수량을 취소된 주문 수량만큼 추가 시키는 Order의 cancelOrder() 메서드 호출
     public void cancelOrder(Long orderId) {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(EntityNotFoundException::new);
