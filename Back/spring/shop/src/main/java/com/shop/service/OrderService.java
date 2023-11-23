@@ -71,6 +71,17 @@ public class OrderService {
        }
        return new PageImpl<OrderHistDto>(orderHistDtos,pageable,totalCount);
        // 페이지 구현객체를 생성하여 반환함
+
+        // 정리!
+        // 주문이력에 출력할 주문 일자, 주문상태, 주문 상품들을 가지는 orderHistDTO를 생성하여
+        //사용자의 주문목록을 확인하여 총 주문갯수를 totalCount에 저장한다.
+        // 사용자의 주문 목록에서 하나의 주문 마다 가지고 있는 주문 상품을 꺼내서
+        // 주문 상품의 id값과 repImgYn 값이 맞는 (id값에 맞는 상품의 대표이미지)를 저장
+        // 주문 상품과 대표이미지의 URL을 OrderItemDTo를 생성
+        // => 저장된 OrderItemDTo에서 필요한 값들을 꺼내어 출력할 주문 일자, 주문상태, 주문 상품들을 가지는 orderHistDTO 생성
+        // 생성된 orderHistDto들을 리스트로 만들어서 PageImpl(페이지 구현객체 : [springframework.data.domain]) 에
+        // orderHistDTO 리스트와 pageable, 총 주문 수량을 리턴한다.
+
     }
 
     @Transactional(readOnly = true)
