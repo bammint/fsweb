@@ -76,7 +76,7 @@ public class OrderService {
         // 주문이력에 출력할 주문 일자, 주문상태, 주문 상품들을 가지는 orderHistDTO를 생성하여
         //사용자의 주문목록을 확인하여 총 주문갯수를 totalCount에 저장한다.
         // 사용자의 주문 목록에서 하나의 주문 마다 가지고 있는 주문 상품을 꺼내서
-        // 주문 상품의 id값과 repImgYn 값이 맞는 (id값에 맞는 상품의 대표이미지)를 저장
+        // 주문 상품의 id값과 repimgYn 값이 맞는 (id값에 맞는 상품의 대표이미지)를 저장
         // 주문 상품과 대표이미지의 URL을 OrderItemDTo를 생성
         // => 저장된 OrderItemDTo에서 필요한 값들을 꺼내어 출력할 주문 일자, 주문상태, 주문 상품들을 가지는 orderHistDTO 생성
         // 생성된 orderHistDto들을 리스트로 만들어서 PageImpl(페이지 구현객체 : [springframework.data.domain]) 에
@@ -103,5 +103,24 @@ public class OrderService {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(EntityNotFoundException::new);
         order.cancelOrder();
+    }
+
+    public Long orders(List<OrderDto> orderDtoList, String email){
+        Member member = memberRepository.findByEmail(email);
+        List<OrderItem> orderItemList = new ArrayList<>();
+
+        for(OrderDto orderDto : orderDtoList){
+            // 주문할 상품 리스트를 만들어 줌
+            Item item = itemRepository.findById(orderDto.getItemId())
+                    .orElseThrow(EntityNotFoundException::new);
+
+            OrderItem orderItem = OrderItem.createOrderItem(item,orderDto.getCount());
+            orderItemList.add(orderItem);
+        }
+        Order order = Order.createOrder(member,orderItemList);
+        // 현재 로그인한 회원과 주문 상품 목록을 이용하여 주문 엔티티를 만듬
+        orderRepository.save(order);
+        // 주문 데이터를 저장
+        return order.getId();
     }
 }
