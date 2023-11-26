@@ -1,0 +1,23 @@
+-카카오
+REST API 키	bb95b8898f2066212803598ce2110b86
+
+-로그인 동의 사이트
+https://kauth.kakao.com/oauth/authorize?client_id=bb95b8898f2066212803598ce2110b86&redirect_uri=http://localhost:8080/kakao/callback&response_type=code
+
+-Authorization Code
+http://localhost:8080/kakao/callback?code=a8l6TWGOG4a1m23oLufb5SdMhWHC9vl49XzgsqsiE-8HSQdfFo5P7kEzuR0KPXVbAAABjAnryQRyxKx5jTsi9A
+
+
+-네이버
+Client ID	DLiKm23lmwO5OmSHMokf
+Client Secret	VbyDZDMDZB
+
+-로그인 동의 사이트
+https://nid.naver.com/oauth2.0/authorize
+?response_type=code
+&client_id=DLiKm23lmwO5OmSHMokf
+&state=hLiDdL2uhPtsftcU
+&redirect_uri=http://localhost:8080/naver/callback
+
+-Authorization Code
+http://localhost:8080/naver/callback?code=fYw5CJEGVISYrHyKcj&state=hLiDdL2uhPtsftcU
