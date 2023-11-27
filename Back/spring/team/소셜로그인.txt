@@ -1,11 +1,17 @@
+- 구글
+클라이언트 ID	610032659204-col9d1s31vpabbmjq3v0j90r4c872g8t.apps.googleusercontent.com
+
+클라이언트 비밀번호	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
+
+
 -카카오
 REST API 키	bb95b8898f2066212803598ce2110b86
 
 -로그인 동의 사이트
-https://kauth.kakao.com/oauth/authorize?client_id=bb95b8898f2066212803598ce2110b86&redirect_uri=http://localhost:8080/kakao/callback&response_type=code
+https://kauth.kakao.com/oauth/authorize?client_id=bb95b8898f2066212803598ce2110b86&redirect_uri=http://localhost:8080/oauth2/kakao&response_type=code
 
 -Authorization Code
-http://localhost:8080/kakao/callback?code=2NfshZ9-A6nReCpPxCCt7KVSl3ikzUW1lZyPi3sujSwWMb_GosRAXHub0xIKKcjZAAABjA7Z7FEFVMIyByjmyg
+http://localhost:8080/oauth2/kakao?code=BX_6RNU5XjJ9ackH_StSyi3lLAVzEzrMwgvtH0vbH5a3JK75qZB3qVJ4wkkKKwzTAAABjA8rLNCSBpCp5rpDbg
 
 
 -네이버
