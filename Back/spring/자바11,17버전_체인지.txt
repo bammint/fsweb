@@ -1,0 +1,7 @@
+@echo off
+set JAVA_HOME=C:\Program Files\Java\jdk-17
+set Path=%JAVA_HOME%\bin;%Path%
+echo Java 17 activated.
+java -version
+
+11,17 두개 .bat 파일로만들어서 C에 저장
