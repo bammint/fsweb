@@ -5,7 +5,7 @@ REST API 키	bb95b8898f2066212803598ce2110b86
 https://kauth.kakao.com/oauth/authorize?client_id=bb95b8898f2066212803598ce2110b86&redirect_uri=http://localhost:8080/kakao/callback&response_type=code
 
 -Authorization Code
-http://localhost:8080/kakao/callback?code=a8l6TWGOG4a1m23oLufb5SdMhWHC9vl49XzgsqsiE-8HSQdfFo5P7kEzuR0KPXVbAAABjAnryQRyxKx5jTsi9A
+http://localhost:8080/kakao/callback?code=2NfshZ9-A6nReCpPxCCt7KVSl3ikzUW1lZyPi3sujSwWMb_GosRAXHub0xIKKcjZAAABjA7Z7FEFVMIyByjmyg
 
 
 -네이버
