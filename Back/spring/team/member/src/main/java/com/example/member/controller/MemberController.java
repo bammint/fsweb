@@ -53,10 +53,10 @@ public class MemberController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/login")
-    public String toLogin() {
-        return "member/login";
-    }
+//    @GetMapping(value = "/login")
+//    public String toLogin() {
+//        return "member/login";
+//    }
 
     @GetMapping(value = "/member/login/error")
     public String failLogin(){
