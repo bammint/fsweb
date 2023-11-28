@@ -1,9 +1,11 @@
+ex2 - 유저롤, 멤버엔티티, 멤버레파지토리, 오오스시큐리티컨피그,오오스 서비스, 오오스어트리뷰트
+
 - 구글
 클라이언트 ID	610032659204-col9d1s31vpabbmjq3v0j90r4c872g8t.apps.googleusercontent.com
 
 클라이언트 비밀번호	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
 
-https://accounts.google.com/o/oauth2/auth?client_id=610032659204-col9d1s31vpabbmjq3v0j90r4c872g8t.apps.googleusercontent.com&redirect_uri=http://localhost:88/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/drive.metadata.readonly
+https://accounts.google.com/o/oauth2/auth?client_id=610032659204-col9d1s31vpabbmjq3v0j90r4c872g8t.apps.googleusercontent.com&redirect_uri=http://localhost:88/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile
 
 
 -카카오
@@ -30,12 +32,22 @@ https://nid.naver.com/oauth2.0/authorize
 -Authorization Code
 http://localhost:88/login/oauth2/code/naver?code=YB1ao57PxQD1NO4jcs&state=hLiDdL2uhPtsftcU
 
+implementation 'org.springframework.boot:spring-boot-starter-security'
+implementation 'org.springframework.security:spring-security-test'
+
+implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+implementation 'org.springframework.security:spring-security-oauth2-jose'
+
+
 
 #OAuth
 # google
 spring.security.oauth2.client.registration.google.client-id= 610032659204-col9d1s31vpabbmjq3v0j90r4c872g8t.apps.googleusercontent.com
 spring.security.oauth2.client.registration.google.client-secret= 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
 spring.security.oauth2.client.registration.google.scope=profile, email
+
+spring.security.oauth2.client.registration.google.redirect-uri=http://localhost:88/login/oauth2/code/google
+
 
 # naver
 spring.security.oauth2.client.registration.naver.client-id= DLiKm23lmwO5OmSHMokf
@@ -55,7 +67,7 @@ spring.security.oauth2.client.registration.kakao.client-id= bb95b8898f2066212803
 spring.security.oauth2.client.registration.kakao.redirect-uri= http://localhost:88/login/oauth2/code/kakao
 spring.security.oauth2.client.registration.kakao.client-authentication-method= POST
 spring.security.oauth2.client.registration.kakao.authorization-grant-type= authorization_code
-spring.security.oauth2.client.registration.kakao.scope= profile_nickname, profile_image, account_email
+spring.security.oauth2.client.registration.kakao.scope= profile_nickname
 spring.security.oauth2.client.registration.kakao.client-name= Kakao
 
 
