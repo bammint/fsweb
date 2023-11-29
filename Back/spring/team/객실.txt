@@ -20,27 +20,8 @@ room 선택 -> room의 체크인,아웃 설정 -> 방문수단(도보,차량)-> 
 
 
 
--오더 엔티티
-주문 id
-체크인,아웃 시간
-멤버 (FK)
-아이템 (FK)
-주문가격
-멤버이름
-멤버 전화번호
-주문 일자
-주문 상태
+- reservDto
+reservId, lodgingId, RoomId, name(member), phoneN1(member)
 
-
-
-
-
--오더
-
-이넘 오더스테이터스(예약,취소)
-오더 아이템 엔티티
-
--아이템
-
-아이템 엔티티
-이넘 객실(팬션/풀빌라)
+- reserv
+reservId, lodgingId, RoomId, name(member), phoneN1(member), orderDate, reservStatus

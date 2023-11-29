@@ -1,14 +1,14 @@
-package com.example.member.order;
+package com.example.member.reserv;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderItemDto {
-    public OrderItemDto(OrderItem orderItem,String imgUrl){
-        this.itemNm = orderItem.getLodging().getName();
-        this.orderPrice = orderItem.getOrderPrice();
+public class ReservItemDto {
+    public ReservItemDto(ReservItem reservItem, String imgUrl){
+        this.itemNm = reservItem.getLodging().getName();
+        this.orderPrice = reservItem.getOrderPrice();
         this.imgUrl = imgUrl;
     }
 

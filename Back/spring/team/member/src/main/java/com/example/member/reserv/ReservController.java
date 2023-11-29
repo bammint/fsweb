@@ -1,4 +1,4 @@
-package com.example.member.order;
+package com.example.member.reserv;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,11 +16,11 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class OrderController {
-    private final OrderService orderService;
+public class ReservController {
+    private final ReservService reservService;
 
     @PostMapping("/order")
-    public @ResponseBody ResponseEntity order (@RequestBody @Valid OrderDto orderDto,
+    public @ResponseBody ResponseEntity order (@RequestBody @Valid ReservDto reservDto,
                                                BindingResult bindingResult, Principal principal){
         if(bindingResult.hasErrors()){
             StringBuilder sb = new StringBuilder();
@@ -35,7 +35,7 @@ public class OrderController {
         Long orderId;
 
         try{
-            orderId = orderService.order(orderDto,email);
+            orderId = reservService.order(reservDto,email);
         } catch (Exception e){
             return new ResponseEntity<String>(e.getMessage(),
                     HttpStatus.BAD_REQUEST);

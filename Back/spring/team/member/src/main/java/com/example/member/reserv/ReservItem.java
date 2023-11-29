@@ -1,4 +1,4 @@
-package com.example.member.order;
+package com.example.member.reserv;
 
 import com.example.member.entity.BaseEntity;
 import com.example.member.entity.Lodging;
@@ -6,12 +6,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
-public class OrderItem extends BaseEntity {
+public class ReservItem extends BaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "order_item_id")
@@ -23,15 +22,15 @@ public class OrderItem extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
-    private Order order;
+    private Reserv reserv;
 
     private String orderPrice;
 
-    public static OrderItem createOrderItem(Lodging lodging){
-        OrderItem orderItem = new OrderItem();
-        orderItem.setLodging(lodging);
-        orderItem.setOrderPrice(lodging.getPrice());
+    public static ReservItem createOrderItem(Lodging lodging){
+        ReservItem reservItem = new ReservItem();
+        reservItem.setLodging(lodging);
+        reservItem.setOrderPrice(lodging.getPrice());
 
-        return orderItem;
+        return reservItem;
     }
 }

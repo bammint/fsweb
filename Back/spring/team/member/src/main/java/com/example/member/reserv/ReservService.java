@@ -1,4 +1,4 @@
-package com.example.member.order;
+package com.example.member.reserv;
 
 import com.example.member.entity.Lodging;
 import com.example.member.entity.Member;
@@ -15,23 +15,23 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class OrderService {
+public class ReservService {
     private final LodgingRepository lodgingRepository;
     private final MemberRepository memberRepository;
-    private final OrderRepository orderRepository;
+    private final ReservRepository reservRepository;
 
-    public Long order(OrderDto orderDto,String email){
-        Lodging lodging = lodgingRepository.findById(orderDto.getItemId())
+    public Long order(ReservDto reservDto, String email){
+        Lodging lodging = lodgingRepository.findById(reservDto.getItemId())
                 .orElseThrow(EntityNotFoundException::new);
         Member member = memberRepository.findByEmail(email)
                 .orElse(null);
 
-        List<OrderItem> orderItemList = new ArrayList<>();
-        OrderItem orderItem = OrderItem.createOrderItem(lodging);
-        orderItemList.add(orderItem);
+        List<ReservItem> reservItemList = new ArrayList<>();
+        ReservItem reservItem = ReservItem.createOrderItem(lodging);
+        reservItemList.add(reservItem);
 
-        Order order = Order.createOrder(member,orderItemList);
-        orderRepository.save(order);
-        return order.getId();
+        Reserv reserv = Reserv.createOrder(member, reservItemList);
+        reservRepository.save(reserv);
+        return reserv.getId();
     }
 }

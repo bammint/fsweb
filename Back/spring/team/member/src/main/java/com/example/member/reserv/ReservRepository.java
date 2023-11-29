@@ -1,4 +1,4 @@
-package com.example.member.order;
+package com.example.member.reserv;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,13 +7,13 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface OrderRepository extends JpaRepository<Order,Long> {
+public interface ReservRepository extends JpaRepository<Reserv,Long> {
     // 페이징
     @Query("select o from Order o "+
             "where o.member.email = :email "+
             "order by o.orderDate desc"
     )
-    List<Order> findOrders(@Param("email") String email, Pageable pageable);
+    List<Reserv> findOrders(@Param("email") String email, Pageable pageable);
 
     @Query("select count(o) from Order o "+
             "where o.member.email = :email"
