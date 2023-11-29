@@ -1,6 +1,8 @@
 package com.example.member.order;
 
+import com.example.member.entity.Lodging;
 import com.example.member.entity.Member;
+import com.example.member.repository.LodgingRepository;
 import com.example.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,17 +16,18 @@ import java.util.List;
 @Transactional
 @RequiredArgsConstructor
 public class OrderService {
-    private final ItemRepository itemRepository;
+    private final LodgingRepository lodgingRepository;
     private final MemberRepository memberRepository;
     private final OrderRepository orderRepository;
 
     public Long order(OrderDto orderDto,String email){
-        Item item = itemRepository.findById(orderDto.getItemId())
+        Lodging lodging = lodgingRepository.findById(orderDto.getItemId())
                 .orElseThrow(EntityNotFoundException::new);
-        Member member = memberRepository.findByEmail(email);
+        Member member = memberRepository.findByEmail(email)
+                .orElse(null);
 
         List<OrderItem> orderItemList = new ArrayList<>();
-        OrderItem orderItem = OrderItem.createOrderItem(item);
+        OrderItem orderItem = OrderItem.createOrderItem(lodging);
         orderItemList.add(orderItem);
 
         Order order = Order.createOrder(member,orderItemList);

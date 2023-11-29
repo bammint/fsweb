@@ -1,6 +1,7 @@
 package com.example.member.order;
 
 import com.example.member.entity.BaseEntity;
+import com.example.member.entity.Lodging;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,18 +19,18 @@ public class OrderItem extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
-    private Item item;
+    private Lodging lodging;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
 
-    private int orderPrice;
+    private String orderPrice;
 
-    public static OrderItem createOrderItem(Item item){
+    public static OrderItem createOrderItem(Lodging lodging){
         OrderItem orderItem = new OrderItem();
-        orderItem.setItem(item);
-        orderItem.setOrderPrice(item.getPrice);
+        orderItem.setLodging(lodging);
+        orderItem.setOrderPrice(lodging.getPrice());
 
         return orderItem;
     }
