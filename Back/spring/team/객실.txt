@@ -21,6 +21,15 @@ lodgingName, roomName, room.checkInTime, room.checkOutTime
 
 
 
+***폴더한거***
+reserv, reservItem, constant.ReservationStatus, reserv.reservHist.html
+
+***필요한거***
+itemImg 관련
+
+
+
+
 - reservDto
 id, lodging, price, reservStatus, name(member), phoneN1(member)
 
