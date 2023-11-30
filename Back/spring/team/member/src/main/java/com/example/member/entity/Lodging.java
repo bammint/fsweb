@@ -1,7 +1,7 @@
-package com.example.member.lodging;
+package com.example.member.entity;
 
-import com.example.member.entity.BaseEntity;
-import com.example.member.entity.Member;
+import com.example.member.constant.LodgingType;
+import com.example.member.dto.LodgingDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,29 +24,29 @@ public class Lodging extends BaseEntity {
     @JoinColumn(name = "room_id")
     @ManyToOne(fetch = FetchType.LAZY)
 //    @OneToMany(fetch = FetchType.LAZY)
-    private Room room;  // 숙소 -> 방
+    private Room room;
 
     @JoinColumn(name = "member_id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Member member;  // 예약자
+    private Member member;
 
 //    @Column
 //    private Review review;
 
     @Column
-    private String name;    //업체 명
+    private String name;
 
     @Column
-    private String detail;  // 상세정보
+    private String detail;
 
     @Column
-    private String price;   // 가격(선택한 방의 가격을 가져와 대입)
+    private String price;
 
     @Column
-    private String location;    // 위치
+    private String location;
 
     @Enumerated(EnumType.STRING)
-    private LodgingType lodgingType;    //숙소 타입
+    private LodgingType lodgingType;
 
     // 매개변수 Room 추가 고려
     public static Lodging toLodging(Member member, LodgingDto lodgingDto) {
@@ -56,11 +56,11 @@ public class Lodging extends BaseEntity {
         lodging.setMember(member);
         lodging.setName(lodgingDto.getName());
         lodging.setDetail(lodgingDto.getDetail());
-        lodging.setPrice(lodgingDto.getRoom().getPrice());
+        lodging.setPrice(lodgingDto.getPrice());
         lodging.setLocation(lodgingDto.getLocation());
         lodging.setLodgingType(lodgingDto.getLodgingType());
 //        lodging.setRegTime(lodgingDto.getRegTime());
-//        lodging.setUpdateTime(LocalDateTime.now());
+//        lodging.setUpdateTime(lodgingDto.getUpdateTime());
         return lodging;
     }
 

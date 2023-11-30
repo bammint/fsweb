@@ -1,8 +1,14 @@
-package com.example.member.lodging;
+package com.example.member.dto;
 
+import com.example.member.constant.LodgingType;
+import com.example.member.entity.Lodging;
 import com.example.member.entity.Member;
+import com.example.member.entity.Room;
 import lombok.*;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
@@ -46,7 +52,7 @@ public class LodgingDto {
         lodgingDto.setMember(lodging.getMember());
         lodgingDto.setName(lodging.getName());
         lodgingDto.setDetail(lodging.getDetail());
-        lodgingDto.setPrice(lodging.getRoom().getPrice());
+        lodgingDto.setPrice(lodging.getPrice());
         lodgingDto.setLocation(lodging.getLocation());
         lodgingDto.setLodgingType(lodging.getLodgingType());
         lodgingDto.setCreatedBy(lodging.getCreatedBy());

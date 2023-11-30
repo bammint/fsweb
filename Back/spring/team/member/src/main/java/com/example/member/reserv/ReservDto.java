@@ -1,8 +1,5 @@
 package com.example.member.reserv;
 
-import com.example.member.lodging.Lodging;
-import com.example.member.entity.Member;
-import com.example.member.lodging.Room;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;

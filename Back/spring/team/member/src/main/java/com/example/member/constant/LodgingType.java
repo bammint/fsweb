@@ -1,4 +1,4 @@
-package com.example.member.lodging;
+package com.example.member.constant;
 
 public enum LodgingType {
 

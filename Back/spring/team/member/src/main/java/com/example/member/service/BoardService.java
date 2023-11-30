@@ -50,6 +50,8 @@ public class BoardService {
         boardRepository.save(board);
     }
 
+
+
     public List<BoardDto> boardDtos(String email){
         Member member = memberRepository.findByEmail(email)
                 .orElseThrow(EntityNotFoundException::new);
@@ -64,4 +66,20 @@ public class BoardService {
 
     }
 
+
+    public BoardDto findBoard(Long id) {
+        Board board = boardRepository.findById(id).orElse(null);
+
+        return BoardDto.toBoardDto(board);
+
+    }
+
+    public void boardUpdate(BoardDto boardDto) {
+        Board board = boardRepository.findById(boardDto.getId())
+                .orElseThrow(EntityNotFoundException::new);
+        board.setBoardTitle(boardDto.getBoardTitle());
+        board.setContent(boardDto.getContent());
+
+
+    }
 }

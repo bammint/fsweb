@@ -1,7 +1,6 @@
-package com.example.member.lodging;
+package com.example.member.entity;
 
-import com.example.member.reserv.ReservStatus;
-import com.example.member.entity.BaseEntity;
+import com.example.member.constant.ReservationStatus;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,7 +21,7 @@ public class Room extends BaseEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private ReservStatus reservStatus;
+    private ReservationStatus reservationStatus;
 
     @Column
     private String name;

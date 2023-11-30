@@ -17,13 +17,13 @@
 
 <div layout:fragment="content">
 
-<!--    <div th:if="${boardErrorMsg} != null" class="btn btn-danger d-flex justify-content-center">-->
-<!--        <p th:text="${boardErrorMsg}">에러출력용</p>-->
-<!--    </div>-->
+    <!--    <div th:if="${boardErrorMsg} != null" class="btn btn-danger d-flex justify-content-center">-->
+    <!--        <p th:text="${boardErrorMsg}">에러출력용</p>-->
+    <!--    </div>-->
 
-<!--    <div th:if="${boardSuccessMsg} != null" class="btn btn-success d-flex justify-content-center">-->
-<!--        <p th:text="${boardSuccessMsg}">성공출력용</p>-->
-<!--    </div>-->
+    <!--    <div th:if="${boardSuccessMsg} != null" class="btn btn-success d-flex justify-content-center">-->
+    <!--        <p th:text="${boardSuccessMsg}">성공출력용</p>-->
+    <!--    </div>-->
 
     <div class="container mt-3">
         <button type="button" class="btn btn-success">전체글보기</button>
@@ -46,15 +46,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="boardList : ${boardLists}">
-                <td th:text="${boardList.id}"></td>
-<!--                <td th:text="${boardList.boardCategoryStatus}"></td>-->
-<!--                항목이 3개 이상이 된다면..? 수정해야한다. -->
-                <td th:text="${boardList.boardCategoryStatus == T(com.example.member.constant.BoardCategoryStatus).NOTICE} ? '공지사항' : '자유게시판'"></td>
-                <td><a th:href="@{/board/{id}(id = ${boardList.id})}" th:text="${boardList.boardTitle}"></a></td>
-<!--                <td th:text="${boardList.createdBy}"></td>-->
-                <td th:text="${boardList.member.name}"></td>
-                <td th:text="${boardList.regTime}"></td>
+            <tr th:each="boardDto : ${boardDtoList}">
+                <td th:text="${boardDto.id}"></td>
+                <!--                <td th:text="${boardList.boardCategoryStatus}"></td>-->
+                <!--                항목이 3개 이상이 된다면..? 수정해야한다. -->
+                <td th:text="${boardDto.boardCategoryStatus == T(com.example.member.constant.BoardCategoryStatus).NOTICE} ? '공지사항' : '자유게시판'"></td>
+                <td>
+                    <a th:href="@{/board/{id}(id = ${boardDto.id})}">
+                        <span th:text="${boardDto.boardTitle}"></span>
+                    </a>
+                </td>
+                <!--                <td th:text="${boardList.createdBy}"></td>-->
+                <td th:text="${boardDto.member.name}"></td>
+                <td th:text="${boardDto.regTime}"></td>
                 <td>a</td>
                 <td>a</td>
             </tr>
@@ -91,7 +95,7 @@
 
     <!-- https://7942yongdae.tistory.com/86 -->
     <!-- https://cobook.tistory.com/26 -->
-<!--    https://developer-rooney.tistory.com/181 -->
-<!--    https://jddng.tistory.com/231 -->
+    <!--    https://developer-rooney.tistory.com/181 -->
+    <!--    https://jddng.tistory.com/231 -->
 
 </div>

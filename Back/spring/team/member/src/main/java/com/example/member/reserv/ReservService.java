@@ -1,16 +1,20 @@
 package com.example.member.reserv;
 
-import com.example.member.lodging.Lodging;
+import com.example.member.entity.ItemImg;
+import com.example.member.entity.Lodging;
 import com.example.member.entity.Member;
-import com.example.member.lodging.LodgingRepository;
+import com.example.member.repository.LodgingImgRepository;
+import com.example.member.repository.LodgingRepository;
 import com.example.member.repository.MemberRepository;
 import com.example.member.reservItem.ReservItem;
+import com.example.member.reservItem.ReservItemDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
@@ -56,15 +60,15 @@ public class ReservService {
             ReservHistDto reservHistDto = new ReservHistDto(reserv);
             List<ReservItem> reservItems = reserv.getReservItems();
             for(ReservItem reservItem : reservItems){
-                ItemImg itemImg = itemImgRepository.findByItemIdAndRepimgYn(orderItem.getItem().getId(),"Y");
+                ItemImg itemImg = lodgingImgRepository.findByItemIdAndRepimgYn(reservItem.getLodging().getId(),"Y");
                 // 주문 상품의 대표 이미지를 조회
                 // 주문 상품이 대표 이미지를 조회하여 parameter로 넘기는 ItemId와 repImgYn 를 충족하는 itemImg를 가져온다.
-                OrderItemDto orderItemDto = new OrderItemDto(orderItem,itemImg.getImgUrl());
-                orderHistDto.addOrderItemDto(orderItemDto);
+                ReservItemDto reservItemDto = new ReservItemDto(reservItem,itemImg.getImgUrl());
+                reservHistDto.addReservItemDto(reservItemDto);
             }
-            orderHistDtos.add(orderHistDto);
+            reservHistDtos.add(reservHistDto);
         }
-        return new PageImpl<OrderHistDto>(orderHistDtos,pageable,totalCount);
+        return new PageImpl<ReservHistDto>(reservHistDtos,pageable,totalCount);
         // 페이지 구현객체를 생성하여 반환함
 
         // 정리!
@@ -77,5 +81,45 @@ public class ReservService {
         // 생성된 orderHistDto들을 리스트로 만들어서 PageImpl(페이지 구현객체 : [springframework.data.domain]) 에
         // orderHistDTO 리스트와 pageable, 총 주문 수량을 리턴한다.
 
+    }
+
+    @Transactional(readOnly = true)
+    public boolean validateReserv(Long reservId, String email) {
+        Member curMember = memberRepository.findByEmail(email).orElse(null);
+        Reserv reserv = reservRepository.findById(reservId)
+                .orElseThrow(EntityNotFoundException::new);
+        Member saveMember = reserv.getMember();
+
+        if(!StringUtils.equals(curMember.getEmail(), saveMember.getEmail())){
+            return false;
+        }
+        return true;
+    }
+
+    // Controller로 부터 ReservId를 넘겨받아
+    // 예약한 숙소의 상태를 변경 시키는 Reserv의 cancelReserv() 메서드 호출
+    public void cancelReserv(Long reservId) {
+        Reserv reserv = reservRepository.findById(reservId)
+                .orElseThrow(EntityNotFoundException::new);
+        reserv.cancelReserv();
+    }
+
+    public Long reservs(List<ReservDto> reservDtoList, String email){
+        Member member = memberRepository.findByEmail(email).orElse(null);
+        List<ReservItem> reservItemList = new ArrayList<>();
+
+        for(ReservDto reservDto : reservDtoList){
+            // 예약할 숙소 리스트를 만들어 줌
+            Lodging lodging = lodgingRepository.findById(reservDto.getLodgingId())
+                    .orElseThrow(EntityNotFoundException::new);
+
+            ReservItem reservItem = ReservItem.createReservItem(lodging);
+            reservItemList.add(reservItem);
+        }
+        Reserv reserv = Reserv.createReserv(member,reservItemList);
+        // 현재 로그인한 회원과 예약 숙소 목록을 이용하여 예약 엔티티를 만듬
+        reservRepository.save(reserv);
+        // 예약 데이터를 저장
+        return reserv.getId();
     }
 }
