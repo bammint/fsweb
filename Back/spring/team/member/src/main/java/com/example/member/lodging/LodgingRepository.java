@@ -1,6 +1,5 @@
-package com.example.member.repository;
+package com.example.member.lodging;
 
-import com.example.member.entity.Lodging;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LodgingRepository extends JpaRepository<Lodging, Long> {

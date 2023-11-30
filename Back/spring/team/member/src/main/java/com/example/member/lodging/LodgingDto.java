@@ -1,14 +1,8 @@
-package com.example.member.dto;
+package com.example.member.lodging;
 
-import com.example.member.constant.LodgingType;
-import com.example.member.entity.Lodging;
 import com.example.member.entity.Member;
-import com.example.member.entity.Room;
 import lombok.*;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor

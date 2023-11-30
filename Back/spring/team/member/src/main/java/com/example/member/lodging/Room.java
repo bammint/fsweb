@@ -1,6 +1,7 @@
-package com.example.member.entity;
+package com.example.member.lodging;
 
 import com.example.member.constant.ReservationStatus;
+import com.example.member.entity.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;

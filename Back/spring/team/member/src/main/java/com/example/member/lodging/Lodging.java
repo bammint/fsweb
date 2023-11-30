@@ -1,7 +1,7 @@
-package com.example.member.entity;
+package com.example.member.lodging;
 
-import com.example.member.constant.LodgingType;
-import com.example.member.dto.LodgingDto;
+import com.example.member.entity.BaseEntity;
+import com.example.member.entity.Member;
 import lombok.*;
 
 import javax.persistence.*;

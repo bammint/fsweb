@@ -1,8 +1,8 @@
 package com.example.member.reserv;
 
-import com.example.member.entity.Lodging;
+import com.example.member.lodging.Lodging;
 import com.example.member.entity.Member;
-import com.example.member.repository.LodgingRepository;
+import com.example.member.lodging.LodgingRepository;
 import com.example.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
