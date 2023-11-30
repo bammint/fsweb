@@ -60,7 +60,7 @@ public class ReservService {
             ReservHistDto reservHistDto = new ReservHistDto(reserv);
             List<ReservItem> reservItems = reserv.getReservItems();
             for(ReservItem reservItem : reservItems){
-                ItemImg itemImg = lodgingImgRepository.findByItemIdAndRepimgYn(reservItem.getLodging().getId(),"Y");
+                ItemImg itemImg = lodgingImgRepository.findBylodgingIdAndRepimgYn(reservItem.getLodging().getId(),"Y");
                 // 주문 상품의 대표 이미지를 조회
                 // 주문 상품이 대표 이미지를 조회하여 parameter로 넘기는 ItemId와 repImgYn 를 충족하는 itemImg를 가져온다.
                 ReservItemDto reservItemDto = new ReservItemDto(reservItem,itemImg.getImgUrl());

@@ -86,7 +86,7 @@ public class LodgingController {
         List<LodgingDto> lodgingDtoList = lodgingService.lodgingDtos();
         model.addAttribute("lodgingDtoList", lodgingDtoList);
 
-        return "/admin/lodgingList";
+        return "admin/lodgingList";
     }
 
 //    public String itemManage(ItemSearchDto itemSearchDto,
