@@ -32,14 +32,14 @@ public class ReservController {
                     HttpStatus.BAD_REQUEST);
         }
         String email = principal.getName();
-        Long orderId;
+        Long reservId;
 
         try{
-            orderId = reservService.order(reservDto,email);
+            reservId = reservService.reserv(reservDto,email);
         } catch (Exception e){
             return new ResponseEntity<String>(e.getMessage(),
                     HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<Long>(orderId, HttpStatus.OK);
+        return new ResponseEntity<Long>(reservId, HttpStatus.OK);
     }
 }

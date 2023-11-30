@@ -16,12 +16,15 @@ room 선택 -> room의 체크인,아웃 설정 -> 방문수단(도보,차량)-> 
 
 
 
-
+- 주문 내역
+lodgingName, roomName, room.checkInTime, room.checkOutTime
 
 
 
 - reservDto
-reservId, lodgingId, RoomId, name(member), phoneN1(member)
+id, lodging, price, reservStatus, name(member), phoneN1(member)
 
 - reserv
-reservId, lodgingId, RoomId, name(member), phoneN1(member), orderDate, reservStatus
+id, lodging, price, name(member), phoneN1(member), reservStatus,  orderDate, member
+
+- reservService

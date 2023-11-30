@@ -24,29 +24,29 @@ public class Lodging extends BaseEntity {
     @JoinColumn(name = "room_id")
     @ManyToOne(fetch = FetchType.LAZY)
 //    @OneToMany(fetch = FetchType.LAZY)
-    private Room room;
+    private Room room;  // 숙소 -> 방
 
     @JoinColumn(name = "member_id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Member member;
+    private Member member;  // 예약자
 
 //    @Column
 //    private Review review;
 
     @Column
-    private String name;
+    private String name;    //업체 명
 
     @Column
-    private String detail;
+    private String detail;  // 상세정보
 
     @Column
-    private String price;
+    private String price;   // 가격(선택한 방의 가격을 가져와 대입)
 
     @Column
-    private String location;
+    private String location;    // 위치
 
     @Enumerated(EnumType.STRING)
-    private LodgingType lodgingType;
+    private LodgingType lodgingType;    //숙소 타입
 
     // 매개변수 Room 추가 고려
     public static Lodging toLodging(Member member, LodgingDto lodgingDto) {
