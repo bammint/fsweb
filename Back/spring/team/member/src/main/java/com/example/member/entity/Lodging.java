@@ -5,6 +5,8 @@ import com.example.member.dto.LodgingDto;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="lodging")
@@ -17,15 +19,13 @@ import javax.persistence.*;
 public class Lodging extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="lodging_id")
     private Long id;
 
-    @JoinColumn(name = "room_id")
     @ManyToOne(fetch = FetchType.LAZY)
-//    @OneToMany(fetch = FetchType.LAZY)
+//    private List<Room> room = new ArrayList<>();
     private Room room;
-
     @JoinColumn(name = "member_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;

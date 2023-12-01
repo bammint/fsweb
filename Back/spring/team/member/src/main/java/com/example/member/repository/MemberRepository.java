@@ -14,8 +14,10 @@ public interface MemberRepository extends JpaRepository<Member,Long> {
 
     Optional<Member> findByEmail(String email);
 
+
     @Override
     List<Member> findAll();
+    // select * from member;
 
     //    nativeQuery=true : sql문법 사용
     @Query(value = "select * from member where member.user_role='USER'", nativeQuery = true)

@@ -23,10 +23,20 @@ lodgingName, roomName, room.checkInTime, room.checkOutTime
 
 ***폴더한거***
 reserv, reservItem, constant.ReservationStatus, reserv.reservHist.html
+오버라이드 디펜던시 추가
+
 
 ***필요한거***
 itemImg 관련
 
+
+
+숙소 디테일에서 룸 선택 후 예약하기 버튼을 누르면
+예약 페이지 나옴
+예약 페이지엔 숙소명, 방이름, 방디테일, 체크인아웃, 방가격 노출
+인풋창에 예약자의 고객정보에서 이름,전화전호를 가져와서 출력
+
+결제버튼을 누르면 post로 로그인한 멤버id, 숙소id, 방id, 예약자이름,전화번호, 체크인아웃 저장
 
 
 

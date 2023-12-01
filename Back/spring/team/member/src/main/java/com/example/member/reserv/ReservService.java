@@ -3,6 +3,7 @@ package com.example.member.reserv;
 import com.example.member.entity.ItemImg;
 import com.example.member.entity.Lodging;
 import com.example.member.entity.Member;
+import com.example.member.entity.Room;
 import com.example.member.repository.LodgingImgRepository;
 import com.example.member.repository.LodgingRepository;
 import com.example.member.repository.MemberRepository;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.EntityNotFoundException;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +32,7 @@ public class ReservService {
     private final LodgingImgRepository lodgingImgRepository;
 
     public Long reserv(ReservDto reservDto, String email) {
-        Lodging lodging = lodgingRepository.findById(reservDto.getLodgingId())
+        Lodging lodging = lodgingRepository.findById(reservDto.getRoomId())
                 .orElseThrow(EntityNotFoundException::new);
         Member member = memberRepository.findByEmail(email).orElse(null);
         // 현재 로그인한 회원의 이메일 정보를 이용해서 회원 정보를 조회
@@ -110,7 +112,7 @@ public class ReservService {
 
         for(ReservDto reservDto : reservDtoList){
             // 예약할 숙소 리스트를 만들어 줌
-            Lodging lodging = lodgingRepository.findById(reservDto.getLodgingId())
+            Lodging lodging = lodgingRepository.findById(reservDto.getRoomId())
                     .orElseThrow(EntityNotFoundException::new);
 
             ReservItem reservItem = ReservItem.createReservItem(lodging);
@@ -121,5 +123,23 @@ public class ReservService {
         reservRepository.save(reserv);
         // 예약 데이터를 저장
         return reserv.getId();
+    }
+
+    public String findName(String email) {
+        Member member = memberRepository.findByEmail(email)
+                .orElseThrow(EntityNotFoundException::new);
+        String memberName = member.getName();
+        return memberName;
+
+    }
+
+    public ReservDto reservPage(Long roomId, Principal principal) {
+        // 숙소명, 방이름, 방디테일, 체크인아웃, 방가격,   예약자의 이름,전화전호
+        ReservDto reservDto = new ReservDto();
+
+
+
+
+        return reservDto;
     }
 }

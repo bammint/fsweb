@@ -1,5 +1,7 @@
 package com.example.member.reserv;
 
+import com.example.member.entity.Member;
+import com.example.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,39 +24,29 @@ import java.util.Optional;
 public class ReservController {
     private final ReservService reservService;
 
-    @PostMapping("/reserv")
-    public @ResponseBody ResponseEntity reserv (@RequestBody @Valid ReservDto reservDto,
-                                               BindingResult bindingResult, Principal principal){
-        // principal - 현재 사용자 정보
-        //@ResponseBody : 자바객체를 Http 요청의 body 로 전달
-        //@RequestBody : Http 요청의 본문 body의 내용을 자바객체로 전달
-        if(bindingResult.hasErrors()){
-            StringBuilder sb = new StringBuilder();
-            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-            for(FieldError fieldError : fieldErrors){
-                sb.append(fieldError.getDefaultMessage());
-            }
-            return new ResponseEntity<String>(sb.toString(),HttpStatus.BAD_REQUEST);
-        }
-        // 주문정보를 받는 reservDto객체에  데이터 바인딩시 에러가 있는지 검사한다.
+    private final MemberRepository memberRepository;
 
-        String email = principal.getName();
-        //현재 로그인된 사용자의 이메일 정보 를 가져옴
-        // principal.getName() 현재 로그인된 사용자의 이메일을 가져온다
-        // getname()으로 호출하여도 이메일이 나오는 이유는
-        // SecurityConfig 에서 usernameParameter 를 email 로 설정 하였기 때문에
-        // email 을 name 으로 인식하여 값을 가져옴
-        Long reservId;
-        // 예약 아이디를 저장할 변수를 선언
-
-        try{
-            reservId = reservService.reserv(reservDto,email);
-        } catch (Exception e){
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<Long>(reservId, HttpStatus.OK);
+    // 예약하기 버튼을 눌렀을 때
+    @GetMapping("/reserv/{id}")
+    public String newReserv (@PathVariable Long roomId , Principal principal, Model model){
+        reservService.reservPage(roomId,principal);
+        return "reserv/reserv";
     }
 
+//    @GetMapping("/reserv/{id}")
+//    public String reserv (@PathVariable Long room_id , Principal principal, Model model){
+//        ReservDto reservDto = new ReservDto();
+//        Member member = memberRepository.findByEmail(principal.getName()).orElse(null);
+//        String member_phone = reservDto.phoneN(member);
+//        reservDto.setReservPhone(member_phone);
+//        reservDto.setRoomId(room_id);
+//        String memberName = reservService.findName(principal.getName());
+//        reservDto.setReservName(memberName);
+//        model.addAttribute("Dto", reservDto);
+//        return "reserv/reserv";
+//    }
+
+    // 예약 내역
     @GetMapping({"/reservs","/reservs/{page}"})
     public String reservHist(@PathVariable("page") Optional<Integer> page, Principal principal, Model model){
         Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0,5);
@@ -68,6 +60,7 @@ public class ReservController {
         return "reserv/reservHist";
     }
 
+    // 예약 취소
     @PostMapping("/reserv/{reservId}/cancel")
     public @ResponseBody ResponseEntity cancelReserv(
             @PathVariable("reservId") Long reservId, Principal principal){

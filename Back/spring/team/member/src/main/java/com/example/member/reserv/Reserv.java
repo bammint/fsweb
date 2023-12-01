@@ -42,6 +42,10 @@ public class Reserv extends BaseEntity {
 
     private LocalDateTime reservDate; // 예약일
 
+    private String checkInTime;
+
+    private String checkOutTime;
+
     @OneToMany(mappedBy = "reserv", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
     private List<ReservItem> reservItems = new ArrayList<>();
     // 외래키가(reserv_id)가 rserv_item 테이블에 있으므로

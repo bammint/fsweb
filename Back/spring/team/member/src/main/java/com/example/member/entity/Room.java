@@ -38,6 +38,11 @@ public class Room extends BaseEntity {
     @Column
     private String checkOutTime;
 
+//
+    @JoinColumn(name = "lodging_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Lodging lodging;
+
 
 
 
