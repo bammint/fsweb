@@ -5,7 +5,6 @@ import com.example.member.entity.BaseEntity;
 import com.example.member.entity.Lodging;
 import com.example.member.entity.Member;
 import com.example.member.entity.Room;
-import com.example.member.reservItem.ReservItem;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,17 +44,6 @@ public class Reserv extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ReservationStatus reservationStatus; // 예약 상태
 
-
-    @OneToMany(mappedBy = "reserv", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<ReservItem> reservItems = new ArrayList<>();
-    // 외래키가(reserv_id)가 rserv_item 테이블에 있으므로
-    // 연관관계의 주인은 ReservItem
-    // ReservItem에 있는 Reserv에 의해 관리된다는 의미
-
-    public void addReservItem(ReservItem reservItem){
-        reservItems.add(reservItem); // reservItem 객체를 reserv 객체에 reservItems 추가
-        reservItem.setReserv(this); // 양방향 연관관계이므로 reservItem 객체 reserv 객체를 셋팅
-    }
 
     // 예약 생성
     public static Reserv createReserv(ReservDto reservDto){

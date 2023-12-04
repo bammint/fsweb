@@ -1,8 +1,6 @@
 package com.example.member.reserv;
 
-import com.example.member.entity.Lodging;
-import com.example.member.entity.Member;
-import com.example.member.entity.Room;
+
 import com.example.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -39,20 +37,19 @@ public class ReservController {
             model.addAttribute("errorMessage", e.getMessage());
         }
 
-        return "reserv/new";
+        return "reserv/reservPage";
     }
 
-    @PostMapping("/{room_id}/reserv")
-    public String saveReserv(@PathVariable("room_id") Long roomId,@Valid ReservDto reservDto, BindingResult result,Model model){
+    @PostMapping("/{roomId}/reserv")
+    public String saveReserv(@PathVariable("roomId") Long roomId,@Valid ReservDto reservDto, BindingResult result,Model model){
         if(result.hasErrors()){
-           return "reserv/new";
+           return "reserv/reservPage";
         }
         try {
-
             reservService.saveReserv(reservDto);
         } catch (IllegalStateException e){
             model.addAttribute("errorMessage", e.getMessage());
-            return "reserv/reserv";
+            return "reserv/reservPage";
         }
 
         return "redirect:/reserv/reservHist";
@@ -62,7 +59,7 @@ public class ReservController {
     // 예약 내역
     @GetMapping({"/reservs","/reservs/{page}"})
     public String reservHist(@PathVariable("page") Optional<Integer> page, Principal principal, Model model){
-
+//        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0,4);
         List<ReservDto> reservDtoList = reservService.reservDtoList();
         // principal.getName() 현재 로그인된  사용자의 이메일
 
@@ -79,8 +76,8 @@ public class ReservController {
         // 주문 취소 시 reservId와 접속중인 사용자의 이메일을 가져와서
         // 접속중인 USER가 예약한 USER가 맞는지 비교하여 return
         String email = principal.getName();
-        if(!reservService.validateCancelReserv(reservId, email){
-            return new ResponseEntity<String>("예약 취소 권한이 없습니다",HttpStatus.FORBIDDEN);
+        if(!reservService.validateCancelReserv(reservId,email)) {
+            return new ResponseEntity<String>("예약 취소 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
         // 예약 취소한 USER가 예약 요청한 USER가 맞을시 ReservService의 cancelReserv() 메서드 호출
         reservService.cancelReserv(reservId);
