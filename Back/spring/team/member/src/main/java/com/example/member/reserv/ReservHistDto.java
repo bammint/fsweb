@@ -16,16 +16,18 @@ public class ReservHistDto {
     private Long reservId; // 주문 아이디
     private String reservDate; // 주문 날짜
     private ReservationStatus reservationStatus; // 주문 상태
-    // 주문 상품 리스트
-    private List<ReservItemDto> reservItemDtoList = new ArrayList<>();
+    // 예약 내역 리스트
+    private List<ReservDto> reservDtoList = new ArrayList<>();
 
-    public void addReservItemDto(ReservItemDto reservItemDto){
-        reservItemDtoList.add(reservItemDto); // orderItemDto를 리스트로 추가
+
+
+    public void addReservDto(ReservDto reservDto){
+        reservDtoList.add(reservDto); // reservDto를 리스트로 추가
     }
 
     public ReservHistDto(Reserv reserv){
         this.reservId = reserv.getId();
-        this.reservDate = reserv.getReservDate()
+        this.reservDate = reserv.getRegTime()
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         this.reservationStatus = reserv.getReservationStatus();
     }
