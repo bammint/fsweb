@@ -7,76 +7,6 @@
 <th:block layout:fragment="script">
 
     <script th:inline="javascript">
-        $(document).ready(function(){
-            var errorMessage = [[${errorMessage}]];
-            if(errorMessage != null){
-                alert(errorMessage);
-            }
-        //상품등고시 실패 메세지를 받아서 상품등록페이지 재 진입시 alert() 실패사유
-            bindDomEvent();
-
-        });
-// c:\images\셔츠.jpg
-        function bindDomEvent(){
-            $(".custom-file-input").on("change", function() {
-                var fileName = $(this).val().split("\\").pop();  //이미지 파일명
-                var fileExt = fileName.substring(fileName.lastIndexOf(".")+1); // 확장자 추출
-                fileExt = fileExt.toLowerCase(); //소문자 변환
-
-                if(fileExt != "jpg" && fileExt != "jpeg" && fileExt != "gif" && fileExt != "png" && fileExt != "bmp"){
-                    alert("이미지 파일만 등록이 가능합니다.");
-                    return;
-                }
-
-                $(this).siblings(".custom-file-label").html(fileName);
-            });
-        }
-
-        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-                // csrf 라는 url 공격을 막기 위해 적는 것
-function roomRegistration() {
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
-
-        var url = "/roomRegistration";
-        var paramData = {
-            roomId : $("#roomId").val(),
-            detail : $("#detail").val(),
-            price : $("#price").val(),
-            checkInTime : $("#checkInTime").val(),
-            checkOutTime : $("#checkOutTime").val()
-        };
-
-        var param = JSON.stringify(paramData);
-
-        $.ajax({
-            url      : url,
-            type     : "POST",
-            contentType : "application/json",
-            data     : param,
-            beforeSend : function(xhr){
-                /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
-                xhr.setRequestHeader(header, token);
-            },
-            dataType : "json",
-            cache   : false,
-            success  : function(result, status){
-                alert("객실 정보가 저장되었습니다.");
-                location.href='/';
-            },
-            error : function(jqXHR, status, error){
-
-                if(jqXHR.status == '401'){
-                    alert('로그인 후 이용해주세요');
-                    location.href='/members/login';
-                } else{
-                    alert(jqXHR.responseText);
-                }
-
-            }
-        });
-}
 
     </script>
 
@@ -99,7 +29,7 @@ function roomRegistration() {
 
 <div layout:fragment="content">
 
-    <form role="form" method="post" enctype="multipart/form-data" th:object="${lodgingDto}">
+    <form role="form" method="post" enctype="multipart/form-data" th:object="${roomDto}">
         <!--enctype="multipart/form-data" 파일을 보낼경우는 무조건 추가-->
         <p class="h2">
             객실 등록
@@ -111,18 +41,18 @@ function roomRegistration() {
             <div class="input-group-prepend">
                 <span class="input-group-text">객실명</span>
             </div>
-            <input type="text" th:field="*{room.name}" class="form-control" placeholder="객실명을 입력해주세요">
+            <input type="text" th:field="*{name}" class="form-control" placeholder="객실명을 입력해주세요">
         </div>
-        <p th:if="${#fields.hasErrors('room.name')}" th:errors="*{room.name}" class="fieldError">Incorrect data</p>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">Incorrect data</p>
 
 
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">가격</span>
             </div>
-            <input type="number" th:field="*{room.price}" class="form-control" placeholder="객실의 가격을 입력해주세요">
+            <input type="number" th:field="*{price}" class="form-control" placeholder="객실의 가격을 입력해주세요">
         </div>
-        <p th:if="${#fields.hasErrors('room.price')}" th:errors="*{room.price}" class="fieldError">Incorrect data</p>
+        <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="fieldError">Incorrect data</p>
 
         <div class="input-group mt-3">
             <div class="input-group-prepend">
@@ -130,7 +60,7 @@ function roomRegistration() {
             </div>
 
             <span>성인</span>
-            <select th:field="*{room.adult}" class="form-select" aria-label="Default select example">
+            <select th:field="*{adult}" class="form-select" aria-label="Default select example">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -139,7 +69,7 @@ function roomRegistration() {
             </select>
 
             <span>아동</span>
-            <select th:field="*{room.children}" class="form-select" aria-label="Default select example">
+            <select th:field="*{children}" class="form-select" aria-label="Default select example">
                 <option value="1">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -153,24 +83,24 @@ function roomRegistration() {
             <div class="input-group-prepend">
                 <span class="input-group-text">객실 상세 내용</span>
             </div>
-            <textarea class="form-control" aria-label="With textarea" th:field="*{room.detail}"></textarea>
+            <textarea class="form-control" aria-label="With textarea" th:field="*{detail}"></textarea>
         </div>
 
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">체크인 시간</span>
             </div>
-            <input type="datetime-local" th:field="*{room.checkInTime}" class="form-control" placeholder="체크인 시간을 입력해주세요">
+            <input type="datetime-local" th:field="*{checkInTime}" class="form-control" placeholder="체크인 시간을 입력해주세요">
         </div>
-        <p th:if="${#fields.hasErrors('room.checkInTime')}" th:errors="*{room.checkInTime}" class="fieldError">Incorrect data</p>
+        <p th:if="${#fields.hasErrors('checkInTime')}" th:errors="*{checkInTime}" class="fieldError">Incorrect data</p>
 
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">체크아웃 시간</span>
             </div>
-            <input type="datetime-local" th:field="*{room.checkOutTime}" class="form-control" placeholder="객실의 가격을 입력해주세요">
+            <input type="datetime-local" th:field="*{checkOutTime}" class="form-control" placeholder="객실의 가격을 입력해주세요">
         </div>
-        <p th:if="${#fields.hasErrors('room.checkOutTime')}" th:errors="*{room.checkOutTime}" class="fieldError">Incorrect data</p>
+        <p th:if="${#fields.hasErrors('checkOutTime')}" th:errors="*{checkOutTime}" class="fieldError">Incorrect data</p>
 
 
 
@@ -202,9 +132,8 @@ function roomRegistration() {
 
 
 
-
         <div>
-            <button th:formaction="@{/lodging/{lodging_id}/roomRegistration(lodging_id = ${lodgingDto.id})}" type="submit" class="btn btn-primary">객실 저장</button>
+            <button th:formaction="@{/lodging/{lodging_id}/roomUpdate/{room_id}(lodging_id = ${lodgingDto.id}, room_id = ${roomDto.id})}" type="submit" class="btn btn-primary">객실 수정</button>
         </div>
 
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">

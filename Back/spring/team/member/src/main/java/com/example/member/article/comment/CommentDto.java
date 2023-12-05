@@ -1,23 +1,18 @@
-package com.example.member.dto;
+package com.example.member.article.comment;
 
-import com.example.member.entity.Board;
-import com.example.member.entity.Comment;
+import com.example.member.article.Article;
 import com.example.member.entity.Member;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 @Setter
+@Getter
 @ToString
 public class CommentDto {
-
     private Long id;
     @NotBlank(message = "댓글을 작성 후 등록해주세요.")
     private String comment;

@@ -1,7 +1,9 @@
-package com.example.member.entity;
+package com.example.member.article;
 
-import com.example.member.constant.BoardCategoryStatus;
-import com.example.member.dto.BoardDto;
+import com.example.member.article.comment.Comment;
+import com.example.member.constant.CategoryStatus;
+import com.example.member.entity.BaseEntity;
+import com.example.member.entity.Member;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,22 +18,22 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-public class Board extends BaseEntity {
+public class Article extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="board_id")
+    @Column(name="article_id")
     private Long id;
 
 
     @Column
-    private String boardTitle;
+    private String title;
 
     @Column
     private String content;
 
     @Enumerated(EnumType.STRING)
-    private BoardCategoryStatus boardCategoryStatus;
+    private CategoryStatus categoryStatus;
 
     @JoinColumn(name = "member_id")
     @ManyToOne(fetch = FetchType.LAZY)
@@ -52,13 +54,13 @@ public class Board extends BaseEntity {
 //    @Column
 //    private Long recommendations;
 
-    public static Board toBoard(Member member, BoardDto boardDto){
+    public static Article toArticle(Member member, ArticleDto articleDto){
 
-        Board board = new Board();
-        board.setBoardTitle(boardDto.getBoardTitle());
-        board.setContent(boardDto.getContent());
+        Article board = new Article();
+        board.setTitle(articleDto.getTitle());
+        board.setContent(articleDto.getContent());
         board.setMember(member);
-        board.setBoardCategoryStatus(boardDto.getBoardCategoryStatus());
+        board.setCategoryStatus(articleDto.getCategoryStatus());
         return board;
     }
 
