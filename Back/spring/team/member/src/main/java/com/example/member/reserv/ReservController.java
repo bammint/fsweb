@@ -53,6 +53,7 @@ public class ReservController {
 //           List<ReservDto> reservDtoList =
                    reservService.saveReserv(reservDto);
 //           model.addAttribute("reservDtoList",reservDtoList);
+            System.out.println("reservDto = " + reservDto);
 
         } catch (IllegalStateException e){
             model.addAttribute("errorMessage", e.getMessage());

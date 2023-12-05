@@ -49,6 +49,7 @@ public class Reserv extends BaseEntity {
 
     // 컨트롤러에서 Pathvariable 활용 방법?
     // 예약페이지에 roomId로 정보들을 불러왔지만 roomId를 담아오는건 없다?
+    // 이 디티오가 담아오는 디티오가 아닌가? 아닌데
 
     // 예약 생성
     public static Reserv createReserv(ReservDto reservDto){
@@ -59,7 +60,7 @@ public class Reserv extends BaseEntity {
         reserv.setReservName(reservDto.getReservName());
         reserv.setReservPN(reservDto.getReservPN());
         reserv.setReservationStatus(ReservationStatus.RESERVED);
-        System.out.println("reserv: " + reserv);
+        //System.out.println("reserv: " + reserv);
         return reserv;
     }
 
