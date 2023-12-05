@@ -1,20 +1,15 @@
 package com.example.member.reserv;
 
-import com.example.member.constant.ReservationStatus;
 import com.example.member.entity.Member;
 import com.example.member.entity.Room;
 import com.example.member.repository.MemberRepository;
 import com.example.member.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.EntityNotFoundException;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Transactional
@@ -24,14 +19,6 @@ public class ReservService {
     private final ReservRepository reservRepository;
     private final RoomRepository roomRepository;
 
-    public void saveReserv(ReservDto reservDto){
-        Reserv reserv = Reserv.createReserv(reservDto);
-        System.out.println("memberID"+reserv.getMember());
-        System.out.println("roomId :" + reserv.getRoom());
-        reservRepository.save(reserv);
-
-
-    }
 
     public ReservDto newReserv(Long roomId, Principal principal) throws Exception{
         ReservDto reservDto = new ReservDto();
@@ -44,6 +31,14 @@ public class ReservService {
         reservDto.setRoom(room); // room id
         reservDto.setMember(member); // member email
         return reservDto;
+    }
+    public void saveReserv(ReservDto reservDto){
+        Reserv reserv = Reserv.createReserv(reservDto);
+//        System.out.println("memberID"+reserv.getMember());
+//        System.out.println("roomId :" + reserv.getRoom());
+        reservRepository.save(reserv);
+
+
     }
 //
 //    public List<ReservDto> saveReserv(ReservDto reservDto, String email){

@@ -38,7 +38,6 @@ public class ReservDto {
         reservDto.setReservDate(reserv.getRegTime());
         reservDto.setReservName(reserv.getReservName());
         reservDto.setReservPN(reserv.getReservPN());
-
         return reservDto;
     }
     public static String phoneNumber(Member member){

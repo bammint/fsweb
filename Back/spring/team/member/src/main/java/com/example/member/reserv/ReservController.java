@@ -1,7 +1,9 @@
 package com.example.member.reserv;
 
 
+import com.example.member.entity.Room;
 import com.example.member.repository.MemberRepository;
+import com.example.member.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,7 +26,7 @@ import java.util.Optional;
 @RequestMapping("/reserv")
 public class ReservController {
     private final ReservService reservService;
-
+    private final RoomRepository roomRepository;
     private final MemberRepository memberRepository;
 
     // 예약하기 버튼을 눌렀을 때 예약 결제창
@@ -41,7 +43,7 @@ public class ReservController {
     }
 
     @PostMapping("/roomReservation/{room_id}")
-    public String saveReserv(@Valid ReservDto reservDto, BindingResult result,Model model
+    public String saveReserv(@PathVariable("room_id")Long roomId,@Valid ReservDto reservDto, BindingResult result,Model model
      ,Principal principal){
         String email = principal.getName();
         if(result.hasErrors()){

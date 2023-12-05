@@ -31,7 +31,7 @@
     <form action="/reserv/roomReservation/*{room.id}" role="form" method="post">
         <div class="form-group">
             <p th:text="*{room.lodging.name}">숙소명</p>
-
+<!--            <input type="hidden" th:text="*{room.id}" />-->
             <p th:text="*{room.name}">방이름</p>
             <p th:text="*{room.detail}">방디테일</p>
 

@@ -14,4 +14,8 @@ public interface RoomRepository  extends JpaRepository<Room, Long> {
     @Query(nativeQuery = true, value = "select * from Room r where r.lodging_id= :lodging_id order by reg_time desc")
     List<Room> findAllByLodgingId(@Param("lodging_id") Long lodging_id);
 
+    // @Query(value = "select * from Room where room_id= :room_id",nativeQuery = true)
+    // Room findRoomByRoomId(Long roomId);
+//    select * from Room where room_id= :room_id
+
 }
