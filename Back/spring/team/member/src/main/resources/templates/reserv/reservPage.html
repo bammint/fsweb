@@ -28,9 +28,10 @@
 
 <div layout:fragment="content" >
     <div class="container mt-3" th:object="${reservDto}">
-    <form action="/reserv/roomReservation/{room_id}" role="form" method="post">
+    <form action="/reserv/roomReservation/*{room.id}" role="form" method="post">
         <div class="form-group">
             <p th:text="*{room.lodging.name}">숙소명</p>
+
             <p th:text="*{room.name}">방이름</p>
             <p th:text="*{room.detail}">방디테일</p>
 
