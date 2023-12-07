@@ -1,0 +1,47 @@
+ItemImgService
+
+// 예약 내역 출력용 방의 이미지
+    public ItemImgDto lodgingRepImg(Long lodging_id){
+        ItemImg itemImg = itemImgRepository.findByLodgingIdAndRepimgYn(lodging_id, "Y");
+        ItemImgDto itemImgDto = ItemImgDto.toItemImgDto(itemImg);
+        return itemImgDto;  // 예약한 숙소의 대표이미지 DTO 를 반환
+    }
+
+
+ItemImgRepository
+
+        // 숙소의 id 값과 대표이미지 여부를 매개변수로 받아 조건에 충족하는 숙소의 대표이미지 엔티티를 불러온다.
+        @Query(value = "select * from ItemImg i where (i.lodging_id = :lodging_id) && i.repimgyn= :repimg_yn", nativeQuery = true)
+        ItemImg findByLodgingIdAndRepimgYn(@Param("lodging_id") Long lodgingId, @Param("repimg_yn") String repimgYn);
+
+        // 방의 id값과 대표이미지 여부를 매개변수를 받아 선택한 방의 대표이미지 엔티티를 가져온다.
+        @Query(value = "select * from ItemImg i where (i.room_id = :room_id) && i.repimgyn= :repimg_yn")
+        ItemImg findByRoomIdAndRepimgYn(@Param("room_id") Long RoomId,@Param("repimg_yn") String repimgYn);
+
+
+
+==============================================================
+roomForm//  추가해야할거
+<form th:action="@{/reserv/roomReservation/{room_id}/new(room_id = ${roomDto.id})}" th:object="${roomForm}" role="form" method="post">
+                <input type="hidden" th:field="${roomDto.id}" >
+                <label for="checkIn${roomDto.id}">체크인</label>
+                <input type="date" id="checkIn${roomDto.id}" th:field="${roomForm.checkInTime}">
+                <label for="checkOut${roomDto.id}">체크아웃</label>
+                <input type="date" id="checkOut${roomDto.id}" th:field="${roomForm.checkOutTime}">
+                <button type="submit">예약하기</button>
+            </form>
+===========================================================
+현재는 룸 생성시 체크인 아웃에 시간만 들어감
+룸 생성 후 숙소 선택
+숙소 페이지 숙소정보, 룸 리스트 중간에 날짜 셀렉 넣기
+날짜 셀렉 후 날짜와 룸에 고정된 체크인,아웃 시간 합쳐서 결제창에 출력
+
+결제창에서 결제하면 reserv 디비로 날짜, 시간이 합쳐진 체크인,체크아웃 시간으로 저장
+--------------------------------------------------------------------------------------------
+//reserDto,reserv에 체크인아웃 날짜 받을 필드 만들고// 날짜,시간 합치는 메서드만들기
+reserv에 체크인아웃 콜럼 만들고 합쳐진 체크인아웃 저장
+
+reserv파트에 체크인,아웃 만들기
+(룸 디비에 날짜,시간 합쳐진 체크인아웃 정보 저장하면 안됨)
+
+예약 내역에 체크인,아웃시간은 reserv디비에서 받아오기
