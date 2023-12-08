@@ -154,23 +154,18 @@ public class ReservSellerController {
 //        System.out.println("reservDto.getCheckOutTime = "+ reservDto.getCheckOut());
 //        return "reserv/reservPage";
 //    }
-    @PostMapping(value = "/reserv/lodgingReservContent/{lodging_id}")
-    public String newCheckDate(ReservDto reservDto){
 
-        ReservDto checkForm = new ReservDto();
-        System.out.println("reservDto.getCheckInTime = "+ checkForm.getCheckIn());
-        System.out.println("reservDto.getCheckOutTime = "+ checkForm.getCheckOut());
-//        LocalDate localDate1 = LocalDate.parse(checkForm.getCheckInTime());
-//        LocalDate localDate2 = LocalDate.parse(checkForm.getCheckOutTime());
-//        System.out.println(localDate1);
-//        System.out.println(localDate2);
-//        ReservService.newCheckTime(roomForm,reservDto);
-        checkForm.setCheckIn(checkForm.getCheckIn());
-        checkForm.setCheckOut(checkForm.getCheckOut());
+        @PostMapping(value = "/reserv/lodgingReservContent/{lodging_id}")
+    public String newCheckDate(ReservDto checkForm,RoomDto roomDto){ // 룸 디티오 말고
+//        ReservDto reservDto = new ReservDto();
+            System.out.println("checkForm = "+ checkForm);
+//        ReservService.newCheckDateTime(checkForm,roomDto);
+//        reservDto.setCheckIn(checkForm.getCheckInTime());
+//        reservDto.setCheckOut(checkForm.getCheckOutTime());
 
-        System.out.println("reservDto.getCheckInTime = "+ checkForm.getCheckIn());
-        System.out.println("reservDto.getCheckOutTime = "+ checkForm.getCheckOut());
-        return "";
+//        System.out.println("reservDto.getCheckIn = "+ reservDto.getCheckIn());
+//        System.out.println("reservDto.getCheckOut = "+ reservDto.getCheckOut());
+        return "checkForm";
     }
 
 

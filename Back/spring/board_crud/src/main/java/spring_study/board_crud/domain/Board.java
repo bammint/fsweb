@@ -1,5 +1,6 @@
 package spring_study.board_crud.domain;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -9,9 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
 @Entity
-@Data //@Getter, @Setter
+@Data // @Getter @Setter
 @Table(name = "board")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id, title"})
@@ -21,7 +21,6 @@ public class Board {
     private Long id;
     private String title;
     private String content;
-
     public Board(Long id, String title, String content) {
         this.id = id;
         this.title = title;

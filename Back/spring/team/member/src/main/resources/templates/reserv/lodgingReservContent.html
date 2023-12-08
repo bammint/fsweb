@@ -66,8 +66,11 @@
 <!--    </div>-->
 <!--&lt;!&ndash;    <p th:if="${#fields.hasErrors('room.checkOutTime')}" th:errors="*{room.checkOutTime}" class="fieldError">Incorrect data</p>&ndash;&gt;-->
     </form>
-        <form th:action="@{/reserv/lodgingReservContent/{lodging_id}}" th:object="${checkForm}" role="form" method="post" id="check">
+        <form th:action="@{/reserv/lodgingReservContent/{lodging_id}}"
+              th:object="${checkForm}" role="form" method="post"
+              id="check">
         <div class="input-group">
+            <input type="hidden" th:field="*{room.id}">
             <div class="input-group-prepend">
                 <span class="input-group-text">체크인 시간</span>
             </div>
