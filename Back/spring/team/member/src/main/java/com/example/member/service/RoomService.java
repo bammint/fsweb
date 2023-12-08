@@ -80,84 +80,86 @@ public class RoomService {
 
 // =====================================================================================================================
 ////            System.out.println("savedReserv CheckIn:"+ savedReserv.getRoom().getCheckInTime());
-        // checkIn
-        String checkIn = room.getCheckInTime();
-        String[] checkInSplit =checkIn.split("T");
 
-//            int strsplit11 = Integer.parseInt(strsplit[0]);
-//            int strsplit22 = Integer.parseInt(strsplit[1]);
-//            int strsplit33 = Integer.parseInt(strsplit[2]);
-//            LocalDate localDate = LocalDate.of(strsplit11, strsplit22, strsplit33); // of는 int
+//        // checkIn
+//        String checkIn = room.getCheckInTime();
+//        String[] checkInSplit =checkIn.split("T");
+//
+////            int strsplit11 = Integer.parseInt(strsplit[0]);
+////            int strsplit22 = Integer.parseInt(strsplit[1]);
+////            int strsplit33 = Integer.parseInt(strsplit[2]);
+////            LocalDate localDate = LocalDate.of(strsplit11, strsplit22, strsplit33); // of는 int
+//
+//        LocalDate localDate1 = LocalDate.parse(checkInSplit[0]); // parse는 string
+//        DayOfWeek dayOfWeek1 = localDate1.getDayOfWeek();
+//
+//        int dayOfWeekNumber1 = dayOfWeek1.getValue();
+//        String day1 ="";
+//        switch (dayOfWeekNumber1){
+//            case 1:
+//                day1= "월";
+//                break;
+//            case 2:
+//                day1= "화";
+//                break;
+//            case 3:
+//                day1= "수";
+//                break;
+//            case 4:
+//                day1= "목";
+//                break;
+//            case 5:
+//                day1= "금";
+//                break;
+//            case 6:
+//                day1= "토";
+//                break;
+//            case 7:
+//                day1= "일";
+//                break;
+//        }
+//        String checkInTime = checkInSplit[0].replaceAll("-","\\.");
+//        String totalDateIn = checkInTime+"("+day1+")"+" "+checkInSplit[1];
+//
+//        room.setCheckInTime(totalDateIn);
+//
+//        // checkOut
+//        String checkOut = room.getCheckOutTime();
+//        String[] checkOutSplit =checkOut.split("T");
+//
+//        LocalDate localDate2 = LocalDate.parse(checkOutSplit[0]); // parse는 string
+//        DayOfWeek dayOfWeek2 = localDate2.getDayOfWeek();
+//
+//        int dayOfWeekNumber2 = dayOfWeek2.getValue();
+//        String day2 ="";
+//        switch (dayOfWeekNumber2){
+//            case 1:
+//                day2= "월";
+//                break;
+//            case 2:
+//                day2= "화";
+//                break;
+//            case 3:
+//                day2= "수";
+//                break;
+//            case 4:
+//                day2= "목";
+//                break;
+//            case 5:
+//                day2= "금";
+//                break;
+//            case 6:
+//                day2= "토";
+//                break;
+//            case 7:
+//                day2= "일";
+//                break;
+//        }
+//        String checkOutTime = checkOutSplit[0].replaceAll("-","\\.");
+//        String totalDateOut = checkOutTime+"("+day2+")"+" "+checkOutSplit[1];
+//
+//        room.setCheckOutTime(totalDateOut);
 
-        LocalDate localDate1 = LocalDate.parse(checkInSplit[0]); // parse는 string
-        DayOfWeek dayOfWeek1 = localDate1.getDayOfWeek();
-
-        int dayOfWeekNumber1 = dayOfWeek1.getValue();
-        String day1 ="";
-        switch (dayOfWeekNumber1){
-            case 1:
-                day1= "월";
-                break;
-            case 2:
-                day1= "화";
-                break;
-            case 3:
-                day1= "수";
-                break;
-            case 4:
-                day1= "목";
-                break;
-            case 5:
-                day1= "금";
-                break;
-            case 6:
-                day1= "토";
-                break;
-            case 7:
-                day1= "일";
-                break;
-        }
-        String checkInTime = checkInSplit[0].replaceAll("-","\\.");
-        String totalDateIn = checkInTime+"("+day1+")"+" "+checkInSplit[1];
-
-        room.setCheckInTime(totalDateIn);
-
-        // checkOut
-        String checkOut = room.getCheckOutTime();
-        String[] checkOutSplit =checkOut.split("T");
-
-        LocalDate localDate2 = LocalDate.parse(checkOutSplit[0]); // parse는 string
-        DayOfWeek dayOfWeek2 = localDate2.getDayOfWeek();
-
-        int dayOfWeekNumber2 = dayOfWeek2.getValue();
-        String day2 ="";
-        switch (dayOfWeekNumber2){
-            case 1:
-                day2= "월";
-                break;
-            case 2:
-                day2= "화";
-                break;
-            case 3:
-                day2= "수";
-                break;
-            case 4:
-                day2= "목";
-                break;
-            case 5:
-                day2= "금";
-                break;
-            case 6:
-                day2= "토";
-                break;
-            case 7:
-                day2= "일";
-                break;
-        }
-        String checkOutTime = checkOutSplit[0].replaceAll("-","\\.");
-        String totalDateOut = checkOutTime+"("+day2+")"+" "+checkOutSplit[1];
-
-        room.setCheckOutTime(totalDateOut);
 // =====================================================================================================================
 
 
@@ -210,9 +212,11 @@ public class RoomService {
         List<Room> roomExistList = roomRepository.findAll();
 
         for(int i = 0; i < roomExistList.size(); i++) {
-            boolean ok = roomExistList.get(i).getLodging().getId().equals(lodgingEntity.getId());
-            if(ok == true) {
-                return;
+            boolean ExistAtLeastOne = roomExistList.get(i).getLodging().getId().equals(lodgingEntity.getId());
+            if(ExistAtLeastOne == true) {
+                lodgingEntity.setRoomExist(RoomExist.Y);
+            } else if (ExistAtLeastOne == false) {
+                lodgingEntity.setRoomExist(RoomExist.N);
             }
         }
         // 목적 : 객실 쪽에서 숙소의 아이디를 가진 객실이 있으면 상태를 변환하지 않는다.

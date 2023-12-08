@@ -66,13 +66,15 @@ public class LodgingDto {
     private List<Long> itemImgIds = new ArrayList<>();
 
 
+
     // Entity -> Dto
     public static LodgingDto toLodgingDto (Lodging lodging) {
+        Member member = lodging.getMember();
 
         LodgingDto lodgingDto = new LodgingDto();
         lodgingDto.setId(lodging.getId());
         lodgingDto.setRoomList(lodging.getRoom());
-        lodgingDto.setMember(lodging.getMember());
+        lodgingDto.setMember(member);
         lodgingDto.setName(lodging.getName());
         lodgingDto.setDetail(lodging.getDetail());
         lodgingDto.setPostcode(lodging.getPostcode());
