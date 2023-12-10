@@ -40,6 +40,7 @@ public class RoomDto {
 
     private String checkOutTime;
 
+
     private String imgUrl;
 
     private List<ItemImgDto> itemImgDtoList = new ArrayList<>();
