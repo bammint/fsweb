@@ -95,7 +95,7 @@
     <div class="d-flex flex-row justify-content-center">
 
 
-    <div th:each="roomDto : ${roomDtoList}" class="container mt-3 col-5">
+    <div th:each="roomDto : ${roomDtoList}" class="container mt-3">
         <img th:src="${roomDto.imgUrl}" class="card-img-top"
              th:alt="${roomDto.name}" height="600">
         <p th:text="'객실명: '+${roomDto.name}"></p>
@@ -115,7 +115,7 @@
             <!--            <a th:href="@{/lodging/{id}(id = ${lodgingDto.id})}" class="btn btn-primary my-2">자세히 보기</a>-->
         <hr>
     </div>
-    <div id="map" style="width:300px;height:200px;" class="col-7"></div>
+    <div id="map" style="width:300px;height:200px;"></div>
     </div>
 
     <div class="container-fluid d-flex justify-content-center">

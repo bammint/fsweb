@@ -155,18 +155,18 @@ public class ReservSellerController {
 //        return "reserv/reservPage";
 //    }
 
-        @PostMapping(value = "/reserv/lodgingReservContent/{lodging_id}")
-    public String newCheckDate(ReservDto checkForm,RoomDto roomDto){ // 룸 디티오 말고
+//        @PostMapping(value = "/reserv/lodgingReservContent/{lodging_id}")
+//    public String newCheckDate(ReservDto checkForm,RoomDto roomDto){ // 룸 디티오 말고
 //        ReservDto reservDto = new ReservDto();
-            System.out.println("checkForm = "+ checkForm);
+//            System.out.println("checkForm = "+ checkForm);
 //        ReservService.newCheckDateTime(checkForm,roomDto);
 //        reservDto.setCheckIn(checkForm.getCheckInTime());
 //        reservDto.setCheckOut(checkForm.getCheckOutTime());
 
 //        System.out.println("reservDto.getCheckIn = "+ reservDto.getCheckIn());
 //        System.out.println("reservDto.getCheckOut = "+ reservDto.getCheckOut());
-        return "checkForm";
-    }
+//        return "checkForm";
+//    }
 
 
 }
