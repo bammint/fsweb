@@ -36,6 +36,7 @@ public class BoardService {
         findBoard.setContent(content);
     }
 
+    @Transactional
     public void delete(Board board) {
         boardRepository.delete(board);
     }

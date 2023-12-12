@@ -1,8 +1,8 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from './pages/Main';
-// import Detail from './pages/Detail';
+import Detail from './pages/Detail';
 import CreateBoard from './pages/CreateBoard';
-// import UpdateBoard from './pages/UpdateBoard';
+import UpdateBoard from './pages/UpdateBoard';
 
 function App() {
   return (
@@ -10,9 +10,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />}/>
-          {/*<Route path="/detail" element={<Detail />}/>*/}
+          <Route path="/detail" element={<Detail />}/>
           <Route path="/create-board" element={<CreateBoard />}/>
-          {/*<Route path="/update-board" element={<UpdateBoard />}/>*/}
+          <Route path="/update-board" element={<UpdateBoard />}/>
         </Routes>
       </BrowserRouter>
     </>
