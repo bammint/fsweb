@@ -1,0 +1,15 @@
+--member
+INSERT INTO `just_board`.`member` (`reg_time`, `update_time`, `created_by`, `modified_by`, `address`, `detail_address`, `email`, `extra_address`, `name`, `password`, `phonen1`, `phonen2`, `phonen3`, `postcode`, `user_role`) 
+VALUES ('2023-12-13 23:03:43.000000', '2023-12-13 23:03:43.992674', 'anonymousUser', 'anonymousUser', '경기 구리시 담터길32번길 111', '상세주소', 'hi@email.com', ' (갈매동)', 'hi', '$2a$10$GBTy5rAoFmgnaqZjnswtmO.MDGy5g.oepa4JLcmA9WYoQ.UIqxg5e', '010', '1234', '5678', '11900', 'ADMIN');
+
+--lodging
+INSERT INTO `just_board`.`lodging` (`lodging_id`, `reg_time`, `update_time`, `created_by`, `modified_by`, `address`, `detail`, `detail_address`, `extra_address`, `lodging_type`, `name`, `postcode`, `room_exist`, `member_id`) VALUES ('2', '2023-12-13 23:37:31.000000', '2023-12-13 23:37:31.855669', '1@1', '1@1', '서울 종로구 북촌로 31-4', '숙소 디테일', '숙소 상세주소', ' (가회동)', 'PENSION', '펜션1', '03055', 'N', '1');
+
+--room
+INSERT INTO `just_board`.`room` (`room_id`, `reg_time`, `update_time`, `created_by`, `modified_by`, `adult`, `check_in_time`, `check_out_time`, `children`, `detail`, `name`, `price`, `reservation_status`, `lodging_id`) VALUES ('2', '2023-12-14 00:02:11.000000', '2023-12-14 00:02:13.859579', '1@1', '1@1', '2', '11:00', '13:00', '1', '방 디테일', '방1', '100000', 'AVAILABLE', '1');
+
+--article // comment와 id가 겹치면 안됨(확인필요)
+INSERT INTO `just_board`.`article` (`article_id`, `reg_time`, `update_time`, `created_by`, `modified_by`, `category_status`, `content`, `title`, `member_id`) VALUES ('4', '2023-12-14 00:16:23.000000', '2023-12-14 00:16:23.574853', '1@1', '1@1', 'NOTICE', '공지사항 내용1', '공지사항 제목1', '1');
+
+--comment
+INSERT INTO `just_board`.`comment` (`id`, `reg_time`, `update_time`, `created_by`, `modified_by`, `comment`, `article_id`, `member_id`) VALUES ('5', '2023-12-14 00:32:25.000000', '2023-12-14 00:32:25.681806', '1@1', '1@1', '댓글2', '4', '1');
