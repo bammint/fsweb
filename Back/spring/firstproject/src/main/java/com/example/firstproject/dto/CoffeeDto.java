@@ -6,12 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Id;
-
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
 @Getter
+@NoArgsConstructor
 public class CoffeeDto {
     private Long id;
     private String name;

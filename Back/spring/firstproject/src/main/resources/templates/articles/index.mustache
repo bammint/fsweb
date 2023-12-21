@@ -1,5 +1,4 @@
 {{>layouts/header}}
-
 <table class="table">
     <thead>
         <tr>
@@ -9,7 +8,6 @@
         </tr>
     </thead>
     <tbody>
-    <!--    반복문 역할-->
         {{#articleList}}
             <tr>
                 <th>{{id}}</th>
@@ -17,14 +15,10 @@
                 <td>{{content}}</td>
             </tr>
         {{/articleList}}
-    <!--  타임리프 버전  -->
-<!--    <tr th:each="article : ${articleList}">-->
-<!--        <th th:text="${article.id}"></th>-->
-<!--        <td th:text="${article.title}"></td>-->
-<!--        <td th:text="${article.content}"></td>-->
-<!--    </tr>-->
+<!--    반복문역할-->
     </tbody>
+
 </table>
-<a href="/articles/new">New Article</a>
+<a href="/articles/new">New Aritcle</a>
 
 {{>layouts/footer}}

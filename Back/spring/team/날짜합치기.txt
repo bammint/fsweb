@@ -23,3 +23,36 @@ for(RoomDto roomDtos : roomDtoList){
 로징리저브컨텐트에서 일자 받아서 룸id랑 같이 리저브 컨트롤러에 넘긴다
 예약하기 버튼(타임리프 로케이션 링크)
 결제페이지에 나오는 체크인아웃 시간에 날짜 더해주고 저장까지
+
+
+
+<!--결제 페이지로 넘길거-->
+    <script>
+        var reservationDate = document.querySelector("#txtDate");
+        var reservBtn = document.querySelector("#reservBtn");
+
+<!--        function toReserv() {-->
+        reservBtn.addEventListener('click', funtion(){
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
+
+            var reserveDate =  reservationDate.value;
+            var arr = reserveDate.split('~');
+            var startDate = arr[0];
+            var endDate = arr[1];
+            console.log(startDate+"///////"+ endDate);
+            var checkIn = startDate.value;
+            var checkOut = endDate.value;
+         });
+<!--        }-->
+
+    </script>
+
+
+
+
+
+
+<!--            <a th:href="@{/reserv/roomReservation/{room_id}(room_id = ${roomDto.id})}" id="reservBtn" sec:authorize="hasAnyAuthority('ROLE_USER')" class="btn btn-primary ms-auto" >예약하기</a>-->
+            <button type="button" th:onclick="|location.href='@{/reserv/roomReservation/{room_id}(room_id = ${roomDto.id})},checkIn=[[${checkIn}]],checkOut=[[${checkOut}]]'|" id="reservBtn" class="btn btn-primary mt-1" sec:authorize="hasAnyAuthority('ROLE_USER')">예약하기</button>
+<!--            <button type="button" onclick="roomRegistration()" class="btn btn-primary mt-1">객실 등록</button>-->

@@ -14,10 +14,9 @@ import org.springframework.stereotype.Component;
 public class DebuggingAspect {
     //대상 메소드 선택 : commentService#create()
     @Pointcut("execution(* com.example.firstproject.service.CommentService.*(..))")
-    // @Pointcut("execution(* com.example.firstproject.API.*.*(..))")
     private void cut(){}
 
-    //실행시점 설정 : cut()의 대상이 수행 되기 이전
+    //실행시점 설정 : cut()의 대상이 수행되기 이전
     @Before("cut()")
     public void loggingArgs(JoinPoint joinPoint){ //cut의 대상 메소드
         // 입력값 가져오기
@@ -33,14 +32,19 @@ public class DebuggingAspect {
             log.info("{}#{}의 입력값 => {}",className,methodName,obj);
         }
     }
-
     @AfterReturning(value = "cut()", returning = "returnObj")
-    public void loggingReturnValue(JoinPoint joinPoint, Object returnObj){
+    public void loggingReturnValue(JoinPoint joinPoint,
+                                   Object returnObj) {
         // 클래스명
-        String className = joinPoint.getTarget().getClass().getSimpleName();
+        String className = joinPoint.getTarget()
+                .getClass()
+                .getSimpleName();
         // 메소드명
-        String methodName = joinPoint.getSignature().getName();
+        String methodName = joinPoint.getSignature()
+                .getName();
         // 반환값 로깅
-        log.info("{}#{}의 반환값 => {}",className,methodName,returnObj);
+        log.info("{}#{}의 반환값 => {}", className, methodName, returnObj);
     }
+
+
 }

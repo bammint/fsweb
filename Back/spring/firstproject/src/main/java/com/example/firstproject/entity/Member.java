@@ -1,5 +1,6 @@
 package com.example.firstproject.entity;
 
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,11 +11,12 @@ import javax.persistence.*;
 @Getter
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Db가 알아서 생성
     private Long id;
 
     @Column
     private String email;
+
     @Column
     private String password;
 

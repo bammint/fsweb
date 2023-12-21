@@ -1,5 +1,4 @@
 {{>layouts/header}}
-
 <table class="table">
     <thead>
         <tr>
@@ -9,34 +8,24 @@
         </tr>
     </thead>
     <tbody>
-    <!--    반복문 역할-->
         {{#article}}
             <tr>
                 <th>{{id}}</th>
-                <th>{{title}}</th>
-                <th>{{content}}</th>
+                <td>{{title}}</td>
+                <td>{{content}}</td>
             </tr>
         {{/article}}
+<!--    반복문역할-->
     </tbody>
-</table>
-<a href="/articles/{{article.id}}/edit" class="btn btn-dark mb-1">Edit</a>
-<br>
 
-<!--삭제 링크 추가-->
-<a href="/articles/{{article.id}}/delete" id="alert1" class="btn btn-danger mb-1">Delete</a>
-<br>
+</table>
+<a href="/articles/{{article.id}}/edit" class="btn btn-primary">Edit</a>
+<!--삭제링크추가-->
+<a href="/articles/{{article.id}}/delete" class="btn btn-danger">Delete</a>
+
+<!--<button onclick="confirmDelete(1)">삭제</button>-->
 <a href="/articles">Go to Article List</a>
 {{>comments/_comments}}
 
-{{>layouts/footer}}
 
-<script>
-<!--    const alert = document.querySelector("#alert");-->
-<!--    alert.addEventListener("click", ()=>{-->
-<!--            alert("삭제하시겠습니까?");-->
-<!--    });-->
-     const alert1 = document.querySelector("#alert1");
-    alert1.addEventListener("click", ()=>{
-        confirm("삭제 하시겠습니까?");
-    });
-</script>
+{{>layouts/footer}}

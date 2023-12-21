@@ -17,21 +17,18 @@ import javax.persistence.Id;
 @Getter
 public class Article {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // ==Auto_increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //자동생성전략
     private Long id;
     private String title;
     private String content;
 
     public void patch(Article article) {
-        if(article.title != null){
+        if(article.title != null)
             this.title = article.title;
-        }
-        if(article.content != null){
+        if(article.content != null)
             this.content = article.content;
-        }
     }
 
-    // get,set
 //    public void setId(Long id) {
 //        this.id = id;
 //    }
@@ -46,5 +43,6 @@ public class Article {
 //
 //    public Article() {
 //    }
+
 
 }

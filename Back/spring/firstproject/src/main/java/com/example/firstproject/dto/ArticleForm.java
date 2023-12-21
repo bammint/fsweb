@@ -1,36 +1,19 @@
 package com.example.firstproject.dto;
 
 import com.example.firstproject.entity.Article;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @ToString
 public class ArticleForm {
     private Long id;
     private String title;
     private String content;
 
-//    public String getTitle() {
-//        return title;
-//    }
-//
-//    public void setTitle(String title) {
-//        this.title = title;
-//    }
-//
-//    public String getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(String content) {
-//        this.content = content;
-//    }
-
-
-    public Article toEntity(){
-        return new Article(id,title,content);
+    public Article toEntity() {
+        return new Article(id, title, content);
     }
 }
